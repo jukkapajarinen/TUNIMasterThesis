@@ -1,6 +1,7 @@
 #!/bin/bash
-if which pdflatex makeindex biber &>/dev/null
-then
+
+# Compile latex sources into pdf
+if which pdflatex makeindex biber &>/dev/null; then
   mkdir -p ./output;
   pdflatex -output-directory output main;
   makeindex -s ./output/main.ist -t ./output/main.glg -o ./output/main.gls ./output/main.glo;
