@@ -20,7 +20,7 @@
 
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{tauthesis}
-[2019/01/17 v1.2 Thesis styles used in Tampere University]
+[2019/02/25 v1.4 Thesis styles used in Tampere University]
 
 % Inherit from the report document class.
 \LoadClass[11pt, a4paper]{report}
@@ -29,6 +29,10 @@
 \makeatletter
 
 %%%%% CLASS OPTIONS %%%%%
+
+\newcommand{\@mainlanguage}{finnish}
+\newcommand{\@otherlanguage}{english}
+\newcommand{\@citationstyle}{numeric}
 
 % Language selection.
 \newif\if@langenglish\@langenglishfalse
@@ -39,13 +43,13 @@
 }
 \DeclareOption{finnish}{%
     \@langenglishfalse
-    \newcommand{\@mainlanguage}{finnish}
-    \newcommand{\@otherlanguage}{english}
+    \renewcommand{\@mainlanguage}{finnish}
+    \renewcommand{\@otherlanguage}{english}
 }
 
 % Citation style selection.
 \DeclareOption{numeric}{%
-    \newcommand{\@citationstyle}{numeric}
+    \renewcommand{\@citationstyle}{numeric}
 }
 \DeclareOption{authoryear}{%
     \renewcommand{\@citationstyle}{authoryear}
@@ -180,13 +184,17 @@
     sortlocale=fin]{biblatex}
 
 \DefineBibliographyStrings{finnish}{%
-  bibliography = {Lähdeluettelo},
-  references = {Lähdeluettelo},
+  bibliography = {Lähteet},
+  references = {Lähteet},
+  in = {}
 }
 \DefineBibliographyStrings{english}{%
   bibliography = {References},
   references = {References},
+  in = {}
 }
+
+\DeclareNameAlias{sortname}{last-first}
 
 \DeclareFieldFormat[%
   article,inbook,incollection,inproceedings,
@@ -195,6 +203,10 @@
   article,inbook,incollection,inproceedings,
   patent,thesis,unpublished]{title}{#1\isdot}
 \DeclareFieldFormat{pages}{#1}
+
+\AtBeginBibliography{\renewcommand*{\makelabel}[1]{#1\hss}}
+
+\DefineBibliographyExtras{english}{\let\finalandcomma=\empty}
 
 % Graphics inclusion and drawing
 \RequirePackage{graphicx}
@@ -233,9 +245,9 @@
 \lstset{texcl=true, captionpos=b, commentstyle=\tt}
 
 % List of symbols and abbreviations
-\RequirePackage[automake, toc, nonumberlist, nopostdot]{glossaries}
+\RequirePackage[automake, nonumberlist, nopostdot]{glossaries}
 
-\renewcommand*{\glsnamefont}[1]{\textmd{#1}}
+%\renewcommand*{\glsnamefont}[1]{\textmd{#1}}
 
 \if@langenglish
     \newcommand{\@glossaryname}{List of Symbols and Abbreviations}
@@ -246,15 +258,14 @@
 \renewcommand{\glossary}{
     \glsaddall
     \setglossarystyle{long}
-    \begin{spacing}{0.6}
-        \setlength{\glsdescwidth}{0.75\textwidth}
-        \printglossary[title=\@glossaryname]
-    \end{spacing}
+    \setlength{\glsdescwidth}{0.75\textwidth}
+    \renewcommand*{\glsgroupskip}{}
+    \printglossary[title=\@glossaryname]
 }
 
 % Table of contents formatting
 \RequirePackage[titles]{tocloft}
-\RequirePackage[nottoc]{tocbibind}
+%\RequirePackage[nottoc]{tocbibind}
 \RequirePackage[titletoc]{appendix}
 
 \if@langenglish
@@ -273,9 +284,9 @@
     \renewcommand{\lstlistlistingname}{Ohjelma- ja algoritmiluettelo}
 \fi
 
-\renewcommand{\lstlistoflistings}{\begingroup
-\tocfile{\lstlistlistingname}{lol}
-\endgroup}
+%\renewcommand{\lstlistoflistings}{\begingroup
+%\tocfile{\lstlistlistingname}{lol}
+%\endgroup}
  
 \renewcommand\cftchapfont{}
 \renewcommand{\cftchappagefont}{}
