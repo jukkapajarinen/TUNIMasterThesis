@@ -17,4 +17,4 @@ Execute build script
 ./build.sh
 ```
 
-Output file is compiled into: `output/main.pdf`.
+Output file is compiled into: `output/thesis_YYYY-MM-DD_HH-mm.pdf`.
