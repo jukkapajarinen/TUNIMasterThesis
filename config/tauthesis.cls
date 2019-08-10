@@ -12,7 +12,7 @@
 % version 2005/12/01 or later.
 %
 % This work has the LPPL maintenance status `maintained'.
-% 
+%
 % The Current Maintainer of this work is
 %   Ville Koljonen (ville.koljonen (at) tuni.fi)
 %
@@ -287,7 +287,7 @@
 %\renewcommand{\lstlistoflistings}{\begingroup
 %\tocfile{\lstlistlistingname}{lol}
 %\endgroup}
- 
+
 \renewcommand\cftchapfont{}
 \renewcommand{\cftchappagefont}{}
 \renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}}
@@ -447,13 +447,13 @@ The originality of this thesis has been checked using the Turnitin OriginalityCh
         \begin{tikzpicture}[remember picture, overlay]
         \node[anchor=north west]
             at ($(current page.north west) + (1.16cm, -1.23cm)$)
-            {\includegraphics[height=2.07cm]{tau-logo-eng.eps}};
+            {\includegraphics[height=2.07cm]{config/tau-logo-eng.eps}};
         \end{tikzpicture}
     \else
         \begin{tikzpicture}[remember picture, overlay]
         \node[anchor=north west]
             at ($(current page.north west) + (1.16cm, -1.23cm)$)
-            {\includegraphics[height=2.07cm]{tau-logo-fin.eps}};
+            {\includegraphics[height=2.07cm]{config/tau-logo-fin.eps}};
         \end{tikzpicture}
     \fi
     \par\medskip
