@@ -9,7 +9,7 @@ if which pdflatex makeindex biber &>/dev/null; then
   pdflatex -output-directory output main;
   pdflatex -output-directory output main;
   mv ./output/main.pdf ./output/thesis_$(date +"%Y-%m-%d_%H-%M").pdf
-  rm ./tau-logo-fin-eps-converted-to.pdf ./output/main.* ./output/pdfa.xmpi;
+  rm ./config/tau-logo-fin-eps-converted-to.pdf ./output/main.* ./output/pdfa.xmpi;
 else
   echo "Build commands are not available..";
 fi
