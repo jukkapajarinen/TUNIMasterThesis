@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# Read possible --clear-pdfs from the cli args
+if [[ $1 == "--clear-pdfs" ]] || [[ $2 == "--clear-pdfs" ]]; then
+  clearPDFs=true;
+fi
+
 # Compile latex sources into pdf
 if which pdflatex makeindex biber &>/dev/null; then
   mkdir -p ./output;
@@ -8,7 +13,8 @@ if which pdflatex makeindex biber &>/dev/null; then
   biber --output-directory output main;
   pdflatex -output-directory output main;
   pdflatex -output-directory output main;
-  mv ./output/main.pdf ./output/thesis_$(date +"%Y-%m-%d_%H-%M").pdf
+  [[ $clearPDFs == true ]] && rm ./output/thesis_*.pdf;
+  mv ./output/main.pdf ./output/thesis_$(date +"%Y-%m-%d_%H-%M").pdf;
   rm ./config/tau-logo-fin-eps-converted-to.pdf ./output/main.* ./output/pdfa.xmpi;
 else
   echo "Build commands are not available..";
