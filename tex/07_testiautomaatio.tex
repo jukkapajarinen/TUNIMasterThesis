@@ -6,34 +6,42 @@ Testiautomaation perusteiden ymmärtämistä tarvitaan työn myöhemmässä vaih
 Testiautomaation tarkoitus on pohjimmiltaan mahdollistaa ohjelmistotuotteen jatkuva ja vaivaton laadunvarmistus, nyt ja tulevaisuudessa.
 Ohjelmistojen testaamisella itsessään pyritään löytämään ohjelmistotuotteesta virheitä, anomalioita ja varmistamaan että se toimii asetettujen vaatimusten mukaisesti.
 Testauksen automatisoiminen vapauttaa henkilöresursseja manuaalisesta testaamisesta muihin tuotantotehtäviin sekä parantaa toistuvien testien luotettavuutta poistamalla manuaalisessa testauksessa tapahtuvat inhimillisen virheet.
-Laadunvarmistuksen osalta testiautomaatiolla voidaan kattaa erilaisia ohjelmistotuotteen laadullisia ominaisuuksia, kuten toiminnallisuus, luotettavuus, käytettävyys, tehokkuus, ylläpidettävyys ja siirrettävyys [ISO 9126].
-
-\section{Testauksen menetelmät}
-
-<Poista tai lisää teksti tähän>
+Laadunvarmistuksen osalta testiautomaatiolla voidaan kattaa erilaisia ohjelmistotuotteen laadullisia ominaisuuksia, kuten toiminnallisuus, luotettavuus, käytettävyys, tietoturva, tehokkuus, ylläpidettävyys ja siirrettävyys [ISO 9126].
 
 \section{Testauksen tasot}
 
 Testauksen tasoja on lukuisia ja usein ohjelmistojen testaamiseksi on suositeltavaa käyttää eri tasojen yhdistelmää.
 Ohjelmistotestaus usein jaotellaan kolmeen erilaiseen menetelmään, jotka myös vaikuttavat eri testauksen tasojen käytettävyyteen.
 Erilaisia menetelmiä ovat mustalaatikkotestaus, harmaalaatikkotestaus ja valkolaatikkotestaus, jotka eroavat toisistaan yleisesti ottaen siinä, otetaanko tieto ohjelmistotuotteen sisäisestä toteutuksesta mukaan testaamiseen.
-Testauksen tasoista esimerkiksi yksikkötestausta ei ole mahdollista toteuttaa valkolaatikkotestauksen viitekehyksessä, sillä sitä varten tarvitaan täydellinen tieto ohjelmiston sisäisten komponenttien toteutuksesta.
 
   \subsection{Yksikkötestaus}
 
-  <Lisää teksti tähän>
+  Yksikkötestauksen ajatuksena on testata ohjelmistotuotteen lähdekoodista löytyviä yksiköitä, kuten luokkia, funktioita tai moduleita.
+  Yksikkötestaus toteutetaan ohjelmiston toteuttavia pienempiä yksikköjä vastaan.
+  Yksikkötestaus eroaa muista testauksen tasoista siinä, että sen suorittavat ohjelmistokehittäjät tai ohjelmiston lähdekoodiin perehtyneet henkilöt.
+  Yksikkötestauksella pyritään varmistamaan, että ohjelmiston pienimmät osat toimivat tarkoituksenmukaisella tavalla.
+  Yksikkötestausta hyödynnetään usein myös ketterien menetelmien aihepiirissä, jossa ohjelmistotuotantoa toteutetaan niin sanotulla testivetoisella kehityksellä.
+  Testivetoisessa kehityksessä ohjelmistokehittäjät laativat ensisijaisesti yksiköiden yksikkötestit ennen niiden toteuttamisen aloittamista.
 
   \subsection{Integraatiotestaus}
 
-  <Lisää teksti tähän>
+  Integraatiotestauksen ajatuksena on testata ohjelmistotuotteen toteuttavien eri komponenttien yhteentoimivuutta niiden rajapintojen osalta.
+  Integraatiotestaus toteutetaan ohjelmiston suunnitelmaa ja mallia vastaan.
+  Integraatiotestauksen onnistuminen luo perustan ohjelmiston toimimiseen ja koostamiseen kokonaisena, eri komponenteista koostuvana järjestelmänä.
+  Integraatiotestauksen yhteydessä puhutaan usein myös niin sanotusta savutestauksesta, jonka tarkoituksena on koostaa päivittäinen koontiversio ohjelmistosta ja testata sen kriittisten komponenttien yhteentoimivuus.
 
   \subsection{Järjestelmätestaus}
 
-  <Lisää teksti tähän>
+  Järjestelmätestauksen ajatuksena on testata kokonaista ja toimivaa järjestelmää, yhtenä suurena yksikkönä.
+  Järjestelmätestaus toteutetaan usein eräänlaisena tulikokeena, erityisesti ohjelmiston vaatimuksia vastaan.
+  Järjestelmätestaukseen liittyy laajasti erilaisia testattavia laadullisia ominaisuuksia, kuten esimerkiksi toiminnallisuus, luotettavuus, käytettävyys, tietotruva, tehokkuus ja siirrettävyys.
 
   \subsection{Hyväksymistestaus}
 
-  <Lisää teksti tähän>
+  Hyväksymistestauksen ajatuksena on varmistaa toteutettavan ohjelmiston vaatimusten toimivuus erityisesti käytännön tilanteissa.
+  Hyväksymistestaus toteutaan ohjelmiston toimintoja kuvaavaa vaatimusmäärittelyä vastaan.
+  Hyväksymistestaus on tarkoituksenmukaista laatia sellaiseen muotoon joka testaa lopullisten käyttäjien toimintaa vastaavia käyttötilanteita.
+  Testiautomaatio on erittäin hyödyllinen hyväksymistestausen osalla, koska sillä voidaan automatisoida ohjelmiston validointi ja hyväksyminen sekä estää puutteellisesti toimivan ohjelmiston julkaiseminen.
 
 \section{Testiautomaatio prosessina}
 
@@ -41,8 +49,6 @@ Testiautomaation prosessiin kuuluu erilaisia artifakteja, joita luodaan testausp
 Eri vaiheita ovat kronologisessa järjestyksessä ovat testisuunnitelma, skenaariot, testitapaukset ja seuranta.
 
 \section{Testitapauksien määrittäminen}
-
-<Lisää teksti tähän>
 
 <Yleiset heuristiikat>
 
@@ -58,7 +64,9 @@ Testitapauksia voidaan priorisoida monella tavalla, joihin tämä diplomityö tu
 
 \section{Web-käyttöliittymien erityispiirteet}
 
-<Lisää teksti tähän>
+<Testitapauksien määrittämiseen vaikuttavat erityispiirteet>
+
+<Priorisointiin vaikuttavat erityispiirteet>
 
 \section{Hyväksymistestausvetoinen kehitys}
 
