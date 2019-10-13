@@ -9,13 +9,56 @@ Verkkoteoriassa peruskäsitteitä ovat itse \textit{verkko} eli \textit{graafi},
 Verkkoteorialla on lukuisia käytännön sovellutuksia. Verkkoteoriaa sovelletaan muun muassa tietokonetieteissä, kielitieteissä, fysiikan ja kemian sovellutuksissa, sosiaalisissa tieteissä ja biologiassa.
 Alun perin verkkoteoria katsotaan syntyneen 1700-luvulla esiintyneestä niin sanotusta Königsbergin siltaongelmasta, johon Leonhard Euler esitti todistuksensa.
 
-\section{Perusmerkinnät}
+\section{Perusmerkinnät ja käsitteet}
 
 Verkkoteoriassa käytetään seuraavia perusmerkintöjä:
 \begin{itemize}
   \item \(V := \{x_1, x_2, x_3\}\) Solmujoukko joka sisältää solmut \(x_1\), \(x_2\) ja \(x_3\).
   \item \(E := \{e_1, e_2, e_3\}\) Kaarijoukko joka sisältää kaaret \(e_1\), \(e_2\) ja \(e_3\).
   \item \(\phi(e_1) := \langle x_1, x_2 \rangle\) Solmuja \(x_1\) ja \(x_2\) yhdistävän kaaren \(e_1\) kuvaaja.
+\end{itemize}
+
+Verkkojen solmujen välisiä yhteyksiä, eli kaaria esitetään usein myös yhteys- tai painomatriisina.
+\[
+  M_G = (a_{ij})_{3\times3} =
+  \bordermatrix{
+    G & x_1 & x_2 & x_3 \cr
+    x_1 & 1 & 1 & 2 \cr
+    x_2 & 1 & 0 & 0 \cr
+    x_3 & 2 & 0 & 0 \cr
+  }
+\]
+
+Verkkoteoriassa on käytetään myös seuraavia käsitteitä:
+\begin{itemize}
+  \item Solmujen vierekkäisyys
+  \item Kaarien rinnakkaisuus
+  \item Kaarien vierräisyys
+  \item Kaari on silmukka
+  \item Solmun asteluku
+  \item Eristetty solmu
+  \item Surkastunut verkko
+  \item Äärellinen verkko
+  \item Täydellinen verkko
+  \item Yksinkertainen verkko
+  \item Aliverkko
+  \item Verkon komplementti
+  \item Verkon diagonaali
+  \item Verkon yhtenäisyys
+  \item Ketju
+  \item Polku
+  \item Silta
+  \item Nuoli
+  \item Lähtösolmu
+  \item Maalisolmu
+  \item Päätesolmu
+  \item Vahva rinnakkaisuus
+  \item Vastaikkaisuus
+  \item Lähtöaste
+  \item Maaliaste
+  \item Suljettu polku
+  \item Painofunktio
+  \item Verkon isomorfisuus
 \end{itemize}
 
 \section{Suuntaamaton verkko}
