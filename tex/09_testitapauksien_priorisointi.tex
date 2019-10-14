@@ -13,9 +13,16 @@ Lisäksi menetelmää käyttäen tuotetun painotetun verkon sisältämää infor
 
 \section{Painofunktio priorisointiin}
 
-\[f(a,b,c,d) = a+b+c+d\]
+Painofunktion yleinen kuvaus.
+\[\alpha := E(G) \rightarrow \mathbb{N}\]
 
-\section{Testitapauksien koostaminen näkymistä}
+Painofunktio yksittäiselle solmulle \(v\) tai kaarelle \(e\).
+\[\alpha(v|e) = value - volatility - complexity - errorness\]
+
+Painofunktion polulle \(P\) solmusta \(v_1\) solmuun \(v_2\).
+\[\alpha(P) = \sum_{v \in P} \alpha(v) + \sum_{e \in P} \alpha(e)\]
+
+\section{Käyttöliittymän näkymät ja siirtymät}
 
 <Lisää teksti tähän>
 
@@ -27,10 +34,22 @@ Lisäksi menetelmää käyttäen tuotetun painotetun verkon sisältämää infor
 
 <Lisää teksti tähän>
 
-\section{Korkeiden prioriteettien polut}
+  \subsection{Dijkstran algoritmin soveltaminen}
 
-<Lisää teksti tähän>
+  \begin{itemize}
+    \item Pienimmän prioriteetin solmuparin etsiminen.
+    \item Dijkstran algoritmin käyttö lyhimmän (prioriteetiltaan pienimmän) polun löytämiseen.
+    \item Leikkauksien tekeminen ja toistaminen \(x\)-kertaa.
+  \end{itemize}
 
-\section{Testikattavuuden arviointi}
+  \subsection{Leikkauksien tekeminen}
+
+  \begin{itemize}
+    \item Poistetaan yksittäiseen solmuun johtavat sillat.
+    \item Poistetaan yksittäiset eristetyt solmut.
+    \item Poistetaan Dijkstran lyhimmän polun kaaret.
+  \end{itemize}
+
+\section{Testitapauksien muodostaminen}
 
 <Lisää teksti tähän>
