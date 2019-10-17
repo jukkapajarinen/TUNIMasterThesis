@@ -10,9 +10,19 @@ Laadunvarmistuksen osalta testiautomaatiolla voidaan kattaa erilaisia ohjelmisto
 
 \section{Testauksen tasot}
 
-Testauksen tasoja on lukuisia ja usein ohjelmistojen testaamiseksi on suositeltavaa käyttää eri tasojen yhdistelmää.
+Testauksen tasoja on lukuisia ja usein ohjelmistojen kattavaan testaamiseen on suositeltavaa käyttää ohjelmistotuotantoprosessissa eri tasojen yhdistelmää.
 Ohjelmistotestaus usein jaotellaan kolmeen erilaiseen menetelmään, jotka myös vaikuttavat eri testauksen tasojen käytettävyyteen.
 Erilaisia menetelmiä ovat mustalaatikkotestaus, harmaalaatikkotestaus ja valkolaatikkotestaus, jotka eroavat toisistaan yleisesti ottaen siinä, otetaanko tieto ohjelmistotuotteen sisäisestä toteutuksesta mukaan testaamiseen.
+Testauksen tasot voidaan jakaa neljään eri tasoon, jotka usein kuvataan pyramidin muotoon.
+Pyramidimuodossa alimpana kuvataan yksikkötestaus, joka luo vahvan pohjan kokonaisvaltaiselle testaamiselle.
+Noustessa pyramidissa ylöspäin testattavana olevan kohteen laajuus kasvaa.
+Ylimpänä pyramidissa on hyväksymistestaus, joka on tarkoituksellista toteuttaa vaatimusmäärittelyn täyttävää valmista järjestelmää vastaan.
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.8\textwidth]{assets/testing-levels-pyramid.png}
+  \caption{Testauksen tasot pyramidin muodossa.}
+  \label{fig:testing-levels-pyramid}
+\end{figure}
 
   \subsection{Yksikkötestaus}
 
@@ -59,8 +69,6 @@ Eri vaiheita ovat kronologisessa järjestyksessä ovat testisuunnitelma, skenaar
 
 \section{Testiautomaatio ja jatkuva integraatio}
 
-<Lisää teksti tähän>
-
 \section{Testitapauksien määrittäminen}
 
 Yleisiä testitapauksien määrittämiseen käytettäviä heuristiikkoja ovat:
@@ -102,7 +110,7 @@ Web-käyttöliittymillä on omat erityispiirteensä, jotka vaikuttavat testitapa
 Testitapauksien priorisointi on kustannussyistä tai resurssien optimoinnin kannalta erittäin tärkeää.
 Ohjelmistotestauksessa on hyvä tiedostaa, että ohjelmistotuotetta ei usein voida testata täydellisesti, joka nostaa esiin tarpeen tärkeimpien testitapauksien löytämisestä.
 Testitapauksia voidaan priorisoida monella tavalla, joihin tämä diplomityö tuo yhden uuden painottua verkkoa hyödyntävän lähestymistavan.
-
-<Painotetun verkon hyödyntäminen>
-
-<Muut priorisointitavat>
+\begin{itemize}
+  \item Painotetun verkon hyödyntäminen
+  \item Muut priorisointitavat
+\end{itemize}
