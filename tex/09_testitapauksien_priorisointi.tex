@@ -32,7 +32,12 @@ Painofunktion polulle \(P\) solmusta \(v_1\) solmuun \(v_2\).
 
 \section{Painotetun verkon karsiminen}
 
-<Lisää teksti tähän>
+Painotetun verkon karsiminen eli leikkaaminen on prioriteeillä painotetun verkon tärkeä ominaisuus.
+Verkkoteorian soveltaminen prioriteettien avulla painotettuun verkkoon on erityisen hyödyllistä, kun verkon kaarissa korkea paino tarkoittaa suurta prioriteettia.
+Tällaisessa tapauksessa on mahdollista soveltaa lyhimmän polun ongelman ratkaisemiseen kehitettyjä algoritmeja, jolloin ne toimivat etsien alhaisimman prioriteetin polkuja.
+Lyhimmän polun etsimiseen on tarkoiksenmukaista valita aina aloitus ja lopetuspisteet, joiden välille lyhin polku verkossa voidaan etsiä.
+Prioriteetein painotetun verkon karsimistarkoitukseen olisi järkevää valita sellaiset aloitus- ja lopetuspisteet, joiden välillä ei näyttäisi olevan korkean prioriteetin solmuja.
+Voidaan kuitenkin menetellä myös siten, että valitaan aloitus- ja lopetuspisteeksi sellaiset solmut, jotka ovat painoltaan verkon alhaisimmat \(v_1 = min(V)\) ja \(v_2 = min(V \setminus \{v_1\})\).
 
   \subsection{Dijkstran algoritmin soveltaminen}
 
