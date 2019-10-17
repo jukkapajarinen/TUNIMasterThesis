@@ -37,7 +37,7 @@ Verkkoteorian soveltaminen prioriteettien avulla painotettuun verkkoon on erityi
 Tällaisessa tapauksessa on mahdollista soveltaa lyhimmän polun ongelman ratkaisemiseen kehitettyjä algoritmeja, jolloin ne toimivat etsien alhaisimman prioriteetin polkuja.
 Lyhimmän polun etsimiseen on tarkoiksenmukaista valita aina aloitus ja lopetuspisteet, joiden välille lyhin polku verkossa voidaan etsiä.
 Prioriteetein painotetun verkon karsimistarkoitukseen olisi järkevää valita sellaiset aloitus- ja lopetuspisteet, joiden välillä ei näyttäisi olevan korkean prioriteetin solmuja.
-Voidaan kuitenkin menetellä myös siten, että valitaan aloitus- ja lopetuspisteeksi sellaiset solmut, jotka ovat painoltaan verkon alhaisimmat \(v_1 = min(V)\) ja \(v_2 = min(V \setminus \{v_1\})\).
+Voidaan kuitenkin menetellä myös siten, että valitaan aloitus- ja lopetuspisteeksi sellaiset solmut, jotka ovat painoltaan verkon alhaisimmat \(v_1 = min(V)\) ja \(v_2 = min(V \setminus \{v_1\})\) ja verrata niiden lyhimmän polun kokonaisprioriteettia muuhun verkkoon.
 
   \subsection{Dijkstran algoritmin soveltaminen}
 
