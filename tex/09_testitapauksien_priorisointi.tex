@@ -6,6 +6,7 @@ Lisäksi menetelmää käyttäen tuotetun painotetun verkon sisältämää infor
 
 \begin{itemize}
   \item Liiketoiminnallinen arvo
+  \item Liiketoiminnallinen visio
   \item Projektin muuttumisen volatiliteetti
   \item Kehittämisen kompleksisuus
   \item Vaatimusten taipumus virheellisyyteen
@@ -13,42 +14,55 @@ Lisäksi menetelmää käyttäen tuotetun painotetun verkon sisältämää infor
 
 \section{Painofunktio priorisointiin}
 
-Painofunktion yleinen kuvaus.
-\[\alpha := E(G) \rightarrow \mathbb{N}\]
+Painofunktion yleinen kuvaus verkossa \(G\), solmuille \(V\) ja kaarille \(E\).
+\[\alpha := V(G), E(G) \rightarrow \mathbb{N}\]
 
-Painofunktio yksittäiselle solmulle \(v\) tai kaarelle \(e\).
-\[\alpha(v|e) = value - volatility - complexity - errorness\]
+Painofunktio yksittäiselle solmulle \(v\), eli näkymälle.
+\[\alpha(v) = value + vision - volatility - complexity - errorness\]
+
+Painofunktio yksittäiselle kaarelle \(e\), eli siirtymälle.
+\[\beta(e) = value - volatility - complexity - errorness\]
 
 Painofunktion polulle \(P\) solmusta \(v_1\) solmuun \(v_2\).
-\[\alpha(P) = \sum_{v \in P} \alpha(v) + \sum_{e \in P} \alpha(e)\]
+\[\alpha(P) = \sum_{v \in P} \alpha(v) + \sum_{e \in P} \beta(e)\]
 
 \section{Käyttöliittymän näkymät ja siirtymät}
 
 \section{Painotetun verkon rakentaminen}
+
+\[
+  M_G = (a_{ij})_{3\times3} =
+  \bordermatrix{
+    G & v_1 & v_2 & v_3 \cr
+    v_1 & 1 & 1 & 2 \cr
+    v_2 & 1 & 0 & 0 \cr
+    v_3 & 2 & 0 & 0 \cr
+  }
+\]
 
 \section{Painotetun verkon karsiminen}
 
 Painotetun verkon karsiminen eli leikkaaminen on prioriteeillä painotetun verkon tärkeä ominaisuus.
 Verkkoteorian soveltaminen prioriteettien avulla painotettuun verkkoon on erityisen hyödyllistä, kun verkon kaarissa korkea paino tarkoittaa suurta prioriteettia.
 Tällaisessa tapauksessa on mahdollista soveltaa lyhimmän polun ongelman ratkaisemiseen kehitettyjä algoritmeja, jolloin ne toimivat etsien alhaisimman prioriteetin polkuja.
-Lyhimmän polun etsimiseen on tarkoiksenmukaista valita aina aloitus ja lopetuspisteet, joiden välille lyhin polku verkossa voidaan etsiä.
+Lyhimmän polun etsimiseen on tarkoituksenmukaista valita aina aloitus ja lopetuspisteet, joiden välille lyhin polku verkossa voidaan etsiä.
 Prioriteetein painotetun verkon karsimistarkoitukseen olisi järkevää valita sellaiset aloitus- ja lopetuspisteet, joiden välillä ei näyttäisi olevan korkean prioriteetin solmuja.
-Voidaan kuitenkin menetellä myös siten, että valitaan aloitus- ja lopetuspisteeksi sellaiset solmut, jotka ovat painoltaan verkon alhaisimmat \(v_1 = min(V)\) ja \(v_2 = min(V \setminus \{v_1\})\) ja verrata niiden lyhimmän polun kokonaisprioriteettia muuhun verkkoon.
+Voidaan kuitenkin menetellä myös siten, että valitaan aloitus- ja lopetuspisteeksi sellaiset solmut, jotka ovat painoltaan verkon alhaisimmat \(v_1 = min(V)\) ja \(v_2 = min(V \setminus \{v_1\})\) ja esimerkiksi verrata niiden lyhimmän polun kokonaisprioriteettia muuhun verkkoon.
 
   \subsection{Dijkstran algoritmin soveltaminen}
 
   \begin{itemize}
-    \item Pienimmän prioriteetin solmuparin etsiminen.
-    \item Dijkstran algoritmin käyttö lyhimmän (prioriteetiltaan pienimmän) polun löytämiseen.
-    \item Leikkauksien tekeminen ja toistaminen \(x\)-kertaa.
+    \item Pienimmän prioriteetin solmuparin etsiminen, eli \(v_1 = min\{ \alpha(V) \}\) ja \(v_2 = min\{\alpha( V \setminus \{v_1\} \}\).
+    \item Dijkstran algoritmin käyttö lyhimmän (prioriteetiltaan pienimmän) polun löytämiseen, eli \(s = min( \alpha(P) ), P \in G\).
+    \item Leikkauksien tekeminen ja toistaminen \(n\)-kertaa.
   \end{itemize}
 
   \subsection{Leikkauksien tekeminen}
 
   \begin{itemize}
-    \item Poistetaan yksittäiseen solmuun johtavat sillat.
-    \item Poistetaan yksittäiset eristetyt solmut.
-    \item Poistetaan Dijkstran lyhimmän polun kaaret.
+    \item Poistetaan yhden yksittäiseen solmuun johtavat sillat, jossa \(\alpha(v) < aivan liian alhainen \).
+    \item Poistetaan kaikki yksittäiset eristetyt solmut, eli asteluku on nolla \(d_G(X) = 0\).
+    \item Poistetaan Dijkstran lyhimmän polun kaaret, jossa \(\beta(e) < liian alhainen \).
   \end{itemize}
 
 \section{Testitapauksien muodostaminen}
