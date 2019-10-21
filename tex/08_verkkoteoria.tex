@@ -5,7 +5,7 @@ Verkkoteoria itsessään on osa diskeettiä matematiikkaa.
 \section{Matemaattisten verkkojen tarkoitus}
 
 Matemaattisten verkkojen tarkoituksena on mallintaan parittaisia riippuvuuksia verkkomaisessa objektijoukossa.
-Verkkoteoriassa peruskäsitteitä ovat itse \textit{verkko} eli \textit{graafi}, joka muodostuu \textit{solmuista} ja niiden välisiä riippuvuuksia esittävistä \textit{kaarista} tai \textit{nuolista}.
+Verkkoteoriassa peruskäsitteitä ovat itse \emph{verkko} eli \emph{graafi}, joka muodostuu \emph{solmuista} ja niiden välisiä riippuvuuksia esittävistä \emph{kaarista} tai \emph{nuolista}.
 Verkkoteorialla on lukuisia käytännön sovellutuksia. Verkkoteoriaa sovelletaan muun muassa tietokonetieteissä, kielitieteissä, fysiikan ja kemian sovellutuksissa, sosiaalisissa tieteissä ja biologiassa.
 Alun perin verkkoteoria katsotaan syntyneen 1700-luvulla esiintyneestä niin sanotusta Königsbergin siltaongelmasta, johon Leonhard Euler esitti todistuksensa.
 
@@ -13,9 +13,9 @@ Alun perin verkkoteoria katsotaan syntyneen 1700-luvulla esiintyneestä niin san
 
 Verkkoteoriassa käytetään seuraavia perusmerkintöjä:
 \begin{itemize}
-  \item \(V := \{v_1, v_2, v_3\}\) Solmujoukko joka sisältää solmut \(v_1\), \(v_2\) ja \(v_3\).
-  \item \(E := \{e_1, e_2, e_3\}\) Kaarijoukko joka sisältää kaaret \(e_1\), \(e_2\) ja \(e_3\).
-  \item \(\phi(e_1) := \langle v_1, v_2 \rangle\) Solmuja \(v_1\) ja \(v_2\) yhdistävän kaaren \(e_1\) kuvaaja.
+  \item \(V := \{v_1, v_2, v_3\}\) Solmujoukko joka sisältää \emph{solmut} \(v_1\), \(v_2\) ja \(v_3\).
+  \item \(E := \{e_1, e_2, e_3\}\) Kaarijoukko joka sisältää \emph{kaaret} \(e_1\), \(e_2\) ja \(e_3\).
+  \item \(\phi(e_1) := \langle v_1, v_2 \rangle\) Solmuja \(v_1\) ja \(v_2\) yhdistävän \emph{kaaren} \(e_1\) kuvaaja.
 \end{itemize}
 
 Verkkojen solmujen välisiä yhteyksiä, eli kaaria esitetään usein myös yhteys- tai painomatriisina.
@@ -32,32 +32,29 @@ Verkkojen solmujen välisiä yhteyksiä, eli kaaria esitetään usein myös yhte
 Verkkoteoriassa käytetään myös muun muassa seuraavia käsitteitä:
 \begin{itemize}
   \item Solmun asteluku, \(d_G(x)\), eli solmuun liittyvien \emph{kaarten} määrä.
-  \item Surkastunut verkko, \(E = \emptyset\), eli verkko jossa ei ole \emph{kaaria}.
+  \item Surkastunut verkko, \(E = \varnothing \), eli verkko jossa ei ole \emph{kaaria}.
   \item Äärellinen verkko, \(V = \{1,2,3,...,n\}, E = \{1,2,3,...,n\} \), eli \emph{solmujoukko} ja \emph{kaarijoukko} ovat äärellisiä.
-  \item Täydellinen verkko, \(G\), eli jokaista solmuparia yhdistää ainakin yksi kaari.
-  \item Yksinkertainen verkko, \(G\), eli verkossa ei ole silmukoita eikä rinnakkaisia kaaria.
-  \item Aliverkko, \(G_2 /subset G_1\), eli verkko \(G_2\) joka koostuu osasta verkon \(G_1\) solmuja ja kaaria.
-  \item Verkon komplementti, \(G'\), eli verkko jossa on kaikki ne kaaret joita verkossa \(G\) ei esiinny.
-  \item Verkon yhtenäisyys, \(v_1 \neq v_2, v_1 \rightarrow v_2\) , eli jokaiselle solmuparille \(v_1 \neq v_2\) on olemassa niitä yhdistävä kaari.
+  \item Täydellinen verkko, eli jokaista solmuparia \(v_1 \neq v_2\) yhdistää ainakin yksi \emph{kaari}.
+  \item Yksinkertainen verkko, \(v_x \rightarrow v_x \notin G, sum\{ v_x \leftrightarrow v_y \} = 1 \), eli verkossa ei ole silmukoita eikä rinnakkaisia kaaria.
+  \item Aliverkko, \(G_2 \subset G_1\), eli \emph{verkko} \(G_2\) joka koostuu osasta \emph{verkon} \(G_1\) \emph{solmuja} ja \emph{kaaria}.
+  \item Verkon komplementti, \(G'\), eli sellainen \emph{verkko}, jossa on kaikki ne \emph{kaaret} joita \emph{verkossa} \(G\) ei esiinny.
+  \item Verkon yhtenäisyys, \(v_1 \neq v_2, v_1 \rightarrow v_2\) , eli jokaiselle solmuparille \(v_1 \neq v_2\) on olemassa niitä yhdistävä \emph{kaari}.
 \end{itemize}
 
 \section{Suuntaamaton ja suunnattu verkko}
 
 \begin{itemize}
-  \item Lähtösolmu
-  \item Maalisolmu
-  \item Päätesolmu
-  \item Eristetty solmu
-  \item Solmujen vierekkäisyys
-  \item Kaarien rinnakkaisuus
-  \item Kaarien vierekkäisyys
-  \item Silmukka
-  \item Ketju ja polku
-  \item Nuoli
-  \item Silta
-  \item Vahva rinnakkaisuus
-  \item Vastaikkaisuus
-  \item Suljettu polku
+  \item Lähtösolmu, \(v_x \rightarrow v_y\), eli \emph{suunnatussa verkossa} olevan \emph{kaaren} aloitusolmu \(v_x\).
+  \item Maalisolmu, \(v_x \rightarrow v_y\), eli \emph{suunnatussa verkossa} olevan \emph{kaaren} lopetussolmu \(v_y\).
+  \item Eristetty solmu, \(d_G(v_1) = 0\), eli \emph{solmu} jonka \emph{asteluku} on nolla.
+  \item Solmujen vierekkäisyys, \(e_1 = v_1 \leftrightarrow v_2\), eli \emph{solmut} \(v_1\) ja \(v_2\) ovat saman \emph{kaaren} \(e_1\) solmuja.
+  \item Kaarien rinnakkaisuus, \(e_1 = e_2 = v_1 \leftrightarrow v_2\), eli \emph{kaarilla} \(e_1\) ja \(e_2\) on yhteiset \emph{solmut}  \(v_1\) ja \(v_2\).
+  \item Kaarien vierekkäisyys, \(e_1 = v_1 \leftrightarrow v_2, e_2 = v_2 \leftrightarrow v_3\), eli \emph{kaarilla} \(e_1\) ja \(e_2\) on yksi yhteinen \emph{solmu} \(v_2\).
+  \item Silmukka, \(v_x \rightarrow v_x\), eli \emph{kaari} jonka \emph{aloitussolmut} ja \emph{lopetussolmu} ovat sama \emph{solmu}.
+  \item Ketju, \(\{v_0, v_1, ..., v_n\}, v_0 \leftrightarrow v_n\), eli \emph{solmujono} jota pitkin voidaan kulkea \emph{solmusta} \(v_0\) \emph{solmuun} \(v_n\).
+  \item Polku, \(\{v_0, v_1, ..., v_n\}, v_0 \rightarrow v_n\), eli \emph{suunnattu solmujono} jota pitkin voidaan kulkea \emph{solmusta} \(v_0\) \emph{solmuun} \(v_n\).
+  \item Nuoli, \(\rightarrow\), eli \emph{suunnatussa verkossa} esiintyvä \emph{suunnattu kaari}.
+  \item Silta, \(v_1 \rightarrow v_2, d_G(v_1) = 1 \lor d_G(v_2) = 1\), eli \emph{kaari} johon yhdistyvän \emph{solmun asteluku} on yksi ja jonka poistaminen epäyhteinäistää \emph{verkon}.
 \end{itemize}
 
 \section{Painotettu verkko}
