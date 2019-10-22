@@ -4,7 +4,11 @@
 
 Install pre-requisites
 ```
-brew cask install mactex-no-gui
+# MacOS
+brew cask install mactex-no-gui;
+
+# Debian
+sudo apt-get install texlive-full;
 ```
 
 Make build script executable
