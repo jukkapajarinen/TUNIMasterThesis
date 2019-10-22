@@ -33,28 +33,23 @@ Verkkoteoriassa käytetään myös muun muassa seuraavia käsitteitä:
 \begin{itemize}
   \item Solmun asteluku, \(d_G(x)\), eli solmuun liittyvien \emph{kaarten} määrä.
   \item Surkastunut verkko, \(E = \varnothing \), eli verkko jossa ei ole \emph{kaaria}.
-  \item Äärellinen verkko, \(V = \{1,2,3,...,n\}, E = \{1,2,3,...,n\} \), eli \emph{solmujoukko} ja \emph{kaarijoukko} ovat äärellisiä.
+  % \item Äärellinen verkko, \(V = \{1,2,3,...,n\}, E = \{1,2,3,...,n\} \), eli \emph{solmujoukko} ja \emph{kaarijoukko} ovat äärellisiä.
   \item Täydellinen verkko, eli jokaista solmuparia \(v_1 \neq v_2\) yhdistää ainakin yksi \emph{kaari}.
-  \item Yksinkertainen verkko, \(v_x \rightarrow v_x \notin G, sum\{ v_x \leftrightarrow v_y \} = 1 \), eli verkossa ei ole silmukoita eikä rinnakkaisia kaaria.
+  % \item Yksinkertainen verkko, \(v_x \rightarrow v_x \notin G, sum\{ v_x \leftrightarrow v_y \} = 1 \), eli verkossa ei ole silmukoita eikä rinnakkaisia kaaria.
   \item Aliverkko, \(G_2 \subset G_1\), eli \emph{verkko} \(G_2\) joka koostuu osasta \emph{verkon} \(G_1\) \emph{solmuja} ja \emph{kaaria}.
   \item Verkon komplementti, \(G'\), eli sellainen \emph{verkko}, jossa on kaikki ne \emph{kaaret} joita \emph{verkossa} \(G\) ei esiinny.
   \item Verkon yhtenäisyys, \(v_1 \neq v_2, v_1 \rightarrow v_2\) , eli jokaiselle solmuparille \(v_1 \neq v_2\) on olemassa niitä yhdistävä \emph{kaari}.
-\end{itemize}
-
-\section{Suuntaamaton ja suunnattu verkko}
-
-\begin{itemize}
-  \item Lähtösolmu, \(v_x \rightarrow v_y\), eli \emph{suunnatussa verkossa} olevan \emph{kaaren} aloitusolmu \(v_x\).
-  \item Maalisolmu, \(v_x \rightarrow v_y\), eli \emph{suunnatussa verkossa} olevan \emph{kaaren} lopetussolmu \(v_y\).
-  \item Eristetty solmu, \(d_G(v_1) = 0\), eli \emph{solmu} jonka \emph{asteluku} on nolla.
-  \item Solmujen vierekkäisyys, \(e_1 = v_1 \leftrightarrow v_2\), eli \emph{solmut} \(v_1\) ja \(v_2\) ovat saman \emph{kaaren} \(e_1\) solmuja.
-  \item Kaarien rinnakkaisuus, \(e_1 = e_2 = v_1 \leftrightarrow v_2\), eli \emph{kaarilla} \(e_1\) ja \(e_2\) on yhteiset \emph{solmut}  \(v_1\) ja \(v_2\).
-  \item Kaarien vierekkäisyys, \(e_1 = v_1 \leftrightarrow v_2, e_2 = v_2 \leftrightarrow v_3\), eli \emph{kaarilla} \(e_1\) ja \(e_2\) on yksi yhteinen \emph{solmu} \(v_2\).
-  \item Silmukka, \(v_x \rightarrow v_x\), eli \emph{kaari} jonka \emph{aloitussolmut} ja \emph{lopetussolmu} ovat sama \emph{solmu}.
-  \item Ketju, \(\{v_0, v_1, ..., v_n\}, v_0 \leftrightarrow v_n\), eli \emph{solmujono} jota pitkin voidaan kulkea \emph{solmusta} \(v_0\) \emph{solmuun} \(v_n\).
   \item Polku, \(\{v_0, v_1, ..., v_n\}, v_0 \rightarrow v_n\), eli \emph{suunnattu solmujono} jota pitkin voidaan kulkea \emph{solmusta} \(v_0\) \emph{solmuun} \(v_n\).
-  \item Nuoli, \(\rightarrow\), eli \emph{suunnatussa verkossa} esiintyvä \emph{suunnattu kaari}.
+  \item Eristetty solmu, \(d_G(v_1) = 0\), eli \emph{solmu} jonka \emph{asteluku} on nolla.
   \item Silta, \(v_1 \rightarrow v_2, d_G(v_1) = 1 \lor d_G(v_2) = 1\), eli \emph{kaari} johon yhdistyvän \emph{solmun asteluku} on yksi ja jonka poistaminen epäyhteinäistää \emph{verkon}.
+  % \item Lähtösolmu, \(v_x \rightarrow v_y\), eli \emph{suunnatussa verkossa} olevan \emph{kaaren} aloitusolmu \(v_x\).
+  % \item Maalisolmu, \(v_x \rightarrow v_y\), eli \emph{suunnatussa verkossa} olevan \emph{kaaren} lopetussolmu \(v_y\).
+  % \item Solmujen vierekkäisyys, \(e_1 = v_1 \leftrightarrow v_2\), eli \emph{solmut} \(v_1\) ja \(v_2\) ovat saman \emph{kaaren} \(e_1\) solmuja.
+  % \item Kaarien rinnakkaisuus, \(e_1 = e_2 = v_1 \leftrightarrow v_2\), eli \emph{kaarilla} \(e_1\) ja \(e_2\) on yhteiset \emph{solmut}  \(v_1\) ja \(v_2\).
+  % \item Kaarien vierekkäisyys, \(e_1 = v_1 \leftrightarrow v_2, e_2 = v_2 \leftrightarrow v_3\), eli \emph{kaarilla} \(e_1\) ja \(e_2\) on yksi yhteinen \emph{solmu} \(v_2\).
+  % \item Silmukka, \(v_x \rightarrow v_x\), eli \emph{kaari} jonka \emph{aloitussolmut} ja \emph{lopetussolmu} ovat sama \emph{solmu}.
+  % \item Ketju, \(\{v_0, v_1, ..., v_n\}, v_0 \leftrightarrow v_n\), eli \emph{solmujono} jota pitkin voidaan kulkea \emph{solmusta} \(v_0\) \emph{solmuun} \(v_n\).
+  % \item Nuoli, \(\rightarrow\), eli \emph{suunnatussa verkossa} esiintyvä \emph{suunnattu kaari}.
 \end{itemize}
 
 \section{Painotettu verkko}
@@ -65,6 +60,8 @@ Verkkoteoriassa käytetään myös muun muassa seuraavia käsitteitä:
 
 \section{Verkon leikkaaminen}
 
+% Teksti tähän
+
 \section{Lyhimmän polun ongelma}
 
 \begin{itemize}
@@ -72,3 +69,5 @@ Verkkoteoriassa käytetään myös muun muassa seuraavia käsitteitä:
 \end{itemize}
 
   \subsection{Dijkstran algoritmi}
+
+  % Teksti tähän

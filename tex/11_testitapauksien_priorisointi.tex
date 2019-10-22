@@ -24,9 +24,11 @@ Painofunktio yksittäiselle kaarelle \(e\), eli siirtymälle.
 \[\beta(e) = value - volatility - complexity - errorness\]
 
 Painofunktion polulle \(P\) solmusta \(v_1\) solmuun \(v_2\).
-\[\alpha(P) = \sum_{v \in P} \alpha(v) + \sum_{e \in P} \beta(e)\]
+\[\gamma(P) = \sum_{v \in P} \alpha(v) + \sum_{e \in P} \beta(e)\]
 
 \section{Käyttöliittymän näkymät ja siirtymät}
+
+% Teksti tähän
 
 \section{Painotetun verkon rakentaminen}
 
@@ -53,7 +55,7 @@ Voidaan kuitenkin menetellä myös siten, että valitaan aloitus- ja lopetuspist
 
   \begin{itemize}
     \item Pienimmän prioriteetin solmuparin etsiminen, eli \(v_1 = min\{ \alpha(V) \}\) ja \(v_2 = min\{\alpha( V \setminus \{v_1\} \}\).
-    \item Dijkstran algoritmin käyttö lyhimmän (prioriteetiltaan pienimmän) polun löytämiseen, eli \(s = min( \alpha(P) ), P \in G\).
+    \item Dijkstran algoritmin käyttö lyhimmän (prioriteetiltaan pienimmän) polun löytämiseen, eli \(s = min( \gamma(P) ), P \in G\).
     \item Leikkauksien tekeminen ja toistaminen \(n\)-kertaa.
   \end{itemize}
 
@@ -66,3 +68,5 @@ Voidaan kuitenkin menetellä myös siten, että valitaan aloitus- ja lopetuspist
   \end{itemize}
 
 \section{Testitapauksien muodostaminen}
+
+% Teksti tähän
