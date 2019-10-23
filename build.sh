@@ -13,9 +13,16 @@ if which pdflatex makeindex biber &>/dev/null; then
   biber --output-directory output main;
   pdflatex -output-directory output main;
   pdflatex -output-directory output main;
+
+  # Clear and save pdf
+  timestamp=$(date +"%Y-%m-%d_%H-%M");
   [[ $clearPDFs == true ]] && rm ./output/thesis_*.pdf;
-  mv ./output/main.pdf ./output/thesis_$(date +"%Y-%m-%d_%H-%M").pdf;
+  mv ./output/main.pdf ./output/thesis_$timestamp.pdf;
   rm ./config/tau-logo-fin-eps-converted-to.pdf ./output/main.* ./output/pdfa.xmpi;
+
+  # Try to auto-open the pdf
+  which open && open ./output/thesis_$timestamp.pdf &
+  which xdg-open && xdg-open ./output/thesis_$timestamp.pdf &
 else
   echo "Build commands are not available..";
 fi
