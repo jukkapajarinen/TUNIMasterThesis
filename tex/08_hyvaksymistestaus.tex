@@ -1,13 +1,13 @@
 Tässä luvussa esitetään perusteet ja tarvittavat tiedot hyväksymistestauksesta..
 
-\section{Testiautomaatio prosessina}
+\section{Hyväksymistestauksen tarkoitus}
+
+% Teksti tähän
+
+% \section{Testiautomaatio prosessina}
 
 % Testiautomaation prosessiin kuuluu erilaisia artifakteja, joita luodaan testausprosessin eri vaiheissa.
 % Eri vaiheita ovat kronologisessa järjestyksessä ovat muun muassa testisuunnitelma, skenaariot, testitapaukset ja seuranta.
-
-\section{Testausvetoinen kehitys}
-
-% Teksti tähän
 
 \section{Hyväksymistestausvetoinen kehitys}
 
@@ -18,6 +18,48 @@ Tarvittavat ohjelmiston hyväksymistestit suoritetaan iteratiivisesti ohjelmisto
 Hyväksysmistestausvetoinen kehitys on erittäin hyödyllinen ohjelmistokehityksessä käytetty menetelmä, sillä kehitysvaiheessa on aina tarkasti tiedossa vastaako ohjelmiston silloinen tila asiakasvaatimuksia ja kuinka hyvin.
 Hyväksymistestausvetoisessa kehityksessä toteutettavat hyväksymistestit testaavat ohjelmistoa kokonaisena järjestelmänä tarkoituksenamukaisesti, siten kuten se esiintyy loppukäyttäjille.
 
-\section{Testiautomaatio ja jatkuva integraatio}
+\section{Testitapauksien määrittäminen}
 
-% Teksti tähän
+Yleisiä testitapauksien määrittämiseen käytettäviä heuristiikkoja ovat muun muassa:
+% \begin{itemize}
+%   \item Polut ja tiedostot
+%   \item Aika ja päivämäärät
+%   \item Numerot
+%   \item Merkkijonot
+%   \item Yleiset rikkeet
+%   \item Muuttujien analyysi
+%   \item Kosketuspisteet
+%   \item Rajat
+%   \item CRUD-toiminnot
+%   \item Datan eheys
+%   \item Konfiguraatiot
+%   \item Katkokset
+%   \item Nälkiintyminen
+%   \item Samanaikaiset käyttäjät
+%   \item Transaktiotulvat
+%   \item Riippuvuudet
+%   \item Rajaehdot
+%   \item Syötetyypit
+%   \item Tilan analyysi
+%   \item Käyttäjät ja skenaariot
+% \end{itemize}
+
+\section{Web-käyttöliittymien erityispiirteet}
+
+Web-käyttöliittymillä on myös omia erityispiirteitä, jotka vaikuttavat testitapauksien laatimiseen.
+\begin{itemize}
+  \item Navigointi
+  \item Syötteet
+  \item Syntaksi
+  \item Selainasetukset
+\end{itemize}
+
+\section{Priorisointiongelma}
+
+Testitapauksien priorisointi on kustannussyistä tai resurssien optimoinnin kannalta erittäin tärkeää.
+Ohjelmistotestauksessa on hyvä tiedostaa, että ohjelmistotuotetta ei usein voida testata täydellisesti, joka nostaa esiin tarpeen tärkeimpien testitapauksien löytämisestä.
+Testitapauksia voidaan priorisoida monella tavalla, joihin tämä diplomityö tuo yhden uudenlaisen painottua verkkoa hyödyntävän lähestymistavan.
+\begin{itemize}
+  \item Painotetun verkon hyödyntäminen
+  \item Muut priorisointitavat
+\end{itemize}

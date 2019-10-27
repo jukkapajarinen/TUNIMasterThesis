@@ -1,0 +1,5 @@
+Avoimet kysymykset (28.10.2019):
+- alkuun tutkimussuunnitelma - onko tausta, kysykset, menetelmä, rajaus, tavoitteet ok?
+- onko uudistettu sisällysluettelo eheä ja hyvä?
+- testiautomaation kytkentä uusiin kehitysmenetelmiin ja liiketoimintamalleihin?
+- design science menetelmässä "kartoitetaan ratkaisuvaihtoehdot", mitä tässä työssä on mahdollista kartoittaa?
