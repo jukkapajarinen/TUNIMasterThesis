@@ -5,6 +5,11 @@ if [[ $1 == "--clear-pdfs" ]] || [[ $2 == "--clear-pdfs" ]]; then
   clearPDFs=true;
 fi
 
+# Read possible --open-pdf from the cli args
+if [[ $1 == "--open-pdf" ]] || [[ $2 == "--open-pdf" ]]; then
+  openPDF=true;
+fi
+
 # Compile latex sources into pdf
 if which pdflatex makeindex biber &>/dev/null; then
   mkdir -p ./output;
@@ -21,8 +26,8 @@ if which pdflatex makeindex biber &>/dev/null; then
   rm ./config/tau-logo-fin-eps-converted-to.pdf ./output/main.* ./output/pdfa.xmpi;
 
   # Try to auto-open the pdf
-  which open && open ./output/thesis_$timestamp.pdf &
-  which xdg-open && xdg-open ./output/thesis_$timestamp.pdf &
+  [[ $openPDF == true ]] && which open && open ./output/thesis_$timestamp.pdf &
+  [[ $openPDF == true ]] && which xdg-open && xdg-open ./output/thesis_$timestamp.pdf &
 else
   echo "Build commands are not available..";
 fi
