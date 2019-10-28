@@ -26,10 +26,15 @@ Työlle asetettiin seuraavat tutkimuskysymykset:
 \section{Tutkimusmenetelmä}
 
 Tutkimuskysymyksiin vastaamiseksi työn tutkimusmenetelmäksi valittiin diplomitöissä yleisesti käytetty design science menetelmä.
+
 Tarkoituksena oli muodostaa uudenlainen toistettavissa oleva menetelmä tutkimuksen kohteena olevan ongelman ratkaisemiseksi.
-Tutkimusidean hahmottelemisen ja ratkaisua kaipaavan ongelman identifoinnin jälkeen, valittua tutkimusenetelmää käyttäen ensin määriteltiin tutkimuskysymykset \ref{tutkimuskysymykset}.
+
+Tutkimusidean hahmottelemisen ja ratkaisua kaipaavan ongelman identifoinnin jälkeen, valittua tutkimusmenetelmää käyttäen ensin määriteltiin tutkimuskysymykset \ref{tutkimuskysymykset}.
+
 Seuraavaksi kartoitettiin ratkaisuvaihtoehto tutkimuskysymyksiin ja esitetään perustelut siihen päätymiseen.
+
 Asiakasyrityksen ohjelmistotuotetta silmälläpitäen toteutettiin kokonaisratkaisu hyödyntäen kehitettyä ratkaisumenetelmää.
+
 Lopuksi vielä evaluoitiin ratkaisun toimivuus ja esitetään yhteenveto tutkimuksesta.
 
 % Tutkimusaiheen suunnittelemisen alkuvaiheessa huomattiin, että olemassa olevat käsitteelliset mallit ja teoria eivät olleet kovin vakiintunutta ja jäsenneltyä, joka antoi lisää painoarvoa työn tekemiselle.
@@ -39,8 +44,20 @@ Lopuksi vielä evaluoitiin ratkaisun toimivuus ja esitetään yhteenveto tutkimu
 
 \section{Tutkimuksen rajaus}
 
-% Teksti tähän
+Ohjelmistotestauksen tasojen osalta tutkimus rajoittuu hyväksymistestaukseen.
+
+Testitapauksien osalta on olemassa lukuisia eri testausalustoja, joita hyödyntäen testitapauksia voidaan toteuttaa. Tässä työssä testitapauksien toteuttaminen rajataan tietylle ennalta määräytyneelle Robot Framework alustalle.
+
+Jatkuvan integroinnin osalta tutkimus rajoittuu perusteisiin ja painoarvo pidetään testitapauksien toteuttamisessa ja niiden priorisoinnissa.
+
+Verkkoteorian osalta tutkimus rajoittuu perusteisiin ja painotettua verkkoa sekä kehitettyä menetelmää tukeviin käsitteisiin.
+
+Priorisointiin vaikuttavien muuttujien osalta tutkimus rajoittuu muuttujien kartoittamiseen, mutta niiden määrittäminen jätetään työn ulkopuolelle. Tämä tarkoittaa käytännössä sitä, että jokainen menetelmää hyödyntävä taho hankkii itse varsinaiset numeeriset arvot muuttujille. Esimerkiksi liiketoiminnallisen vision arvo on menetelmää käyttävän yrityksen vastuulla.
+
+Painotetun verkon lyhimmän polun etsimiseen on olemassa lukuisa määrä erilaisia algoritmeja, mutta tässä työssä hyödynnetään vain perinteistä Djikstran algoritmia.
 
 \section{Tavoitteet}
 
-% Teksti tähän
+Tutkimuksen tavoitteena on löytää toistettavissa oleva menetelmä hyväksymistestauksessa tarvittavien testitapauksien priorisoimiseen.
+
+Lisäksi tavoitteena on pystyä todentamaan kehitetyn menetelmän toimivuus käytännössä asiakasyritykselle tehtyä toteutusta evaluoimalla.
