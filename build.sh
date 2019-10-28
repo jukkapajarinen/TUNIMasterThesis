@@ -25,6 +25,9 @@ if which pdflatex makeindex biber &>/dev/null; then
   mv ./output/main.pdf ./output/thesis_$timestamp.pdf;
   rm ./config/tau-logo-fin-eps-converted-to.pdf ./output/main.* ./output/pdfa.xmpi;
 
+  # Create symlink thesis_latest.pdf to freshly created pdf
+  cd ./output/ && ln -fs thesis_$timestamp.pdf thesis_latest.pdf && cd ..;
+
   # Try to auto-open the pdf
   [[ $openPDF == true ]] && which open && open ./output/thesis_$timestamp.pdf &
   [[ $openPDF == true ]] && which xdg-open && xdg-open ./output/thesis_$timestamp.pdf &
