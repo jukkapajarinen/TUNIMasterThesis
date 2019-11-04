@@ -2,23 +2,25 @@ Tässä luvussa esitetään tutkimuksen tärkein sisältö, eli toistettavissa o
 Priorisointia varten esitetään harkintaa käyttäen lähdeaineistosta suodatetut priorisointiin vaikuttavat muuttujat, painofunktio, testitapauksien näkymäperusteinen koostaminen ja painotetun verkon laatiminen.
 Lisäksi menetelmää käyttäen tuotetun painotetun verkon sisältämää informaatiota käytetään prioriteeteiltaan tärkeiden polkujen löytämiseen ja testikattavuuden arviointiin.
 
-\section{Priorisointiin vaikuttavat muuttujat}
+\section{Priorisointiin vaikuttavat muuttujat} \label{10_priorisointiin_vaikuttavat_muuttujat}
 
 \begin{itemize}
   \item Liiketoiminnallinen arvo
   \item Liiketoiminnallinen visio
+  \item Aiempi moduleista löytyneiden bugien määrä
+  \item Käyttäjäpalaute
   \item Projektin muuttumisen volatiliteetti
   \item Kehittämisen kompleksisuus
   \item Vaatimusten taipumus virheellisyyteen
 \end{itemize}
 
-\section{Painofunktiot priorisointiin}
+\section{Painofunktiot priorisointiin} \label{10_painofunktiot_priorisointiin}
 
 Painofunktion yleinen kuvaus verkossa \(G\), solmuille \(V\) ja kaarille \(E\).
 \[\alpha := V(G), E(G) \rightarrow \mathbb{N}\]
 
 Painofunktio yksittäiselle solmulle \(v\), eli näkymälle.
-\[\alpha(v) = value + vision - volatility - complexity - errorness\]
+\[\alpha(v) = value + vision + feedback + previousbugs - volatility - complexity - errorness\]
 
 Painofunktio yksittäiselle kaarelle \(e\), eli siirtymälle.
 \[\beta(e) = value - volatility - complexity - errorness\]
@@ -26,7 +28,7 @@ Painofunktio yksittäiselle kaarelle \(e\), eli siirtymälle.
 Painofunktion polulle \(P\) solmusta \(v_1\) solmuun \(v_2\).
 \[\gamma(P) = \sum_{v \in P} \alpha(v) + \sum_{e \in P} \beta(e)\]
 
-\section{Verkon rakentaminen}
+\section{Verkon rakentaminen} \label{10_verkon_rakentaminen}
 
 \[
   M_G = (a_{ij})_{3\times3} =
@@ -38,7 +40,7 @@ Painofunktion polulle \(P\) solmusta \(v_1\) solmuun \(v_2\).
   }
 \]
 
-\section{Verkon karsiminen}
+\section{Verkon karsiminen} \label{10_verkon_karsiminen}
 
 Painotetun verkon karsiminen eli leikkaaminen on prioriteeillä painotetun verkon tärkeä ominaisuus.
 Verkkoteorian soveltaminen prioriteettien avulla painotettuun verkkoon on erityisen hyödyllistä, kun verkon kaarissa korkea paino tarkoittaa suurta prioriteettia.
@@ -47,7 +49,7 @@ Lyhimmän polun etsimiseen on tarkoituksenmukaista valita aina aloitus ja lopetu
 Prioriteetein painotetun verkon karsimistarkoitukseen olisi järkevää valita sellaiset aloitus- ja lopetuspisteet, joiden välillä ei näyttäisi olevan korkean prioriteetin solmuja.
 Voidaan kuitenkin menetellä myös siten, että valitaan aloitus- ja lopetuspisteeksi sellaiset solmut, jotka ovat painoltaan verkon alhaisimmat \(v_1 = min(V)\) ja \(v_2 = min(V \setminus \{v_1\})\) ja esimerkiksi verrata niiden lyhimmän polun kokonaisprioriteettia muuhun verkkoon.
 
-  \subsection{Dijkstran algoritmin soveltaminen}
+  \subsection{Dijkstran algoritmin soveltaminen} \label{10_djikstran_algoritmin_soveltaminen}
 
   \begin{itemize}
     \item Pienimmän prioriteetin solmuparin etsiminen, eli \(v_1 = min\{ \alpha(V) \}\) ja \(v_2 = min\{\alpha( V \setminus \{v_1\} \}\).
@@ -55,7 +57,7 @@ Voidaan kuitenkin menetellä myös siten, että valitaan aloitus- ja lopetuspist
     \item Leikkauksien tekeminen ja toistaminen \(n\)-kertaa.
   \end{itemize}
 
-  \subsection{Leikkauksien tekeminen}
+  \subsection{Leikkauksien tekeminen} \label{10_leikkauksien_tekeminen}
 
   \begin{itemize}
     \item Poistetaan yhden yksittäiseen solmuun johtavat sillat, jossa \(\alpha(v) < aivan liian alhainen \).
@@ -63,10 +65,10 @@ Voidaan kuitenkin menetellä myös siten, että valitaan aloitus- ja lopetuspist
     \item Poistetaan Dijkstran lyhimmän polun kaaret, jossa \(\beta(e) < liian alhainen \).
   \end{itemize}
 
-\section{Verkon ja testitapauksien yhteys}
+\section{Verkon ja testitapauksien yhteys} \label{10_verkon_ja_testitapauksien_yhteys}
 
 % Teksti tähän
 
-\section{Testitapauksien muodostaminen verkosta}
+\section{Testitapauksien muodostaminen verkosta} \label{10_testitapauksien_muodostaminen_verkosta}
 
 % Teksti tähän

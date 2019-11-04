@@ -1,14 +1,14 @@
 Tässä luvussa esitetään perusteet ja tarvittavat tiedot testiautomaatiosta, jotka liittyvät työn laajempaan teoreettiseen kehykseen.
 Testiautomaation perusteiden ymmärtämistä tarvitaan työn myöhemmässä vaiheessa, jossa esitetään varsinainen testitapauksien priorisointi painotetun verkon avulla.
 
-\section{Testiautomaation tarkoitus}
+\section{Testiautomaation tarkoitus} \label{07_testiautomaation_tarkoitus}
 
 Testiautomaation tarkoitus on pohjimmiltaan mahdollistaa ohjelmistotuotteen jatkuva ja vaivaton laadunvarmistus, nyt ja tulevaisuudessa.
 Ohjelmistojen testaamisella itsessään pyritään löytämään ohjelmistotuotteesta virheitä, anomalioita ja varmistamaan että se toimii asetettujen vaatimusten mukaisesti.
 Testauksen automatisoiminen vapauttaa henkilöresursseja manuaalisesta testaamisesta muihin tuotantotehtäviin sekä parantaa toistuvien testien luotettavuutta poistamalla manuaalisessa testauksessa tapahtuvat inhimillisen virheet.
 Laadunvarmistuksen osalta testiautomaatiolla voidaan kattaa erilaisia ohjelmistotuotteen laadullisia ominaisuuksia, kuten toiminnallisuus, luotettavuus, käytettävyys, tehokkuus, ylläpidettävyys ja siirrettävyys \parencite{iso_9126-1_2001}.
 
-\section{Testauksen tasot}
+\section{Testauksen tasot} \label{07_testauksen_tasot}
 
 Testauksen tasoja on useita ja usein ohjelmistojen kattavaan testaamiseen on suositeltavaa käyttää ohjelmistotuotantoprosessissa eri tasojen yhdistelmää.
 Ohjelmistotestaus usein jaotellaan kolmeen erilaiseen menetelmään, jotka myös vaikuttavat eri testauksen tasojen käytettävyyteen.
@@ -24,7 +24,7 @@ Ylimpänä pyramidissa on hyväksymistestaus, joka on tarkoituksellista toteutta
   \label{fig:testing-levels-pyramid}
 \end{figure}
 
-  \subsection{Yksikkötestaus}
+  \subsection{Yksikkötestaus} \label{07_yksikkotestaus}
 
   Yksikkötestauksen ajatuksena on testata ohjelmistotuotteen lähdekoodista löytyviä yksiköitä, kuten luokkia, funktioita tai moduleita.
   Yksikkötestaus toteutetaan ohjelmiston toteuttavia pienempiä yksikköjä varten.
@@ -33,20 +33,20 @@ Ylimpänä pyramidissa on hyväksymistestaus, joka on tarkoituksellista toteutta
   Yksikkötestausta hyödynnetään usein myös ketterien menetelmien aihepiirissä, jossa ohjelmistotuotantoa toteutetaan niin sanotulla testivetoisella kehityksellä.
   Testivetoisessa kehityksessä ohjelmistokehittäjät laativat ensisijaisesti yksiköiden yksikkötestit ennen niiden toteuttamisen aloittamista.
 
-  \subsection{Integraatiotestaus}
+  \subsection{Integraatiotestaus} \label{07_integraatiotestaus}
 
   Integraatiotestauksen ajatuksena on testata ohjelmistotuotteen toteuttavien eri komponenttien yhteentoimivuutta niiden rajapintojen osalta.
   Integraatiotestaus toteutetaan ohjelmiston suunnitelmaa ja mallia vastaan.
   Integraatiotestauksen onnistuminen luo perustan ohjelmiston toimimiseen ja koostamiseen kokonaisena, eri komponenteista koostuvana järjestelmänä.
   Integraatiotestauksen yhteydessä puhutaan usein myös niin sanotusta savutestauksesta, jonka tarkoituksena on koostaa päivittäinen koontiversio ohjelmistosta ja testata sen kriittisten komponenttien yhteentoimivuus.
 
-  \subsection{Järjestelmätestaus}
+  \subsection{Järjestelmätestaus} \label{07_jarjestelmatestaus}
 
   Järjestelmätestauksen ajatuksena on testata kokonaista ja toimivaa järjestelmää, yhtenä suurena yksikkönä.
   Järjestelmätestaus toteutetaan usein eräänlaisena tulikokeena, erityisesti ohjelmiston vaatimuksia vastaan.
   Järjestelmätestaukseen liittyy laajasti erilaisia testattavia laadullisia ominaisuuksia, kuten esimerkiksi toiminnallisuus, luotettavuus, käytettävyys, tietotruva, tehokkuus ja siirrettävyys.
 
-  \subsection{Hyväksymistestaus}
+  \subsection{Hyväksymistestaus} \label{07_hyvaksymistestaus}
 
   Hyväksymistestauksen ajatuksena on varmistaa toteutettavan ohjelmiston vaatimusten toimivuus erityisesti käytännön tilanteissa.
   Hyväksymistestaus toteutaan ohjelmiston toimintoja kuvaavaa vaatimusmäärittelyä vastaan.
@@ -54,10 +54,10 @@ Ylimpänä pyramidissa on hyväksymistestaus, joka on tarkoituksellista toteutta
   Samassa asiayhteydessä puhutaan usein myös niin sanotusta päästä päähän testauksesta (englanniksi: e2e, end-to-end).
   Testiautomaatio on erittäin hyödyllinen hyväksymistestausen osalla, koska sillä voidaan automatisoida ohjelmiston validointi ja hyväksyminen sekä estää puutteellisesti toimivan ohjelmiston julkaiseminen.
 
-\section{Jatkuva integrointi}
+\section{Jatkuva integrointi} \label{07_jatkuva_integrointi}
 
 % Teksti tähän
 
-\section{Testausvetoinen kehitys}
+\section{Testausvetoinen kehitys} \label{07_testausvetoinen_kehitys}
 
 % Teksti tähän
