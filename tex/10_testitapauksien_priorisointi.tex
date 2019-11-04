@@ -1,4 +1,7 @@
-Tässä luvussa esitetään tutkimuksen tärkein sisältö, eli toistettavissa oleva menetelmä testitapauksien priorisoimiseen.
+Tässä luvussa esitetään tutkimuksen tärkein sisältö ja kokonaisuutena vastaus tutkimuskysymykseen \emph{T1}, eli toistettavissa oleva menetelmä testitapauksien priorisoimiseen.
+Priorisointiin vaikuttavat muuttujat luvussa \ref{10_priorisointiin_vaikuttavat_muuttujat} esitetään myös suora vastaus tutkimuskysymykseen \emph{T2}.
+Lisäksi painofunktiot \ref{10_painofunktiot_priorisointiin} ja verkon karsiminen \ref{10_verkon_karsiminen} esittää vastaukset tutkimuskysymykseen \emph{T3}.
+
 Priorisointia varten esitetään harkintaa käyttäen lähdeaineistosta suodatetut priorisointiin vaikuttavat muuttujat, painofunktio, testitapauksien näkymäperusteinen koostaminen ja painotetun verkon laatiminen.
 Lisäksi menetelmää käyttäen tuotetun painotetun verkon sisältämää informaatiota käytetään prioriteeteiltaan tärkeiden polkujen löytämiseen ja testikattavuuden arviointiin.
 
@@ -7,7 +10,6 @@ Lisäksi menetelmää käyttäen tuotetun painotetun verkon sisältämää infor
 \begin{itemize}
   \item Liiketoiminnallinen arvo
   \item Liiketoiminnallinen visio
-  \item Aiempi moduleista löytyneiden bugien määrä
   \item Käyttäjäpalaute
   \item Projektin muuttumisen volatiliteetti
   \item Kehittämisen kompleksisuus
@@ -20,7 +22,7 @@ Painofunktion yleinen kuvaus verkossa \(G\), solmuille \(V\) ja kaarille \(E\).
 \[\alpha := V(G), E(G) \rightarrow \mathbb{N}\]
 
 Painofunktio yksittäiselle solmulle \(v\), eli näkymälle.
-\[\alpha(v) = value + vision + feedback + previousbugs - volatility - complexity - errorness\]
+\[\alpha(v) = value + vision \pm feedback - volatility - complexity - errorness\]
 
 Painofunktio yksittäiselle kaarelle \(e\), eli siirtymälle.
 \[\beta(e) = value - volatility - complexity - errorness\]
