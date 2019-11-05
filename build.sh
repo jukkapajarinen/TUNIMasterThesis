@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# Read possible --clear-pdfs from the cli args
-if [[ $1 == "--clear-pdfs" ]] || [[ $2 == "--clear-pdfs" ]]; then
+# Read possible --clear-pdf from the cli args
+if [[ $1 == "--clear-pdf" ]] || [[ $2 == "--clear-pdf" ]]; then
   clearPDFs=true;
 fi
 
