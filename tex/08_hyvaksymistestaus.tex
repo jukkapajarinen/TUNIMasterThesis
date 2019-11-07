@@ -1,6 +1,6 @@
 Tässä luvussa esitetään perusteet ja tarvittavat tiedot hyväksymistestauksesta..
 
-\section{Hyväksymistestauksen tarkoitus} \label{08_hyvaksymistestauksen_tarkoitus}
+\section{Hyväksymistestauksen tarkoitus} \label{ch:08_hyvaksymistestauksen_tarkoitus}
 
 % Teksti tähän
 
@@ -9,7 +9,7 @@ Tässä luvussa esitetään perusteet ja tarvittavat tiedot hyväksymistestaukse
 % Testiautomaation prosessiin kuuluu erilaisia artifakteja, joita luodaan testausprosessin eri vaiheissa.
 % Eri vaiheita ovat kronologisessa järjestyksessä ovat muun muassa testisuunnitelma, skenaariot, testitapaukset ja seuranta.
 
-\section{Hyväksymistestausvetoinen kehitys} \label{08_hyvaksymistestausvetoinen_kehitys}
+\section{Hyväksymistestausvetoinen kehitys} \label{ch:08_hyvaksymistestausvetoinen_kehitys}
 
 Hyväksymistestausvetoisen kehityksen (englanniksi: ATDD, acceptance test driven development) tarkoituksena, kuten testausvetoisessakin kehityksessä on toteuttaa ohjelmistotuotannollinen prosessi testaaminen edellä.
 Tämä tarkoittaa käytännössä, sitä että ohjelmistokehittäjät laativat ohjelmiston vaatimusten ja suunnitelman mukaisia iteratiivisesti suoritettavia testitapauksia, ennen niitä käyttävän varsinaisen ohjelmakoodin toteuttamista.
@@ -18,7 +18,7 @@ Tarvittavat ohjelmiston hyväksymistestit suoritetaan iteratiivisesti ohjelmisto
 Hyväksysmistestausvetoinen kehitys on erittäin hyödyllinen ohjelmistokehityksessä käytetty menetelmä, sillä kehitysvaiheessa on aina tarkasti tiedossa vastaako ohjelmiston silloinen tila asiakasvaatimuksia ja kuinka hyvin.
 Hyväksymistestausvetoisessa kehityksessä toteutettavat hyväksymistestit testaavat ohjelmistoa kokonaisena järjestelmänä tarkoituksenamukaisesti, siten kuten se esiintyy loppukäyttäjille.
 
-\section{Robot Framework} \label{08_robot_framework}
+\section{Robot Framework} \label{ch:08_robot_framework}
 
 Robot framework on geneerinen avoimen lähdekoodin testausalusta hyväksymistestaukseen, hyväksymistestausvetoiseen kehitykseen ja robotisten prosessien automaatioon.
 
@@ -26,13 +26,15 @@ Robot framework on geneerinen avoimen lähdekoodin testausalusta hyväksymistest
   \centering
   \includegraphics[width=0.4\textwidth]{assets/robot-architecture.png}
   \caption{Robot framework alustan arkkitehtuuri}
-  \label{fig:robot-architecture}
+  \label{fig:robot_architecture}
 \end{figure}
 
-\section{Testitapauksien määrittäminen} \label{08_testitapauksien_maarittaminen}
+\section{Testitapauksien määrittäminen} \label{ch:08_testitapauksien_maarittaminen}
 
 Yleisiä testitapauksien määrittämiseen käytettäviä heuristiikkoja ovat muun muassa:
 % \begin{itemize}
+%   \item riskin arviointi
+%   \item Defect clustering: 80% bugeista on 20% moduleista.
 %   \item Polut ja tiedostot
 %   \item Aika ja päivämäärät
 %   \item Numerot
@@ -55,7 +57,7 @@ Yleisiä testitapauksien määrittämiseen käytettäviä heuristiikkoja ovat mu
 %   \item Käyttäjät ja skenaariot
 % \end{itemize}
 
-\section{Web-käyttöliittymien erityispiirteet} \label{08_webkayttoliittymien_erityispiirteet}
+\section{Web-käyttöliittymien erityispiirteet} \label{ch:08_webkayttoliittymien_erityispiirteet}
 
 Web-käyttöliittymillä on myös omia erityispiirteitä, jotka vaikuttavat testitapauksien laatimiseen.
 \begin{itemize}
@@ -65,15 +67,15 @@ Web-käyttöliittymillä on myös omia erityispiirteitä, jotka vaikuttavat test
   \item Selainasetukset
 \end{itemize}
 
-  \subsection{Selenium} \label{08_selenium}
+  \subsection{Selenium} \label{ch:08_selenium}
 
   % Teksti tähän
 
-  \subsection{Moni-selaimellinen testaus} \label{08_moniselaimellinen_testaus}
+  \subsection{Moni-selaimellinen testaus} \label{ch:08_moniselaimellinen_testaus}
 
   % Teksti tähän
 
-\section{Priorisointiongelma} \label{08_priorisointiongelma}
+\section{Priorisointiongelma} \label{ch:08_priorisointiongelma}
 
 Testitapauksien priorisointi on kustannussyistä tai resurssien optimoinnin kannalta erittäin tärkeää.
 Ohjelmistotestauksessa on hyvä tiedostaa, että ohjelmistotuotetta ei usein voida testata täydellisesti, joka nostaa esiin tarpeen tärkeimpien testitapauksien löytämisestä.

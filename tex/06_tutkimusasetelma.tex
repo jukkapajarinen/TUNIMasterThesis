@@ -2,11 +2,11 @@ Tässä luvussa esitetään diplomityön taustaa, tutkimuskysymykset, käytetty 
 Tutkimuskysymykset liittyvät vahvasti yhteiseen priorisoinnin teemaan, johon tässä työssä erityisesti paneudutaan.
 Tutkimus on soveltavaa ja sen tarkoituksena on muodostaa selvitys tutkimusongelman ratkaisemiseksi.
 Tässä työssä se tarkoittaa erityisesti matemaattisen, toistettavissa olevan menetelmän kehittämistä tutkimusongelman ratkaisemiseksi.
-Tutkimuskysymyksistä itsessään voi päätellä tutkimuksen tarkoitusta ja tavoitteita, mutta tämä esitetään myös yksityiskohtaisemmin tavoitteet luvussa \ref{06_tavoitteet}.
+Tutkimuskysymyksistä itsessään voi päätellä tutkimuksen tarkoitusta ja tavoitteita, mutta tämä esitetään myös yksityiskohtaisemmin tavoitteet luvussa \ref{ch:06_tavoitteet}.
 Lisäksi työn lopussa on myös toteutuksellinen osuus, joka on tehty diplomityön asiakasyrityksen tarpeita varten.
 Toteutuksellisessa osuudessa on paljon muutakin sisältöä, joka on varsinaisen priorisointiteeman ulkopuolella, mutta pysyy kuitenkin työn kokonaiskontekstissa.
 
-\section{Tausta} \label{06_tausta}
+\section{Tausta} \label{ch:06_tausta}
 
 Diplomityö tehtiin WordDive nimiselle yritykselle. WordDive on vuonna 2009 perustettu Tampereella toimiva, suomalainen kieltenoppimiseen keskittyvä yritys. WordDivellä oli kirjoitushetkellä kieltenoppimissovellus mobiilialustalle sekä web-alustalle.
 Tämän diplomityön sisältö koskettaa vain web-alustalla toimivaa sovellusta.
@@ -22,13 +22,13 @@ Uusien ominaisuuksien ja koodimuutoksien tekemisen yhteydessä oli jatkuvasti ta
 Tämä sai diplomityön aiheen suuntautumaan testiautomaatioon ja erityisesti hyväksymistestaukseen.
 Lisäksi yrityksessä oli jo toteutettuna päivittäisessä käytössä oleva hyväksymistestaus mobiilialustalle, joka auttoi hahmottamaan web-sovelluksen testiautomaation integroimista osaksi yrityksen ohjelmistotuotantoprosessia.
 Mobiilialustalle tehtyä hyväksymistestausta varten oli yrityksessä jo valittu tietyt hyväksi todetut sovelluskehykset ja työkalut testiautomaatiota varten, joten tässä työssä ei enää ollut tarvetta evaluoida eri työkaluja tarvittavan testiautomaation toteuttamiseksi.
-Web-sovelluksen testiautomaatio toteutettiin käyttäen pääpiirteittäin samoja sovelluskehyksiä ja työkaluja \ref{11_sovelluskehykset_ja_tyokalut} kuin mobiilisovellukselle.
+Web-sovelluksen testiautomaatio toteutettiin käyttäen pääpiirteittäin samoja sovelluskehyksiä ja työkaluja \ref{ch:11_sovelluskehykset_ja_tyokalut} kuin mobiilisovellukselle.
 Tästä syystä diplomityön aihetta ja tutkimusongelmaa lähdettiin etsimään muualta.
 
 Tutkimusongelmaan miettiin aihioita etenkin alkuvaiheessa polkutestauksen ja ohjelmistotestaukseen liittyvien heuristiikkojen osalta.
 Polkutestaus oli yhtenä vaihtoehtona, mutta siitä luovuttiin, koska sen todettiin olevan paremmin soveltuvampi hyväksymistestausta alemmille testauksen tasoille.
 Heuristiikkojen hyödyntämistä mietittiin kahteen eri ongelmaan; testitapauksien muodostamiseen sekä kriittisten testitapauksien määrittämiseen.
-Näistä kahdesta, tässä työssä sivutaan heuristiikkojen käyttämistä testitapauksien muodostamiseen luvussa \ref{08_testitapauksien_maarittaminen}, mutta sitä ei käsitellä tutkimusongelmana.
+Näistä kahdesta, tässä työssä sivutaan heuristiikkojen käyttämistä testitapauksien muodostamiseen luvussa \ref{ch:08_testitapauksien_maarittaminen}, mutta sitä ei käsitellä tutkimusongelmana.
 
 Lopullisen tutkimusongelman löytämiseen vaikuttivat erityisesti konkreettiset tarpeet, jotka tulivat esiin vasta web-sovelluksen testiautomaation suunnitteluvaiheessa.
 Hyväksymistestauksen testiautomaatiota varten oli ensin määritettävä mitä testauksen kohteena olevasta sovelluksesta tulisi testata.
@@ -40,7 +40,7 @@ Toiseksi oivallukseksi keksittiin käyttää lyhimmän polun ongelmaan kehitetty
 Nämä oivallukset vaikuttivat lopulta varsinaisen tutkimusongelman eli testitapauksien priorisointiongelman valitsemiseen, koska ne loivat järkevän ja mielenkiintoisen pohjan tutkimusongelmaan vastaamiselle.
 Kokonaisuutena diplomityön aihe saatiin muodostettua sellaiseksi, että se esittää yleishyödyllisen menetelmän tutkimusongelman ratkaisemiseen sekä sitä hyödyntävän toteutuksen suunnittelemisen ja rakentamisen asiakasyritykselle.
 
-\section{Tutkimuskysymykset} \label{06_tutkimuskysymykset}
+\section{Tutkimuskysymykset} \label{ch:06_tutkimuskysymykset}
 
 Tutkimuksen tarkoituksena on pohjimmiltaan tarkoitus löytää ja kehittää toistettavissa oleva menetelmä hyväksymistestauksen testitapauksien priorisoimiseen.
 Testitapauksien laatimisen yleisenä ongelmanakohtana on erityisesti niiden priorisointi, joka usein johtaa liian suppean tai ylikattavan testiautomaation rakentamiseen.
@@ -54,7 +54,7 @@ Työlle asetettiin seuraavat tutkimuskysymykset:
   \item \textbf{T4:} \emph{Miten painotetun verkon avulla tehty priorisointi liitetään yhteen jatkuvan integraation ja testiautomaation kanssa?}
 \end{itemize}
 
-\section{Tutkimusmenetelmä} \label{06_tutkimusmenetelma}
+\section{Tutkimusmenetelmä} \label{ch:06_tutkimusmenetelma}
 
 Tutkimuskysymyksiin vastaamiseksi työn tutkimusmenetelmäksi valittiin tietotekniikan diplomitöissä yleisesti käytetty Design Science menetelmä.
 Menetelmän tarkoituksena on tuottaa teknologiaa hyödyntävä ratkaisu tutkimusongelmaan vastaamiseen.
@@ -71,7 +71,7 @@ Design Science menetelmän vaiheet ovat yksinkertaistetusti seuraavat:
 \end{enumerate}
 
 Tutkimuksen tarkoituksena oli muodostaa uudenlainen toistettavissa oleva menetelmä tutkimuksen kohteena olevan ongelman ratkaisemiseksi.
-Tutkimusidean hahmottelemisen ja ratkaisua kaipaavan ongelman identifoinnin jälkeen, valittua tutkimusmenetelmää käyttäen ensin määriteltiin tutkimuskysymykset \ref{06_tutkimuskysymykset}.
+Tutkimusidean hahmottelemisen ja ratkaisua kaipaavan ongelman identifoinnin jälkeen, valittua tutkimusmenetelmää käyttäen ensin määriteltiin tutkimuskysymykset \ref{ch:06_tutkimuskysymykset}.
 
 Seuraavaksi kartoitettiin ratkaisuvaihtoehto tutkimuskysymyksiin ja työn yleiseen priorisoinnin teemaan vastaamiseksi ja esitetään perustelut matemaattiseen toistettavissa olevaan ratkaisumenetelmään päätymiseen.
 Tutkimusta varten kerättiin teoreettista aineistoa, jonka tarkoituksena oli tukea menetelmän kehittämistä ja jonka avulla pyrittiin luomaan lukijalle mahdollisimman vahva teoreettinen pohja tutkimuskysymyksiin vastaavan ratkaisumenetelmän ymmärtämiseksi.
@@ -79,7 +79,7 @@ Asiakasyrityksen ohjelmistotuotetta ja ohjelmistotuotantoprosessi huomioiden tot
 
 Lopuksi vielä evaluoitiin menetelmän eli ratkaisun ja sitä hyödyntävän toteutuksen toimivuus käytännössä ja esitetään yhteenveto tutkimuksesta.
 
-\section{Tutkimuksen rajaus} \label{06_tutkimuksen_rajaus}
+\section{Tutkimuksen rajaus} \label{ch:06_tutkimuksen_rajaus}
 
 Ohjelmistotestauksen tasojen osalta tutkimus rajoittuu hyväksymistestaukseen.
 Tämä rajaus pohjautuu ohjelmistotuotannon työssä konkreettisesti havaittuun tarpeeseen sekä yhdenmukaisen testiautomaation toteuttamiseen mobiili- ja web-sovelluksille asiakasyrityksessä.
@@ -106,7 +106,7 @@ Painotetun verkon lyhimmän polun etsimiseen on olemassa lukuisa määrä erilai
 Tämä rajaus pohjautuu työssä kehitetyn priorisointimenetelmän käyttämisen perimmäiseen tarkoitukseen, jossa ei algoritmin tehokkuudella tai lisäominaisuuksilla ole suurta merkitystä.
 Lisäksi Dijkstran algoritmi on selkeä, paljon tutkittu ja käytetty ratkaisu lyhimmän polun etsimiseen, joka tekee siitä ihanteellisen tässä työssä muodostettavaan painotettuun verkkoon tehtävien leikkauksien identifoimista ajatellen.
 
-\section{Tavoitteet} \label{06_tavoitteet}
+\section{Tavoitteet} \label{ch:06_tavoitteet}
 
 Tutkimuksen primäärisenä tavoitteena oli kehittää toistettavissa oleva matemaattinen menetelmä web-käyttöliittymien hyväksymistestauksessa tarvittavien testitapauksien priorisointiongelman ratkaisemiseksi.
 Kehitetyn menetelmän tavoitteena on tarjota ratkaisua, joka helpottaa ja tehostaa kyseisen hyväksymistestaukseen liittyvän testiautomaation sekä siihen liittyvien testitapauksien suunnittelua ja rakentamista.
@@ -114,6 +114,6 @@ Kehitetyn menetelmän tavoitteena on tarjota ratkaisua, joka helpottaa ja tehost
 Primääritavoitteen lisäksi valmiin diplomityön tavoitteena on myös tarjota selkeä, eheä ja helposti ymmärrettävä kokonaisuus hyväksymistestauksen testitapauksien priorisoimiseen, työssä kehitettyä menetelmää käyttäen.
 Kehitetty priorisointimenetelmä pyritään esittämään siten, että valmiista diplomityöstä olisi mahdollisiman paljon hyötyä sen käyttämistä harkitseville tai käyttäville tahoille.
 
-Tutkimusta ja tutkimusmenetelmää itsessään ajatellen tavoitteena oli tarjota ratkaisumalli ja ratkaisut aiemmin esitettyihin tutkimuskysymyksiin \ref{06_tutkimuskysymykset}.
+Tutkimusta ja tutkimusmenetelmää itsessään ajatellen tavoitteena oli tarjota ratkaisumalli ja ratkaisut aiemmin esitettyihin tutkimuskysymyksiin \ref{ch:06_tutkimuskysymykset}.
 Lisäksi tutkimusmielessä tavoitteena oli pystyä todentamaan kehitetyn menetelmän toimivuus käytännössä menetelmää itsessään sekä asiakasyritykselle sen avulla tehtyä toteutusta evaluoimalla.
 Evaluointi esitetään diplomityön lopussa ja se esitetään erikseen menetelmälle sekä toteutukselle.
