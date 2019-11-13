@@ -127,9 +127,37 @@ Testiautomaation perusteiden ymmärtämistä tarvitaan varsinkin työn myöhemm�
 
 \section{Jatkuva integrointi} \label{ch:07_jatkuva_integrointi}
 
-  % Testiautomaation rakentaminen manuaalisen testaamisen sijaan mahdollistaa sen liittämisen osaksi jatkuvaa integrointia.
-  % Manuaalinen testaus sotisi automatisoitujen koonti- tai julkaisuputkien periaatteita vastaan.
-  % luotettavuuden parantaminen
+  Testiautomaation rakentaminen manuaalisen testaamisen sijaan mahdollistaa sen liittämisen osaksi jatkuvaa integrointia.
+  Lisäksi useissa yritysmaailman ohjelmistotuotannon prosesseissa pelkkä manuaalinen testaus kävisi selkeästi automatisoitujen koonti- tai julkaisuputkien periaatteita vastaan.
+  Testiautomaation tarkoitus kappaleessa \ref{ch:07_testiautomaation_tarkoitus} aiemmin esitettiin testiautomaation ja manuaalisen testauksen eroa hyötyjen ja haittojen näkökulmasta.
+  Testiautomaation toteuttaminen testitapauksien muodossa on jo itsessään testiautomaatiota, mutta käsitettä voidaan kuitenkin laajentaa, että myös jatkuva integrointi liittyy oleellisesti testiautomaation toteuttamiseen varsinkin nykyaikana ja ketteriin menetelmiin painottuvassa ohjelmistokehityksessä.
+
+  Jatkuvalla integroinnilla tarkoitetaan versiohallintaisessa ohjelmistokehityksessä väistämättömän integrointiprosessin muuntamista jatkuvaksi.
+  Ohjelmistokehityksessä integrointiprosessi tulee vastaan, kun eri ohjelmistokehittäjät tai tiimit toteuttavat muutoksia tai uusia ominaisuuksia kehitettävänä olevaan ohjelmistotuotteeseen.
+  Tällaisessa tilanteessa yksittäiset ohjelmistokehittäjät tai tiimit toteuttavat uutta ohjelmakoodia toisistaan irrallaan siihen asti kunnes muutokset tai ominaisuudet tulee yhdistää yhdeksi kokonaiseksi kehityksen kohteena olevaksi ohjelmistotuotteeksi, jota prosessina kutsutaan integrointiprosessiksi.
+  Jatkuvan integroinnin tarkoituksena on nopeuttaa integrointiprosessia ja muuttaa ohjelmistokehityksessä käytössä olevia periaatteita siten, että siitä tulee luonnostaan jatkuvaa.
+  Jatkuvan integroinnin toteuttaminen tarvitsee teknisesti sen mahdollistavan versionhallintajärjestelmän ja varsinaisen jatkuvan integroinnin palvelimen.
+
+  \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{assets/jatkuva-integrointi.png}
+    \caption{Jatkuvan integroinnin perusperiaate on iteratiivinen}
+    \label{fig:jatkuva_integrointi}
+  \end{figure}
+
+  Esimerkkinä versionhallintajärjestelmänä voidaan käyttää nykyaikana suosittua git versionhallintaohjelmistoa ja jatkuvan integroinnin palvelimena esimerkiksi Jenkins ohjelmistoa.
+  Perusideana jatkuvassa integraatiossa on konfiguroida jatkuvan integraation mahdollistava ohjelmisto siten, että se kuuntelee versionhallintaan tulevia muutoksia ja suorittaa integrointiprosessin jatkuvasti sellaisia huomattuaan.
+  Versionhallintaan tulevat muutokset voidaan jatkuvan integraation osalta kuunnella ajastetusti tietyin väliajoin tai oikeasti jatkuvasti käyttämällä esimerkiksi web-koukkuja, jotka tiedottavat jatkuvan integraation palvelimelle versionhallintaan saapuneista muutoksista.
+  Jatkuvan integroinnin yhden iteraatiokerran integrointiprosessin tuloksena on tarkoituksena tarjota periaatteeltaan sama lopputulema kuin mitä se olisi manuaalisella integrointiprosessillakin.
+  Jatkuva integroinnin mahdollistava konfiguraatio sisältää jonkinlaisen koontiputken tai koontiputkia, joissa rakennetaan koontiversio kehitettävän ohjelmiston lähdekoodeista.
+  Koontiputki voi sisältää esimerkiksi ohjelman lähdekoodien kääntämisen asiaan sopivalla kääntäjällä.
+  Kääntämisen lisäksi koontiputkeen on tässä vaiheessa erittäin kannattavaa yhdistää testiautomaatiota, kuten esimerkiksi automaattiset yksikkötestit ennen kääntämistä ja hyväksymistestit kääntämisen jälkeen.
+
+  Jatkuvan integroinnin yhteydessä suoritettavat testikokoelmat ja niiden sisältävät testitapaukset ovat erittäin järkevää toteuttaa, sillä ne esimerkiksi parantavat ohjelmistokehityksen ja lopputuotteen luotettavuutta ja laatua.
+  Jatkuvan integroinnin sisältämästä koontiputkesta saadaan hyödyllistä palautetta ja raportteja integrointiprosessin onnistumisesta, joka voidaan ohjata pääasiassa ohjelmistokehittäjille sekä myös muillekin sidosryhmille.
+  Jatkuvalla integroinnilla itsessään on myöskin paljon sen käyttöönoton antamia hyötyjä, kuten esimerkiksi toteutettujen muutosten tai toimintojen integrointitiheyden kasvattamisen tuomat edut.
+  Jos muutosten tai toimintojen integroiminen on perinteisessä ohjelmistokehitetyksessä tehty esimerkiksi viikoittain, niin jatkuva integroiminen korjaa sen tuomat haasteet turhan laajasta integrointiprosessista ja mahdollisesta ohjelmistokoodin hajoamisesta.
+  Tällaisissa tapauksissa ohjelmistokoodi voi sisältää epäyhteensopivia moduleita tai muita rajapintoja sekä mahdollisuuden käännettävien lähdekoodien kääntämisen onnistumisesta.
 
 \section{Testausvetoinen kehitys} \label{ch:07_testausvetoinen_kehitys}
 
