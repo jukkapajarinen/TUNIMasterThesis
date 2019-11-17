@@ -3,31 +3,31 @@ Tässä luvussa esitetään perusteet ja tarvittavat tiedot hyväksymistestaukse
 \section{Hyväksymistestauksen tarkoitus} \label{ch:08_hyvaksymistestauksen_tarkoitus}
 
   Hyväksymistestauksen tarkoituksena on varmistaa toteutettavan ohjelmiston vaatimusten toimivuus erityisesti käytännön tilanteissa siten, että voidaan varmistaa vastaako ohjelmisto loppukäyttäjän tarpeita.
+  Hyväksymistestaus antaa vastauksen siihen, toimiiko toteutettu järjestelmä loppukäyttäjän tarpeiden mukaisesti ja loppukäyttäjän näkökulmasta oikein.
+  Hyväksymistestauksen sanotaan olevan muodollista testaamista, jossa käyttäjän tarpeet, vaatimukset ja liiketoimintaprosessit otetaan huomioon selvittäessä täyttääkö järjestelmä hyväksymisen kriteerit ja sallii käyttäjän, asikkaiden tai muun autorisoidun tahon päättää hyväksytäänkö järjestelmä \parencite{istqb_glossary_nodate}.
+  Ohjelmistotestauksen tekniikoiden näkökulmasta hyväksymistestaus on mustalaatikkotestausta, eli sitä testataan tietämättä sen teknisestä toteutuksesta.
+  Hyväksymistestauksen painoarvo on asiakaperusteisessa vaatimusmäärittelyssä ja loppukäyttäjän tarpeiden kartoittamisessa.
+  Testiautomaation osalta hyväksymistestausta varten voidaan rakentaa testitapaukset, joiden avulla voidaan keskittyä varmistamaan loppukäyttäjille tarpeellisten toimintojen toteutuminen testitapauksien suorittamisen jälkeen.
+  Hyväksymistestauksen osalta testitapauksia voidaan toteuttaa niin sanotulla päästä päähän -periaatteella, jossa testattavaa järjestlemää testataan siten kuin loppukäyttäjä sitä käyttää.
+  Hyväksymistestauksessa ei anneta suurta painoarvoa kosmeettisille tai kirjoitusvirheille, vaan pyritään selvittämään loppukäyttäjille oleellisten ja tarpeellisten toimintojen toteutuminen.
 
-  \begin{itemize}
-    \item Painoarvo vaatimusmäärittelyssä
-    \item mahdollisuus korjata virheet ennen julkaisua loppukäyttäjille
-    \item keskitytään lähinnä toiminnallisiin ominaisuuksiin ja niiden toimivuuden varmistamiseen
-    \item loppukäyttäjän tarpeet
-    \item päästä päähän
-    \item ohjelmistokehittäjien lisäksi myös sidosryhmät ja asiakkkat
-    \item ab testaamisen mahdollisuus
-    \item viimeinen vaihe testauksessa
-    \item oikeat loppukäyttäjät tai käyttötapauksiin perustuva automaatio
-    \item ei painoarvoa kosmeettisia virheissä tai kirjoitusvirheissä
-    \item kehittäjien käsitys voi olla erilainen kuin loppukäyttäjien => kehittäjät pääsevät samalle sivulle
-    \item prerequisites: vaatimukset, julkaisukelpoinen toteutus, vain kosmeettisia virheitä
-    \item vaatimukset voi olla: liiketoimminnallisia käyttötapauksia, prosessivirtauskaavioita, vaatimusmäärittely
-    \item toimiiko ohjelmisto loppukäyttäjän tarpeiden mukaisesti ja loppukäyttäjän näkökulmasta oikein
-    \item toistuvalla hyväksymistestauksella varmistetaan, että ohjelma toteuttaa loppukäyttäjän tarpeet muutosten jälkeenkin
-    \item hyväksymistestauksella saadaan katsaus ohjelmiston valmiudesta vaatimuksiin nähden
-    \item ISTQB: Muodollista testaamista jossa käyttäjän tarpeet, vaatimukset ja liiketoimintaprosessit otetaan huomioon selvittäessä täyttääkö järjestelmä hyväksymisen kriteerit ja sallii käyttäjän, asiakkaiden tai muun autorisoidun tahon päättää hyväksytäänkö järjestelmä.
-    \item teknisesti mustalaatikkotestausta
-    \item hyväksymistestauksen testitapaukset tarkoituksenmukaisesti heijastavat suoraan loppukäyttäjien tarpeita
-    \item käyttötapaus: 1) tilanne, 2) motivaatio, 3) haluttu lopputulos (esim. Kun tämä, niin haluan tätä, jotta saavutan tämän)
-  \end{itemize}
+  Hyväksymistestaus on aiemmin esitetyistä testauksen tasoista \ref{ch:07_testauksen_tasot} viimeinen ja sen suorittamisen jälkeen saadaan tieto siitä onko järjestlemä toteutuksen osalta sellaisenaan valmis julkaistavaksi.
+  Perinteisesti hyväksymistestauksen lähtökohtia ovat selvät hyväksymisvaatimukset sekä julkaisukelpoinen toteutus joka voi sisältää vain kosmeettisia virheitä.
+  Hyväksymisvaatimukset voivat olla esimerkiksi liiketoiminnallisia käyttötapauksia, prosessivirtauskaavioita sekä ohjelmiston vaatimusmäärittely.
+  Testiautomaatiota varten käytettävästä testialustasta riippuen hyväksymistestauksen käyttötapaukset voidaan muodostaa joko osittain tai suoraan testitapauksiksi.
+  Hyväksymistestaukseen usein osallistuu ohjelmistokehittäjien lisäksi myös muut sidosryhmät ja loppukäyttäjät.
+  Keskeistä on, että loppukäyttäjiltä hankitaan tieto tarvittavista ja toteutettavista ominaisuuksista, kun taas muut sidosryhmät kuten esimerkiksi johtoryhmä voivat tehdä liiketoiminnallisia päätöksiä hyväksymistestauksen onnistumisen osalta ja esimerkiksi peruuttaa julkaisun.
+  Hyväksymistestaus antaa mahdollisuuden korjata usein liiketoiminnalisestakin näkökulmasta merkittävät toiminalliset virheet ennen järjestelmän julkaisua loppukäyttäjille.
+
+  Kehittäjien käsitys järjestelmän toiminnallisuudesta ja sen vaatimuksista voi olla usein hyvinkin erilainen kuin loppukäyttäjien.
+  Hyväksymistestauksen avulla voidaan tätä lievittää tätä ongelmaa, ja saattaa ohjelmistokehittäjät loppukäyttäjien kanssa vaatimusmäärittelyn suhteen samalle sivulle.
+  Testiautomaation avulla toteutettavalla toistuvalla hyväksymistestauksella varmistetaan, että järjestelmä toteuttaa loppukäyttäjän tarpeet vielä järjestlemään tehtyjen muutoksien jälkeenkin.
+  Hyväksysmistestauksen testitapaukset tarkoituksenmukaisesti heijastavat suoraan loppykäyttäjien tarpeita, joka on iso etu sillä sen avulla ohjelmistokehittäjät ja muut sidosryhmät voivat tehokkaasti varmistaa järjestlemän valmiuden ja tilan.
+  Hyväksymistestauksella siis saadaan katsaus ohjelmiston valmiudesta sen vaatimuksiin ja loppukäyttäjien toiminnallisiin tarpeisiin nähden.
 
 \section{Hyväksymistestausvetoinen kehitys} \label{ch:08_hyvaksymistestausvetoinen_kehitys}
+
+  Hyväksymistestausvetoisen kehityksen sanotaan olevan yhteistyöllinen lähestymistapa kehitykseen, jossa tiimi ja asiakkaat käyttävät asiakkaiden oman ympäristön kieltä ymmärtääkseen heidän vaatimukset, jotka muodostavat pohjan komponentin tai järjestelmän testaamiseen \parencite{istqb_glossary_nodate}.
 
   Hyväksymistestausvetoisen kehityksen (englanniksi: ATDD, acceptance test driven development) tarkoituksena, kuten testausvetoisessakin kehityksessä on toteuttaa ohjelmistotuotannollinen prosessi testaaminen edellä.
 
@@ -38,6 +38,7 @@ Tässä luvussa esitetään perusteet ja tarvittavat tiedot hyväksymistestaukse
   Tarvittavat ohjelmiston hyväksymistestit suoritetaan iteratiivisesti ohjelmistokehitysprosessin aikana, ja se tarkoittaa käytännössä jatkuvan integraation \ref{ch:07_jatkuva_integrointi} ottamista käyttöön ohjelmistokehityksessä.
 
   Hyväksysmistestausvetoinen kehitys on erittäin hyödyllinen ohjelmistokehityksessä käytetty menetelmä, sillä kehitysvaiheessa on aina tarkasti tiedossa vastaako ohjelmiston tila asiakasvaatimuksia ja kuinka hyvin se niiden täyttämisessä onnistuu.
+
 
   % TODO: Lisää kuva tähän ATDD:stä (kuten ch:07_testausvetoinen_kehitys)
 
@@ -77,6 +78,7 @@ Tässä luvussa esitetään perusteet ja tarvittavat tiedot hyväksymistestaukse
     \item Testitapauksia voidaan ryhmitellä tageillä.
     \item Kattavat ja selkeät testiraportit ajetuille testitapauksille.
     \item Heikkoutena tuen puuttuminen ohjelmointikieliperustaisissa testikehyksissä löytyville kontrollirakenteille, joita esiintyy esimerkiksi yksikkötestaukseen tarkoitetuissa testikehyksissä.
+    \item käyttötapaus: 1) tilanne, 2) motivaatio, 3) haluttu lopputulos (esim. Kun tämä, niin haluan tätä, jotta saavutan tämän)
   \end{itemize}
 
 \section{Testitapauksien määrittäminen} \label{ch:08_testitapauksien_maarittaminen}
