@@ -54,7 +54,8 @@ Lopuksi esitetään yleisestikin ottaen testitapauksiin tärkeästi liittyvä pr
   Hyväksymistestausvetoisessa kehityksessä ohjelmistokehitystä siis ohjaavat asiakasvaatimukset ja loppukäyttäjien tarpeiden toteutuminen, jotka ovat hyvin usein toiminallisia vaatimuksia.
   Hyväksymistestausvetoisessa kehityksessä mitataan jatkuvasti iteroiden käyttötapauksien muodossa validoitavien haluttujen ominaisuuksien toteutumista.
   Perusperiaate on kirjoittaa asiakasvaatimus tai käyttötapaus testitapauksen muotoon, toteuttaa testitapaus, ajaa testitapaus läpäisemättömänä, toteuttaa ominaisuus, ajaa testitapaus läpäisevänä, refaktoroida toteutus ja siirtyä takaisin seuraavaan käyttötapaukseen.
-  Esimerkki käyttötapauksesta voi olla: \emph{käyttäjänä, haluan voida avata premium ominaisuudet tekemällä sovelluksensisäisen oston}.
+  Käyttötapaus koostuu rakenteellisesti usein tilanteesta, motivaatiosta ja halutusta lopputuloksesta.
+  Esimerkki käyttötapauksesta voi olla: \emph{käyttäjänä, haluan sisäänkirjautumisen jälkeen voida avata premium ominaisuudet tekemällä sovelluksensisäisen oston}.
 
   Hyväksymistestausvetoisessa kehityksessä hyväksymistestit on hyödyllistä pilkkoa pieniin hallittaviin kokonaisuuksiin, jolloin voidaan iteratiivisesti toteuttaa valmiiksi tietyn testitapauksen mukainen ominaisuus, joka vastaa jotakin käyttötapausta tai loppukäyttäjän tarvetta.
   Hyväksymistestauksessa testitapaus voi olla esimerkiksi käyttäjän tietojen muuttuminen varmistaminen, kuten tason läpäiseminen pelisovelluksessa, joka muuttaa käyttäjän edistystä.
@@ -62,47 +63,9 @@ Lopuksi esitetään yleisestikin ottaen testitapauksiin tärkeästi liittyvä pr
   Menetelmän avulla myös luodaan ymmärrystä ohjelmistotuotteen valmiuden määritelmästä kun eri sidosryhmän voidaan saada sen suhteen samalle aaltopituudelle.
   Hyväksymistestausvetoinen kehitys on lisäksi erittäin hyödyllistä, sillä jatkuva testaaminen antaa mahdollisuuden haluttujen ominaisuuksien toteutumisen validoimiselle menetelmän jokaisen iteraation koontiversiossa.
 
-\section{Robot Framework} \label{ch:08_robot_framework}
-
-  Robot framework on geneerinen avoimen lähdekoodin testausalusta hyväksymistestaukseen, hyväksymistestausvetoiseen kehitykseen ja robotisten prosessien automaatioon.
-
-  \begin{figure}[H]
-    \centering
-    \includegraphics[width=0.4\textwidth]{assets/robot-arkkitehtuuri.png}
-    \caption{Robot framework alustan arkkitehtuuri}
-    \label{fig:robot-architecture}
-  \end{figure}
-
-  \begin{itemize}
-    \item Helposti ymmärrettävä, luettava ja selkeä avainsanaperustainen syntaksi
-    \item Etuna helposti lähestyttävyys. Helppo asentaa, ymmärtää ja ottaa käyttöön.
-    \item Testikehystä voi helppouden ja avainsanaperustaisuuden vuoksi käyttää muutkin kuin sovelluskehittäjät.
-    \item Tuki ulkoisille kirjastoille ja useita käyttövalmiita ulkoisia kirjastoja
-    \item Tukee muuttujia testitapauksissa, joilla voi lisätä hieman kompleksisuutta testitapauksiin
-    \item Tukee dataperustaisia testitapauksia, joille annetaan eri syötteitä sisältävää testidataa
-    \item Testitapauksia voidaan ryhmitellä tageillä.
-    \item Kattavat ja selkeät testiraportit ajetuille testitapauksille.
-    \item Heikkoutena tuen puuttuminen ohjelmointikieliperustaisissa testikehyksissä löytyville kontrollirakenteille, joita esiintyy esimerkiksi yksikkötestaukseen tarkoitetuissa testikehyksissä.
-    \item käyttötapaus: 1) tilanne, 2) motivaatio, 3) haluttu lopputulos (esim. Kun tämä, niin haluan tätä, jotta saavutan tämän)
-  \end{itemize}
-
-\section{Testitapauksien määrittäminen} \label{ch:08_testitapauksien_maarittaminen}
-
-  \begin{itemize}
-    \item Testitapaus on testiautomaation näkökulmasta, määritelty toimenpiteiden, ehtojen ja muuttujien joukko, joka suorittamalla voidaan verifioida ominaisuus tai toiminnallisuus ohjelmistosta.
-    \item Testisuite tai testikokoelma on samaan kontekstiin kuuluvista testitapauksista muodostettu joukko.
-    \item Testitapaukset kirjoitetaan hyväksymistestauksen mukaisesti käyttötapauksien muodossa.
-    \item Testiformaatti: 1) Oletetaan tämä ja tätä (setup) => 2) Kun tämä tapahtuu (trigger) => 3) Niin tämä seuraa (verification) (todo: tee tästä kuva)
-    \item Yleisiä tavoitteita: yksinkertaisuus, läpinäkyvyys, käyttäjätietoisuus, epätoistuvuus, olettamattomuus, kattavuus, tunnistettavuus, jälkensä puhdistava, toistettava, syvyyttömyys, atomisuus.
-    \item Taulukon/listan muodossa esimerkkejä käyttöliittymien testitapauksista.
-    \item Robot framework: avainsana, käyttäytyminen tai data-pohjainen kirjoitustyyli testitapauksille
-    % \item <todo: lisää kuva/koodi esimerkkitestitapauksessa robot frameworkillä>
-    \item https://github.com/robotframework/HowToWriteGoodTestCases/blob/master/HowToWriteGoodTestCases.rst
-  \end{itemize}
-
 \section{Web-käyttöliittymien erityispiirteet} \label{ch:08_webkayttoliittymien_erityispiirteet}
 
-  Web-käyttöliittymillä on myös omia erityispiirteitä, jotka vaikuttavat testitapauksien laatimiseen.
+  Web-käyttöliittymillä on omia erityispiirteitä, jotka vaikuttavat testitapauksien laatimiseen.
 
   \begin{itemize}
     \item Käyttöliittymä ja DOM
@@ -114,8 +77,57 @@ Lopuksi esitetään yleisestikin ottaen testitapauksiin tärkeästi liittyvä pr
     \item Selainasetukset
     \item Moniselaimellinen testaus
     \item Päätteetön testaus
-    \item Selenium
   \end{itemize}
+
+\section{Robot Framework} \label{ch:08_robot_framework}
+
+  Robot framework on geneerinen avoimen lähdekoodin testausalusta hyväksymistestaukseen, hyväksymistestausvetoiseen kehitykseen ja robotisten prosessien automaatioon \parencite{noauthor_robot_nodate}.
+  Testialustana Robot frameworkilla on helposti ymmärrettävä, luettava ja selkeä avainsanaperustainen syntaksi.
+  Testialustan etuna on helppo lähestyttävyys ja sen pohjalle rakennettujen testitapauksien ymmärtäminen ei vaadi ohjelmakoodin ymmärtämistä.
+  Robot framework on Python-perustainen testialusta joka on helppo asentaa, sitä on helppoa ymmärtää, sillä on kattava dokumentaatio ja se on helppoa ottaa käyttöön.
+
+  Robot frameworkissa on sisäänrakennettu tuki ulkoisille kirjastoille ja dokumentaatiosta löytyy paljon tietoa omien avainsanojen ja omien kirjastojen tekemiseen.
+  Lisäksi Robot framework on todella suosittu ja sisäänrakennettujen ominaisuuksien lisäksi ulkoisia kolmansien osapuolien kirjastoja löytyy alustalle paljon.
+  Robot framework tukee muuttujien käyttöä testitapauksien rakentamisessa, joilla voi lisätä hieman kompleksisuutta ja logiikkaa omiin testitapauksiin.
+  Robot frameworkista löytyy myös tuki dataperustaisien testitapauksien rakentamiseen, joille annetaan eri syötteitä sisältävää testidataa.
+  Testitapauksia voi myös ryhmitellä testikokoelmiin käyttämällä tägejä testitapauksien sisällä.
+
+  \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.4\textwidth]{assets/robot-arkkitehtuuri.png}
+    \caption{Robot framework alustan arkkitehtuuri}
+    \label{fig:robot-architecture}
+  \end{figure}
+
+  Robot frameworkillä rakennettuja testitapauksia voidaan ajaa komentoriviltä robot komennolla.
+  Testitapauksien ajaminen tulostaa komentoriville yksinkertaisen raportin testitapauksen onnistumisesta ja lisäksi tallettaa varsin yksityiskohtaisen ja selkeän testitaportin ajetuille testitapauksille.
+  Testiraportit ovat erittäin hyvin tehtyjä ja html-pohjaisia, joka tarkoittaa että ne voidaan helposti integroida osaksi jatkuvan integraation koontiputkia.
+  Yhtenä heikkoutena Robot frameworkissa on tuen puuttuminen ohjelmistokieliperustaisissa testikehyksissä löytyville kontrollirakenteille, joita esiintyy esimerkiksi yksikkötestaukseen tarkoitetuissa testikehyksissä.
+  Robot framework on selkeästi hyväksymistestauksen testitapauksien rakentamista varten tarkoitettu testialusta ja siinä se on erinomainen vaihtoehto testitapauksien rakentamiseen.
+
+\section{Selenium} \label{ch:08_selenium}
+
+  <TODO: Lisää sisältöä tähän..>
+
+\section{Testitapauksien määrittäminen} \label{ch:08_testitapauksien_maarittaminen}
+
+  Testitapaus on testiautomaation näkökulmasta, määritelty toimenpiteiden, ehtojen ja muuttujien joukko, joka suorittamalla voidaan verifioida ominaisuus tai toiminnallisuus ohjelmistosta.
+  Testitapauksiin liittyy oleellisesti testikokoelman tai testisuiten käsite, joka tarkoittaa samaan kontekstiin kuuluvista testitapauksista muodostettua joukkoa.
+  Tässä diplomityössä keskitettyyn hyväksymistestaukseen liittyen testitapaukset kirjoitetaan usein käyttötapauksien muodossa.
+  Robot frameworkissä on mahdollista kirjoittaa testitapauksia avainsana, käyttäytymis tai data-pohjaisessa muodossa.
+  Testitapauksen perusformaatti koostuu lähtötilanteesta, laukaisijasta ja verifikaatiosta.
+  Lähtötilanteessa oletetaan jotakin ja seuraavassa vaiheessa seurataan kun jokin ehto tapahtuu, jonka jälkeen voidaan tarkistaa seuraus ja verifioida onko se oletuksen mukainen.
+  Testitapauksien yleisiä tavoitteita ovat: yksinkertaisuus, läpinäkyvyys, käyttäjätietoisuus, epätoistuvuus, olettamattomuus, kattavuus, tunnistettavuus, jälkensä puhdistava, toistettava, syvyyttömyys ja atomisuus.
+
+  <TODO: Lisää sisältöä tähän..>
+
+  % Lisää taulukko käyttöliittymien esimerkki testitapauksista...
+
+  % Lisää koodi esimerkkitestitapauksesta Robot frameworkillä...
+
+  % https://github.com/robotframework/HowToWriteGoodTestCases/blob/master/HowToWriteGoodTestCases.rst
+
+  % Käyttöliittymän näkymät ja siirtymät!!!
 
 \section{Priorisointiongelma} \label{ch:08_priorisointiongelma}
 
