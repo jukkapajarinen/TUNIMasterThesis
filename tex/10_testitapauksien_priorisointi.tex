@@ -12,6 +12,7 @@ Lisäksi menetelmää käyttäen tuotetun painotetun verkon sisältämää infor
     \item Liiketoiminnallinen arvo
     \item Liiketoiminnallinen visio
     \item Käyttäjäpalaute
+    \item Käyttäjän saama arvo
     \item Riski
     \item Projektin muuttumisen volatiliteetti
     \item Kehittämisen kompleksisuus
@@ -44,7 +45,7 @@ Lisäksi menetelmää käyttäen tuotetun painotetun verkon sisältämää infor
     }
   \]
 
-\section{Verkon karsiminen} \label{ch:10_verkon_karsiminen}
+\section{Djikstran algoritmi ja karsiminen} \label{ch:10_djikstran_algoritmi_ja_karsiminen}
 
   Painotetun verkon karsiminen eli leikkaaminen on prioriteeillä painotetun verkon tärkeä ominaisuus.
   Verkkoteorian soveltaminen prioriteettien avulla painotettuun verkkoon on erityisen hyödyllistä, kun verkon kaarissa korkea paino tarkoittaa suurta prioriteettia.
@@ -53,21 +54,14 @@ Lisäksi menetelmää käyttäen tuotetun painotetun verkon sisältämää infor
   Prioriteetein painotetun verkon karsimistarkoitukseen olisi järkevää valita sellaiset aloitus- ja lopetuspisteet, joiden välillä ei näyttäisi olevan korkean prioriteetin solmuja.
   Voidaan kuitenkin menetellä myös siten, että valitaan aloitus- ja lopetuspisteeksi sellaiset solmut, jotka ovat painoltaan verkon alhaisimmat \(v_1 = min(V)\) ja \(v_2 = min(V \setminus \{v_1\})\) ja esimerkiksi verrata niiden lyhimmän polun kokonaisprioriteettia muuhun verkkoon.
 
-  \subsection{Dijkstran algoritmin soveltaminen} \label{ch:10_djikstran_algoritmin_soveltaminen}
-
-    \begin{itemize}
-      \item Pienimmän prioriteetin solmuparin etsiminen, eli \(v_1 = min\{ \alpha(V) \}\) ja \(v_2 = min\{\alpha( V \setminus \{v_1\} \}\).
-      \item Dijkstran algoritmin käyttö lyhimmän (prioriteetiltaan pienimmän) polun löytämiseen, eli \(s = min( \gamma(P) ), P \in G\).
-      \item Leikkauksien tekeminen ja toistaminen \(n\)-kertaa.
-    \end{itemize}
-
-  \subsection{Leikkauksien tekeminen} \label{ch:10_leikkauksien_tekeminen}
-
-    \begin{itemize}
-      \item Poistetaan yhden yksittäiseen solmuun johtavat sillat, jossa \(\alpha(v) < aivan liian alhainen \).
-      \item Poistetaan kaikki yksittäiset eristetyt solmut, eli asteluku on nolla \(d_G(X) = 0\).
-      \item Poistetaan Dijkstran lyhimmän polun kaaret, jossa \(\beta(e) < liian alhainen \).
-    \end{itemize}
+  \begin{itemize}
+    \item Pienimmän prioriteetin solmuparin etsiminen, eli \(v_1 = min\{ \alpha(V) \}\) ja \(v_2 = min\{\alpha( V \setminus \{v_1\} \}\).
+    \item Dijkstran algoritmin käyttö lyhimmän (prioriteetiltaan pienimmän) polun löytämiseen, eli \(s = min( \gamma(P) ), P \in G\).
+    \item Leikkauksien tekeminen ja toistaminen \(n\)-kertaa.
+    \item Poistetaan yhden yksittäiseen solmuun johtavat sillat, jossa \(\alpha(v) < aivan liian alhainen \).
+    \item Poistetaan kaikki yksittäiset eristetyt solmut, eli asteluku on nolla \(d_G(X) = 0\).
+    \item Poistetaan Dijkstran lyhimmän polun kaaret, jossa \(\beta(e) < liian alhainen \).
+  \end{itemize}
 
 \section{Verkon ja testitapauksien yhteys} \label{ch:10_verkon_ja_testitapauksien_yhteys}
 

@@ -66,48 +66,63 @@ Lopuksi esitetään yleisestikin ottaen testitapauksiin tärkeästi liittyvä pr
 \section{Web-käyttöliittymien erityispiirteet} \label{ch:08_webkayttoliittymien_erityispiirteet}
 
   Web-käyttöliittymillä on omia erityispiirteitä, jotka vaikuttavat testitapauksien laatimiseen.
+  Nykypäivänä web-sovellukset ovat kasvaneet kompleksisuudessa ja front-end puolen toteutuksesta tarkasteltuna web-sovellukset usein muistuttavat jo perinteisiä työpöytäsovelluksia.
+  Web-sovelluksia päivitetään nykyään tiheään ja niille on suuri tarve luoda testiautomaatiota, jota hyödyntäen voidaan varmistaa että ne toimivat oikein muutoksien jälkeenkin.
 
   \begin{itemize}
     \item Käyttöliittymä ja DOM
     \item Hosting
     \item Näyttöresoluutiot
-    \item Navigointi
-    \item Syötteet
+    \item Navigointi ja navigointiketjut
+    \item Syötteet ja tietoturva
     \item Syntaksi
     \item Selainasetukset
+    \item Front-end ja backend suhteen nykymuutos
     \item Moniselaimellinen testaus
     \item Päätteetön testaus
   \end{itemize}
 
-\section{Robot Framework} \label{ch:08_robot_framework}
-
-  Robot framework on geneerinen avoimen lähdekoodin testausalusta hyväksymistestaukseen, hyväksymistestausvetoiseen kehitykseen ja robotisten prosessien automaatioon \parencite{noauthor_robot_nodate}.
-  Testialustana Robot frameworkilla on helposti ymmärrettävä, luettava ja selkeä avainsanaperustainen syntaksi.
-  Testialustan etuna on helppo lähestyttävyys ja sen pohjalle rakennettujen testitapauksien ymmärtäminen ei vaadi ohjelmakoodin ymmärtämistä.
-  Robot framework on Python-perustainen testialusta joka on helppo asentaa, sitä on helppoa ymmärtää, sillä on kattava dokumentaatio ja se on helppoa ottaa käyttöön.
-
-  Robot frameworkissa on sisäänrakennettu tuki ulkoisille kirjastoille ja dokumentaatiosta löytyy paljon tietoa omien avainsanojen ja omien kirjastojen tekemiseen.
-  Lisäksi Robot framework on todella suosittu ja sisäänrakennettujen ominaisuuksien lisäksi ulkoisia kolmansien osapuolien kirjastoja löytyy alustalle paljon.
-  Robot framework tukee muuttujien käyttöä testitapauksien rakentamisessa, joilla voi lisätä hieman kompleksisuutta ja logiikkaa omiin testitapauksiin.
-  Robot frameworkista löytyy myös tuki dataperustaisien testitapauksien rakentamiseen, joille annetaan eri syötteitä sisältävää testidataa.
-  Testitapauksia voi myös ryhmitellä testikokoelmiin käyttämällä tägejä testitapauksien sisällä.
-
-  \begin{figure}[H]
-    \centering
-    \includegraphics[width=0.4\textwidth]{assets/robot-arkkitehtuuri.png}
-    \caption{Robot framework alustan arkkitehtuuri}
-    \label{fig:robot-architecture}
-  \end{figure}
-
-  Robot frameworkillä rakennettuja testitapauksia voidaan ajaa komentoriviltä robot komennolla.
-  Testitapauksien ajaminen tulostaa komentoriville yksinkertaisen raportin testitapauksen onnistumisesta ja lisäksi tallettaa varsin yksityiskohtaisen ja selkeän testitaportin ajetuille testitapauksille.
-  Testiraportit ovat erittäin hyvin tehtyjä ja html-pohjaisia, joka tarkoittaa että ne voidaan helposti integroida osaksi jatkuvan integraation koontiputkia.
-  Yhtenä heikkoutena Robot frameworkissa on tuen puuttuminen ohjelmistokieliperustaisissa testikehyksissä löytyville kontrollirakenteille, joita esiintyy esimerkiksi yksikkötestaukseen tarkoitetuissa testikehyksissä.
-  Robot framework on selkeästi hyväksymistestauksen testitapauksien rakentamista varten tarkoitettu testialusta ja siinä se on erinomainen vaihtoehto testitapauksien rakentamiseen.
-
-\section{Selenium} \label{ch:08_selenium}
+\section{Hyväksymistestauksen työkalut} \label{ch:08_hyvaksymistestauksen_tyokalut}
 
   <TODO: Lisää sisältöä tähän..>
+
+  \subsection{Robot Framework} \label{ch:08_robot_framework}
+
+    Robot framework on geneerinen avoimen lähdekoodin testausalusta hyväksymistestaukseen, hyväksymistestausvetoiseen kehitykseen ja robotisten prosessien automaatioon \parencite{noauthor_robot_nodate}.
+    Testialustana Robot frameworkilla on helposti ymmärrettävä, luettava ja selkeä avainsanaperustainen syntaksi.
+    Testialustan etuna on helppo lähestyttävyys ja sen pohjalle rakennettujen testitapauksien ymmärtäminen ei vaadi ohjelmakoodin ymmärtämistä.
+    Robot framework on Python-perustainen testialusta joka on helppo asentaa, sitä on helppoa ymmärtää, sillä on kattava dokumentaatio ja se on helppoa ottaa käyttöön.
+
+    Robot frameworkissa on sisäänrakennettu tuki ulkoisille kirjastoille ja dokumentaatiosta löytyy paljon tietoa omien avainsanojen ja omien kirjastojen tekemiseen.
+    Lisäksi Robot framework on todella suosittu ja sisäänrakennettujen ominaisuuksien lisäksi ulkoisia kolmansien osapuolien kirjastoja löytyy alustalle paljon.
+    Robot framework tukee muuttujien käyttöä testitapauksien rakentamisessa, joilla voi lisätä hieman kompleksisuutta ja logiikkaa omiin testitapauksiin.
+    Robot frameworkista löytyy myös tuki dataperustaisien testitapauksien rakentamiseen, joille annetaan eri syötteitä sisältävää testidataa.
+    Testitapauksia voi myös ryhmitellä testikokoelmiin käyttämällä tägejä testitapauksien sisällä.
+
+    \begin{figure}[H]
+      \centering
+      \includegraphics[width=0.4\textwidth]{assets/robot-arkkitehtuuri.png}
+      \caption{Robot framework alustan arkkitehtuuri}
+      \label{fig:robot-architecture}
+    \end{figure}
+
+    Robot frameworkillä rakennettuja testitapauksia voidaan ajaa komentoriviltä robot komennolla.
+    Testitapauksien ajaminen tulostaa komentoriville yksinkertaisen raportin testitapauksen onnistumisesta ja lisäksi tallettaa varsin yksityiskohtaisen ja selkeän testitaportin ajetuille testitapauksille.
+    Testiraportit ovat erittäin hyvin tehtyjä ja html-pohjaisia, joka tarkoittaa että ne voidaan helposti integroida osaksi jatkuvan integraation koontiputkia.
+    Yhtenä heikkoutena Robot frameworkissa on tuen puuttuminen ohjelmistokieliperustaisissa testikehyksissä löytyville kontrollirakenteille, joita esiintyy esimerkiksi yksikkötestaukseen tarkoitetuissa testikehyksissä.
+    Robot framework on selkeästi hyväksymistestauksen testitapauksien rakentamista varten tarkoitettu testialusta ja siinä se on erinomainen vaihtoehto testitapauksien rakentamiseen.
+
+  \subsection{Selenium} \label{ch:08_selenium}
+
+    <TODO: Lisää sisältöä tähän..>
+
+  \subsection{GoCD} \label{ch:08_gocd}
+
+    <TODO: Lisää sisältöä tähän..>
+
+  \subsection{Docker} \label{ch:08_docker}
+
+    <TODO: Lisää sisältöä tähän..>
 
 \section{Testitapauksien määrittäminen} \label{ch:08_testitapauksien_maarittaminen}
 
@@ -140,4 +155,6 @@ Lopuksi esitetään yleisestikin ottaen testitapauksiin tärkeästi liittyvä pr
     \item Muut priorisointitavat
     \item heuristinen priorisointi
     \item moscow menetelmä
+    \item 3-tasoinen priorisointimenetelmä (pakollinen/hyödyllinen/toivottu)
+    \item pair-wise vertailu
   \end{itemize}
