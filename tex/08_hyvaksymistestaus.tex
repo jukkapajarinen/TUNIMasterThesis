@@ -169,19 +169,6 @@ Lopuksi esitetään yleisestikin ottaen testitapauksiin tärkeästi liittyvä pr
     Robot Frameworkille on saatavilla XvfbRobot niminen kirjasto, jota tämän diplomityön toteutuksessa käytettiin.
     XvfbRobot on kirjasto, josta löytyy Robot Frameworkin syntaksin mukaisesti määritellyt avainsanat Xvfb palvelimen kanssa kommunikoimiseen.
 
-  \subsection{GoCD} \label{ch:08_gocd}
-
-    % TODO: Kirjoita tämä kappale
-
-    \begin{itemize}
-      \item Mikä se on?
-      \item Mihin sitä käytetään?
-      \item Mitä hyötyjä siitä saadaan?
-      \item Sisäinen rakenne / yksityiskohtainen esittely
-      \item (Mitä heikkouksia siinä on?)
-      \item Yhden lauseen yhteenveto
-    \end{itemize}
-
   \subsection{Docker} \label{ch:08_docker}
 
     % TODO: Kirjoita tämä kappale
@@ -194,6 +181,28 @@ Lopuksi esitetään yleisestikin ottaen testitapauksiin tärkeästi liittyvä pr
       \item (Mitä heikkouksia siinä on?)
       \item Yhden lauseen yhteenveto
     \end{itemize}
+
+  \subsection{GoCD} \label{ch:08_gocd}
+
+    GoCD on avoimen lähdekoodin Apache 2.0 lisensoitu jatkuvan integroinnin ja jatkuvan julkaisemisen mahdollistava palvelinohjelmisto.
+    Ohjelmisto mahdollistaa koko koonti-testaus-julkaisu prosessin tai vain sen osien automatisoimisen.
+    GoCD palvelinta mainostetaan soveltuvan hyvin erityisesti jatkuvan julkaisemisen rakentamiseen.
+    GoCD on saman ThoughtWorks yhtiön kehittämä ohjelmisto, kuten aiemmin esitetty Selenium työkalukin \ref{ch:08_selenium}.
+
+    Koonti-testaus-julkaisu prosessin voi rakentaa GoCD-palvelimen graafisen käyttöliittymän kautta tai koodina käyttäen yaml tai json syntaksia.
+    Teknisesti GoCD palvelinohjelmisto koostuu itse palvelimesta ja agenteista, jotka voivat suorittaa palvelimen pyytämänä ennalta määritettyjä koonti-testaus-julkaisu prosessin tehtäviä.
+    Agentit on tarkoituksenmukaista sijoittaa eri järjestelmään kuin missä itse palvelin sijaitsee ja agenteille voi määrittää resurssiominaisuuksia, jotka kertovat palvelimelle mitä tehtäviä agenteilla voi teettää.
+    GoCD palvelinohjelmiston terminologia on hieman tavallisesta poikkeavaa ja erilainen esimerkiksi todella suositun Jenkins ohjelmiston vastaavista.
+    Koonti-testaus-julkaisu prosessin ylin käsite GoCD terminologiassa on putkiryhmä (englanniksi: pipeline group).
+    Putkiryhmän avulla yhteen kuuluvat putket (englanniksi: pipeline) voidaan järjestää samaan kokonaisuuteen.
+    GoCD terminologiassa yksittäinen putki vastaa esimerkiksi koontivaihetta tai testausvaihetta.
+    Yksittäisen putken alaisuudessa on vaiheita (englanniksi: stage), jotka antavat GoCD palvelimen käyttöliittymässä tiedon vaiheen onnistumisesta.
+    Vaiheet itsessään sisältävät vielä tehtäviä (englanniksi: job), jotka ovat yksittäisiä komentoja tai suoritettavia tehtäviä, jotka agentit pystyvät käsittelemään.
+    GoCD palvelimen terminologiaan kuuluvat vielä vahvasti artifaktit, jotka ovat tiedostoja mitä tehtävien suorittamisen yhteydessä syntyy ja jotka on merkitty säästettäväksi.
+    Esimerkkejä artifakteista ovat koontiversiot tai testiraportit.
+
+    Jatkuvan integraation yhteydessä tapahtuvan testiautomaation puolesta ei välttämättä ole suurta merkitystä mikä jatkuvan integraation mahdollistava palvelinohjelmisto on käytössä.
+    Tämä havainto tuli esiin kun tätä diplomityötä varten testiautomaatioon tarvittavat ohjelmistot säiliöitiin aiemmin esitetyllä Docker työkalulla, jota voidaan yhden testausvaiheen tehtävän aikana kutsua komentorivipohjaisesti.
 
 \section{Testitapauksien määrittäminen} \label{ch:08_testitapauksien_maarittaminen}
 
