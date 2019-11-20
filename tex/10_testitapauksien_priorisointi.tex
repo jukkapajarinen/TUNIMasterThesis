@@ -33,8 +33,11 @@ Lisäksi menetelmää käyttäen tuotetun painotetun verkon sisältämää infor
   Painofunktion polulle \(P\) solmusta \(v_1\) solmuun \(v_2\).
   \[\gamma(P) = \sum_{v \in P} \alpha(v) + \sum_{e \in P} \beta(e)\]
 
-  \section{Verkon rakentaminen} \label{ch:10_verkon_rakentaminen}
+\section{Verkon rakentaminen} \label{ch:10_verkon_rakentaminen}
 
+  % TODO: Esitä esimerkkinäkymät ja relaatiot
+
+  % TODO: Päivitä painomatriisi vastaamaan esimerkkiä
   \[
     M_G = (a_{ij})_{3\times3} =
     \bordermatrix{
@@ -44,6 +47,14 @@ Lisäksi menetelmää käyttäen tuotetun painotetun verkon sisältämää infor
       v_3 & 2 & 0 & 0 \cr
     }
   \]
+
+  % TODO: Päivitä kuva vastaamaan esimerkkiä
+  \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{assets/painotetun-verkon-esimerkki-ennen.png}
+    \caption{Esimerkki painotetusta verkosta ennen leikkauksia.}
+    \label{fig:painotetun-verkon-esimerkki-ennen}
+  \end{figure}
 
 \section{Djikstran algoritmi ja karsiminen} \label{ch:10_djikstran_algoritmi_ja_karsiminen}
 
@@ -62,6 +73,14 @@ Lisäksi menetelmää käyttäen tuotetun painotetun verkon sisältämää infor
     \item Poistetaan kaikki yksittäiset eristetyt solmut, eli asteluku on nolla \(d_G(X) = 0\).
     \item Poistetaan Dijkstran lyhimmän polun kaaret, jossa \(\beta(e) < liian alhainen \).
   \end{itemize}
+
+  % TODO: Päivitä kuva vastaamaan esimerkkiä
+  \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{assets/painotetun-verkon-esimerkki-jalkeen.png}
+    \caption{Esimerkki painotetusta verkosta leikkauksien jälkeen.}
+    \label{fig:painotetun-verkon-esimerkki-jalkeen}
+  \end{figure}
 
 \section{Verkon ja testitapauksien yhteys} \label{ch:10_verkon_ja_testitapauksien_yhteys}
 
