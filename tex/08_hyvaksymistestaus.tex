@@ -141,21 +141,33 @@ Lopuksi esitetään yleisestikin ottaen testitapauksiin tärkeästi liittyvä pr
     Selenium on todella tärkeä osa web-sovelluksien testitautomaation rakentamista, sillä se pohjimmiltaan mahdollistaa web-sovelluksien käyttöliittymien käsittelemisen automatisoidusti.
     Selenium työkalua voidaan käyttää erityisesti hyväksymistestauksen testitapauksien automatisoimiseen suoraan Selenium IDE:n avulla nauhoittaen testitapauksia tai kirjoittaen ne Selenium skriptauskielellä.
     Selenium on joustava työkalu ja se tarjoaa Selenium Client API rajapinnan, jonka avulla avulla sitä voidaan käyttää muistakin ohjelmointikielistä, kuten C\#, JavaScript tai Python.
+
     Tässä diplomityössä Selenium työkalua käytetään Robot Frameworkin yhteyteen integroituna ulkoisena kirjastona.
     Robot Frameworkille on saatavilla SeleniumLibrary niminen kirjasto, josta löytyy Robot Frameworkin syntaksin mukaisesti määritellyt avainsanat verkkoselainten ohjaamiseen Selenium pohjaisesti.
 
   \subsection{Xvfb} \label{ch:08_xvfb}
 
-    % TODO: Kirjoita tämä kappale
+    Xvfb, eli X virtual framebuffer, on X-näyttöpalvelimen protokollan toteuttava virtuaalinen X-näyttöpalvelin.
+    X-näyttöpalvelimen tehtävä on mahdollistaa graafisten ohjelmien toiminta käyttöjärjestelmän ytimen päällä, jossa X-palvelin ja X-asiakasohjelmat kommunikoivat keskenään sekä X-palvelin hoitaa ytimen avulla näytön ja syöttölaitteiden käsittelyn.
+    Xvfb ei tulosta mitään näytölle, vaan kaikki näytölle normaalisti tulostuva graafisia käyttöliittymiä sisältävä sisältö on ajonaikaisessa muistissa.
+    Xvfb toimii kuten tavallinenkin X-näyttöpalvelin, eli vastaa X-ohjelmien pyyntöihin ja hoitaa niihin liittyvän tapahtumien ja virheiden käsittelyn.
 
-    \begin{itemize}
-      \item Mikä se on?
-      \item Mihin sitä käytetään?
-      \item Mitä hyötyjä siitä saadaan?
-      \item Sisäinen rakenne / yksityiskohtainen esittely
-      \item (Mitä heikkouksia siinä on?)
-      \item Yhden lauseen yhteenveto
-    \end{itemize}
+    Xvfb soveltuu web-sovelluksien hyväksymistestauksen automatiointiin mahdollistaen päätteettömän testaamisen testitapauksille.
+    Päätteetöntä testausta voidaan toteuttaa myös verkkoselaimiin rakennettujen ominaisuuksien avulla, mutta Xvfb:n suurena etuna niihin on se, että sitä voidaan käyttää mihin tahansa graafiseen ohjelmaan.
+    Päätteettömän testauksen mahdollistaminen on erittäin tärkeää, sillä se mahdollistaa myös käyttöliittymätestauksen suorittamisen jatkuvan integroinnin palvelimilla, jossa ei graafista ympäristöä ajon aikana muuten olisi.
+
+    \begin{figure}[H]
+      \centering
+      \includegraphics[width=0.4\textwidth]{assets/x-nayttopalvelin-arkkitehtuuri.png}
+      \caption{X-näyttöpalvelimen arkkitehturinen sijainti käyttöjärjestelmässä}
+      \label{fig:x-nayttopalvelin-arkkitehtuuri}
+    \end{figure}
+
+    Yhtenä Xvfb heikkoutena on, että se on saatavilla vain UNIX pohjaisiin käyttöjärjestelmiin, kuten Linux ja MacOS.
+    Näin ollen esimerkiksi Windows alustalla toimivaa Internet Explorer selainta ei voida natiivisti testata.
+
+    Robot Frameworkille on saatavilla XvfbRobot niminen kirjasto, jota tämän diplomityön toteutuksessa käytettiin.
+    XvfbRobot on kirjasto, josta löytyy Robot Frameworkin syntaksin mukaisesti määritellyt avainsanat Xvfb palvelimen kanssa kommunikoimiseen.
 
   \subsection{GoCD} \label{ch:08_gocd}
 
