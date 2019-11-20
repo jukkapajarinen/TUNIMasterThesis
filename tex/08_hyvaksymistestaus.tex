@@ -126,16 +126,23 @@ Lopuksi esitetään yleisestikin ottaen testitapauksiin tärkeästi liittyvä pr
 
   \subsection{Selenium} \label{ch:08_selenium}
 
-    % TODO: Kirjoita tämä kappale
+    Selenium on suosittu avoimen lähdekoodin Apache 2.0 lisenssoitu työkalu ja kirjastokokelma verkkoselainten automatisoimiseen.
+    Ensisijaisesti se on tarkoitettu web-sovelluksien automatisoimiseen testaustarpeita varten, mutta se ei ole rajattu vain siihen \parencite{noauthor_selenium_nodate}.
+    Erityisen hyvin Selenium soveltuu hyväksymistestauksen testiautomaation rakentamiseen, sillä sen avulla automatisoidaan web-sovelluksien käyttöliittymissä tehtäviä toimenpiteitä.
+    Selenium on ThoughtWorks yhtiön kehittämä verkkoselainten automatisoimiseen tarkoitettu työkalujen ja kirjastojen kokoelma ja se on saatavilla Windows, Linux ja MacOS alustoille.
+    Sama yhtiö on toteuttanut myös tässä diplomityössä myöhemmin esitettävän GoCD ohjelmiston, jota voidaan käyttää jatkuvan integroimisen ja julkaiseminen rakentamiseen \ref{ch:08_gocd}.
 
-    \begin{itemize}
-      \item Mikä se on?
-      \item Mihin sitä käytetään?
-      \item Mitä hyötyjä siitä saadaan?
-      \item Sisäinen rakenne / yksityiskohtainen esittely
-      \item (Mitä heikkouksia siinä on?)
-      \item Yhden lauseen yhteenveto
-    \end{itemize}
+    Selenium tuoteperheeseen kuuluvat Selenium WebDriver, Selenium IDE ja Selenium Grid komponentit.
+    Selenium WebDriver on varsinainen web-sovelluksien automatioimiseen käytettävä ohjelmisto, jota myös tässä diplomityössä Selenium tuotteista käytetään.
+    Selenium IDE on kehitysympäristö ohjelmistokehittäjille ja testaajille, jota voidaan halutessaan käyttää testitapauksien laatimiseen.
+    Selenium Grid on järjestemä, jonka avulla voidaan Selenium pohjaisten testitapauksien suorittaminen skaalautuvasti hajauttaa useille etäkoneille.
+    Tässä diplomityössä ei ole käytetty Selenium Grid järjestelmää vaan testitapauksien suorittamiseen tarvittavat ohjelmistot on säiliöity Docker työkalua käyttäen, joka mahdollistaa tarvittaessa skaalautuvuuden \ref{ch:08_docker}.
+
+    Selenium on todella tärkeä osa web-sovelluksien testitautomaation rakentamista, sillä se pohjimmiltaan mahdollistaa web-sovelluksien käyttöliittymien käsittelemisen automatisoidusti.
+    Selenium työkalua voidaan käyttää erityisesti hyväksymistestauksen testitapauksien automatisoimiseen suoraan Selenium IDE:n avulla nauhoittaen testitapauksia tai kirjoittaen ne Selenium skriptauskielellä.
+    Selenium on joustava työkalu ja se tarjoaa Selenium Client API rajapinnan, jonka avulla avulla sitä voidaan käyttää muistakin ohjelmointikielistä, kuten C\#, JavaScript tai Python.
+    Tässä diplomityössä Selenium työkalua käytetään Robot Frameworkin yhteyteen integroituna ulkoisena kirjastona.
+    Robot Frameworkille on saatavilla SeleniumLibrary niminen kirjasto, josta löytyy Robot Frameworkin syntaksin mukaisesti määritellyt avainsanat verkkoselainten ohjaamiseen Selenium pohjaisesti.
 
   \subsection{Xvfb} \label{ch:08_xvfb}
 
@@ -186,15 +193,6 @@ Lopuksi esitetään yleisestikin ottaen testitapauksiin tärkeästi liittyvä pr
   Testitapauksen perusformaatti koostuu lähtötilanteesta, laukaisijasta ja verifikaatiosta.
   Lähtötilanteessa oletetaan jotakin ja seuraavassa vaiheessa seurataan kun jokin ehto tapahtuu, jonka jälkeen voidaan tarkistaa seuraus ja verifioida onko se oletuksen mukainen.
   Testitapauksien yleisiä tavoitteita ovat: yksinkertaisuus, läpinäkyvyys, käyttäjätietoisuus, epätoistuvuus, olettamattomuus, kattavuus, tunnistettavuus, jälkensä puhdistava, toistettava, syvyyttömyys ja atomisuus.
-
-  \noindent\begin{minipage}{\linewidth}
-  \renewcommand{\lstlistingname}{Koodi}
-  \lstinputlisting[
-    caption={Esimerkki testitapauksesta Robot frameworkillä},
-    label=code:robot-framework-testitapaus,
-    numbers=left
-  ]{assets/robot-framework-testitapaus.robot}
-  \end{minipage}
 
   Robot Frameworkin perustaja on kirjoittanut laajan ohjeistuksen siitä, miten Robot Frameworkiä käyttäen luodaan hyviä testitapauksia \parencite{klarck_how-to-write-good-test-cases_2019}.
   Klärckin ohjeistuksen pohjalta on huomioitavaa erityisesti testikokoelmien, testitapauksien ja avainsanojen nimeäminen jonka kuuluisi olla selkeää, kuvaavaa ja ytimekästä.
