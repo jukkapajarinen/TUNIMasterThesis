@@ -156,12 +156,12 @@ Lopuksi esitetään yleisestikin ottaen testitapauksiin tärkeästi liittyvä pr
     Päätteetöntä testausta voidaan toteuttaa myös verkkoselaimiin rakennettujen ominaisuuksien avulla, mutta Xvfb:n suurena etuna niihin on se, että sitä voidaan käyttää mihin tahansa graafiseen ohjelmaan.
     Päätteettömän testauksen mahdollistaminen on erittäin tärkeää, sillä se mahdollistaa myös käyttöliittymätestauksen suorittamisen jatkuvan integroinnin palvelimilla, jossa ei graafista ympäristöä ajon aikana muuten olisi.
 
-    \begin{figure}[H]
-      \centering
-      \includegraphics[width=0.4\textwidth]{assets/x-nayttopalvelin-arkkitehtuuri.png}
-      \caption{X-näyttöpalvelimen arkkitehturinen sijainti käyttöjärjestelmässä}
-      \label{fig:x-nayttopalvelin-arkkitehtuuri}
-    \end{figure}
+    % \begin{figure}[H]
+    %   \centering
+    %   \includegraphics[width=0.4\textwidth]{assets/x-nayttopalvelin-arkkitehtuuri.png}
+    %   \caption{X-näyttöpalvelimen arkkitehturinen sijainti käyttöjärjestelmässä}
+    %   \label{fig:x-nayttopalvelin-arkkitehtuuri}
+    % \end{figure}
 
     Yhtenä Xvfb heikkoutena on, että se on saatavilla vain UNIX pohjaisiin käyttöjärjestelmiin, kuten Linux ja MacOS.
     Näin ollen esimerkiksi Windows alustalla toimivaa Internet Explorer selainta ei voida natiivisti testata.
@@ -171,16 +171,29 @@ Lopuksi esitetään yleisestikin ottaen testitapauksiin tärkeästi liittyvä pr
 
   \subsection{Docker} \label{ch:08_docker}
 
-    % TODO: Kirjoita tämä kappale
+    Docker on säiliöinti (englanniksi: containerization) työkalu, jonka avulla on mahdollista luoda, rakentaa ja ajaa säiliöiden muotoon konfiguroituja sovelluksia.
+    Docker muistuttaa virtuaalikoneita, mutta se on kevyempi ja optimaalisempi, sillä se jakaa käyttöjärjestelmän saman ytimen eri säiliöiden kesken ja virtualisoi vain itse sovellusympäristön jonka säiliön konfiguraatio sisältää.
+    Säiliöiden sisään voidaan paketoida kaikki kokonaisen sovelluksen tarvitsemat ohjelmistot, kirjastot, ympäristöt, riippuvuudet ja itse sovelluksen ohjelmakoodi.
+    Säiliön rakentamalla ja käynnistämällä voidaan sitä käyttää konfiguraatioltaan samanalaisena eri ympäristöissä, joissa Docker ohjelmisto on saatavilla.
 
-    \begin{itemize}
-      \item Mikä se on?
-      \item Mihin sitä käytetään?
-      \item Mitä hyötyjä siitä saadaan?
-      \item Sisäinen rakenne / yksityiskohtainen esittely
-      \item (Mitä heikkouksia siinä on?)
-      \item Yhden lauseen yhteenveto
-    \end{itemize}
+    \begin{figure}[H]
+      \centering
+      \includegraphics[width=0.8\textwidth]{assets/docker-vs-virtual-machine.png}
+      \caption{Dockerin ja virtuaalikoneen eroavaisuus}
+      \label{fig:docker-vs-virtual-machine}
+    \end{figure}
+
+    Dockerfilen avulla voidaan luoda räätälöity säiliö, jota voidaan rakentaa yksi tai useampia instansseja.
+    Räätälöidyn säiliön etuna on etenkin se, että sen avulla saadaan sovellus joka on periaatteessa alustariippumaton.
+    Sovelluskehittäjät voivat käyttää samaa Docker konfiguraatiota rakentaakseen identtisiä säiliöitä sovelluskehityksen ajaksi tarviten vain Docker ohjelmiston.
+    Tämän lisäksi Docker mahdollistaa saman Docker konfiguratiion käyttämisen sovelluksen pystyttämiseen ja julkaisemiseen nopeasti sekä helposti eri lokaatioihin.
+    Docker compose on tapa rakentaa docker-verkko, joka koostuu palveluista jotka ovat joko valmiiksi tehtyjä docker imageja tai itse Dockerfilen avulla tehtyjä imageja.
+    Docker verkkoon voidaan myös lisätä yhteisiä tietosäilöjä, joita verkkoon kuuluvat palvelut voivat yhteishyödyntää.
+    Yksittäisen säiliön konfiguraation sisältämä Dockerfile ja kokonaisen docker-verkon konfiguraation sisältämä docker-compose tiedosto kirjoitetaan yaml-kielellä.
+
+    Tässä diplomityössä Dockeria käytettiin hyväksymistestauksen testitapauksien automatisoimiseen tarvittavien työkalujen säiliöinnissä.
+    Olemassa olevaan docker-verkkoon lisättiin hyväksymistestauksen testitapauksia varten tarkoitettu säiliö, joka hyödyntää Robot frameworkiä, Seleniumia, Xvfbää ja sisältää muun muassa testauksessa tarvittavat verkkoselaimet.
+    Dockeria käyttämällä siis pystyttiin luomaan monistettava ja uniikki hyväksymistestauksen automatisointiympäristö, jota voidaan käyttää jatkuvan integraation yhteydessä testitapauksien suorittamiseen.
 
   \subsection{GoCD} \label{ch:08_gocd}
 
