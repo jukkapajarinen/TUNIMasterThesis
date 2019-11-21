@@ -6,12 +6,25 @@ Tässä kappaleessa esitetään yhteenveto tutkimuksen tuloksista ja muun muassa
 
 \section{Menetelmän evaluointi} \label{ch:12_menetelman_evaluointi}
 
-  % Teksti tähän
+  \begin{itemize}
+    \item Priorisointimenetelmän toistettavuus
+  \end{itemize}
 
 \section{Toteutuksen evaluointi} \label{ch:12_toteutuksen_evaluointi}
 
-  % Teksti tähän
+  \begin{itemize}
+    \item Docker säiliönnin avulla tuki myös manuaaliselle testitapauksien ajamiselle
+    \item Docker säiliönnin avulla sovelluskehittäjät saavat valmiin hyväksymistestausjärjestelmän helposti käyttöönsä
+    \item Docker säiliöinnin takia toteutus ei ole sidottu CI palvelimeen
+    \item Xvfb virtualisoinnin avulla voidaan uusia verkkoselaimia lisätä helposti
+    \item Xvfb virtuallisoinnin avulla ei voida testata vain Windows ympäristöön saatavia GUI-ohjelmia
+    \item Robot framework takaa helpon luettavuuden kenelle tahansa, mutta ohjelmistokehittäjälle rajatun tuntuinen
+    \item Hyvä skaalautuvuus, docker säilöitä on helppo rakentaa ja GoCD agentteja lisätä
+  \end{itemize}
 
 \section{Jatkokehitysehdotukset} \label{ch:12_jatkokehitysehdotukset}
 
-  % Teksti tähän
+  \begin{itemize}
+    \item Xvfb:lle vastineen löytäminen Window ympäristöön
+    \item Parempi priorisointi muuttamalla näkymäperusteisuus käyttötapausperustaiseksi
+  \end{itemize}
