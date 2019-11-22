@@ -1,10 +1,11 @@
-Tässä kappaleessa esitetään yhteenveto tutkimuksen tuloksista ja muun muassa pohditaan kuinka hyvin toistettavissa oleva kyseinen kehitetty menetelmä on.
+Tässä kappaleessa esitetään yhteenveto tutkimuksen tuloksista ja muun muassa pohditaan kuinka hyvin soveltuva ja toistettavissa oleva kyseinen kehitetty menetelmä on.
 
 \section{Tutkimuksen konkreettiset tulokset} \label{ch:12_tutkimuksen_konkreettiset_tulokset}
 
   \begin{itemize}
     \item Web-käyttöliittymien hyväksymistestauksen automatisoimisen mahdollistava järjestelmä
-    \item Näkymäperustainen painotettua verkkoa hyödyntävä toistettvissa oleva priorisointimenetelmä sekä ohjelma
+    \item Näkymäperustainen painotettua verkkoa hyödyntävä toistettvissa oleva priorisointimenetelmä
+    \item Ohjelma, joka tekee menetelmää noudattaen priorisoinnin painomatriisin ja kattavuuden perusteella.
   \end{itemize}
 
 \section{Menetelmän evaluointi} \label{ch:12_menetelman_evaluointi}
@@ -12,7 +13,11 @@ Tässä kappaleessa esitetään yhteenveto tutkimuksen tuloksista ja muun muassa
   \begin{itemize}
     \item Priorisointimenetelmän toistettavuus
     \item Menetelmän avulla on mahdollista priorisoida näkymiä ja siirtymiä
+    \item Painotettu verkko voidaan piirtää, joka kasvattaa ymmärrystä järjestelmästä
     \item Testikattavuuden päättäminen näkymä- ja siirtymäperusteisesti voi olla haastavaa
+    \item Ei välttämättä ainakaan muokkauksia tekemättä geneerinen menetelmä
+    \item Menetelmän käyttö soveltuu testikokoelmien, ei testitapauksien, priorisointiin
+    \item Menetelmän käyttö on tehokkainta kun testitapaukset kategorisoidaan näkymittäin testikokoelmiin
   \end{itemize}
 
 \section{Toteutuksen evaluointi} \label{ch:12_toteutuksen_evaluointi}
@@ -32,4 +37,5 @@ Tässä kappaleessa esitetään yhteenveto tutkimuksen tuloksista ja muun muassa
   \begin{itemize}
     \item Xvfb:lle vastineen löytäminen Window ympäristöön
     \item Parempi priorisointi muuttamalla näkymäperusteisuus käyttötapausperustaiseksi
+    \item Näkymägraafien visualisointi ja muu priorisointiohjelman jatkokehittely
   \end{itemize}

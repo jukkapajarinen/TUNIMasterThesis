@@ -14,6 +14,8 @@ Lisäksi menetelmää käyttäen tuotetun painotetun verkon sisältämää infor
     \item Liiketoiminnallinen arvo
     \item Liiketoiminnallinen visio
     \item Käyttäjäpalaute
+    \item Käyttötapauksien määrä näkymässä
+    \item Näkymään johtavien siirtymien määrä
     \item Käyttäjän saama arvo
     \item Riski
     \item Projektin muuttumisen volatiliteetti
@@ -38,23 +40,25 @@ Lisäksi menetelmää käyttäen tuotetun painotetun verkon sisältämää infor
 \section{Verkon rakentaminen} \label{ch:10_verkon_rakentaminen}
 
   % TODO: Esitä esimerkkinäkymät ja relaatiot
-  <TODO: Esimerkki näkymistä, joista verkon solmut ja kaaret poimitaan>
-  \begin{figure}[H]
-    \centering
-    \includegraphics[width=0.8\textwidth]{assets/nakymat-ja-relaatiot.png}
-    \caption{Painotettu verkko muodostetaan näkymistä ja relaatioista}
-    \label{fig:nakymat-ja-relaatiot}
-  \end{figure}
+  <TODO: Miten verkon solmut ja kaaret poimitaan käyttöliittymästä>
+  <TODO: Selitä A-J näkymät, jota varten painomatriisi ja esimerkkigraafi on tehty.
 
   % TODO: Päivitä painomatriisi vastaamaan esimerkkiä
   <TODO: Esimerkki painomatriisista, jota käytetään priorisoinnin syötteenä>
   \[
-    M_G = (a_{ij})_{3\times3} =
+    M_G =
     \bordermatrix{
-      G & v_1 & v_2 & v_3 \cr
-      v_1 & 1 & 1 & 2 \cr
-      v_2 & 1 & 0 & 0 \cr
-      v_3 & 2 & 0 & 0 \cr
+      G & v_a & v_b & v_c & v_d & v_e & v_f & v_g & v_h & v_i & v_j \cr
+      v_a & 0 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 \cr
+      v_b & 1 & 0 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 \cr
+      v_c & 1 & 1 & 0 & 1 & 1 & 1 & 1 & 1 & 1 & 1 \cr
+      v_d & 1 & 1 & 1 & 0 & 1 & 1 & 1 & 1 & 1 & 1 \cr
+      v_e & 1 & 1 & 1 & 1 & 0 & 1 & 1 & 1 & 1 & 1 \cr
+      v_f & 1 & 1 & 1 & 1 & 1 & 0 & 1 & 1 & 1 & 1 \cr
+      v_g & 1 & 1 & 1 & 1 & 1 & 1 & 0 & 1 & 1 & 1 \cr
+      v_h & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 0 & 1 & 1 \cr
+      v_i & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 0 & 1 \cr
+      v_j & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 0 \cr
     }
   \]
 
@@ -62,9 +66,9 @@ Lisäksi menetelmää käyttäen tuotetun painotetun verkon sisältämää infor
   <TODO: Esimerkki painotetusta verkosta, jota käytetään priorisoinnin syötteenä>
   \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{assets/painotetun-verkon-esimerkki-ennen.png}
+    \includegraphics[width=0.8\textwidth]{assets/painotettu-verkko-ennen.png}
     \caption{Esimerkki painotetusta verkosta ennen leikkauksia}
-    \label{fig:painotetun-verkon-esimerkki-ennen}
+    \label{fig:painotettu-verkko-ennen}
   \end{figure}
 
 \section{Verkon karsiminen} \label{ch:10_verkon_karsiminen}
@@ -88,9 +92,9 @@ Lisäksi menetelmää käyttäen tuotetun painotetun verkon sisältämää infor
   % TODO: Päivitä kuva vastaamaan esimerkkiä
   \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{assets/painotetun-verkon-esimerkki-jalkeen.png}
+    \includegraphics[width=0.8\textwidth]{assets/painotettu-verkko-jalkeen.png}
     \caption{Esimerkki painotetusta verkosta leikkauksien jälkeen}
-    \label{fig:painotetun-verkon-esimerkki-jalkeen}
+    \label{fig:painotettu-verkko-jalkeen}
   \end{figure}
 
 \section{Verkon ja testitapauksien yhteys} \label{ch:10_verkon_ja_testitapauksien_yhteys}
