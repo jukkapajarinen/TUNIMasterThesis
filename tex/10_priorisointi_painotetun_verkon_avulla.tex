@@ -41,7 +41,18 @@ Lisäksi menetelmää käyttäen tuotetun painotetun verkon sisältämää infor
 
   % TODO: Esitä esimerkkinäkymät ja relaatiot
   <TODO: Miten verkon solmut ja kaaret poimitaan käyttöliittymästä>
+
   <TODO: Selitä A-J näkymät, jota varten painomatriisi ja esimerkkigraafi on tehty.
+  \begin{itemize}
+    \item \textbf{A:} Kirjautumisnäkymä
+    \item \textbf{B:} Pelivalikkonäkymä
+    \item \textbf{C:} Pelinäkymä
+    \item \textbf{D:} Asetusnäkymä
+    \item \textbf{E:} Ostonäkymä
+    \item \textbf{F:} Ohjenäkymä
+    \item \textbf{G:} Tulosnäkymä
+    \item \textbf{H:} Onnittelunäkymä
+  \end{itemize}
 
   % TODO: Päivitä painomatriisi vastaamaan esimerkkiä
   <TODO: Esimerkki painomatriisista, jota käytetään priorisoinnin syötteenä>
@@ -49,16 +60,16 @@ Lisäksi menetelmää käyttäen tuotetun painotetun verkon sisältämää infor
     M_G =
     \bordermatrix{
       G & v_a & v_b & v_c & v_d & v_e & v_f & v_g & v_h & v_i & v_j \cr
-      v_a & 0 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 \cr
-      v_b & 1 & 0 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 \cr
-      v_c & 1 & 1 & 0 & 1 & 1 & 1 & 1 & 1 & 1 & 1 \cr
-      v_d & 1 & 1 & 1 & 0 & 1 & 1 & 1 & 1 & 1 & 1 \cr
-      v_e & 1 & 1 & 1 & 1 & 0 & 1 & 1 & 1 & 1 & 1 \cr
-      v_f & 1 & 1 & 1 & 1 & 1 & 0 & 1 & 1 & 1 & 1 \cr
-      v_g & 1 & 1 & 1 & 1 & 1 & 1 & 0 & 1 & 1 & 1 \cr
-      v_h & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 0 & 1 & 1 \cr
-      v_i & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 0 & 1 \cr
-      v_j & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 0 \cr
+      v_a & \infty & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 \cr
+      v_b & 1 & \infty & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 \cr
+      v_c & 1 & 1 & \infty & 1 & 1 & 1 & 1 & 1 & 1 & 1 \cr
+      v_d & 1 & 1 & 1 & \infty & 1 & 1 & 1 & 1 & 1 & 1 \cr
+      v_e & 1 & 1 & 1 & 1 & \infty & 1 & 1 & 1 & 1 & 1 \cr
+      v_f & 1 & 1 & 1 & 1 & 1 & \infty & 1 & 1 & 1 & 1 \cr
+      v_g & 1 & 1 & 1 & 1 & 1 & 1 & \infty & 1 & 1 & 1 \cr
+      v_h & 1 & 1 & 1 & 1 & 1 & 1 & 1 & \infty & 1 & 1 \cr
+      v_i & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & \infty & 1 \cr
+      v_j & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & \infty \cr
     }
   \]
 
