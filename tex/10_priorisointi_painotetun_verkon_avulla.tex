@@ -3,39 +3,74 @@ Priorisointiin vaikuttavat muuttujat luvussa \ref{ch:10_priorisointiin_vaikuttav
 Lisäksi painofunktiot \ref{ch:10_painofunktiot_priorisointiin} ja verkon karsiminen \ref{ch:10_verkon_karsiminen} esittää vastaukset tutkimuskysymykseen \emph{T3}.
 Testitapauksien muodostaminen verkosta \ref{ch:10_testitapauksien_muodostaminen_verkosta} antaa osittaisen vastauksen myös tutkimuskysymykseen \emph{T4}.
 
-Priorisointia varten esitetään harkintaa käyttäen lähdeaineistosta suodatetut priorisointiin vaikuttavat muuttujat, painofunktio, testitapauksien näkymäperusteinen koostaminen ja painotetun verkon laatiminen.
-Lisäksi menetelmää käyttäen tuotetun painotetun verkon sisältämää informaatiota käytetään prioriteeteiltaan tärkeiden polkujen löytämiseen ja testikattavuuden arviointiin.
+Priorisointia varten esitetään harkintaa käyttäen valitut priorisointiin vaikuttavat muuttujat, niitä käyttävät painofunktiot, verkon rakentaminen ja karsiminen sekä verkon ja testitapauksien yhteys.
+Lisäksi menetelmää käyttäen tuotetun painotetun verkon sisältämää informaatiota käytetään prioriteeteiltaan tärkeimmän polun löytämiseen.
 
 \section{Priorisointiin vaikuttavat muuttujat} \label{ch:10_priorisointiin_vaikuttavat_muuttujat}
 
-  Näkymä- ja siirtymäperustaiseen priorisointiin vaikuttavat muun muassa seuraavat muuttujat.
+  Näkymä- ja siirtymäperustaiseen priorisointiin vaikuttavat monet eri asiat, joista osa kasvattaa prioriteettia ja osa laskee sitä.
+  Prioriteettia kasvattava muuttuja on esimerkiksi liiketoiminnallinen arvo ja laskeva muuttuja on esimerkiksi projektin muutosherkkyys.
+  Muuttujat ovat kuitenkin hyvin kontekstiriippuvaisia, joten yleispätevää ja kaikkiin tilanteisiin soveltuvaa listaa muuttujista on hankala antaa.
+  Kontekstiriippuvaisuuden takia muuttujiin ja myöhemmin esitettäviin painofunktioihin on varattu paikka omille lisämuuttujille.
 
-  \begin{itemize}
-    \item Liiketoiminnallinen arvo
-    \item Liiketoiminnallinen visio
-    \item Käyttäjäpalaute
-    \item Käyttötapauksien määrä näkymässä
-    \item Näkymään johtavien siirtymien määrä
-    \item Käyttäjän saama arvo
-    \item Riski
-    \item Projektin muuttumisen volatiliteetti
-    \item Kehittämisen kompleksisuus
-    \item Vaatimusten taipumus virheellisyyteen
-  \end{itemize}
+  Tässä diplomityössä esiteltävää priorisointimenetelmää varten jokainen priorisointiin vaikuttava muuttuja arvioidaan asteikolla 1-10, paria poikkeusta lukuun ottamatta.
+  Numeerisella asteikolla on tarkoitus antaa korkea numero, jos muuttuja on prioriteetiltaan tärkeä kyseisen näkymän, eli verkon solmun kohdalla.
+  Jos jokin muuttuja ei ole kelpoinen siinä kontekstissa, jossa menetelmää yritetään hyödyntää, tulee muuttujan arvo asettaa nollaksi, jolloin se sivuutetaan painofunktiossa \ref{ch:10_painofunktiot_priorisointiin}.
+
+  Poikkeukselliset muuttujat ovat käyttötapauksien määrä ja siirtymien määrä, joissa numeerisen asteikon sijaan käytetään kyseisten muuttujien määrää suhteessa koko verkkoon.
+  Esimerkiksi siirtymien määrää ilmaiseva suhde määritetään laskemalla solmun asteluku \(d_G(v)\), eli solmuun liittyneiden kaarien määrä, jaettuna kaikilla verkossa olevien kaarien määrällä.
+  Lisäksi siirtymien määrän suhde vielä kerrotaan luvulla 10, jotta se saadaan skaalautumaan muiden muuttujien kanssa samalle tasolle.
+
+  \begin{table}[H]
+    \caption{Priorisointiin vaikuttavat muuttujat}
+    \label{tab:priorisointiin_vaikuttavat_muuttujat}
+    \centering
+    \begin{tabular}{lllll} \hline
+    \textbf{m} & \textbf{Muuttuja} & \textbf{Etumerkki} & \textbf{Asteikko} &  \\ \hline
+    \textbf{1} & Liiketoiminnallinen arvo & + & 1 - 10 &  \\
+    \textbf{2} & Liiketoiminnallinen visio & + & 1 - 10 &  \\
+    \textbf{3} & Positiivinen käyttäjäpalaute & + & 1 - 10 &  \\
+    \textbf{4} & Käyttötapauksien määrä & + & 10 \(\cdot\) suhde &  \\
+    \textbf{5} & Siirtymien määrä & + & 10 \(\cdot\) suhde &  \\
+    \textbf{6} & Negatiivinen käyttäjäpalaute & - & 1 - 10 &  \\
+    \textbf{7} & Projektin muutosherkkyys & - & 1 - 10 &  \\
+    \textbf{8} & Toteuttamisen kompleksisuus & - & 1 - 10 &  \\
+    \textbf{9} & Toteutuksen virheherkkyys & - & 1 - 10 &  \\
+    \textbf{10} & Omat lisämuuttujat & \(\pm\) & 1 - 10 &  \\ \hline
+    \end{tabular}
+  \end{table}
 
 \section{Painofunktiot priorisointiin} \label{ch:10_painofunktiot_priorisointiin}
 
-  Painofunktion yleinen kuvaus verkossa \(G\), solmuille \(V\) ja kaarille \(E\).
-  \[\alpha := V(G), E(G) \rightarrow \mathbb{N}\]
+  Painofunktioiden määrittäminen on tärkeä osa painotetun verkon avulla priorisointia, sillä niiden avulla määritetään verkon solmujen ja kaarien prioriteetit.
+  Tavanomaisesti numeerinen prioriteetti usein mielletään olevan korkea, jos priorisoitu muuttuja on tärkeä.
+  Painotettujen verkkojen tapauksessa on kuitenkin järkevää vaihtaa numeerisen prioriteetin suuntaa, jotta painotettuun verkoon sovellettavat lyhimmän polun algoritmit toimisivat etsien prioriteetiltaan tärkeitä polkuja. Ennen prioriteetin suunnanvaihtoa, voidaan kokonaisprioriteetti \(p\) yksittäiselle solmulle \(v\), eli näkymälle määrittää seuraavasti.
 
-  Painofunktio yksittäiselle solmulle \(v\), eli näkymälle.
-  \[\alpha(v) = value + vision \pm feedback - volatility - complexity - errorness\]
+  \[p(v) = \sum_{i=1}^{5} m_i - \sum_{j=6}^{9} m_j \pm m_{10}\]
 
-  Painofunktio yksittäiselle kaarelle \(e\), eli siirtymälle.
-  \[\beta(e) = value - volatility - complexity - errorness\]
+  Prioriteetin suunnan vaihtamiseksi suuresta pieneen, säilyttäen kuitenkin prioriteetin sisältämän informaation, voi hoitaa käänteislukujen avulla.
+  Ennen käänteisluvuksi muuttamista, prioriteettiin vaikuttavien muuttujien yhteenlaskettu summa voi olla ongelmallisesti negatiivinen tai nolla.
+  Negatiiviset arvot eivät ole painotetun verkon kannalta erityisen järkeviä, sillä tässä diplomityössä hyödynnettävää Dijkstran algoritmia ei voida käyttää negatiivisien painojen kanssa.
+  Dijkstran algoritmin toiminta nollan tapauksessa voi kuulostaa epäilyttävältä, kuten esimerkiksi tilanne, jossa painotetun verkon kaikki painot olisivat nollia.
+  Dijkstran algoritmin tapauksessa tällainen verkko on kuitenkin sallittu, koska silloin lyhimmän polun ratkaisu on kaikki verkon solmut.
+  Lyhimmän polun ongelman erityisvaatimusten lisäksi käänteislukua varten nolla on huono arvo siinä mielessä, että sille ei ole olemassa lainkaan käänteislukua.
+  Nämä molemmat ongelmatapaukset voidaan painofunktiossa ratkaista siten, että käänteisfunktiota ei etsitä, vaan korvataan painofunktion tulos nollalla.
 
-  Painofunktion polulle \(P\) solmusta \(v_1\) solmuun \(v_2\).
-  \[\gamma(P) = \sum_{v \in P} \alpha(v) + \sum_{e \in P} \beta(e)\]
+  Painofunktio yksittäiselle solmulle \(v\), eli näkymälle saadaan solmun kokonaisprioriteetin \(p(v)\) käänteislukuna.
+
+  \[\alpha(v) = \begin{cases}
+    p^{-1}(v) & p(v) > 0 \\
+    0 & p(v) \leq 0
+  \end{cases}\]
+
+  Painofunktio yksittäiselle solmut \(v_1\) ja \(v_2\) yhdistävälle kaarelle \(e\), eli siirtymälle saadan myös käänteislukuna.
+  Kaaren painofunktiota varten pitää kuitenkin huomioida, että sen kokonaisprioriteetti on kaaren solmujen kokonaisprioriteetin summa \(p(v_1) + p(v_2)\).
+  Kaaren kokonaisprioriteetti \(p(v_1) + p(v_2)\) pitää laskea ennen käänteisluvuksi muuttamista.
+
+  \[\beta(v) = \begin{cases}
+    (p(v_1) + p(v_2))^{-1} & p(v_1) + p(v_2) > 0 \\
+    0 & p(v_1) + p(v_2) \leq 0
+  \end{cases}\]
 
 \section{Verkon rakentaminen} \label{ch:10_verkon_rakentaminen}
 
@@ -107,6 +142,10 @@ Lisäksi menetelmää käyttäen tuotetun painotetun verkon sisältämää infor
     \caption{Esimerkki painotetusta verkosta leikkauksien jälkeen}
     \label{fig:painotettu-verkko-jalkeen}
   \end{figure}
+
+\section{Dijkstran algoritmin hyödyntäminen} \label{ch:10_dijkstran_algoritmin_hyodyntaminen}
+
+  <TODO: Valitaan min v1 ja v2 ja käytetään dijkstran algoritmia niille>
 
 \section{Verkon ja testitapauksien yhteys} \label{ch:10_verkon_ja_testitapauksien_yhteys}
 
