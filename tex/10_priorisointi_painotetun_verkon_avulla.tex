@@ -46,7 +46,7 @@ Lisäksi menetelmää käyttäen tuotetun painotetun verkon sisältämää infor
   Tavanomaisesti numeerinen prioriteetti usein mielletään olevan korkea, jos priorisoitu muuttuja on tärkeä.
   Painotettujen verkkojen tapauksessa on kuitenkin järkevää vaihtaa numeerisen prioriteetin suuntaa, jotta painotettuun verkoon sovellettavat lyhimmän polun algoritmit toimisivat etsien prioriteetiltaan tärkeitä polkuja. Ennen prioriteetin suunnanvaihtoa, voidaan kokonaisprioriteetti \(p\) yksittäiselle solmulle \(v\), eli näkymälle määrittää seuraavasti.
 
-  \[p(v) = \sum_{i=1}^{5} m_i - \sum_{j=6}^{9} m_j \pm m_{10}\]
+  \[p(v) = \sum\limits_{i=1}^{5} m_i - \sum\limits_{j=6}^{9} m_j \pm m_{10}\]
 
   Prioriteetin suunnan vaihtamiseksi suuresta pieneen, säilyttäen kuitenkin prioriteetin sisältämän informaation, voi hoitaa käänteislukujen avulla.
   Ennen käänteisluvuksi muuttamista, prioriteettiin vaikuttavien muuttujien yhteenlaskettu summa voi olla ongelmallisesti negatiivinen tai nolla.
@@ -139,15 +139,19 @@ Lisäksi menetelmää käyttäen tuotetun painotetun verkon sisältämää infor
   Verkon karsimista varten valitaan kattavuus, joka vastaa minimirajaa ja jonka jälkeen karsiminen lopetetaan.
   Kattavuus tarkoittaa myös testikattavuutta testikokoelmien näkökulmasta, sillä painotetussa verkossa jokainen solmu, eli näkymä vastaa näkymän mukaan kategorisoitua testikokoelmaa.
 
-  \begin{itemize}
-    % \item Pienimmän prioriteetin solmuparin etsiminen, eli \(v_1 = min\{ \alpha(V) \}\) ja \(v_2 = min\{\alpha( V \setminus \{v_1\} \}\).
-    % \item Dijkstran algoritmin käyttö lyhimmän (prioriteetiltaan pienimmän) polun löytämiseen, eli \(s = min( \gamma(P) ), P \in G\).
-    % \item Leikkauksien tekeminen ja toistaminen \(n\)-kertaa.
-    % \item Poistetaan yhden yksittäiseen solmuun johtavat sillat, jossa \(\alpha(v) < aivan liian alhainen \).
-    % \item Poistetaan kaikki yksittäiset eristetyt solmut, eli asteluku on nolla \(d_G(X) = 0\).
-    % \item Poistetaan Dijkstran lyhimmän polun kaaret, jossa \(\beta(e) < liian alhainen \).
-    \item
-  \end{itemize}
+  Verkkoon tehtäviä leikkauksia varten tarvitsee määrittää haluttu kattavuus \(0 \leq c \leq 100\), joka on prosentuaalinen luku siitä kuinka suuri osa verkon solmuista eli näkymistä tai testikokoelmista täytyy verkkoon jäädä karsimisen jälkeenkin. Leikkauksien tekeminen ja toistaminen suoritetaan käyttäen seuraavia toimenpiteitä \(n\)-kertaa, niin kauan kunnes karsittu aliverkko on suurempi kuin kattavuuden mukaan laskettu osuus alkuperäisestä verkosta tai jos iteraatiokerralla ei enää löydy toimenpiteillä poistettavia solmuja.
+  \[|V(G_s)| > c \cdot \frac{|V(G)|}{100}, G_s \subset G\]
+
+  Tässä verkon karsimisen esimerkissä kattavuutena käytetään \(c = 80\), joka tarkoittaa esimerkin solmujen määrän \(7\) karsimista \(80 \cdot \frac{7}{100} = 5.6\), eli lukumäärään \(5\) asti.
+
+  \begin{enumerate}
+    \item Poistetaan verkosta löytyvä eristetty solmu, eli solmu jonka asteluku on nolla.
+    \[d_G(v) = 0\]
+    \item Poistetaan verkosta löytyvä sillattu solmu, eli solmu jonka asteluku on yksi ja paino on pienempi kuin solmujen painojen keskiarvo.
+    \[d_G(v) = 1  \land \alpha(v) > \frac{1}{|V(G)|} \cdot \sum\limits_{v \in V(G)} \alpha(v)\]
+    \item Poistetaan verkosta sellainen alhaisimman prioriteetin solmu, jonka asteluku on pienempi kuin solmujen astelukujen keskiarvo ja paino on pienempi kuin solmujen painojen keskiarvo.
+    \[d_G(v) < max\{d_G(x) | x \in V(G)\} \land \alpha(v) > \frac{1}{|V(G)|} \cdot \sum\limits_{v \in V(G)} \alpha(v)\]
+  \end{enumerate}
 
   % TODO: Päivitä kuva vastaamaan esimerkkiä
   \begin{figure}[H]
