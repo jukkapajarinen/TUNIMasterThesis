@@ -165,10 +165,10 @@ Lisäksi menetelmää käyttäen tuotetun painotetun verkon sisältämää infor
 
   Priorisointimenetelmän mukaan karsittuun painotettuun verkkoon on mahdollista soveltaa lyhimmän polun ongelman ratkaisemiseen kehitettyjä algoritmeja, jolloin ne toimivat etsien alhaisimman, eli korkeimman prioriteetin polkuja.
   Lyhimmän polun etsimiseen on tarkoituksenmukaista valita aina aloitus ja lopetuspisteet, joiden välille lyhin polku verkossa voidaan etsiä.
-  Prioriteetein painotetun verkon tärkeimpien solmujen selvittämistä varten olisi järkevää valita sellaiset aloitus- ja lopetuspisteet, joiden välillä ei näyttäisi olevan korkean painon, eli alhaisen prioriteetin solmuja.
 
   \begin{itemize}
-    \item <TODO: Valitaan min v1 ja v2 ja käytetään dijkstran algoritmia niille>
+    \item Valitaan \(min\{\alpha(v_1) | v_1 \in V(G)\}\) ja \(min\{\alpha(v_2) | v_2 \in V(G), v_1 \neq v_2\}\) sekä etsitään Dijkstran algoritmin avulla niiden välinen lyhin polku.
+    \item Dijkstran algoritmi kahdelle painoltaan pienimmälle, eli prioriteetiltaan korkeimmalle antaa tuloksena \(v_1\) ja \(v_2\) solmuja yhdistävän polun, jonka sisältävät solmut eli näkymät ovat prioriteetiltaan tärkeimmät.
   \end{itemize}
 
 \section{Verkon ja testitapauksien yhteys} \label{ch:10_verkon_ja_testitapauksien_yhteys}
