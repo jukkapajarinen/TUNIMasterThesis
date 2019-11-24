@@ -27,15 +27,15 @@ Lisäksi menetelmää käyttäen tuotetun painotetun verkon sisältämää infor
     \centering
     \begin{tabular}{lllll} \hline
     \(m\) & \textbf{Muuttuja} & \textbf{Etumerkki} & \textbf{Asteikko} &  \\ \hline
-    \textbf{1} & Liiketoiminnallinen arvo & + & 1 - 10 &  \\
-    \textbf{2} & Liiketoiminnallinen visio & + & 1 - 10 &  \\
-    \textbf{3} & Negatiivinen käyttäjäpalaute & + & 1 - 5 &  \\
-    \textbf{4} & Käyttötapauksien määrä & + & 10 \(\cdot\) suhde &  \\
-    \textbf{5} & Siirtymien määrä & + & 10 \(\cdot\) suhde &  \\
-    \textbf{6} & Positiivinen käyttäjäpalaute & - & 1 - 5 &  \\
-    \textbf{7} & Muutosherkkyys & - & 1 - 10 &  \\
-    \textbf{8} & Toteuttamisen kompleksisuus & - & 1 - 5 &  \\
-    \textbf{9} & Toteutuksen virheherkkyys & - & 1 - 5 &  \\
+    \textbf{1} & Liiketoiminnallinen arvo & \(+\) & 1 - 10 &  \\
+    \textbf{2} & Liiketoiminnallinen visio & \(+\) & 1 - 10 &  \\
+    \textbf{3} & Negatiivinen käyttäjäpalaute & \(+\) & 1 - 5 &  \\
+    \textbf{4} & Käyttötapauksien määrä & \(+\) & 10 \(\cdot\) suhde &  \\
+    \textbf{5} & Siirtymien määrä & \(+\) & 10 \(\cdot\) suhde &  \\
+    \textbf{6} & Positiivinen käyttäjäpalaute & \(-\) & 1 - 5 &  \\
+    \textbf{7} & Muutosherkkyys & \(-\) & 1 - 10 &  \\
+    \textbf{8} & Toteuttamisen kompleksisuus & \(-\) & 1 - 5 &  \\
+    \textbf{9} & Toteutuksen virheherkkyys & \(-\) & 1 - 5 &  \\
     \textbf{10} & Omat lisämuuttujat & \(\pm\) & 1 - 10 & \\ \hline
     \end{tabular}
   \end{table}
@@ -76,26 +76,30 @@ Lisäksi menetelmää käyttäen tuotetun painotetun verkon sisältämää infor
 \section{Verkon rakentaminen} \label{ch:10_verkon_rakentaminen}
 
   % TODO: Miten verkon solmut ja kaaret poimitaan käyttöliittymästä ja taulukon esittely
-  <TODO: Miten verkon solmut ja kaaret poimitaan käyttöliittymästä>
+  \begin{itemize}
+    \item <TODO: Kirjoita teksti miten verkon solmut ja kaaret poimitaan käyttöliittymästä>
+  \end{itemize}
 
   \begin{table}[H]
     \caption{Esimerkkiverkon näkymät, siirtymät ja priorisointimuuttujat}
     \label{tab:esimerkki_verkon_priorisointi_muuttujat}
     \centering
     \begin{tabular}{lllllllllllll} \hline
-    \(n\) & \textbf{Näkymä} & \textbf{Siirtymät} & \(m_1\) & \(m_2\) & \(m_3\) & \(m_4\) & \(m_5\) & \(m_6\) & \(m_7\) & \(m_8\) & \(m_9\) \\ \hline
-    \textbf{A} & Kirjautuminen & B & 10 & 10 & 0 & 2 & 1 & 0 & 5 & 5 & 5 \\
-    \textbf{B} & Pelivalikko & A, C, D, G & 8 & 10 & 1 & 2 & 4 & 4 & 5 & 5 & 5 \\
-    \textbf{C} & Asetukset & A, B & 4 & 6 & 5 & 2 & 2 & 2 & 5 & 5 & 5 \\
-    \textbf{D} & Peli & B, E, G & 10 & 10 & 4 & 2 & 3 & 4 & 4 & 5 & 5 \\
-    \textbf{E} & Tulokset & B, D, F & 6 & 8 & 0 & 2 & 3 & 5 & 5 & 4 & 5 \\
-    \textbf{F} & Onnittelu & B, E & 1 & 8 & 0 & 0 & 2 & 2 & 5 & 2 & 5 \\
-    \textbf{G} & Ohje & B, D & 1 & 10 & 2 & 0 & 2 & 0 & 8 & 0 & 0 \\ \hline
+    \(n\) & \textbf{Näkymä} & \textbf{Siirtymät} & \(m_1\) & \(m_2\) & \(m_3\) & \(m_4\) & \(m_5\) & \(m_6\) & \(m_7\) & \(m_8\) & \(m_9\) & \(p(n)\) \\ \hline
+    \textbf{A} & Kirjautuminen & B & 10 & 10 & 0 & 2 & 1 & 0 & 5 & 5 & 5 & 8 \\
+    \textbf{B} & Pelivalikko & A, C, D, G & 8 & 10 & 1 & 2 & 4 & 4 & 5 & 5 & 5 & 6 \\
+    \textbf{C} & Asetukset & A, B & 4 & 6 & 5 & 2 & 2 & 2 & 5 & 5 & 5 & 2 \\
+    \textbf{D} & Peli & B, E, G & 10 & 10 & 4 & 2 & 3 & 4 & 4 & 5 & 5 & 11 \\
+    \textbf{E} & Tulokset & B, D, F & 6 & 8 & 0 & 2 & 3 & 5 & 5 & 4 & 5 & 2 \\
+    \textbf{F} & Onnittelu & B, E & 1 & 8 & 0 & 0 & 2 & 2 & 5 & 2 & 5 & -3 \\
+    \textbf{G} & Ohje & B, D & 1 & 10 & 2 & 0 & 2 & 0 & 8 & 0 & 0 & 7 \\ \hline
     \end{tabular}
   \end{table}
 
   % TODO: Päivitä painomatriisi vastaamaan esimerkkiä
-  <TODO: Esimerkki painomatriisista, jota käytetään priorisoinnin syötteenä>
+  \begin{itemize}
+    \item <TODO: Kirjoita teksti esimerkkille painomatriisista, jota käytetään priorisoinnin syötteenä>
+  \end{itemize}
 
   Painomatriisin painot on laskettu käyttäen aiemmin esitettyjä painofunktioita \(\alpha\) ja \(\beta\).
 
@@ -116,7 +120,11 @@ Lisäksi menetelmää käyttäen tuotetun painotetun verkon sisältämää infor
   \]
 
   % TODO: Päivitä kuva vastaamaan esimerkkiä
-  <TODO: Esimerkki painotetusta verkosta, jota käytetään priorisoinnin syötteenä>
+  \begin{itemize}
+    \item <TODO: Kirjoita teksti esimerkille painotetusta verkosta, jota käytetään priorisoinnin syötteenä>
+    \item <TODO: Kirjoita teksti, että painomatriisin lisäksi jokaiselle solmulle annetaan \(\alpha(v)\) mukainen paino lopulliseen graafiin>
+  \end{itemize}
+
   \begin{figure}[H]
     \centering
     \includegraphics[width=0.6\textwidth]{assets/painotettu-verkko-ennen.png}
@@ -127,19 +135,18 @@ Lisäksi menetelmää käyttäen tuotetun painotetun verkon sisältämää infor
 \section{Verkon karsiminen} \label{ch:10_verkon_karsiminen}
 
   Painotetun verkon karsiminen eli leikkaaminen on prioriteeillä painotetun verkon tärkeä ominaisuus.
-  Verkkoteorian soveltaminen prioriteettien avulla painotettuun verkkoon on erityisen hyödyllistä, kun verkon kaarissa korkea paino tarkoittaa suurta prioriteettia.
-  Tällaisessa tapauksessa on mahdollista soveltaa lyhimmän polun ongelman ratkaisemiseen kehitettyjä algoritmeja, jolloin ne toimivat etsien alhaisimman prioriteetin polkuja.
-  Lyhimmän polun etsimiseen on tarkoituksenmukaista valita aina aloitus ja lopetuspisteet, joiden välille lyhin polku verkossa voidaan etsiä.
-  Prioriteetein painotetun verkon karsimistarkoitukseen olisi järkevää valita sellaiset aloitus- ja lopetuspisteet, joiden välillä ei näyttäisi olevan korkean prioriteetin solmuja.
-  Voidaan kuitenkin menetellä myös siten, että valitaan aloitus- ja lopetuspisteeksi sellaiset solmut, jotka ovat painoltaan verkon alhaisimmat \(v_1 = min(V)\) ja \(v_2 = min(V \setminus \{v_1\})\) ja esimerkiksi verrata niiden lyhimmän polun kokonaisprioriteettia muuhun verkkoon.
+  Verkkoteorian soveltaminen prioriteettien avulla painotettuun verkkoon on erityisen hyödyllistä, kun verkon kaarissa alhainen paino tarkoittaa suurta prioriteettia.
+  Verkon karsimista varten valitaan kattavuus, joka vastaa minimirajaa ja jonka jälkeen karsiminen lopetetaan.
+  Kattavuus tarkoittaa myös testikattavuutta testikokoelmien näkökulmasta, sillä painotetussa verkossa jokainen solmu, eli näkymä vastaa näkymän mukaan kategorisoitua testikokoelmaa.
 
   \begin{itemize}
-    \item Pienimmän prioriteetin solmuparin etsiminen, eli \(v_1 = min\{ \alpha(V) \}\) ja \(v_2 = min\{\alpha( V \setminus \{v_1\} \}\).
-    \item Dijkstran algoritmin käyttö lyhimmän (prioriteetiltaan pienimmän) polun löytämiseen, eli \(s = min( \gamma(P) ), P \in G\).
-    \item Leikkauksien tekeminen ja toistaminen \(n\)-kertaa.
-    \item Poistetaan yhden yksittäiseen solmuun johtavat sillat, jossa \(\alpha(v) < aivan liian alhainen \).
-    \item Poistetaan kaikki yksittäiset eristetyt solmut, eli asteluku on nolla \(d_G(X) = 0\).
-    \item Poistetaan Dijkstran lyhimmän polun kaaret, jossa \(\beta(e) < liian alhainen \).
+    % \item Pienimmän prioriteetin solmuparin etsiminen, eli \(v_1 = min\{ \alpha(V) \}\) ja \(v_2 = min\{\alpha( V \setminus \{v_1\} \}\).
+    % \item Dijkstran algoritmin käyttö lyhimmän (prioriteetiltaan pienimmän) polun löytämiseen, eli \(s = min( \gamma(P) ), P \in G\).
+    % \item Leikkauksien tekeminen ja toistaminen \(n\)-kertaa.
+    % \item Poistetaan yhden yksittäiseen solmuun johtavat sillat, jossa \(\alpha(v) < aivan liian alhainen \).
+    % \item Poistetaan kaikki yksittäiset eristetyt solmut, eli asteluku on nolla \(d_G(X) = 0\).
+    % \item Poistetaan Dijkstran lyhimmän polun kaaret, jossa \(\beta(e) < liian alhainen \).
+    \item
   \end{itemize}
 
   % TODO: Päivitä kuva vastaamaan esimerkkiä
@@ -152,7 +159,13 @@ Lisäksi menetelmää käyttäen tuotetun painotetun verkon sisältämää infor
 
 \section{Dijkstran algoritmin hyödyntäminen} \label{ch:10_dijkstran_algoritmin_hyodyntaminen}
 
-  <TODO: Valitaan min v1 ja v2 ja käytetään dijkstran algoritmia niille>
+  Priorisointimenetelmän mukaan karsittuun painotettuun verkkoon on mahdollista soveltaa lyhimmän polun ongelman ratkaisemiseen kehitettyjä algoritmeja, jolloin ne toimivat etsien alhaisimman, eli korkeimman prioriteetin polkuja.
+  Lyhimmän polun etsimiseen on tarkoituksenmukaista valita aina aloitus ja lopetuspisteet, joiden välille lyhin polku verkossa voidaan etsiä.
+  Prioriteetein painotetun verkon tärkeimpien solmujen selvittämistä varten olisi järkevää valita sellaiset aloitus- ja lopetuspisteet, joiden välillä ei näyttäisi olevan korkean painon, eli alhaisen prioriteetin solmuja.
+
+  \begin{itemize}
+    \item <TODO: Valitaan min v1 ja v2 ja käytetään dijkstran algoritmia niille>
+  \end{itemize}
 
 \section{Verkon ja testitapauksien yhteys} \label{ch:10_verkon_ja_testitapauksien_yhteys}
 
