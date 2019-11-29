@@ -20,7 +20,7 @@
 
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{tauthesis}
-[2019/02/25 v1.4 Thesis styles used in Tampere University]
+[2019/02/25 v1.5 Thesis styles used in Tampere University]
 
 % Inherit from the report document class.
 \LoadClass[11pt, a4paper]{report}
@@ -68,7 +68,7 @@
 
 % ISO-19005 compliant document (pdf/A-1b)
 % Requires sRGB_IEC61966-2-1_black_scaled.icc
-\RequirePackage[a-1b]{pdfx}
+\RequirePackage[a-1b,mathxmp]{pdfx}
 
 % UTF-8 input
 \RequirePackage[utf8]{inputenc}
@@ -174,7 +174,7 @@
 % Smart bibliography handling
 \RequirePackage
     [backend=biber,
-    sorting=nyt,
+    sorting=none,
     citestyle=\@citationstyle,
     bibstyle=\@citationstyle,
     maxbibnames=99,
@@ -195,6 +195,7 @@
 }
 
 \DeclareNameAlias{sortname}{last-first}
+\DeclareNameAlias{author}{last-first}
 
 \DeclareFieldFormat[%
   article,inbook,incollection,inproceedings,
