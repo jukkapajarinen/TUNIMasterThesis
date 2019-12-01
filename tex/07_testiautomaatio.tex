@@ -70,7 +70,7 @@ Testiautomaation perusteiden ymmärtämistä tarvitaan varsinkin työn myöhemmi
     Yksikkötestausta hyödynnetään usein myös ketterien menetelmien aihepiirissä, jossa ohjelmistotuotantoa voidaan toteuttaa muun muassa niin sanotulla testausvetoisella kehityksellä \ref{ch:07_testausvetoinen_kehitys}.
     Testausvetoisessa kehityksessä yksikkötestauksen osalta, ohjelmistokehittäjät laativat ensisijaisesti yksiköiden yksikkötestit ennen niiden toteuttamisen aloittamista.
 
-    Ohjelmistotestauksen tasojen pyramidissa ja hyvin toteutetussa ohjelmistotestauksen monitasoisessa testauksessa tämä testauksen taso on usein kaikista laajin.
+    Ohjelmistotestauksen tasojen pyramidissa ja hyvin toteutetussa ohjelmistotestauksen monitasoisessa testauksessa tämä testauksen taso on usein testitapauksien määrässä kaikista laajin.
     Monitasoisessa testauksessa yksikkötestaus luo tärkeän pohjan testaamiselle kokonaisuutena ja antaa tietoa ohjelmiston pienimpien yksiköiden toimivuudesta.
     Yksikkötestaus on myös paljon käytetty ja tärkeä osa testiautomaatiossa, sillä se varmistaa sovelluksen yksiköiden suunniteltua toimintaa.
 
@@ -92,73 +92,61 @@ Testiautomaation perusteiden ymmärtämistä tarvitaan varsinkin työn myöhemmi
   \subsection{Järjestelmätestaus} \label{ch:07_jarjestelmatestaus}
 
     Järjestelmätestauksen ajatuksena on testata kokonaista ja toimivaa järjestelmää, yhtenä suurena yksikkönä.
-    Järjestelmätestaus toteutetaan usein eräänlaisena tulikokeena, erityisesti ohjelmiston vaatimuksia vastaan.
     Järjestelmätestausta tarvitaan, jotta voidaan varmistaa kokonaisen ohjelmiston toimivuus, jota ei muuten pelkällä yksikkötestauksella ja integraatiotestauksella saataisi täydellisellä varmuudella selville.
-    Järjestelmätestaukseen liittyy laajasti erilaisia testattavia laadullisia ominaisuuksia, kuten toiminnallisuus, luotettavuus, käytettävyys, tehokkuus, ylläpidettävyys ja siirrettävyys \parencite{iso_9126-1_2001}.
 
-    % Järjestelmätestauksen tyyppejä on yli 50, mutta tosiasiassa ohjelmistotestauksessa käytetään vain osaa niistä.
-    % Tässä on osittainen lista ohjelmistotuotannossa yleisesti käytetyistä järjestelmätestauksen tyypeistä:
-
-    % \begin{itemize}
-    %   \item Regressiotestaus eli toistuva testaus
-    %   \item Stressitestaus
-    %   \item Toiminnallinen testaus
-    %   \item Palautumistestaus
-    %   \item Muutostestaus
-    %   \item Käytettävyystestaus
-    %   \item Alustatestaus
-    % \end{itemize}
-
-    \begin{itemize}
-      \item <TODO: kirjoita tämä kappale paremmin...>
-    \end{itemize}
-
-    Aiemmin testiautomaation tarkoitus kappaleessa \ref{ch:07_testiautomaation_tarkoitus} esitettiin, edellä mainituista laadullisista ominaisuuksista kaikki eivät sovellu hyvin testiautomaation avulla testattaviksi.
+    Järjestelmätestaukseen liittyy laajasti erilaisia testattavia laadullisia ominaisuuksia kuten toiminnallisuus, luotettavuus, käytettävyys, tehokkuus, ylläpidettävyys ja siirrettävyys \parencite{iso_9126-1_2001}.
+    Aiemmin testiautomaation tarkoitus kappaleessa \ref{ch:07_testiautomaation_tarkoitus} esitettiin että, edellä mainituista laadullisista ominaisuuksista kaikki eivät sovellu hyvin testiautomaation avulla testattaviksi.
     Esitetyistä syistä johtuen, automatisoidulla järjestelmätestauksella voidaan testata edellä mainituista ominaisuuksista lähinnä ohjelmiston toiminnallisuutta, luotettavuutta ja tehokkuutta.
-    Sen myötä testauksen tasona se voi olla testiautomaation teknisen toteutuksen kannalta jopa hyvin samanlainen kuin sitä spesifimpi hyväksymistestaus.
-    Usein kuitenkin hyväksymistestauksessa paneudutaan erityisesti vaatimusmäärittelyyn ja asiakaslähtöiseen testaamiseen, kun taas järjestelmätestauksessa voidaan testata esimerkiksi myös järjestelmän tehokkuutta tai tietoturvaa.
-    Tämä on tosin täysin riippuvainen vaatimusmäärittelystä, ja jos tehokkuus ja tietoturva ovat ohjelmiston asiakasvaatimuksia niin niiltä osin järjestelmätestaus ja hyväksymistestaus lomittuvat.
-    Joissakin yhteyksissä järjestelmätestaus ja hyväksymistestaus esitetään jopa yhteisenä testauksen tasona, etenkin silloin kun testiautomaation kannalta ne muistuttavat kovasti toisiaan esimerkiksi edellä mainitulla tavalla.
+    Toiminnallisuutta voidaan testata käyttöliittymätestauksella, joka on mahdollista automatisoida käyttötapauksien muotoon.
+    Luotettavuutta voidaan testata automaattisesti tietoturvaa testaavien käyttötapauksien muodossa.
+    Tehokkuutta voidaan testata automaattisesti lisäämällä aikaleimoihin perustuvaa tarkastelua testitapauksiin, sekä tehdä kuormitusta testaavia testitapauksia.
+    Edellä mainituista muista laadullisista ominaisuuksista voidaan toki kuitenkin ylläpidettävyyttä ja siirrettävyyttä testata manuaalisesti.
 
-    Järjestelmätestaus, osittain hyväksymistestauksen kanssa on erittäin merkittävä osa testiautomaatiosta, sillä sen avulla voidaan varmistaa kokonaisen järjestelmän vaadittu toiminnallisuus.
+
+    Testauksen tasona järjestelmätestaus voi olla testiautomaation teknisen toteutuksen kannalta jopa hyvin samanlainen kuin sitä spesifimpi hyväksymistestaus.
+    Usein kuitenkin hyväksymistestauksessa paneudutaan erityisesti vaatimusmäärittelyyn ja asiakaslähtöiseen testaamiseen, kun taas järjestelmätestauksessa voidaan testata esimerkiksi myös järjestelmän tehokkuutta tai tietoturvaa.
+    Tämä on tosin täysin riippuvainen vaatimusmäärittelystä, joten jos tehokkuus ja tietoturva ovat ohjelmiston asiakasvaatimuksia niin niiltä osin järjestelmätestaus ja hyväksymistestaus lomittuvat.
+    Joissakin yhteyksissä järjestelmätestaus ja hyväksymistestaus esitetään jopa yhteisenä testauksen tasona, etenkin silloin kun testiautomaation kannalta ne esimerkiksi edellä mainitulla tavalla muistuttavat kovasti toisiaan.
+    Järjestelmätestaus osittain hyväksymistestauksen kanssa on erittäin merkittävä osa testiautomaatiosta, sillä sen avulla voidaan testata toteutettavaa järjestelmää kokonaisuutena.
 
   \subsection{Hyväksymistestaus} \label{ch:07_hyvaksymistestaus}
 
     Hyväksymistestauksen ajatuksena on varmistaa toteutettavan ohjelmiston vaatimusten toimivuus erityisesti käytännön tilanteissa siten, että voidaan varmistaa vastaako ohjelmisto loppukäyttäjän tarpeita.
-    Hyväksymistestaus toteutetaan ohjelmiston toimintoja kuvaavaa vaatimusmäärittelyä ja loppukäyttäjistä sekä heidän tarpeista laadittuja käyttötapauksia vastaan.
-    Samassa asiayhteydessä puhutaan usein myös niin sanotusta e2e testauksesta, eli päästä päähän testauksesta.
-    Päästä päähän testauksessa on tarkoituksena toteuttaa testaaminen siten, että polkuina ajateltuna, se sisältää kaiken siltä väliltä mitä loppukäyttäjä voi tarpeidensa saavuttamiseksi tehdä ja nähdä aloittaessaan ohjelmiston käytön ja lopettaessaan sen käytön.
-    Testiautomaatio on erittäin hyödyllinen myös hyväksymistestauksen osalla, koska sillä voidaan automatisoida ohjelmiston validointi ja hyväksyminen, sekä estää puutteellisesti toimivan ohjelmiston julkaiseminen.
-    Hyväksymistestausta tarvitaan myös, jotta voidaan testata ja validoida vaatimusten mukaisten ominaisuuksien toimivuus.
+    Hyväksymistestaus toteutetaan ohjelmiston toimintoja kuvaavaa vaatimusmäärittelyä tai loppukäyttäjistä sekä heidän tarpeista laadittuja käyttötapauksia vastaan.
+    Hyväksymistestauksen rooli testiautomaatiossa ja erityisesti jatkuvan integraation yhteydessä on osoittaa, voidaanko järjestelmä sellaisenaan julkaista loppukäyttäjille.
 
-    \begin{itemize}
-      \item <TODO: kirjoita tämä kappale paremmin...>
-    \end{itemize}
+    Hyväksymistestaus testaa lähinnä toiminnallisia laatuominaisuuksia ja usein se toteutetaan käyttöliittymätasolla testitapauksien muodossa.
+    Poikkeuksena toiminnallisien ominaisuuksien lisäksi hyväksymistestauksessa voi olla mukana muita laadullisia ominaisuuksia vain jos ne ovat asiakastarpeiden mukaisia, joka on kuitenkin tavallisesta varsin poikkeava tilanne.
+    Samassa asiayhteydessä puhutaan usein myös niin sanotusta e2e-testauksesta, eli päästä päähän -testauksesta.
+    Päästä päähän -testauksessa on tarkoituksena toteuttaa testaaminen siten, että testaus pitää sisällään kaiken siltä väliltä mitä loppukäyttäjä voi tarpeidensa saavuttamiseksi tehdä ja nähdä aloittaessaan ohjelmiston käytön ja lopettaessaan sen käytön.
 
-    Edellisessä kappaleessa käytiin jo hieman läpi järjestelmätestauksen ja hyväksymistestauksen samankaltaisuutta.
-    Tässä on asiaa toisinpäin tarkasteltuna, osittainen lista ohjelmistotuotannossa havaittavista järjestelmätestauksen ja hyväksymistestauksen eroista, järjestelmätestauksen näkökulmasta:
-
-    \begin{itemize}
-      \item Painoarvo vaatimusmäärittelyssä
-      \item Ohjelmistokehittäjien ja testaajien lisäksi myös sidosryhmät ja asiakkaat
-      \item Testaus on vain lähinnä toiminnallista
-      \item Testauksen syötteet tulevat suoraan käyttäjältä
-      \item Testaus keskittyy arvioimaan täyttääkö ohjelmisto käyttäjän tarpeet
-      \item A/B testaamisen mahdollisuus
-      \item Hyväksymistestaus tapahtuu järjestelmätestauksen jälkeen
-      \item Virheet käsitellään epäonnistumisina
-    \end{itemize}
-
-    Hyväksymistestaus, osittain järjestelmätestauksen kanssa on äärimmäisen hyödyllinen osa testiautomaatiosta, sillä sen avulla voidaan varmistaa kokonaisen järjestelmän toiminnallisuus ja verifioida, että se vastaa vaatimusmäärittelyä.
-    Hyväksymistestauksen rooli testiautomaatiossa ja erityisesti jatkuvan integraation yhteydessä on osoittaa voidaanko järjestelmä sellaisenaan julkaista loppukäyttäjille.
+    Testiautomaatio on äärimmäisen hyödyllinen hyväksymistestauksen osalla, koska sillä voidaan automatisoida ohjelmiston validointi ja hyväksyminen, sekä parhaimmillaan estää puutteellisesti toimivan ohjelmiston julkaiseminen.
+    Hyväksymistestausta tarvitaan myös, jotta voidaan testata ja validoida vaatimusten ja loppukäyttäjän tarpeiden mukaisten ominaisuuksien toimivuus kokonaisessa järjestelmässä.
 
 \section{Testitapaus ja testikokoelmat} \label{ch:07_testitapaus_ja_testikokoelmat}
 
-  \begin{itemize}
-    \item <TODO: Lisää testitapauksen esittely tähän>
-    \item <TODO: Lisää testikokoelman esittely tähän>
-    \item <TODO: Korosta testikokoelman ja käyttöliittymän näkymän yhteyttä tässä>
-  \end{itemize}
+  Testitapaus on ohjelmistotestauksen automatisoimisen kannalta erittäin tärkeä käsite.
+  Testitapaus kuvaa yhden testattavana olevan asian testaamiseksi suoritettavaa tai suoritettavia toimenpiteitä.
+  Testitapauksen sisältämien toimenpiteiden suorittamisen tarkoituksena on saada selville täyttääkö se toimenpiteiden mukaiset ehdot ja toimiiko testattava asia oikein.
+  Testitapauksella on usein alustusvaihe, varsinainen testausvaihe ja lopetusvaihe.
+  Alustuvaiheessa testitapauksen vaativa ympäristö ja muuttujat alustetaan.
+  Varsinaisessa testitapauksen testausvaiheessa suoritetaan testattavan asian testaukseen liittyvät toimenpiteet.
+  Lopetusvaiheessa testitapauksen ajaksi muodostettu ympäristö usein tuhotaan ja käytetyt resurssit nollataan, jotta ne eivät enää vaikuta muihin testitapauksiin.
+
+  Testikokoelma on yksittäisistä testitapauksista koostuva ryhmitelty testitapauksien joukko.
+  Testikokoelman saattaa kuulua myös sellaisia testitapauksia, joiden suoritusjärjestys on etukäteen määritetty.
+  Suoritusjärjestyksellisissä testikokoelmissa voi esiintyä testitapauksia, jotka toimivat samassa testausympäristössä, muokaten ja jättäen jälkiä omasta suorituksestaan.
+  Myöhemmin suoritusjärjestyksessä tulevat testitapaukset voivat siinä tapauksessa hyötyä tai vaatia testausympäristön ominaisuuksia, jotka aiemmat testitapaukset ovat asettaneet.
+  Testikokoelman sisältämät testitapaukset voidaan kuitenkin luonnollisesti laatia myös sellaisella tavalla, että jokainen testitapaus hoitaa yksityiskohtaiset alustustoimenpiteensä itsenäisesti.
+
+  Testitapauksia voidaan ryhmitellä samaan kontekstiin liittyviksi testikokoelmiksi tilanteesta riippuen monilla eri tavoin.
+  Ryhmittelyn perusteen valitsemiseen kannattaa käyttää harkintaa, sillä testikokoelmien laajuus on helpomman hallittavuuden takia tärkeää.
+  Yksi tapa ryhmitellä testitapauksia on käyttää ohjelmistojen laadullisia ominaisuuksia ryhmittelyn perustana.
+  Tällaisessa ryhmittelyssä yksi kokoelma voi olla toiminnalliset testitapaukset ja toinen tehokkuutta mittaaville testitapauksille.
+  Laadullisien ominaisuuksien mukaan tehty testitapauksien ryhmittely saattaa kuitenkin johtaa määrällisesti liian suuriin testitapauksien eroihin testikokoelmien kesken.
+  Hyväksymistestauksen näkökulmasta tarkasteltuna testitapauksia on mahdollista ryhmitellä käyttöliittymän näkymiin perustuviin testikokoelmiin.
+  Näkymäperusteinen ryhmittely on osaltaan looginen tapa jakaa testitapaukset eri testikokoelmiin, sillä jokainen käyttöliittymän näkymä voidaan tarvittaessa testata erikseen suorittamalla kyseisen testikokoelman testitapaukset.
+  Tässä diplomityössä hyödynnetään perustavanlaatuisesti näkymäperusteista testitapauksien ryhmittelyä, koska sen avulla on mahdollista suorittaa testikokoelmien näkymäperusteinen priorisointi työssä myöhemmin esitettävää painotettua verkkoa hyödyntäen.
 
 \section{Jatkuva integrointi} \label{ch:07_jatkuva_integrointi}
 
