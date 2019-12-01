@@ -98,6 +98,7 @@ Lopuksi esitetään yleisestikin ottaen testitapauksiin tärkeästi liittyvä pr
   Ensin esitetään hyväksymistestauksen automatisoimisen kannalta kaikista tärkeimmät työkalut, eli testialustana käytettävä Robot Framework ja web-sovelluksien kanssa vuorovaikuttamisen automatisoimisen mahdollistava Selenium-kirjasto.
   Lisäksi esitetään kolme muuta tärkeää työkalua, joiden avulla voidaan rakentaa kokonainen ohjelmistotuotannon prosessiin integroitavissa oleva hyväksymistestausjärjestelmä.
   Toteutuksessa GoCD vastaa jatkuvan integroinnin tarjoamisesta, Xvfb vastaa päätteettömän testauksen tarjoamisesta ja Docker vastaa työkalujen virtualisoimisesta ja säiliöinnistä, jolloin työkaluista saadaan rakennettua yhtenäinen kokonaisuus.
+  Tämän diplomityön tuloksena syntynyt hyväksymistestausjärjestelmä koostuu samoista työkaluista kuin seuraavissa kappaleissa on esitetty.
 
   \subsection{Robot Framework} \label{ch:08_robot_framework}
 
@@ -211,14 +212,6 @@ Lopuksi esitetään yleisestikin ottaen testitapauksiin tärkeästi liittyvä pr
     Jatkuvan integraation yhteydessä tapahtuvan testiautomaation puolesta ei välttämättä ole suurta merkitystä mikä jatkuvan integraation mahdollistava palvelinohjelmisto on käytössä.
     Tämä havainto tuli esiin, kun tätä diplomityötä varten testiautomaatioon tarvittavat ohjelmistot säiliöitiin aiemmin esitetyllä Docker-työkalulla, jota voidaan yhden testausvaiheen tehtävän aikana kutsua komentorivipohjaisesti.
 
-\section{Testausjärjestelmä ja käyttöönotto} \label{ch:08_testausjarjestelma_ja_kayttoonotto}
-
-  % TODO: Lisää tekstiä tähän kappaleeseen. Eheyden kannalta tärkeä kappale!
-  \begin{itemize}
-    \item <TODO: Kappale per käytetty työkalu>
-    \item <TODO: Kappale käyttöönotosta, CI, ATDD>
-  \end{itemize}
-
 \section{Testitapauksien rakentaminen} \label{ch:08_testitapauksien_rakentaminen}
 
   Testitapaus on testiautomaation näkökulmasta määritelty toimenpiteiden, ehtojen ja muuttujien joukko, joka suorittamalla voidaan verifioida jokin osa, ominaisuus tai toiminnallisuus ohjelmistosta.
@@ -241,23 +234,20 @@ Lopuksi esitetään yleisestikin ottaen testitapauksiin tärkeästi liittyvä pr
 \section{Priorisointiongelma} \label{ch:08_priorisointiongelma}
 
   Testitapauksien priorisointi on kustannussyistä tai resurssien optimoinnin kannalta erittäin tärkeää.
-  Ohjelmistotestauksessa on hyvä tiedostaa, että ohjelmistotuotetta ei usein voida testata täydellisesti, joka nostaa esiin tarpeen tärkeimpien testitapauksien löytämisestä.
+  Ohjelmistotestauksessa on myös hyvä tiedostaa, että ohjelmistotuotetta ei usein voida testata täydellisesti, joka nostaa esiin tarpeen tärkeimpien testitapauksien priorisoimisesta.
   Priorisoinnin toteuttamisen tärkeys korostuu erityisesti silloin kun kohdejärjestelmä on kompleksinen ja toiminnallisia ominaisuuksia on paljon.
+  Priorisointi vaatii kuitenkin priorisointimenetelmästä riippumatta ylimääräistä työtä ohjelmistokehittäjiltä ja testaajilta.
 
-  Priorisoinnista saatavia hyötyjä:
-  \begin{itemize}
-    \item Tärkeät ongelmat löydetään aikaisin
-    \item Testitapauksien suorittamisen järjestäminen
-    \item Epäoleelliset testitapaukset voidaan jättää toteuttamatta
-    \item Kustannuksia ja resursseja säästyy
-    \item Käytännönläheisyys
-    \item Korkean prioriteetin testitapauksiin voidaan käyttää huolellista suunnittelua
-  \end{itemize}
+  Priorisointiongelmaa voidaan ajatella sen laiminlyömisestä seuraavien haittojen näkökulmasta.
+  Ilman testitapauksien priorisointia voi esiintyä muun muassa seuraavia haittoja.
+  Prioriteettien puuttumisen seurauksena tärkeät ongelmat voidaan havaita vasta liian myöhään.
+  Testitapauksia ei voida järjestää prioriteettien mukaan suoritettaviksi.
+  Prioriteettijärjestyksen puuttumisesta johtuen epäoleellisten testitapauksien mukaan katkeava testaus voi piilottaa oleellisia testitapauksia.
+  Tämän lisäksi myös prioriteettien puolesta epäoleellisetkin testitapaukset toteutetaan.
+  Epäoleellisten testitapauksien toteuttaminen puolestaan kuluttaa resursseja ja lisää kustannuksia.
+  Ajan myötä ohjelmistot ja niiden testaukseen toteutetut testitapaukset muuttuvat ja vanhenevat.
+  Prioriteettien puuttuminen poistaa mahdollisuuden varautua oleellisten testitapauksien huolellisempaan ja aikaa kestävään suunnitteluun.
+  Lisäksi testikattavuutta ei voida optimoida vähentämällä täysin epäoleellisia testitapauksia, jos niitä varten ei ole tehty priorisointia ennen toteutusta.
 
-  % TODO: Lisää tekstiä tähän kappaleeseen. Eheyden kannalta tärkeä kappale!
-  \begin{itemize}
-    \item <TODO: kirjoita tähän lisää tekstiä...>
-  \end{itemize}
-
-  Priorisointiongelmaan on olemassa useita erilaisia lähestymistapoja ja menetelmiä, kuten esimerkiksi heuristinen priorisointi tai MoSCoW-menetelmä.
-  Tässä diplomityössä priorisointiin käytetään kuitenkin matemaattista painotettuihin verkkoihin perustuvaa lähestymistapaa, joka on uudenlainen tämän diplomityön tuotteena kehittynyt menetelmä priorisointiongelman ratkaisemiseen.
+  Priorisointiongelman ratkaisemiseen on olemassa useita erilaisia lähestymistapoja ja menetelmiä, kuten esimerkiksi heuristinen priorisointi tai MoSCoW-menetelmä.
+  Tässä diplomityössä esitetään ja käytetään priorisointiin kuitenkin vain matemaattista painotettuihin verkkoihin perustuvaa lähestymistapaa, joka on uudenlainen tämän diplomityön tuotteena kehittynyt matemaattinen menetelmä priorisointiongelman ratkaisemiseen.

@@ -1,15 +1,15 @@
-Tässä luvussa esitetään tutkimuksen tärkein sisältö ja kokonaisuutena vastaus tutkimuskysymykseen \emph{T1}, eli toistettavissa oleva menetelmä testitapauksien priorisoimiseen.
+Tässä luvussa esitetään tutkimuksen tärkein sisältö ja kokonaisuutena vastaus tutkimuskysymykseen \emph{T1}, eli esitetään ratkaisuna toistettavissa oleva menetelmä testitapauksien priorisoimiseen.
 Priorisointiin vaikuttavat muuttujat luvussa \ref{ch:10_priorisointiin_vaikuttavat_muuttujat} esitetään myös suora vastaus tutkimuskysymykseen \emph{T2}.
 Lisäksi painofunktiot \ref{ch:10_painofunktiot_priorisointiin} ja verkon karsiminen \ref{ch:10_verkon_karsiminen} esittää vastaukset tutkimuskysymykseen \emph{T3}.
-Testitapauksien muodostaminen verkosta \ref{ch:10_testitapauksien_muodostaminen_verkosta} antaa osittaisen vastauksen myös tutkimuskysymykseen \emph{T4}.
+Verkon ja testitapauksien yhteys \ref{ch:10_verkon_ja_testitapauksien_yhteys} antaa vastaukset myös tutkimuskysymyksiin \emph{T3} ja \emph{T4}.
 
-Tässä luvussa käsitellään ensin työhön keskeisesti kuuluvan verkkoteorian perusteet käydään huolellisesti läpi erityisesti työssä käytettävät osat.
-Työssä sovelletaan erityisesti verkkoteorian painotettua verkkoa sekä verkkoteoriassa esiintyvän lyhimmän polun ongelmaan kehitettyä Djikstran algoritmia.
+Tässä luvussa käsitellään ensin työhön keskeisesti kuuluvan verkkoteorian perusteita ja käydään huolellisesti läpi niistä tässä työssä käytettävät osat.
+Työssä sovelletaan erityisesti verkkoteorian painotettua verkkoa sekä verkkoteoriassa esiintyvän lyhimmän polun ongelmaan kehitettyä Dijkstran algoritmia.
 Verkkoteoria itsessään on osa diskeettiä matematiikkaa.
 
-Verkkoteorian jälkeen tässä luvussa esitetään työn tuloksena kehitetty priorisointimenetelmä.
+Verkkoteorian jälkeen tässä luvussa esitetään vaiheittain työn tuloksena kehitetty priorisointimenetelmä.
 Priorisointia varten esitetään harkintaa käyttäen valitut priorisointiin vaikuttavat muuttujat, niitä käyttävät painofunktiot, verkon rakentaminen ja karsiminen sekä verkon ja testitapauksien yhteys.
-Lisäksi menetelmää käyttäen tuotetun painotetun verkon sisältämää informaatiota käytetään prioriteeteiltaan tärkeimmän polun löytämiseen.
+Lisäksi käydään läpi miten menetelmää käyttäen tuotetun painotetun verkon sisältämää informaatiota voidaan hyödyntää prioriteeteiltaan tärkeimmän polun löytämiseen \ref{ch:10_dijkstran_algoritmin_hyodyntaminen}.
 
 \section{Matemaattisten verkkojen tarkoitus} \label{ch:09_matemaattisten_verkkojen_tarkoitus}
 
@@ -24,24 +24,27 @@ Lisäksi menetelmää käyttäen tuotetun painotetun verkon sisältämää infor
 \section{Perusmerkinnät ja käsitteet} \label{ch:09_perusmerkinnat_ja_kasitteet}
 
   Verkkoteoriassa käytetään seuraavia perusmerkintöjä:
+
   \begin{itemize}
     \item \(V := \{v_1, v_2, v_3\}\) Solmujoukko joka sisältää \emph{solmut} \(v_1\), \(v_2\) ja \(v_3\).
     \item \(E := \{e_1, e_2, e_3\}\) Kaarijoukko joka sisältää \emph{kaaret} \(e_1\), \(e_2\) ja \(e_3\).
     \item \(\phi(e_1) := \langle v_1, v_2 \rangle\) Kaariparin \(v_1\) ja \(v_2\) yhdistävän \emph{kaaren} \(e_1\) kuvaaja.
   \end{itemize}
 
-  Verkkojen solmujen välisiä yhteyksiä, eli kaaria esitetään usein myös yhteys- tai painomatriisina.
+  Verkkojen solmujen välisiä yhteyksiä, eli kaaria esitetään usein myös yhteys- tai painomatriisina:
+
   \[
-    M_G = (a_{ij})_{3\times3} =
+    M_G =
     \bordermatrix{
       G & v_1 & v_2 & v_3 \cr
-      v_1 & 1 & 1 & 2 \cr
-      v_2 & 1 & 0 & 0 \cr
-      v_3 & 2 & 0 & 0 \cr
+      v_1 & \infty & 1 & 2 \cr
+      v_2 & 1 & \infty & 0 \cr
+      v_3 & 2 & 0 & \infty \cr
     }
   \]
 
   Verkkoteoriassa käytetään myös muun muassa seuraavia käsitteitä:
+
   \begin{itemize}
     \item Solmun asteluku, \(d_G(x)\), eli solmuun liittyvien \emph{kaarten} määrä.
     \item Aliverkko, \(G_2 \subset G_1\), eli \emph{verkko} \(G_2\) joka koostuu osasta \emph{verkon} \(G_1\) \emph{solmuja} ja \emph{kaaria}.
