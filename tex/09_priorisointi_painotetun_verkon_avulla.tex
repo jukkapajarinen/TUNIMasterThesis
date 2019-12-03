@@ -129,10 +129,17 @@ Lisäksi käydään läpi miten menetelmää käyttäen tuotetun painotetun verk
 
 \section{Verkon rakentaminen} \label{ch:10_verkon_rakentaminen}
 
-  % TODO: Miten verkon solmut ja kaaret poimitaan käyttöliittymästä ja taulukon esittely
-  \begin{itemize}
-    \item <TODO: Kirjoita teksti miten verkon solmut ja kaaret poimitaan käyttöliittymästä>
-  \end{itemize}
+  Tässä diplomityössä on aiemmin moneen otteeseen kerrottu näkymä ja siirtymäperusteisesta testiautomaation toteuttamisesta ja priorisoinnista.
+  Painotetun verkon rakentamista varten tulee tarvittavat näkymät ja niiden väliset siirtymät muodostaa testauskohteen käyttöliittymästä.
+  Web-sovelluksen käyttöliittymän näkymiä ovat muun muassa sivut, sivujen sisältämät säiliö-elementit ja dialogit.
+  Siirtymät ovat sivujen välisiä linkkejä tai jotakin sellaista toiminnallisuutta, joka muuttaa nykyisen näkymän tai osan siitä toiseksi näkymäksi.
+
+  Seuraavassa taulukossa on esitetty kuvitteellisen web-sovelluksen mukainen näkymien ja siirtymien mukaan laadittu esimerkki \ref{tab:esimerkki_verkon_priorisointi_muuttujat}.
+  Taulukossa esitetään näkymät kirjautumisnäkymästä ohjenäkymään ja jokaisen näkymän siirtymät eli yhteydet toisiin näkymiin.
+  Näkymät ja siirtymät luovat matemaattisen verkon laatimisen perusedellytykset, eli datan jonka avulla myöhemmin esitettävä painomatriisi voidaan laatia.
+  Taulukossa on lisäksi esitetty jokainen näkymään liittyvä ja priorisointiin vaikuttava muuttuja.
+  Priorisointiin vaikuttavien muuttujien arvot on laadittu subjektiivisesti kuvitteellisen esimerkin muodossa.
+  Priorisointiin vaikuttavien muuttujien yhteen laskettu prioriteetti yksittäiselle näkymälle on laskettu taulukkoon valmiiksi käyttäen aiemmin esitettyä prioriteettifunktiota \(p(n)\), jossa \(n\) tarkoittaa sitä näkymää jolle prioriteetti lasketaan.
 
   \begin{table}[H]
     \caption{Esimerkkiverkon näkymät, siirtymät ja priorisointimuuttujat}
@@ -150,7 +157,6 @@ Lisäksi käydään läpi miten menetelmää käyttäen tuotetun painotetun verk
     \end{tabular}
   \end{table}
 
-  % TODO: Päivitä painomatriisi vastaamaan esimerkkiä
   \begin{itemize}
     \item <TODO: Kirjoita teksti esimerkkille painomatriisista, jota käytetään priorisoinnin syötteenä>
   \end{itemize}
@@ -173,7 +179,6 @@ Lisäksi käydään läpi miten menetelmää käyttäen tuotetun painotetun verk
     }
   \]
 
-  % TODO: Päivitä kuva vastaamaan esimerkkiä
   \begin{itemize}
     \item <TODO: Kirjoita teksti esimerkille painotetusta verkosta, jota käytetään priorisoinnin syötteenä>
     \item <TODO: Kirjoita teksti, että painomatriisin lisäksi jokaiselle solmulle annetaan \(\alpha(v)\) mukainen paino lopulliseen graafiin>
@@ -221,6 +226,7 @@ Lisäksi käydään läpi miten menetelmää käyttäen tuotetun painotetun verk
   Lyhimmän polun etsimiseen on tarkoituksenmukaista valita aina aloitus ja lopetuspisteet, joiden välille lyhin polku verkossa voidaan etsiä.
 
   \begin{itemize}
+    \item <TODO: Kirjoita tämän kappaleen teksti paremmin>
     \item Valitaan \(min\{\alpha(v_1) | v_1 \in V(G)\}\) ja \(min\{\alpha(v_2) | v_2 \in V(G), v_1 \neq v_2\}\) sekä etsitään Dijkstran algoritmin avulla niiden välinen lyhin polku.
     \item Dijkstran algoritmi kahdelle painoltaan pienimmälle, eli prioriteetiltaan korkeimmalle antaa tuloksena \(v_1\) ja \(v_2\) solmuja yhdistävän polun, jonka sisältävät solmut eli näkymät ovat prioriteetiltaan tärkeimmät.
   \end{itemize}
