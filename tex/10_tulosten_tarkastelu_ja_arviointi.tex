@@ -1,42 +1,63 @@
-Tässä kappaleessa esitetään yhteenveto tutkimuksen tuloksista ja muun muassa pohditaan kuinka hyvin soveltuva ja toistettavissa oleva kyseinen kehitetty menetelmä on.
+Tässä kappaleessa esitetään yhteenveto tutkimuksen tuloksista ja evaluoidaan testausjärjestelmän ja priorisointimenetelmän toteutuksien onnistumista.
+Ensin evaluoidaan diplomityössä suunnitellun ja asiakasyritykselle toteutetun testausjärjestelmän positiivisia sekä negatiivisia puolia.
+Seuraavaksi evaluoidaan diplomityössä kehitetyn priorisointimenetelmän positiivisia ja negatiivisia puolia ja muun muassa pohditaan kuinka hyvin soveltuva ja toistettavissa oleva kyseinen kehitetty priorisointimenetelmä on.
+Lisäksi lopussa vielä esitetään esiin tulleita jatkokehitysehdotuksia testausjärjestelmälle sekä priorisointimenetelmälle.
 
 \section{Tutkimuksen konkreettiset tulokset} \label{ch:12_tutkimuksen_konkreettiset_tulokset}
 
-  \begin{itemize}
-    \item Web-käyttöliittymien hyväksymistestauksen automatisoimisen mahdollistava järjestelmä
-    \item Näkymäperustainen painotettua verkkoa hyödyntävä toistettvissa oleva priorisointimenetelmä
-  \end{itemize}
+  Työn tuloksena kehitetty  web-käyttöliittymien hyväksymistestauksen automatisoimisen mahdollistava testausjärjestelmä on integroitu onnistuneesti osaksi GoCD-palvelimen avulla suoritettavaa jatkuvaa integrointia.
+  Lyhyesti sanottuna testausjärjestelmän osalta konkreettinen tulos koostuu järjestelmästä, joka mahdollistaa testitapauksien luomisen Robot Framework alustalle käyttäen Selenium kirjastoa, Xvfb virtualisointipalvelinta ja Docker säiliöintiohjelmistoa.
+  Testausjärjestelmän toimivuus käytännössä todettiin esimerkkitestitapauksien muodossa oikeassa ympäristössään ja testausjärjestelmän mahdollistamat ominaisuudet ovat jo itsessään oikeassa ja lopullisessa käyttöympäristössä tarvittavia.
 
-\section{Menetelmän evaluointi} \label{ch:12_menetelman_evaluointi}
-
-  \begin{itemize}
-    \item Priorisointimenetelmän toistettavuus
-    \item Menetelmän avulla on mahdollista priorisoida näkymiä ja siirtymiä
-    \item Dijkstran algoritmin avulla voidaan selvittää verkosta prioriteetiltaan korkein polku, eli näkymät joiden testikokoelmat tulisi suorittaa ensimmäisenä.
-    \item Painotettu verkko voidaan piirtää, joka kasvattaa ymmärrystä järjestelmästä
-    \item Testikattavuuden päättäminen näkymä- ja siirtymäperusteisesti voi olla haastavaa
-    \item Ei välttämättä ainakaan muokkauksia tekemättä geneerinen menetelmä
-    \item Menetelmän käyttö soveltuu testikokoelmien, ei testitapauksien, priorisointiin
-    \item Menetelmän käyttö on tehokkainta kun testitapaukset kategorisoidaan näkymittäin testikokoelmiin
-    \item Priorisointimenetelmän käyttö voi olla turhan aikaa vievää jos käyttöliittymä on yksinkertainen
-  \end{itemize}
+  Web-sovelluksien näkymä ja siirtymäperustainen painotettua verkkoa hyödyntävä priorisointimenetelmä on myös todettu toimivaksi lähestysmistavaksi priorisointiin.
+  Lyhyesti sanottuna priorisointimenetelmän tuloksena on painotettuja verkkoja hyödyntävä menetelmä, jossa määritetään priorisointiin vaikuttavat muuttujat, painofunktiot, painomatriisi, prioriteetteihin perustuvien leikkauksien tekeminen ja prioriteettien löytäminen sekä lukeminen verkosta.
+  Priorisointimenetelmän toimivuus käytännössä todettiin aidosta ympäristöstä yksinkertaistaen poimitusta web-sovelluksesta.
+  Priorisointimenetelmän avulla todettiin, että priorisoinnin aikana toteutetut painotetun verkon leikkaukset olivat juuri niitä näkymiä, jotka vaistonvaraisesti ilman menetelmänkin käyttöä karsittaisiin.
 
 \section{Toteutuksen evaluointi} \label{ch:12_toteutuksen_evaluointi}
 
-  \begin{itemize}
-    \item Docker säiliönnin avulla tuki myös manuaaliselle testitapauksien ajamiselle
-    \item Docker säiliönnin avulla sovelluskehittäjät saavat valmiin hyväksymistestausjärjestelmän helposti käyttöönsä
-    \item Docker säiliöinnin takia toteutus ei ole sidottu CI palvelimeen
-    \item Xvfb virtualisoinnin avulla voidaan uusia verkkoselaimia lisätä helposti
-    \item Xvfb virtuallisoinnin avulla ei voida testata vain Windows ympäristöön saatavia GUI-ohjelmia
-    \item Robot Framework takaa helpon luettavuuden kenelle tahansa, mutta ohjelmistokehittäjälle rajatun tuntuinen
-    \item Hyvä skaalautuvuus, Docker-säilöitä on helppo rakentaa ja GoCD agentteja lisätä
-  \end{itemize}
+  Docker säiliönnin avulla tuki myös manuaaliselle testitapauksien ajamiselle
+
+  Docker säiliönnin avulla sovelluskehittäjät saavat valmiin hyväksymistestausjärjestelmän helposti käyttöönsä
+
+  Docker säiliöinnin takia toteutus ei ole sidottu CI palvelimeen
+
+  Xvfb virtualisoinnin avulla voidaan uusia verkkoselaimia lisätä helposti
+
+  Hyvä skaalautuvuus, Docker-säilöitä on helppo rakentaa ja GoCD agentteja lisätä
+
+
+
+  Xvfb virtuallisoinnin avulla ei voida testata vain Windows ympäristöön saatavia GUI-ohjelmia
+
+  Robot Framework takaa helpon luettavuuden kenelle tahansa, mutta ohjelmistokehittäjälle rajatun tuntuinen
+
+\section{Menetelmän evaluointi} \label{ch:12_menetelman_evaluointi}
+
+  Priorisointimenetelmän toistettavuus
+
+  Menetelmän avulla on mahdollista priorisoida näkymiä ja siirtymiä
+
+  Dijkstran algoritmin avulla voidaan selvittää verkosta prioriteetiltaan korkein polku, eli näkymät joiden testikokoelmat tulisi suorittaa ensimmäisenä.
+
+  Painotettu verkko voidaan piirtää, joka kasvattaa ymmärrystä järjestelmästä
+
+  Menetelmän käyttö on tehokkainta kun testitapaukset kategorisoidaan näkymittäin testikokoelmiin
+
+
+
+  Testikattavuuden päättäminen näkymä- ja siirtymäperusteisesti voi olla haastavaa
+
+  Ei välttämättä ainakaan muokkauksia tekemättä geneerinen menetelmä
+
+  Menetelmän käyttö soveltuu testikokoelmien, ei testitapauksien, priorisointiin
+
+  Priorisointimenetelmän käyttö voi olla turhan aikaa vievää jos käyttöliittymä on yksinkertainen
 
 \section{Jatkokehitysehdotukset} \label{ch:12_jatkokehitysehdotukset}
 
-  \begin{itemize}
-    \item Xvfb:lle vastineen löytäminen Window ympäristöön
-    \item Parempi priorisointi muuttamalla näkymäperusteisuus käyttötapausperustaiseksi
-    \item Näkymägraafien visualisointi ja muu priorisointiohjelman jatkokehittely
-  \end{itemize}
+  Xvfb:lle vastineen löytäminen Window ympäristöön
+
+  Parempi priorisointi muuttamalla näkymäperusteisuus käyttötapausperustaiseksi
+
+  Näkymägraafien visualisointi ja muu priorisointiohjelman jatkokehittely
