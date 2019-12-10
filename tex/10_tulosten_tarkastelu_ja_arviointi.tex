@@ -1,7 +1,7 @@
 Tässä kappaleessa esitetään yhteenveto tutkimuksen tuloksista ja evaluoidaan testausjärjestelmän ja priorisointimenetelmän toteutuksien onnistumista.
 Ensin evaluoidaan diplomityössä suunnitellun ja asiakasyritykselle toteutetun testausjärjestelmän positiivisia sekä negatiivisia puolia.
 Seuraavaksi evaluoidaan diplomityössä kehitetyn priorisointimenetelmän positiivisia ja negatiivisia puolia ja muun muassa pohditaan kuinka hyvin soveltuva ja toistettavissa oleva kyseinen kehitetty priorisointimenetelmä on.
-Lisäksi lopussa vielä esitetään esiin tulleita jatkokehitysehdotuksia testausjärjestelmälle sekä priorisointimenetelmälle.
+Lisäksi lopussa vielä esitetään toteutuksen jälkeen esiin tulleita jatkokehitysehdotuksia testausjärjestelmälle sekä priorisointimenetelmälle.
 
 \section{Tutkimuksen konkreettiset tulokset} \label{ch:12_tutkimuksen_konkreettiset_tulokset}
 
@@ -16,21 +16,22 @@ Lisäksi lopussa vielä esitetään esiin tulleita jatkokehitysehdotuksia testau
 
 \section{Toteutuksen evaluointi} \label{ch:12_toteutuksen_evaluointi}
 
-  Docker säiliönnin avulla tuki myös manuaaliselle testitapauksien ajamiselle
+  Kokonaisuutena hyväksymistestausjärjestelmän toteutus onnistui erittäin hyvin ja sen avulla on mahdollista jopa geneerisesti rakentaa web-sovelluksesta riippumattomasti hyväksymistestaus testauskohteena olevalle web-sovellukselle.
 
-  Docker säiliönnin avulla sovelluskehittäjät saavat valmiin hyväksymistestausjärjestelmän helposti käyttöönsä
+  Testausjärjestelmän positiivisia puolia ovat muun muassa Docker säiliöinnin avulla saatava tuki myös manuaaliselle testitapauksien ajamiselle.
+  Docker säiliö, joka mahdollistaa testitapauksien ajamisen voidaan pystyttää periaatteessa mihin tahansa ympäristöön, jossa Docker on saatavilla.
+  Docker säiliöinnin avulla myös ohjelmistokehittäjät saavat valmiin hyväksymistestausjärjestelmän helposti käyttöönsä.
+  Docker säiliöinnin ja Docker-compose:n avulla rakennettu järjestelmä ei myöskään ole sidottu mihinkään ennalta määritettyyn jatkuvan integroinnin palvelimeen, joka huomattavasti helpottaa testausjärjestelmän käyttöönottoa osaksi uusia tai muuttuvaa ohjelmistotuotannon prosessia.
+  Testausjärjestelmä mahdollistaa päätteettömän testauksen virtuaalisen Xfvb-näyttöpalvelimen avulla, joka on itsessään erittäin tarvittu ominaisuus jatkuvan integroinnin ja testausjärjestelmän yhdistämiseen.
+  Xvfb-näyttöpalvelimen tarjoaman virtualisoinnin avulla voidaan myös uusia WebDriver rajapinnan toteuttavia verkkoselaimia lisätä päätteettömän testauksen alaisuuteen erittäin helposti ja käytännössä rajoituksitta.
+  Ainoa vaatimus on, että verkkoselain on saatavilla siihen ympäristöön jossa Xvfb-näyttöpalvelinta ajetaan.
 
-  Docker säiliöinnin takia toteutus ei ole sidottu CI palvelimeen
-
-  Xvfb virtualisoinnin avulla voidaan uusia verkkoselaimia lisätä helposti
-
-  Hyvä skaalautuvuus, Docker-säilöitä on helppo rakentaa ja GoCD agentteja lisätä
-
-
-
-  Xvfb virtuallisoinnin avulla ei voida testata vain Windows ympäristöön saatavia GUI-ohjelmia
-
-  Robot Framework takaa helpon luettavuuden kenelle tahansa, mutta ohjelmistokehittäjälle rajatun tuntuinen
+  Testausjärjestelmässä on kuitenkin myös negatiivisia puolia, joiden osalta järjestelmän käyttö on rajattua.
+  Xvfb-näyttöpalvelimen avulla voidaan päätteettömästi testata periaatteessa mitä tahansa GUI-ohjelmia, mutta rajoitteena on kuitenkin, että niiden täytyy olla saatavilla siihen ympäristöön, jossa Xvfb-näyttöpalvelinta ajetaan.
+  Tämä tarkoittaa käytännössä sitä, että web-sovelluksien hyväksymistestauksen automatisoimisesta on jätettävä pois vain Window-ympäristöön saatavien verkkoselainten, kuten Internet Explorer selaimen testaaminen.
+  Robot Framework takaa helpon testitapauksien luettavuuden kenelle tahansa, mutta ohjelmistokehittäjille se voi olla turhan rajatun tuntuinen.
+  Ohjelmistokehittäjänä testitapauksien laatimisen yhteyteen olisi hyvä saada mahdollisuus yksikkötestauskehyksissä käytettävistä ohjelmointikielistä tuttuihin kontrollirakenteisiin, joilla testitapauksien monipuolisuutta voisi kasvattaa perinteisesti yksikkötestauksessa mahdollisien rakenteiden tasolle.
+  Tämä ei kuitenkaan ole mahdollista Robot Framework:issä, jossa testitapauksien laatimiseen käytetään Robot Framework:in omaa, rajattua syntaksia.
 
 \section{Menetelmän evaluointi} \label{ch:12_menetelman_evaluointi}
 
