@@ -24,7 +24,7 @@ Lisäksi lopussa vielä esitetään toteutuksen jälkeen esiin tulleita jatkokeh
   Docker säiliöinnin ja Docker-compose:n avulla rakennettu järjestelmä ei myöskään ole sidottu mihinkään ennalta määritettyyn jatkuvan integroinnin palvelimeen, joka huomattavasti helpottaa testausjärjestelmän käyttöönottoa osaksi uusia tai muuttuvaa ohjelmistotuotannon prosessia.
   Testausjärjestelmä mahdollistaa päätteettömän testauksen virtuaalisen Xfvb-näyttöpalvelimen avulla, joka on itsessään erittäin tarvittu ominaisuus jatkuvan integroinnin ja testausjärjestelmän yhdistämiseen.
   Xvfb-näyttöpalvelimen tarjoaman virtualisoinnin avulla voidaan myös uusia WebDriver rajapinnan toteuttavia verkkoselaimia lisätä päätteettömän testauksen alaisuuteen erittäin helposti ja käytännössä rajoituksitta.
-  Ainoa vaatimus on, että verkkoselain on saatavilla siihen ympäristöön jossa Xvfb-näyttöpalvelinta ajetaan.
+  Ainoa vaatimus on, että verkkoselain on saatavilla siihen ympäristöön, jossa Xvfb-näyttöpalvelinta ajetaan.
 
   Testausjärjestelmässä on kuitenkin myös negatiivisia puolia, joiden osalta järjestelmän käyttö on rajattua.
   Xvfb-näyttöpalvelimen avulla voidaan päätteettömästi testata periaatteessa mitä tahansa GUI-ohjelmia, mutta rajoitteena on kuitenkin, että niiden täytyy olla saatavilla siihen ympäristöön, jossa Xvfb-näyttöpalvelinta ajetaan.
@@ -35,30 +35,33 @@ Lisäksi lopussa vielä esitetään toteutuksen jälkeen esiin tulleita jatkokeh
 
 \section{Menetelmän evaluointi} \label{ch:12_menetelman_evaluointi}
 
-  Priorisointimenetelmän toistettavuus
+  Tässä diplomityössä kehitetyn testitapauksien priorisointimenetelmän kehittäminen onnistui myös erittäin hyvin ja sen käyttämisellä saavutetaan lisäarvoa etenkin keskisuurien ja suurien web-sovelluksien käyttöliittymien hyväksymistestaukseen.
 
-  Menetelmän avulla on mahdollista priorisoida näkymiä ja siirtymiä
+  Priorisointimenetelmän positiivisia puolia ovat muun muassa sen ominaisuuksiin liittyviä asioista kuten priorisointimenetelmän toistettavuus ja mahdollisuus priorisoida käyttöliittymien näkymiä ja siirtymiä.
+  Näkymä ja siirtymäperustaisen priorisoinnin tarkoituksena on mahdollistaa näkymiin perustuvien testikokoelmien priorisoiminen, jolloin niiden tärkeysjärjestys saadaan selville ja testitapauksien kirjoittaminen voidaan aloittaa prioriteetiltaan tärkeimmästä näkymästä.
+  Menetelmän käyttäminen on tehokkainta kun testitapaukset kategorisoidaan näkymittäin laadittuihin testikokoelmiin, sillä menetelmän kehittämisen taustalla on ollut ajatus jossa näkymät vastaavat testikokoelmia.
+  Priorisointimenetelmä perustuu matemaattisiin painotettuihin verkkoihin, jotka tuovat hyötynä lyhimmän polun ongelman ratkaisemiseen kehitettyjen algoritmien käyttämisen mahdollistamisen prioriteetiltaan korkeimpien polkujen löytämiseen kahden solmun, eli näkymän välille.
+  Lisäksi painotetun verkon ja matemaattisen lähestymistavan käyttäminen tuo hyötynä sen, että menetelmä on kohtalaisen pienellä vaivalla muunnettavissa tietokoneohjelmaksi.
+  Painotettujen verkkojen käyttäminen priorisointiin pakottaa myös menetelmän käyttäjät piirtämään näkymä ja siirtymäperustaisen painotetun verkon, jolloin se kasvattaa käyttäjien ymmärrystä testauskohteena olevasta järjestelmästä.
+  Priorisointimenetelmä on tässä diplomityössä esitetyn esimerkin \ref{tab:esimerkki_verkon_priorisointi_muuttujat} mukaan todettavissa toimivaksi ja sen avulla on suoritettu priorisointi varsinaisesta testauskohteesta yksinkertaistetulle käyttöliittymälle.
 
-  Dijkstran algoritmin avulla voidaan selvittää verkosta prioriteetiltaan korkein polku, eli näkymät joiden testikokoelmat tulisi suorittaa ensimmäisenä.
-
-  Painotettu verkko voidaan piirtää, joka kasvattaa ymmärrystä järjestelmästä
-
-  Menetelmän käyttö on tehokkainta kun testitapaukset kategorisoidaan näkymittäin testikokoelmiin
-
-
-
-  Testikattavuuden päättäminen näkymä- ja siirtymäperusteisesti voi olla haastavaa
-
-  Ei välttämättä ainakaan muokkauksia tekemättä geneerinen menetelmä
-
-  Menetelmän käyttö soveltuu testikokoelmien, ei testitapauksien, priorisointiin
-
-  Priorisointimenetelmän käyttö voi olla turhan aikaa vievää jos käyttöliittymä on yksinkertainen
+  Myös priorisointimenetelmässä on negatiivisiakin puolia, mutta ne eivät tässäkään tapauksessa ylitä menetelmän käytöstä saatavaa hyötyä.
+  Menetelmässä esittävien toistuvien leikkauksien määräää rajaavan testikattavuuden päättäminen näkymä ja siirtymäperusteisesti voi olla haastavaa.
+  Toinen menetelmään kohdistuva kritiikki koskee menetelmän geneerisyyttä, eli käyttöönottamisen mahdollisuutta ilman muutoksia, jota on vaikea arvioida.
+  Priorisointimenetelmässä käytettävät priorintiin vaikuttavat muuttujat ovat varsin subjektiivisia ja voivat olla testausta toteuttavan tahon mukaan muuttuvia, jonka takia muuttujiin joudutaan mahdollisesti tekemään muutoksia.
+  Negatiivista on myös se että menetelmän käyttö on soveltuva painotettujen verkkojen luonteen mukaisesti käyttöliittymien tapauksessa soveltuvat vain kokonaisia näkymiä peilaavien testikokoelmien priorisointiin yksittäisten testitapauksien sijaan.
+  Priorisointimenetelmän käyttö voi olla turhan aikaa vievää jos käyttöliittymä on yksinkertainen.
 
 \section{Jatkokehitysehdotukset} \label{ch:12_jatkokehitysehdotukset}
 
-  Xvfb:lle vastineen löytäminen Window ympäristöön
+  Tämän diplomityön konkreettisina tuloksina syntyneet testausjärjestelmä ja priorisointimenetelmä ovat sellaisenaan käyttövalmiita ja toimivaksi todettuja, mutta jatkokehittelylle on luonnollisesti niissäkin sijaa.
+  Testausjärjestelmän avulla toteuttava web-sovelluksien päätön hyväksymistestaus mahdollisestaan Xvfb-näyttöpalvelimen tarjoaman virtualisoinnin avulla.
+  Xvfb-näyttöpalvelin on kuitenkin saatavilla vain UNIX-ympäristöihin, joka rajaa testausjärjestelmään lisättävien verkkoselaimien saatavuutta.
+  Xvfb-näyttöpalvelimelle voitaisiin jatkokehityksenä etsiä monialustaisempi vaihtoehto tai ainakin vastine Window-ympäristöön, jonka avulla myös vain Window-alustalle saatavat verkkoselaimet olisi mahdollista lisätä järjestelmään.
 
-  Parempi priorisointi muuttamalla näkymäperusteisuus käyttötapausperustaiseksi
-
-  Näkymägraafien visualisointi ja muu priorisointiohjelman jatkokehittely
+  Yksi priorisointimenetelmään liittyvä rajoite on käyttöliittymän näkymä- ja siirtymäperustainen priorisointi, joka asettaa näkymät vastaamaan testikokoelmia.
+  Jatkokehityksenä voitaisiin tutkia näkymäperusteisuuden mukaan tehtävän priorisoinnin muuntamisen mahdollisuutta käyttötapausperustaiseksi.
+  Käyttötapausperustaisesti luotava verkko parhaimmillaan vastaisi oikeita käyttäjien tarpeisiin tarkoitettuja toiminallisuuksia ja voisi parantaa priorisointia.
+  Priorisointimenetelmä on vahvasti matemaattinen, joka mahdollistaa sen muuntamisen kohtalaisella vaivalla tietokoneohjelmaksi.
+  Priorisointimenetelmän rakentaminen automaattisen tietokoneohjelman muotoon olisi erittäin järkevää ja laskisi menetelmän käyttööottamiseen tarvittavaa vaivannäköä huomattavasti.
+  Lisäksi priorisointimenetelmän näkymäpohjaisten graafien, eli painotettujen verkkojen visualisointi voitaisiin hoitaa tietokoneohjelman yhteydessä.
