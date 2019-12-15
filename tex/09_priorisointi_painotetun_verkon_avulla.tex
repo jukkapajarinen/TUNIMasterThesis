@@ -1,17 +1,17 @@
 Tässä luvussa käsitellään ensin työhön keskeisesti kuuluvan verkkoteorian perusteita ja käydään huolellisesti läpi niistä tässä työssä käytettävät osat.
-Työssä sovelletaan erityisesti verkkoteorian painotettua verkkoa sekä verkkoteoriassa esiintyvän lyhimmän polun ongelmaan kehitettyä Dijkstran algoritmia.
+Työssä sovelletaan erityisesti verkkoteorian painotettua verkkoa sekä verkkoteoriassa painotettuihin verkkoihin liittyviä käsitteitä.
 Verkkoteoria itsessään on osa diskeettiä matematiikkaa.
 
 Verkkoteorian jälkeen tässä luvussa esitetään vaiheittain työn tuloksena kehitetty priorisointimenetelmä.
 Priorisointia varten esitetään harkintaa käyttäen valitut priorisointiin vaikuttavat muuttujat, niitä käyttävät painofunktiot, verkon rakentaminen ja karsiminen sekä verkon ja testitapauksien yhteys.
-Lisäksi käydään läpi miten menetelmää käyttäen tuotetun painotetun verkon sisältämää informaatiota voidaan hyödyntää prioriteeteiltaan tärkeimmän polun löytämiseen \ref{ch:10_dijkstran_algoritmin_hyodyntaminen}.
+Lisäksi käydään läpi miten menetelmää käyttäen tuotetun painotetun verkon sisältämää informaatiota voidaan hyödyntää prioriteeteiltaan tärkeimmän polun löytämiseen Dijkstran algoritmia käyttäen.
 
 \section{Matemaattisten verkkojen tarkoitus} \label{ch:09_matemaattisten_verkkojen_tarkoitus}
 
   Matemaattisten verkkojen tarkoituksena on mallintaan parittaisia riippuvuuksia verkkomaisessa objektijoukossa.
-  Verkkoteoriassa peruskäsitteitä ovat itse \emph{verkko} eli \emph{graafi}, joka muodostuu \emph{solmuista} ja niiden välisiä riippuvuuksia esittävistä \emph{kaarista} tai \emph{nuolista}.
+  Verkkoteoriassa peruskäsitteitä ovat itse verkko eli graafi, joka muodostuu solmuista ja niiden välisiä riippuvuuksia esittävistä kaarista tai nuolista.
   Verkkoteorialla on lukuisia käytännön sovellutuksia. Verkkoteoriaa sovelletaan muun muassa tietokonetieteissä, kielitieteissä, fysiikan ja kemian sovellutuksissa, sosiaalisissa tieteissä ja biologiassa.
-  Alun perin verkkoteoria katsotaan syntyneen 1700-luvulla esiintyneestä niin sanotusta Königsbergin siltaongelmasta, johon Leonhard Euler esitti todistuksensa.
+  Alun perin verkkoteoria katsotaan syntyneen 1700-luvulla esiintyneestä niin sanotusta Königsbergin siltaongelmasta, johon Leonhard Euler esitti todistuksensa \parencite{graph_theory_history}.
 
   Matemaattisten verkkojen käyttöön päädyttiin tässä työssä siksi, että niiden avulla on hyväksymistestauksen kohteena oleva käyttöliittymä mahdollistaa mallintaa verkoksi.
   Käyttöliittymän verkkomuotoiseen esitykseen voidaan vielä lisätä painot, jotka tässä tapauksessa kuvaavat prioriteetteja, mahdollistaen testikokoelmien priorisoinnin.
@@ -21,30 +21,29 @@ Lisäksi käydään läpi miten menetelmää käyttäen tuotetun painotetun verk
   Verkkoteoriassa käytetään muun muassa seuraavia perusmerkintöjä ja käsitteitä:
 
   \begin{itemize}
-    \item \(V := \{v_1, v_2, v_3\}\) Solmujoukko joka sisältää \emph{solmut} \(v_1\), \(v_2\) ja \(v_3\).
-    \item \(E := \{e_1, e_2, e_3\}\) Kaarijoukko joka sisältää \emph{kaaret} \(e_1\), \(e_2\) ja \(e_3\).
-    \item \(\phi(e_1) := \langle v_1, v_2 \rangle\) Kaariparin \(v_1\) ja \(v_2\) yhdistävän \emph{kaaren} \(e_1\) kuvaaja.
-    \item \(d_G(x)\) Solmun asteluku, eli solmuun liittyvien \emph{kaarten} määrä.
-    \item \(G_2 \subset G_1\) Aliverkko, eli \emph{verkko} \(G_2\) joka koostuu osasta \emph{verkon} \(G_1\) \emph{solmuja} ja \emph{kaaria}.
-    \item \(v_1 \neq v_2, v_1 \rightarrow v_2\) Verkon yhtenäisyys, eli jokaiselle solmuparille \(v_1 \neq v_2\) on olemassa niitä yhdistävä \emph{kaari}.
-    \item \(P = \{v_0, v_1, ..., v_n\}, v_0 \rightarrow v_n\) Polku, eli \emph{suunnattu solmujono} jota pitkin voidaan kulkea \emph{solmusta} \(v_0\) \emph{solmuun} \(v_n\).
-    \item \(P = \{v_0, v_1, ..., v_n| e \in E_P, e \notin \{E_P \setminus \{e\} \}\}\) Sykli, eli \emph{polku}, jonka aloitus \(v_0\) ja lopetussolmu \(v_n\) on sama, mutta polun jokaista kaarta \(e\) kuljetaan vain kerran.
-    \item \(d_G(v_1) = 0\) Eristetty solmu, eli \emph{solmu} jonka \emph{asteluku} on nolla.
-    \item \(v_1 \rightarrow v_2, d_G(v_1) = 1 \lor d_G(v_2) = 1\) Silta, eli \emph{kaari} johon yhdistyvän \emph{solmun asteluku} on yksi ja jonka poistaminen epäyhteinäistää \emph{verkon}.
-    \item \(v_x \rightarrow v_x\) Silmukka, eli \emph{kaari} jonka \emph{aloitussolmut} ja \emph{lopetussolmu} ovat sama \emph{solmu}.
-    \item \(\alpha := V(G), E(G) \rightarrow \mathbb{N}\) Painofunktion yleinen kuvaus verkossa \(G\), solmuille \(V\) ja kaarille \(E\).
+    \item \(V := \{v_1, v_2, v_3\}\) \textbf{Solmujoukko} joka sisältää \emph{solmut} \(v_1\), \(v_2\) ja \(v_3\).
+    \item \(E := \{e_1, e_2, e_3\}\) \textbf{Kaarijoukko} joka sisältää \emph{kaaret} \(e_1\), \(e_2\) ja \(e_3\).
+    \item \(d_G(v_1)\) \textbf{Solmun asteluku}, eli \emph{solmuun} \(v_1\) liittyvien \emph{kaarten} lukumäärä.
+    \item \(G_2 \subset G_1\) \textbf{Aliverkko}, eli \emph{verkko} \(G_2\) joka koostuu osasta \emph{verkon} \(G_1\) \emph{solmuja} ja \emph{kaaria}.
+    \item \(v_1 \neq v_2, v_1 \rightarrow v_2\) \textbf{Verkon yhtenäisyys}, eli jokaiselle solmuparille \(v_1 \neq v_2\) on olemassa niitä yhdistävä \emph{kaari}.
+    \item \(P = \{v_0, v_1, ..., v_n\}, v_0 \rightarrow v_n\) \textbf{Polku}, eli \emph{suunnattu solmujono} jota pitkin voidaan kulkea \emph{solmusta} \(v_0\) \emph{solmuun} \(v_n\).
+    \item \(P = \{v_0, v_1, ..., v_n| e \in E_P, e \notin \{E_P \setminus \{e\} \}\}\) \textbf{Sykli}, eli \emph{polku}, jonka aloitus \(v_0\) ja lopetussolmu \(v_n\) on sama, mutta polun jokaista kaarta \(e\) kuljetaan vain kerran.
+    \item \(d_G(v_1) = 0\) \textbf{Eristetty solmu}, eli \emph{solmu} jonka \emph{asteluku} on nolla.
+    \item \(v_1 \rightarrow v_2, d_G(v_1) = 1 \lor d_G(v_2) = 1\) \textbf{Silta}, eli \emph{kaari} johon yhdistyvän \emph{solmun asteluku} on yksi ja jonka poistaminen epäyhteinäistää \emph{verkon}.
+    \item \(v_x \rightarrow v_x\) \textbf{Silmukka}, eli \emph{kaari} jonka \emph{aloitussolmut} ja \emph{lopetussolmu} ovat sama \emph{solmu}.
+    \item \(\alpha := V(G), E(G) \rightarrow \mathbb{N}\) \textbf{Painofunktion yleinen kuvaus} verkossa \(G\), solmuille \(V\) ja kaarille \(E\).
   \end{itemize}
 
 \section{Priorisointiin vaikuttavat muuttujat} \label{ch:10_priorisointiin_vaikuttavat_muuttujat}
 
-  Näkymä- ja siirtymäperustaiseen priorisointiin vaikuttavat monet eri asiat, joista osa kasvattaa prioriteettia ja osa laskee sitä.
+  Näkymä ja siirtymäperustaiseen priorisointiin vaikuttavat monet eri asiat, joista osa kasvattaa prioriteettia ja osa laskee sitä.
   Prioriteettia kasvattava muuttuja on esimerkiksi liiketoiminnallinen arvo ja laskeva muuttuja on esimerkiksi projektin muutosherkkyys.
   Muuttujat ovat kuitenkin hyvin kontekstiriippuvaisia, joten yleispätevää ja kaikkiin tilanteisiin soveltuvaa listaa muuttujista on hankala antaa.
   Kontekstiriippuvaisuuden takia muuttujiin ja myöhemmin esitettäviin painofunktioihin on varattu paikka omille lisämuuttujille.
 
   Tässä diplomityössä esiteltävää priorisointimenetelmää varten jokainen priorisointiin vaikuttava muuttuja arvioidaan asteikolla 1-10, paria poikkeusta lukuun ottamatta.
   Numeerisella asteikolla on tarkoitus antaa korkea numero, jos muuttuja on prioriteetiltaan tärkeä kyseisen näkymän, eli verkon solmun kohdalla.
-  Jos jokin muuttuja ei ole kelpoinen siinä kontekstissa, jossa menetelmää yritetään hyödyntää, tulee muuttujan arvo asettaa nollaksi, jolloin se sivuutetaan painofunktiossa \ref{ch:10_painofunktiot_priorisointiin}.
+  Jos jokin muuttuja ei ole kelpoinen siinä kontekstissa, jossa menetelmää yritetään hyödyntää, tulee muuttujan arvo asettaa nollaksi, jolloin se sivuutetaan myöhemmin esitettävässä painofunktiossa.
 
   Poikkeukselliset muuttujat ovat käyttötapauksien määrä ja siirtymien määrä, joissa numeerisen asteikon sijaan käytetään kyseisten muuttujien määrää suhteessa koko verkkoon.
   Esimerkiksi siirtymien määrää ilmaiseva suhde määritetään laskemalla solmun asteluku \(d_G(v)\), eli solmuun liittyneiden kaarien määrä, jaettuna kaikilla verkossa olevien kaarien määrällä.
@@ -95,7 +94,7 @@ Lisäksi käydään läpi miten menetelmää käyttäen tuotetun painotetun verk
 
   Painofunktio yksittäiselle solmut \(v_x\) ja \(v_y\) yhdistävälle kaarelle \(e_{xy}\), eli siirtymälle saadaan myös käänteislukuna.
   Kaaren painofunktiota varten pitää kuitenkin huomioida, että sen kokonaisprioriteetti on kaaren solmujen kokonaisprioriteetin summa \(p(v_x) + p(v_y)\).
-  Kaaren kokonaisprioriteetti \(p(v_1) + p(v_2)\) pitää laskea ennen käänteisluvuksi muuttamista.
+  Kaaren kokonaisprioriteetti \(p(v_x) + p(v_y)\) pitää laskea ennen käänteisluvuksi muuttamista.
 
   \[\beta(e_{xy}) = \begin{cases}
     (p(v_x) + p(v_y))^{-1} & p(v_x) + p(v_y) > 0 \\
@@ -133,14 +132,14 @@ Lisäksi käydään läpi miten menetelmää käyttäen tuotetun painotetun verk
   \end{table}
 
   Painotetun verkon rakentamisen syötteeksi täytyy käyttöliittymän näkymät ja siirtymät sekä niiden painoarvot esittää painomatriisin muodossa.
-  Painoarvot saadaan aiemmin esitetyn painofunktion \(\beta\) avulla \ref{ch:10_painofunktiot_priorisointiin}.
+  Painoarvot saadaan aiemmin esitetyn painofunktion \(\beta\) avulla.
   Painoarvo lasketaan \(\beta\) funktion avulla jokaiselle kahta näkymää yhdistävälle siirtymälle, eli painotetun verkon solmujen väliselle kaarelle.
   Painofunktio \(\beta\) käyttää kaaren molempien päätepisteiden \(v_A\) ja \(v_B\) yhteenlaskettua prioriteettia, josta käänteisluku otetaan.
   Näin saadaan laskettua kaarelle sellainen painoarvo, joka tarkoittaa painotetussa verkossa siirtymän näkymiin sidottua prioriteettia.
 
   \[\beta(e_{AB}) = (p(v_A) + p(v_B))^{-1} = (8 + 6)^{-1} = \frac{1}{14} \approx 0.071\]
 
-  Painomatriisi, esimerkin mukaiselle datalle \ref{tab:esimerkki_verkon_priorisointi_muuttujat} ja siitä lasketuille painoarvoille on esitetty seuraavassa matriisissa \(M_G\).
+  Painomatriisi, esimerkin \ref{tab:esimerkki_verkon_priorisointi_muuttujat} mukaiselle datalle ja siitä lasketuille painoarvoille on esitetty seuraavassa matriisissa \(M_G\).
   Painomatriisissa tulee väistämättä esiin tilanne, jossa pitää määrittää painoarvo kaarelle jonka aloitussolmu ja lopetussolmu ovat sama solmu itsessään.
   Tällaisissa tapauksissa, tilanteesta riippuen painomatriiseihin usein merkitään \(0\), \(\infty\) tai \(-\).
   Tässä diplomityössä esitettävän menetelmän painomatriiseissa solmuun itseensä johtuvan kaaren, eli silmukan painoksi merkitään aina \(-\), koska käyttöliittymän näkymästä siirtymät itseensä ei menetelmässä käsitellä aitoina siirtyminä.
@@ -165,7 +164,7 @@ Lisäksi käydään läpi miten menetelmää käyttäen tuotetun painotetun verk
   \]
 
   Painomatriisin avulla voidaan siis rakentaa matemaattinen painotettu verkko, joka kuvaa näkymiä ja siirtymiä sekä niiden prioriteetteja.
-  Painotetun verkon kuvaamiseen piirretään jokainen erilaista käyttöliittymän näkymää vastaava ja esimerkkidatan \ref{tab:esimerkki_verkon_priorisointi_muuttujat} mukainen solmu ja niiden välisiä siirtymiä kuvaavat yhteydet eli kaaret.
+  Painotetun verkon kuvaamiseen piirretään jokainen erilaista käyttöliittymän näkymää vastaava ja esimerkkidatan mukainen solmu ja niiden välisiä siirtymiä kuvaavat yhteydet eli kaaret.
   Kaarien yhteyteen lisätään kuvaajassa kaaren prioriteettia kuvaava painoarvo.
   Seuraavassa on esitetty painomatriisin dataa vastaava painotetun verkon kuvaaja \ref{fig:painotettu-verkko-ennen} sellaisena, kuin se on ennen siihen tehtäviä prioriteettileikkauksia.
   Priorisoimista varten tehtävien leikkauksien tekeminen esitetään myöhemmin omassa kappaleessaan \ref{ch:10_verkon_karsiminen}.
@@ -226,7 +225,7 @@ Lisäksi käydään läpi miten menetelmää käyttäen tuotetun painotetun verk
   Dijkstran algoritmin sisäinen toimintaperiaate ei ole tämän diplomityön näkökulmasta oleellista, mutta se on kuitenkin esitetty tarkemmin pseudokoodina liitteessä \ref{ch:13_liite_dijkstran_algoritmi}.
   Dijkstran algoritmi kahdelle painoltaan pienimmälle, eli prioriteetiltaan korkeimmalle antaa tuloksena \(v_1\) ja \(v_2\) solmuja yhdistävän polun, jonka sisältävät solmut eli näkymät ovat prioriteetiltaan tärkeimmät.
   Koska painotetun verkon painofunktiot on laadittu käänteislukuja hyödyntäen, Dijkstran algoritmi löytää painoarvoltaan matalimman, mutta prioriteetiltaan tärkeimmän polun solmujen \(v_1\) ja \(v_2\) välille.
-  Näin ollen saadaan helposti ja vaivattomasti tietää sellaiset solmut eli käyttöliittymän näkymät jotka kuuluvat tärkeimpiin ja joista testiautomaation rakentaminen kannattaa aloittaa.
+  Näin ollen saadaan helposti ja vaivattomasti tietää sellaiset solmut eli käyttöliittymän näkymät jotka kuuluvat prioriteetiltaan tärkeimpiin ja joista testiautomaation rakentaminen kannattaa aloittaa.
 
 \section{Verkon ja testitapauksien yhteys} \label{ch:10_verkon_ja_testitapauksien_yhteys}
 
