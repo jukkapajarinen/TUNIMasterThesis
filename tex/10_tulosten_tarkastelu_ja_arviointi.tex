@@ -6,7 +6,7 @@ Lisäksi lopussa vielä esitetään toteutuksen jälkeen esiin tulleita jatkokeh
 \section{Tutkimuksen konkreettiset tulokset} \label{ch:12_tutkimuksen_konkreettiset_tulokset}
 
   Työn tuloksena kehitetty  web-käyttöliittymien hyväksymistestauksen automatisoimisen mahdollistava testausjärjestelmä on integroitu onnistuneesti osaksi GoCD-palvelimen avulla suoritettavaa jatkuvaa integrointia.
-  Lyhyesti sanottuna testausjärjestelmän osalta konkreettinen tulos koostuu järjestelmästä, joka mahdollistaa testitapauksien luomisen Robot Framework alustalle käyttäen Selenium kirjastoa, Xvfb virtualisointipalvelinta ja Docker säiliöintiohjelmistoa.
+  Lyhyesti sanottuna testausjärjestelmän osalta konkreettinen tulos koostuu järjestelmästä, joka mahdollistaa testitapauksien luomisen Robot Framework -alustalle käyttäen Selenium-kirjastoa, Xvfb-virtualisointipalvelinta ja Docker-säiliöintiohjelmistoa.
   Testausjärjestelmän toimivuus käytännössä todettiin esimerkkitestitapauksien muodossa oikeassa ympäristössään ja testausjärjestelmän mahdollistamat ominaisuudet ovat jo itsessään oikeassa ja lopullisessa käyttöympäristössä tarvittavia.
 
   Web-sovelluksien näkymä ja siirtymäperustainen painotettua verkkoa hyödyntävä priorisointimenetelmä on myös todettu toimivaksi lähestysmistavaksi priorisointiin.
@@ -18,10 +18,10 @@ Lisäksi lopussa vielä esitetään toteutuksen jälkeen esiin tulleita jatkokeh
 
   Kokonaisuutena hyväksymistestausjärjestelmän toteutus onnistui erittäin hyvin ja sen avulla on mahdollista jopa geneerisesti rakentaa web-sovelluksesta riippumattomasti hyväksymistestaus testauskohteena olevalle web-sovellukselle.
 
-  Testausjärjestelmän positiivisia puolia ovat muun muassa Docker säiliöinnin avulla saatava tuki myös manuaaliselle testitapauksien ajamiselle.
-  Docker säiliö, joka mahdollistaa testitapauksien ajamisen voidaan pystyttää periaatteessa mihin tahansa ympäristöön, jossa Docker on saatavilla.
-  Docker säiliöinnin avulla myös ohjelmistokehittäjät saavat valmiin hyväksymistestausjärjestelmän helposti käyttöönsä.
-  Docker säiliöinnin ja Docker-compose:n avulla rakennettu järjestelmä ei myöskään ole sidottu mihinkään ennalta määritettyyn jatkuvan integroinnin palvelimeen, joka huomattavasti helpottaa testausjärjestelmän käyttöönottoa osaksi uusia tai muuttuvaa ohjelmistotuotannon prosessia.
+  Testausjärjestelmän positiivisia puolia ovat muun muassa Docker-säiliöinnin avulla saatava tuki myös manuaaliselle testitapauksien ajamiselle.
+  Docker-säiliö, joka mahdollistaa testitapauksien ajamisen voidaan pystyttää periaatteessa mihin tahansa ympäristöön, jossa Docker on saatavilla.
+  Docker-säiliöinnin avulla myös ohjelmistokehittäjät saavat valmiin hyväksymistestausjärjestelmän helposti käyttöönsä.
+  Docker-säiliöinnin ja Docker-compose:n avulla rakennettu järjestelmä ei myöskään ole sidottu mihinkään ennalta määritettyyn jatkuvan integroinnin palvelimeen, joka huomattavasti helpottaa testausjärjestelmän käyttöönottoa osaksi uusia tai muuttuvaa ohjelmistotuotannon prosessia.
   Testausjärjestelmä mahdollistaa päätteettömän testauksen virtuaalisen Xfvb-näyttöpalvelimen avulla, joka on itsessään erittäin tarvittu ominaisuus jatkuvan integroinnin ja testausjärjestelmän yhdistämiseen.
   Xvfb-näyttöpalvelimen tarjoaman virtualisoinnin avulla voidaan myös uusia WebDriver rajapinnan toteuttavia verkkoselaimia lisätä päätteettömän testauksen alaisuuteen erittäin helposti ja käytännössä rajoituksitta.
   Ainoa vaatimus on, että verkkoselain on saatavilla siihen ympäristöön, jossa Xvfb-näyttöpalvelinta ajetaan.

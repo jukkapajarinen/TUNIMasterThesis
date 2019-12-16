@@ -21,17 +21,16 @@ Lisäksi käydään läpi miten menetelmää käyttäen tuotetun painotetun verk
   Verkkoteoriassa käytetään muun muassa seuraavia perusmerkintöjä ja käsitteitä:
 
   \begin{itemize}
-    \item \(V := \{v_1, v_2, v_3\}\) \textbf{Solmujoukko} joka sisältää \emph{solmut} \(v_1\), \(v_2\) ja \(v_3\).
-    \item \(E := \{e_1, e_2, e_3\}\) \textbf{Kaarijoukko} joka sisältää \emph{kaaret} \(e_1\), \(e_2\) ja \(e_3\).
-    \item \(d_G(v_1)\) \textbf{Solmun asteluku}, eli \emph{solmuun} \(v_1\) liittyvien \emph{kaarten} lukumäärä.
-    \item \(G_2 \subset G_1\) \textbf{Aliverkko}, eli \emph{verkko} \(G_2\) joka koostuu osasta \emph{verkon} \(G_1\) \emph{solmuja} ja \emph{kaaria}.
-    \item \(v_1 \neq v_2, v_1 \rightarrow v_2\) \textbf{Verkon yhtenäisyys}, eli jokaiselle solmuparille \(v_1 \neq v_2\) on olemassa niitä yhdistävä \emph{kaari}.
-    \item \(P = \{v_0, v_1, ..., v_n\}, v_0 \rightarrow v_n\) \textbf{Polku}, eli \emph{suunnattu solmujono} jota pitkin voidaan kulkea \emph{solmusta} \(v_0\) \emph{solmuun} \(v_n\).
-    \item \(P = \{v_0, v_1, ..., v_n| e \in E_P, e \notin \{E_P \setminus \{e\} \}\}\) \textbf{Sykli}, eli \emph{polku}, jonka aloitus \(v_0\) ja lopetussolmu \(v_n\) on sama, mutta polun jokaista kaarta \(e\) kuljetaan vain kerran.
-    \item \(d_G(v_1) = 0\) \textbf{Eristetty solmu}, eli \emph{solmu} jonka \emph{asteluku} on nolla.
-    \item \(v_1 \rightarrow v_2, d_G(v_1) = 1 \lor d_G(v_2) = 1\) \textbf{Silta}, eli \emph{kaari} johon yhdistyvän \emph{solmun asteluku} on yksi ja jonka poistaminen epäyhteinäistää \emph{verkon}.
-    \item \(v_x \rightarrow v_x\) \textbf{Silmukka}, eli \emph{kaari} jonka \emph{aloitussolmut} ja \emph{lopetussolmu} ovat sama \emph{solmu}.
-    \item \(\alpha := V(G), E(G) \rightarrow \mathbb{N}\) \textbf{Painofunktion yleinen kuvaus} verkossa \(G\), solmuille \(V\) ja kaarille \(E\).
+    \item \textbf{Solmujoukko:} \(V := \{v_1, v_2, v_3\}\), eli joukko joka sisältää \emph{solmut} \(v_1\), \(v_2\) ja \(v_3\).
+    \item \textbf{Kaarijoukko:} \(E := \{e_1, e_2, e_3\}\), eli joukko joka sisältää \emph{kaaret} \(e_1\), \(e_2\) ja \(e_3\).
+    \item \textbf{Solmun asteluku:} \(d_G(v_1)\), eli \emph{solmuun} \(v_1\) liittyvien \emph{kaarten} lukumäärä.
+    \item \textbf{Aliverkko:} \(G_2 \subset G_1\), eli \emph{verkko} \(G_2\) joka koostuu osasta \emph{verkon} \(G_1\) \emph{solmuja} ja \emph{kaaria}.
+    \item \textbf{Verkon yhtenäisyys:} \(v_1 \neq v_2, v_1 \rightarrow v_2\), eli jokaiselle \emph{solmuparille} \(v_1 \neq v_2\) on olemassa niitä yhdistävä \emph{kaari}.
+    \item \textbf{Polku:} \(P = \{v_0, v_1, ..., v_n\}, v_0 \rightarrow v_n\), eli \emph{suunnattu solmujono} jota pitkin voidaan kulkea \emph{solmusta} \(v_0\) \emph{solmuun} \(v_n\).
+    \item \textbf{Sykli:} \(C = \{v_0, v_1, ..., v_n| \exists e \in E_C\}\), eli \emph{polku}, jonka \emph{aloitussolmu} \(v_0\) ja \emph{lopetussolmu} \(v_n\) ovat sama \emph{solmu}, mutta \emph{polun} jokainen \emph{kaari} \(e\) on uniikki, eli sitä kuljetaan vain kerran.
+    \item \textbf{Eristetty solmu:} \(d_G(v_1) = 0\), eli \emph{solmu} jonka \emph{asteluku} on nolla.
+    \item \textbf{Silta:} \(v_1 \rightarrow v_2, d_G(v_1) = 1 \lor d_G(v_2) = 1\), eli \emph{kaari} johon yhdistyvän \emph{solmun asteluku} on yksi ja jonka poistaminen epäyhtenäistää \emph{verkon}.
+    \item \textbf{Silmukka:} \(v_x \rightarrow v_x\), eli \emph{kaari} jonka \emph{aloitussolmu} ja \emph{lopetussolmu} ovat sama \emph{solmu}.
   \end{itemize}
 
 \section{Priorisointiin vaikuttavat muuttujat} \label{ch:10_priorisointiin_vaikuttavat_muuttujat}
@@ -50,7 +49,7 @@ Lisäksi käydään läpi miten menetelmää käyttäen tuotetun painotetun verk
   Lisäksi siirtymien määrän suhde vielä kerrotaan luvulla 10, jotta se saadaan skaalautumaan muiden muuttujien kanssa samalle tasolle.
 
   \begin{table}[H]
-    \caption{Priorisointiin vaikuttavat muuttujat}
+    \caption{Näkymä ja siirtymäperustaiseen priorisointiin vaikuttavat muuttujat}
     \label{tab:priorisointiin_vaikuttavat_muuttujat}
     \centering
     \begin{tabular}{lllll} \hline
