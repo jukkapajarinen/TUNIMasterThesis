@@ -94,14 +94,14 @@ Lisäksi käydään läpi miten menetelmää käyttäen tuotetun painotetun verk
     \end{cases}
   \end{equation}
 
-  Painofunktio yksittäiselle solmut \(v_x\) ja \(v_y\) yhdistävälle kaarelle \(e_{xy}\), eli siirtymälle saadaan myös käänteislukuna.
-  Kaaren painofunktiota varten pitää kuitenkin huomioida, että sen kokonaisprioriteetti on kaaren solmujen kokonaisprioriteetin summa \(p(v_x) + p(v_y)\).
-  Kaaren kokonaisprioriteetti \(p(v_x) + p(v_y)\) pitää laskea ennen käänteisluvuksi muuttamista.
+  Painofunktio yksittäiselle solmut \(v_a\) ja \(v_b\) yhdistävälle kaarelle \(e_{xy}\), eli siirtymälle saadaan myös käänteislukuna.
+  Kaaren painofunktiota varten pitää kuitenkin huomioida, että sen kokonaisprioriteetti on kaaren solmujen kokonaisprioriteetin summa \(p(v_a) + p(v_b)\).
+  Kaaren kokonaisprioriteetti \(p(v_a) + p(v_b)\) pitää laskea ennen käänteisluvuksi muuttamista.
 
   \begin{equation}
     \beta(e_{xy}) = \begin{cases}
-      [p(v_x) + p(v_y)]^{-1} & p(v_x) + p(v_y) > 0 \\
-      1 & p(v_x) + p(v_y) \leq 0
+      [p(v_a) + p(v_b)]^{-1} & p(v_a) + p(v_b) > 0 \\
+      1 & p(v_a) + p(v_b) \leq 0
     \end{cases}
   \end{equation}
 
