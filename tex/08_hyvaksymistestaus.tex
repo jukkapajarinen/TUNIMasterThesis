@@ -149,16 +149,16 @@ Lopuksi esitetään yleisestikin ottaen testitapauksiin tärkeästi liittyvä pr
 
   \subsection{Xvfb} \label{ch:08_xvfb}
 
-    Xvfb, eli X virtual framebuffer, on X-näyttöpalvelimen protokollan toteuttava virtuaalinen X-näyttöpalvelin.
-    X-näyttöpalvelimen tehtävä on mahdollistaa graafisten ohjelmien toiminta käyttöjärjestelmän ytimen päällä, jossa X-palvelin ja X-asiakasohjelmat kommunikoivat keskenään sekä X-palvelin hoitaa ytimen kautta näytön ja syöttölaitteiden käsittelyn.
+    Xvfb, eli X virtual framebuffer, on X-näyt\-tö\-pal\-ve\-li\-men  protokollan toteuttava virtuaalinen X-näyt\-tö\-pal\-ve\-lin.
+   X-näyt\-tö\-pal\-ve\-li\-men tehtävä on mahdollistaa graafisten ohjelmien toiminta käyttöjärjestelmän ytimen päällä, jossa X-palvelin ja X-asiakasohjelmat kommunikoivat keskenään sekä X-palvelin hoitaa ytimen kautta näytön ja syöttölaitteiden käsittelyn.
     Xvfb ei tulosta mitään näytölle, vaan kaikki näytölle normaalisti tulostuva graafisia käyttöliittymiä sisältävä sisältö on ajonaikaisessa tietokoneen muistissa.
-    Xvfb toimii aivan kuten tavallinenkin X-näyttöpalvelin, eli vastaa X-ohjelmien pyyntöihin ja hoitaa niihin liittyvän tapahtumien ja virheiden käsittelyn.
+    Xvfb toimii aivan kuten tavallinenkin X-näyt\-tö\-pal\-ve\-lin, eli vastaa X-ohjelmien pyyntöihin ja hoitaa niihin liittyvän tapahtumien ja virheiden käsittelyn.
 
     Xvfb soveltuu web-sovelluksien hyväksymistestauksen automatisointiin mahdollistaen päätteettömän testaamisen testitapauksille.
     Päätteetöntä testausta voidaan toteuttaa myös verkkoselaimiin rakennettujen ominaisuuksien avulla, mutta Xvfb:n suurena etuna niihin on se, että sitä voidaan käyttää mihin tahansa graafiseen ohjelmaan.
     Päätteettömän testauksen mahdollistaminen on erittäin tärkeää, sillä se mahdollistaa myös käyttöliittymätestauksen suorittamisen jatkuvan integroinnin palvelimilla, jossa ei graafista ympäristöä ajon aikana muuten olisi.
 
-    Yhtenä Xvfb:n heikkoutena on, että se on saatavilla vain UNIX-pohjaisiin X-näyttöpalvelimen sisältäviin käyttöjärjestelmiin, kuten Linux ja MacOS.
+    Yhtenä Xvfb:n heikkoutena on, että se on saatavilla vain UNIX-pohjaisiinX-näyt\-tö\-pal\-ve\-li\-men sisältäviin käyttöjärjestelmiin, kuten Linux ja MacOS.
     Näin ollen esimerkiksi Windows-alustalla toimivaa Internet Explorer verkkoselainta ei voida natiivisti testata.
 
     Robot Framework:ille on saatavilla XvfbRobot niminen kirjasto, jota tämän diplomityön toteutuksessa käytettiin.
