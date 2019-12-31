@@ -21,16 +21,17 @@ Lisäksi käydään läpi miten menetelmää käyttäen tuotetun painotetun verk
   Verkkoteoriassa käytetään muun muassa seuraavia perusmerkintöjä ja käsitteitä:
 
   \begin{itemize}
-    \item \textbf{Solmujoukko:} \(V := \{v_1, v_2, v_3\}\), eli joukko joka sisältää \emph{solmut} \(v_1\), \(v_2\) ja \(v_3\).
-    \item \textbf{Kaarijoukko:} \(E := \{e_1, e_2, e_3\}\), eli joukko joka sisältää \emph{kaaret} \(e_1\), \(e_2\) ja \(e_3\).
-    \item \textbf{Solmun asteluku:} \(d_G(v_1)\), eli \emph{solmuun} \(v_1\) liittyvien \emph{kaarten} lukumäärä.
-    \item \textbf{Aliverkko:} \(G_2 \subset G_1\), eli \emph{verkko} \(G_2\) joka koostuu osasta \emph{verkon} \(G_1\) \emph{solmuja} ja \emph{kaaria}.
-    \item \textbf{Verkon yhtenäisyys:} \(v_1 \neq v_2, v_1 \rightarrow v_2\), eli jokaiselle \emph{solmuparille} \(v_1 \neq v_2\) on olemassa niitä yhdistävä \emph{kaari}.
-    \item \textbf{Polku:} \(P = \{v_0, v_1, ..., v_n\}, v_0 \rightarrow v_n\), eli \emph{suunnattu solmujono} jota pitkin voidaan kulkea \emph{solmusta} \(v_0\) \emph{solmuun} \(v_n\).
-    \item \textbf{Sykli:} \(C = \{v_0, v_1, ..., v_n| \exists e \in E_C\}\), eli \emph{polku}, jonka \emph{aloitussolmu} \(v_0\) ja \emph{lopetussolmu} \(v_n\) ovat sama \emph{solmu}, mutta \emph{polun} jokainen \emph{kaari} \(e\) on uniikki, eli sitä kuljetaan vain kerran.
-    \item \textbf{Eristetty solmu:} \(d_G(v_1) = 0\), eli \emph{solmu} jonka \emph{asteluku} on nolla.
-    \item \textbf{Silta:} \(v_1 \rightarrow v_2, d_G(v_1) = 1 \lor d_G(v_2) = 1\), eli \emph{kaari} johon yhdistyvän \emph{solmun asteluku} on yksi ja jonka poistaminen epäyhtenäistää \emph{verkon}.
-    \item \textbf{Silmukka:} \(v_x \rightarrow v_x\), eli \emph{kaari} jonka \emph{aloitussolmu} ja \emph{lopetussolmu} ovat sama \emph{solmu}.
+    \item \textbf{Solmujoukko} \(V = \{v_a, v_b, v_c\}\) on joukko joka sisältää solmut \(v_a\), \(v_b\) ja \(v_c\).
+    \item \textbf{Kaarijoukko} \(E = \{e_{ab}, e_{bc}, e_{ac}\}\) on joukko joka sisältää kaaret \(e_{ab}\), \(e_{bc}\) ja \(e_{ac}\).
+    \item \textbf{Verkko} \(G = V \cup E\) on joukko joka sisältää solmujoukon \(V\) ja kaarijoukon \(E\).
+    \item \textbf{Aliverkko} \(G_s \subset G\) on verkko \(G_s\) joka koostuu osasta verkon \(G\) solmuja ja kaaria.
+    \item \textbf{Polku} \(P = \{v_a, v_b, ..., v_n \: | \: v_a \rightarrow v_n\}\) on solmujono jota pitkin voidaan kulkea solmusta \(v_a\) solmuun \(v_n\).
+    \item \textbf{Sykli} \(C = \{v_a, ..., v_n,..., v_a \: | \: v_a \rightarrow v_a\}\) on sellainen polku, jonka aloitussolmu \(v_a\) ja lopetussolmu \(v_a\) ovat sama solmu siten, että polun jokaista kaarta kuljetaan vain kerran.
+    \item \textbf{Verkon yhtenäisyys} \(\forall \: v_a \neq v_b \: \exists \: P_{ab}\) tarkoittaa sitä, että \(v_a \rightarrow v_b\), eli jokaiselle solmuparille on olemassa niitä yhdistävä polku.
+    \item \textbf{Solmun asteluku} \(d_G(v_a)\) on solmuun \(v_a\) liittyvien kaarten lukumäärä.
+    \item \textbf{Eristetty solmu} on solmu \(v_a\), jonka asteluku on nolla, eli \(d_G(v_a) = 0\).
+    \item \textbf{Silta} on solmujen \(v_a\) ja \(v_b\) välinen kaari \(e_{ab}\) siten, että \(d_G(v_a) = 1\) ja \(d_G(v_b) = 1\).
+    \item \textbf{Silmukka} on kaari, jonka aloitus- ja lopetussolmu  ovat sama solmu, eli \(v_a \rightarrow v_a\).
   \end{itemize}
 
 \section{Priorisointiin vaikuttavat muuttujat} \label{ch:10_priorisointiin_vaikuttavat_muuttujat}
