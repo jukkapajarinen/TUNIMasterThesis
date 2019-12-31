@@ -18,7 +18,7 @@ Lisäksi käydään läpi miten menetelmää käyttäen tuotetun painotetun verk
 
 \section{Perusmerkinnät ja käsitteet} \label{ch:09_perusmerkinnat_ja_kasitteet}
 
-  Verkkoteoriassa käytetään muun muassa seuraavia perusmerkintöjä ja käsitteitä:
+  Verkkoteoriaa käsittelevässä kirjallisuudessa \parencite{graph_theory_concepts_1}\parencite{graph_theory_concepts_2}\parencite{graph_theory_concepts_3} käytetään muun muassa seuraavia perusmerkintöjä ja käsitteitä:
 
   \begin{itemize}
     \item \textbf{Solmujoukko} \(V = \{v_a, v_b, v_c\}\) on joukko joka sisältää solmut \(v_a\), \(v_b\) ja \(v_c\).
@@ -37,7 +37,7 @@ Lisäksi käydään läpi miten menetelmää käyttäen tuotetun painotetun verk
 \section{Priorisointiin vaikuttavat muuttujat} \label{ch:10_priorisointiin_vaikuttavat_muuttujat}
 
   Näkymä ja siirtymäperustaiseen priorisointiin vaikuttavat monet eri asiat, joista osa kasvattaa prioriteettia ja osa laskee sitä.
-  Prioriteettia kasvattava muuttuja on esimerkiksi liiketoiminnallinen arvo ja laskeva muuttuja on esimerkiksi projektin muutosherkkyys.
+  Prioriteettia kasvattava muuttuja on esimerkiksi liiketoiminnallinen arvo ja laskeva muuttuja on esimerkiksi projektin muutosherkkyys, joka voi johtaa nyt toteutettavien testitapauksien vanhentumiseen tulevaisuudessa.
   Muuttujat ovat kuitenkin hyvin kontekstiriippuvaisia, joten yleispätevää ja kaikkiin tilanteisiin soveltuvaa listaa muuttujista on hankala antaa.
   Kontekstiriippuvaisuuden takia muuttujiin ja myöhemmin esitettäviin painofunktioihin on varattu paikka omille lisämuuttujille.
 
@@ -53,18 +53,18 @@ Lisäksi käydään läpi miten menetelmää käyttäen tuotetun painotetun verk
     \caption{Näkymä ja siirtymäperustaiseen priorisointiin vaikuttavat muuttujat}
     \label{tab:priorisointiin_vaikuttavat_muuttujat}
     \centering
-    \begin{tabular}{lllll} \hline
-    \(m\) & \textbf{Muuttuja} & \textbf{Etumerkki} & \textbf{Asteikko} &  \\ \hline
-    \textbf{1} & Liiketoiminnallinen arvo & \(+\) & 1 - 10 &  \\
-    \textbf{2} & Liiketoiminnallinen visio & \(+\) & 1 - 10 &  \\
-    \textbf{3} & Negatiivinen käyttäjäpalaute & \(+\) & 1 - 5 &  \\
-    \textbf{4} & Käyttötapauksien määrä & \(+\) & 10 \(\cdot\) suhde &  \\
-    \textbf{5} & Siirtymien määrä & \(+\) & 10 \(\cdot\) suhde &  \\
-    \textbf{6} & Positiivinen käyttäjäpalaute & \(-\) & 1 - 5 &  \\
-    \textbf{7} & Muutosherkkyys & \(-\) & 1 - 10 &  \\
-    \textbf{8} & Toteuttamisen kompleksisuus & \(-\) & 1 - 5 &  \\
-    \textbf{9} & Toteutuksen virheherkkyys & \(-\) & 1 - 5 &  \\
-    \textbf{10} & Omat lisämuuttujat & \(\pm\) & 1 - 10 & \\ \hline
+    \begin{tabular}{l|l|l|l} \hline
+    \(m\) & \textbf{Muuttuja} & \textbf{Etumerkki} & \textbf{Asteikko} \\ \hline
+    \textbf{1} & Liiketoiminnallinen arvo & \(+\) & 1 - 10 \\
+    \textbf{2} & Liiketoiminnallinen visio & \(+\) & 1 - 10 \\
+    \textbf{3} & Negatiivinen käyttäjäpalaute & \(+\) & 1 - 5 \\
+    \textbf{4} & Käyttötapauksien määrä & \(+\) & 10 \(\cdot\) suhde  \\
+    \textbf{5} & Siirtymien määrä & \(+\) & 10 \(\cdot\) suhde  \\
+    \textbf{6} & Positiivinen käyttäjäpalaute & \(-\) & 1 - 5  \\
+    \textbf{7} & Muutosherkkyys & \(-\) & 1 - 10  \\
+    \textbf{8} & Toteuttamisen kompleksisuus & \(-\) & 1 - 5  \\
+    \textbf{9} & Toteutuksen virheherkkyys & \(-\) & 1 - 5  \\
+    \textbf{10} & Omat lisämuuttujat & \(\pm\) & 1 - 10 \\ \hline
     \end{tabular}
   \end{table}
 
@@ -123,7 +123,7 @@ Lisäksi käydään läpi miten menetelmää käyttäen tuotetun painotetun verk
     \caption{Esimerkkiverkon näkymät, siirtymät ja priorisointimuuttujat}
     \label{tab:esimerkki_verkon_priorisointi_muuttujat}
     \centering
-    \begin{tabular}{lllllllllllll} \hline
+    \begin{tabular}{l|l|l|l|l|l|l|l|l|l|l|l|l} \hline
     \(n\) & \textbf{Näkymä} & \textbf{Siirtymät} & \(m_1\) & \(m_2\) & \(m_3\) & \(m_4\) & \(m_5\) & \(m_6\) & \(m_7\) & \(m_8\) & \(m_9\) & \(p(n)\) \\ \hline
     \textbf{A} & Kirjautuminen & B & 10 & 10 & 0 & 2 & 1 & 0 & 5 & 5 & 5 & 8 \\
     \textbf{B} & Pelivalikko & A, C, D, G & 8 & 10 & 1 & 2 & 4 & 4 & 5 & 5 & 5 & 6 \\
@@ -143,7 +143,7 @@ Lisäksi käydään läpi miten menetelmää käyttäen tuotetun painotetun verk
 
   \begin{equation}\beta(e_{AB}) = [p(v_A) + p(v_B)]^{-1} = (8 + 6)^{-1} = \frac{1}{14} \approx 0.071\end{equation}
 
-  Painomatriisi, esimerkin \ref{tab:esimerkki_verkon_priorisointi_muuttujat} mukaiselle datalle ja siitä lasketuille painoarvoille on esitetty seuraavassa matriisissa \(M_G\).
+  Painomatriisi, esimerkin mukaiselle datalle \ref{tab:esimerkki_verkon_priorisointi_muuttujat} ja siitä lasketuille painoarvoille on esitetty seuraavassa matriisissa \(M_G\).
   Painomatriisissa tulee väistämättä esiin tilanne, jossa pitää määrittää painoarvo kaarelle jonka aloitussolmu ja lopetussolmu ovat sama solmu itsessään.
   Tällaisissa tapauksissa, tilanteesta riippuen painomatriiseihin usein merkitään \(0\), \(\infty\) tai \(-\).
   Tässä diplomityössä esitettävän menetelmän painomatriiseissa solmuun itseensä johtuvan kaaren, eli silmukan painoksi merkitään aina \(-\), koska käyttöliittymän näkymästä siirtymät itseensä ei menetelmässä käsitellä aitoina siirtyminä.
@@ -221,7 +221,7 @@ Lisäksi käydään läpi miten menetelmää käyttäen tuotetun painotetun verk
 
   Priorisointimenetelmän mukaan karsittuun painotettuun verkkoon on mahdollista soveltaa lyhimmän polun ongelman ratkaisemiseen kehitettyjä algoritmeja, jolloin ne toimivat etsien alhaisimman, eli korkeimman prioriteetin polkuja.
   Lyhimmän polun etsimiseen on tarkoitus valita aina sellaiset aloitus ja lopetuspisteet, joiden välille lyhin polku verkossa halutaan etsiä.
-  Lyhimmän polun löytymisen yhtenä perusedellytyksenä on verkon yhtenäisyys, joka tarkoittaa sitä, että verkon kaikkia solmuja tulee yhdistää vähintään yksi kaari ja että verkon jokaisesta solmusta on löydettävissä yhteys mihin tahansa verkon solmuun.
+  Lyhimmän polun löytymisen yhtenä perusedellytyksenä on verkon yhtenäisyys, joka tarkoittaa sitä, että verkon kaikkia solmuja tulee yhdistää vähintään yksi kaari ja verkon jokaisesta solmusta on löydettävissä yhteys mihin tahansa verkon solmuun.
   Lyhimmän polun ongelma johon muun muassa Dijkstran algoritmi antaa ratkaisun on matemaattisessa muodossaan seuraavanlainen.
 
   \begin{equation}d_G^\alpha(v_1, v_2) = \text{min}\{\alpha(P) | P:v_1 \rightarrow v_2 | v_1, v_2 \in V(G)\}\end{equation}
@@ -234,9 +234,9 @@ Lisäksi käydään läpi miten menetelmää käyttäen tuotetun painotetun verk
 
 \section{Verkon ja testitapauksien yhteys} \label{ch:10_verkon_ja_testitapauksien_yhteys}
 
-  Ennen testitapauksien suunnittelua tehtävä painotetun verkon avulla tehty priorisointi havainnollistaa käyttöliittymän näkymiä ja niiden välisiä siirtymiä.
-  Tällaisesta painotetusta verkosta saadaan priorisoitua näkymät ja siirtymät, mutta lopulliset testitapauksien prioriteetit ovat kuitenkin testitapaukseen kuuluvien näkymien tai siirtymien prioriteetteja.
-  Tämä tarkoittaa käytännössä sitä, että kun näkymät ja siirtymät on priorisoitu, on esimerkiksi yhden yksittäisen tarkasteltavana olevan näkymän toiminnoilla sama keskenään prioriteetti.
+  Priorisointi painotetun verkon avulla havainnollistaa käyttöliittymän näkymiä ja niiden välisiä siirtymiä ennen varsinaisten testitapauksien rakentamista.
+  Tällaisesta painotetusta verkosta saadaan priorisoitua käyttöliittymän näkymät ja siirtymät.
+  Tämä tarkoittaa käytännössä sitä, että prioriteettijärjestys saadaan määritettyä vain testikokoelmien laajuudella yksittäisien johonkin testikokoelmaan liittyvien testitapauksien sijaan.
   Painotetun verkon näkymät ovatkin suoraan yhteydessä testiautomaatiota varten rakennettaviin testikokoelmiin, jotka sisältävät kokoelman testitapauksia kyseiselle näkymälle.
   Toisin sanoen, painotetun verkon näkymiä vastaavat testikokoelmat ovat varsinaisen priorisoinnin kohteena.
 

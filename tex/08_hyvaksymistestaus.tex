@@ -46,8 +46,7 @@ Lopuksi esitetään yleisestikin ottaen testitapauksiin tärkeästi liittyvä pr
     \label{fig:hyvaksymistestausvetoinen-kehitys}
   \end{figure}
 
-  Hyväksymistestausvetoinen kehitys voidaan luokitella ketteräksi ohjelmistokehitysmenetelmäksi, kuten sen yläkäsitteenä oleva testausvetoinen kehityskin.
-  Hyväksymistestausvetoinen kehitys on testausvetoisen kehityksen kanssa perusperiaatteeltaan samanlainen, mutta ennen ohjelmistokehityksen aloitusta asiakasvaatimukset kartoitetaan ja ohjelmiston hyväksyttävyys määritellään.
+  Hyväksymistestausvetoinen kehitys on sen yläkäsitteen, testausvetoisen kehityksen, kanssa perusperiaatteeltaan samanlainen, mutta ennen ohjelmistokehityksen aloitusta asiakasvaatimukset kartoitetaan ja ohjelmiston hyväksyttävyys määritellään.
   Hyväksymistestitapaukset kirjoitetaan testausvetoisen kehityksen mukaisesti ennen toteutusta ja ohjelmistokehitys itsessään noudattaa iteratiivisesti testausvetoista kehitystä, vaikkakin hyväksymistestaus on perinteisesti vaatinut lähes valmista järjestelmää \parencite{traditional_acceptance_testing}.
   Asiakasvaatimukset määritetään usein käyttötapauksien muodossa ja hieman testialustasta riippuen ne voidaan kirjottaa suoraan testitapauksien muotoon.
   Hyväksymistestausvetoisessa kehityksessä ohjelmistokehitystä ohjaavat asiakasvaatimukset ja loppukäyttäjien tarpeiden toteutuminen, jotka ovat hyvin usein toiminallisia vaatimuksia.
@@ -115,7 +114,7 @@ Lopuksi esitetään yleisestikin ottaen testitapauksiin tärkeästi liittyvä pr
     \begin{figure}[H]
       \centering
       \includegraphics[width=0.4\textwidth]{assets/robot-arkkitehtuuri.png}
-      \caption{Robot Framework alustan arkkitehtuuri}
+      \caption{Robot Framework alustan arkkitehtuuri \parencite{robot_framework_architecture}}
       \label{fig:robot-architecture}
     \end{figure}
 
@@ -167,7 +166,7 @@ Lopuksi esitetään yleisestikin ottaen testitapauksiin tärkeästi liittyvä pr
   \subsection{Docker} \label{ch:08_docker}
 
     Docker on säiliöintityökalu, jonka avulla on mahdollista määrittää, rakentaa ja ajaa säiliöiden muotoon konfiguroituja sovelluksia.
-    Docker muistuttaa virtuaalikoneita, mutta se on kevyempi ja optimaalisempi, sillä se jakaa käyttöjärjestelmän ytimen eri säiliöiden kesken ja virtualisoi vain sovellusympäristön jonka säiliön määrittävä konfiguraatio sisältää.
+    Docker muistuttaa virtuaalikoneita, mutta se on kevyempi ja resurssien käytössä optimaalisempi, sillä se jakaa käyttöjärjestelmän ytimen eri säiliöiden kesken ja virtualisoi vain sovellusympäristön jonka säiliön määrittävä konfiguraatio sisältää.
     Säiliöiden sisään voidaan paketoida kaikki kokonaisen sovelluksen tarvitsemat ohjelmistot, kirjastot, ympäristöt, riippuvuudet ja itse sovelluksen ohjelmakoodi.
     Rakentamalla säiliön ja käynnistämällä sen, voidaan sitä käyttää konfiguraatioltaan samanlaisena eri ympäristöissä joissa Docker-ohjelmisto on saatavilla.
 

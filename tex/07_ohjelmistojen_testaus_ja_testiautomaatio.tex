@@ -1,4 +1,4 @@
-Tässä luvussa esitetään perusteet ja tarvittavat tiedot ohjelmistojen testauksesta ja testiautomaatiosta, jotka liittyvät työn laajempaan teoreettiseen kehykseen.
+Tässä luvussa esitetään perusteet ja tarvittavat tiedot ohjelmistojen testauksesta ja erityisesti testiautomaatiosta, jotka liittyvät työn laajempaan teoreettiseen kehykseen.
 Ensin esitetään testiautomaation tarkoitus, jonka jälkeen käydään yksityiskohtaisesti läpi ohjelmistotestauksen tasot ja niiden merkitystä testiautomaatiossa.
 Ohjelmistojen testaukseen ja erityisesti testiautomaatioon sekä tämän diplomityön aiheeseen liittyvät käsitteet testitapaus ja testikokoelma esitetään omassa kappaleessaan.
 Lopuksi vielä esitetään tarvittavia jatkuvan integroinnin ja testausvetoisen kehityksen perusteita sekä pyritään luomaan lukijalle ymmärrystä siitä, miten ne liittyvät niitä laajempaan testiautomaation käsitteeseen ja diplomityön tuloksien käyttöönottoon.
@@ -59,6 +59,8 @@ Testiautomaation perusteiden ymmärtämistä tarvitaan varsinkin työn myöhemmi
 
     Yksikkötestauksen ajatuksena on testata ohjelmistotuotteen lähdekoodista löytyviä yksiköitä, kuten luokkia, funktioita tai moduuleita.
     Yksikkötestaus toteutetaan ohjelmiston toteuttavia pienimpiä yksikköjä vastaan ja sen avulla pyritään validoimaan, että jokainen yksikkö toimii siten kuin ne on ohjelmistokehityksen aloitusvaiheessa suunniteltu toimimaan.
+    Yksikkötestausta hyödynnetään paljon myös testausvetoisen kehityksen aihepiirissä.
+    Testausvetoisessa kehityksessä ohjelmistokehittäjät laativat ensin yksikkötestit, ennen yksiköiden toteuttamisen aloittamista.
     Yksikkötestaus eroaa muista testauksen tasoista siinä, että sen voi suorittaa ainoastaan ohjelmistokehittäjät tai muut ohjelmiston lähdekoodiin perehtyneet henkilöt.
     Yksikkötestaus on näin ollen teknisesti valkolaatikkotestausta.
     Yksikkötestausta tarvitaan, jotta voidaan pyrkiä varmistamaan, että ohjelmiston koostavat pienimmät yksiköt toimivat tarkoituksenmukaisella tavalla.
@@ -66,9 +68,6 @@ Testiautomaation perusteiden ymmärtämistä tarvitaan varsinkin työn myöhemmi
     Yksikkötestauksen toteuttamiseen käytetään pääsääntöisesti jotakin tarkoitusta varten räätälöityä testikirjastoa, joissa on keskenään yleensä hyvin samankaltainen perusperiaate.
     Yksikkötestaukseen tarkoitetuissa testikirjastoissa löytyy usein yksittäisen testitapauksen kuvaava tietorakenne, esimerkiksi luokka, sekä siihen usein kuuluvat alustus ja lopetusfunktiot.
     Näiden lisäksi varsinainen testauskoodi toteutetaan pääsääntöisesti käyttäen niin sanottuja testikirjaston tarjoamia assert-funktioita, joiden avulla voidaan esimerkiksi varmistaa, onko jokin muuttuja tietyssä arvossa.
-
-    Yksikkötestausta hyödynnetään usein myös ketterien menetelmien aihepiirissä, jossa ohjelmistotuotantoa voidaan toteuttaa muun muassa niin sanotulla testausvetoisella kehityksellä.
-    Testausvetoisessa kehityksessä yksikkötestauksen osalta, ohjelmistokehittäjät laativat ensin yksikkötestit ennen yksiköiden toteuttamisen aloittamista.
 
     Ohjelmistotestauksen tasojen pyramidissa ja hyvin toteutetussa ohjelmistotestauksen monitasoisessa testauksessa tämä testauksen taso on usein testitapauksien määrässä kaikista laajin.
     Monitasoisessa testauksessa yksikkötestaus luo tärkeän pohjan testaamiselle kokonaisuutena ja antaa tietoa ohjelmiston pienimpien yksiköiden toimivuudesta.
@@ -115,8 +114,8 @@ Testiautomaation perusteiden ymmärtämistä tarvitaan varsinkin työn myöhemmi
     Hyväksymistestaus toteutetaan ohjelmiston toimintoja kuvaavaa vaatimusmäärittelyä tai loppukäyttäjistä sekä heidän tarpeista laadittuja käyttötapauksia vastaan.
     Hyväksymistestauksen rooli testiautomaatiossa ja erityisesti jatkuvan integraation yhteydessä on osoittaa, voidaanko järjestelmä sellaisenaan julkaista loppukäyttäjille.
 
-    Hyväksymistestaus testaa lähinnä toiminnallisia laatuominaisuuksia ja usein se toteutetaan käyttöliittymätasolla testitapauksien muodossa.
-    Poikkeuksena toiminnallisien ominaisuuksien lisäksi hyväksymistestauksessa voi olla mukana muita laadullisia ominaisuuksia vain jos ne ovat asiakastarpeiden mukaisia, joka on kuitenkin tavallisesta varsin poikkeava tilanne.
+    Hyväksymistestauksen avulla voidaan testata erityisesti toiminnallisia laatuominaisuuksia, jotka usein toteutetaan käyttöliittymätasolla testitapauksien muodossa.
+    Toiminnallisten ominaisuuksien lisäksi hyväksymistestauksessa voi olla mukana myös muitakin laadullisia ominaisuuksia jos ne ovat asiakastarpeiden mukaisia.
     Samassa asiayhteydessä puhutaan usein myös niin sanotusta e2e-testauksesta, eli päästä päähän -testauksesta.
     Päästä päähän -testauksessa on tarkoituksena toteuttaa testaaminen siten, että testaus pitää sisällään kaiken siltä väliltä mitä loppukäyttäjä voi tarpeidensa saavuttamiseksi tehdä ja nähdä aloittaessaan ohjelmiston käytön ja lopettaessaan sen käytön.
 
@@ -208,4 +207,4 @@ Testiautomaation perusteiden ymmärtämistä tarvitaan varsinkin työn myöhemmi
   Tämän lisäksi testitapauksien kirjoittaminen etukäteen luo kattavat testikokoelmat jo alusta alkaen, joita voidaan hyödyntää iteratiivisesti ohjelmistotuotteesta riippuen usein hyvinkin pitkään, etenkin jos niihin tehdään tarvittavaa hienosäätöä ohjelmistokehityksen aikana.
   Ohjelmistokehittäjät voivat kehittää helposti hallittavissa olevia testitapauksien rajaavia kokonaisuuksia, jolloin ohjelmistotuote valmistuu ikään kuin pala kerrallaan.
   Itse ohjelmistokehitys on testausvetoisessa kehityksessä siis iteratiivista ja näin ollen testitapauksien suorittamisesta saadaan palautetta ja raportointia koko ohjelmistotuotantoprosessin aikana.
-  Testausvetoinen kehitys kuuluu ohjelmistotuotannossa vahvasti ketterien menetelmien alaisuuteen ja on kasvattanut suosiotaan ketterien menetelmien mukana \parencite{tdd_popularity}.
+  Testausvetoista kehitystä voidaan hyödyntää ketterässä ohjelmistokehityksessä ja se on myös kasvattanut suosiotaan ketterien menetelmien mukana \parencite{tdd_popularity}.
