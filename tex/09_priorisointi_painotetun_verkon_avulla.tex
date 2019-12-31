@@ -99,7 +99,7 @@ Lisäksi käydään läpi miten menetelmää käyttäen tuotetun painotetun verk
 
   \begin{equation}
     \beta(e_{xy}) = \begin{cases}
-      (p(v_x) + p(v_y))^{-1} & p(v_x) + p(v_y) > 0 \\
+      [p(v_x) + p(v_y)]^{-1} & p(v_x) + p(v_y) > 0 \\
       1 & p(v_x) + p(v_y) \leq 0
     \end{cases}
   \end{equation}
@@ -140,7 +140,7 @@ Lisäksi käydään läpi miten menetelmää käyttäen tuotetun painotetun verk
   Painofunktio \(\beta\) käyttää kaaren molempien päätepisteiden \(v_A\) ja \(v_B\) yhteenlaskettua prioriteettia, josta käänteisluku otetaan.
   Näin saadaan laskettua kaarelle sellainen painoarvo, joka tarkoittaa painotetussa verkossa siirtymän näkymiin sidottua prioriteettia.
 
-  \begin{equation}\beta(e_{AB}) = (p(v_A) + p(v_B))^{-1} = (8 + 6)^{-1} = \frac{1}{14} \approx 0.071\end{equation}
+  \begin{equation}\beta(e_{AB}) = [p(v_A) + p(v_B)]^{-1} = (8 + 6)^{-1} = \frac{1}{14} \approx 0.071\end{equation}
 
   Painomatriisi, esimerkin \ref{tab:esimerkki_verkon_priorisointi_muuttujat} mukaiselle datalle ja siitä lasketuille painoarvoille on esitetty seuraavassa matriisissa \(M_G\).
   Painomatriisissa tulee väistämättä esiin tilanne, jossa pitää määrittää painoarvo kaarelle jonka aloitussolmu ja lopetussolmu ovat sama solmu itsessään.
@@ -182,7 +182,7 @@ Lisäksi käydään läpi miten menetelmää käyttäen tuotetun painotetun verk
   Perinteisesti painotetuissa verkoissa ei esitetä yksittäisiä solmupainoja vaan painotetun verkon painoilla tarkoitetaan solmujen välisien kaarien painoarvoja.
   Tässä diplomityössä kehitettyä menetelmää käytettäessä edellä esitettyyn painotettuun verkkoon \ref{fig:painotettu-verkko-ennen} on kuitenkin lisätty painomatriisin sisältämän informaation lisäksi painofunktion \(\alpha(v)\) avulla lasketut yksittäisten solmujen eli näkymien painoarvot.
 
-  \begin{equation}\alpha(v_A) = p^{-1}(v_A) = 8^{-1} = \frac{1}{8} = 0.125\end{equation}
+  \begin{equation}\alpha(v_A) = p^{-1}(v_A) = 8^{-1}  = 0.125\end{equation}
 
   Yksittäisten solmujen prioriteettia kuvaavat painoarvot ovat erittäin merkittäviä ja hyödyllisiä, sillä niiden avulla voidaan järjestää itse solmut, eli näkymät prioriteettien mukaiseen järjestykseen.
   Tämän lisäksi solmujen prioriteettien avulla voidaan verkkoon muun muassa soveltaa lyhimmän polun ratkaisemiseen kehitettyjä algoritmeja, kuten myöhemmin Dijkstran algoritmin osalta esitetään omassa kappaleessaan \ref{ch:10_dijkstran_algoritmin_hyodyntaminen}.
@@ -203,10 +203,10 @@ Lisäksi käydään läpi miten menetelmää käyttäen tuotetun painotetun verk
   \begin{enumerate}
     \item Poistetaan verkosta löytyvä eristetty solmu, eli solmu jonka asteluku on nolla.
     \begin{equation}d_G(v) = 0\end{equation}
-    \item Poistetaan verkosta löytyvä sillattu solmu, eli solmu jonka asteluku on yksi ja paino on pienempi kuin solmujen painojen keskiarvo.
-    \begin{equation}d_G(v) = 1  \land \alpha(v) > \frac{1}{|V(G)|} \cdot \sum\limits_{v \in V(G)} \alpha(v)\end{equation}
-    \item Poistetaan verkosta sellainen alhaisimman prioriteetin solmu, jonka asteluku on pienempi kuin solmujen astelukujen keskiarvo ja paino on pienempi kuin solmujen painojen keskiarvo.
-    \begin{equation}d_G(v) < max\{d_G(x) | x \in V(G)\} \land \alpha(v) > \frac{1}{|V(G)|} \cdot \sum\limits_{v \in V(G)} \alpha(v)\end{equation}
+    \item Poistetaan verkosta löytyvä sillattu solmu, eli solmu jonka asteluku on yksi ja paino on pienempi kuin alkuperäisen verkon solmujen painojen keskiarvo.
+    \begin{equation}d_G(v) = 1  \land \alpha(v) < \frac{1}{|V(G)|} \cdot \sum\limits_{v \in V(G)} \alpha(v)\end{equation}
+    \item Poistetaan verkosta sellainen alhaisimman prioriteetin solmu, jonka asteluku on pienempi kuin solmujen astelukujen keskiarvo ja paino on pienempi kuin alkuperäisen verkon solmujen painojen keskiarvo.
+    \begin{equation}d_G(v) < \text{max}\{d_G(x) | x \in V(G)\} \land \alpha(v) < \frac{1}{|V(G)|} \cdot \sum\limits_{v \in V(G)} \alpha(v)\end{equation}
   \end{enumerate}
 
   \begin{figure}[H]
@@ -223,7 +223,7 @@ Lisäksi käydään läpi miten menetelmää käyttäen tuotetun painotetun verk
   Lyhimmän polun löytymisen yhtenä perusedellytyksenä on verkon yhtenäisyys, joka tarkoittaa sitä, että verkon kaikkia solmuja tulee yhdistää vähintään yksi kaari ja että verkon jokaisesta solmusta on löydettävissä yhteys mihin tahansa verkon solmuun.
   Lyhimmän polun ongelma johon muun muassa Dijkstran algoritmi antaa ratkaisun on matemaattisessa muodossaan seuraavanlainen.
 
-  \begin{equation}d_G^\alpha(v_1, v_2) = min\{\alpha(P) | P:v_1 \rightarrow v_2 | v_1, v_2 \in V(G)\}\end{equation}
+  \begin{equation}d_G^\alpha(v_1, v_2) = \text{min}\{\alpha(P) | P:v_1 \rightarrow v_2 | v_1, v_2 \in V(G)\}\end{equation}
 
   Prioriteeteiltaan tärkeimmän polun löytämiseksi, valitaan ensin \(min\{\alpha(v_1) | v_1 \in V(G)\}\) ja \(min\{\alpha(v_2) | v_2 \in V(G), v_1 \neq v_2\}\) sekä etsitään sitten Dijkstran algoritmin avulla niiden välinen lyhin polku.
   Dijkstran algoritmin sisäinen toimintaperiaate ei ole tämän diplomityön näkökulmasta oleellista, mutta se on kuitenkin esitetty tarkemmin pseudokoodina liitteessä \ref{ch:13_liite_dijkstran_algoritmi}.
