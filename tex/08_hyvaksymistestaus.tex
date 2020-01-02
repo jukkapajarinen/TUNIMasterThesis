@@ -149,7 +149,7 @@ Lopuksi esitetään yleisestikin ottaen testitapauksiin tärkeästi liittyvä pr
   \subsection{Xvfb} \label{ch:08_xvfb}
 
     Xvfb, eli X Virtual Framebuffer, on X-näyt\-tö\-pal\-ve\-li\-men  protokollan toteuttava virtuaalinen X-näyt\-tö\-pal\-ve\-lin.
-   X-näyt\-tö\-pal\-ve\-li\-men tehtävä on mahdollistaa graafisten ohjelmien toiminta käyttöjärjestelmän ytimen päällä, jossa X-palvelin ja X-asiakasohjelmat kommunikoivat keskenään sekä X-palvelin hoitaa ytimen kautta näytön ja syöttölaitteiden käsittelyn.
+    X-näyt\-tö\-pal\-ve\-li\-men tehtävä on mahdollistaa graafisten ohjelmien toiminta käyttöjärjestelmän ytimen päällä, jossa X-palvelin ja X-asiakasohjelmat kommunikoivat keskenään sekä X-palvelin hoitaa ytimen kautta näytön ja syöttölaitteiden käsittelyn.
     Xvfb ei tulosta mitään näytölle, vaan kaikki näytölle normaalisti tulostuva graafisia käyttöliittymiä sisältävä sisältö on ajonaikaisessa tietokoneen muistissa.
     Xvfb toimii aivan kuten tavallinenkin X-näyt\-tö\-pal\-ve\-lin, eli vastaa X-ohjelmien pyyntöihin ja hoitaa niihin liittyvän tapahtumien ja virheiden käsittelyn.
 
@@ -216,8 +216,9 @@ Lopuksi esitetään yleisestikin ottaen testitapauksiin tärkeästi liittyvä pr
   Testitapauksien rakentaminen on järkevää järjestää testikokoelmiksi, jotka tarkoittavan samaan kontekstiin kuuluvista testitapauksista muodostettua joukkoa.
   Tässä diplomityössä keskityttyyn hyväksymistestaukseen liittyen testitapaukset kirjoitetaan usein käyttötapauksien muodossa.
   Hyväksymistestauksen tapauksessa testitapauksien määrittäminen testiautomaatiota varten voidaan toteuttaa Robot Framework:illä ja apuna käyttää muita aiemmin mainittuja työkaluja.
-  Lisäksi hyväksymistestauksen priorisoimiseen painotetun verkon avulla on välttämätöntä suunnitella ja rakentaa testitapaukset näkymä ja siirtymäperusteisesti, koska menetelmä hyödyntää matemaattisia näkymä ja siirtymäperusteisesti laadittuja painotettuja verkkoja.
-  Tämän diplomityön liitteenä \ref{ch:12_liite_robot_testitapaus} on yksinkertaistettu esimerkki toteutettua hyväksymistestausjärjestelmää varten rakennetusta ja Robot Framework:iä käyttävästä testitapauksesta.
+  Lisäksi hyväksymistestauksen priorisoimiseen painotetun verkon avulla on välttämätöntä suunnitella ja rakentaa testitapaukset näkymä- ja siirtymäperusteisesti, koska menetelmä hyödyntää matemaattisia näkymä- ja siirtymäperusteisesti laadittuja painotettuja verkkoja.
+  Terminä näkymä- ja siirtymäperusteisuus tarkoittaa yksinkertaisesti web-käyttöliittymien hyväksymistestauksessa yksittäisiä käyttöliittymän näkymiä ja niiden välisiä siirtymiä.
+  Yleisiä web-käyttöliittymien näkymiä ovat esimerkiksi kirjautumisnäkymä, päänäkymä ja asetusnäkymä joiden välillä käyttäjät voivat siirtymä näkymästä toiseen.
 
   Testitapauksen perusformaatti koostuu lähtötilanteesta, laukaisijasta ja verifikaatiosta.
   Lähtötilanteessa oletetaan jotakin ja seuraavassa vaiheessa seurataan, kun jokin ehto tapahtuu, jonka jälkeen voidaan tarkistaa seuraus ja verifioida onko se oletuksen mukainen.
@@ -229,6 +230,7 @@ Lopuksi esitetään yleisestikin ottaen testitapauksiin tärkeästi liittyvä pr
   Dokumentaatiota kuuluisi lisätä lähinnä vain testikokoelmiin yleisellä tasolla.
   Testikokoelmat kuuluisi sisältää vain toisiinsa liittyviä testejä ja testitapauksien sekä avainsanojen tulisi olla sellaisinaan selkeästi ymmärrettäviä.
   Muuttujien käytöllä suositellaan kapseloimaan pitkiä ja kompleksisia arvoja, mutta arvojen syöttäminen ja palauttaminen muuttujia hyödyntäen tulisi pitää pois testitapauksien tasolta.
+  Tämän diplomityön liitteenä \ref{ch:12_liite_robot_testitapaus} on yksinkertaistettu esimerkki toteutettua hyväksymistestausjärjestelmää varten rakennetusta ja Robot Framework:iä käyttävästä testitapauksesta.
 
 \section{Priorisointiongelma} \label{ch:08_priorisointiongelma}
 

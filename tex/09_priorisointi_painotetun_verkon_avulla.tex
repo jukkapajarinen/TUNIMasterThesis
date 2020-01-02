@@ -8,7 +8,7 @@ Lisäksi käydään läpi miten menetelmää käyttäen tuotetun painotetun verk
 
 \section{Matemaattisten verkkojen tarkoitus} \label{ch:09_matemaattisten_verkkojen_tarkoitus}
 
-  Matemaattisten verkkojen tarkoituksena on mallintaan parittaisia riippuvuuksia verkkomaisessa objektijoukossa.
+  Matemaattisten verkkojen tarkoituksena on mallintaa parittaisia riippuvuuksia verkkomaisessa objektijoukossa.
   Verkkoteoriassa peruskäsitteitä ovat itse verkko eli graafi, joka muodostuu solmuista ja niiden välisiä riippuvuuksia esittävistä kaarista tai nuolista.
   Verkkoteorialla on lukuisia käytännön sovellutuksia. Verkkoteoriaa sovelletaan muun muassa tietokonetieteissä, kielitieteissä, fysiikan ja kemian sovellutuksissa, sosiaalisissa tieteissä ja biologiassa.
   Alun perin verkkoteoria katsotaan syntyneen 1700-luvulla esiintyneestä niin sanotusta Königsbergin siltaongelmasta, johon Leonhard Euler esitti todistuksensa \parencite{graph_theory_history}.
@@ -40,6 +40,8 @@ Lisäksi käydään läpi miten menetelmää käyttäen tuotetun painotetun verk
   Prioriteettia kasvattava muuttuja on esimerkiksi liiketoiminnallinen arvo ja laskeva muuttuja on esimerkiksi projektin muutosherkkyys, joka voi johtaa nyt toteutettavien testitapauksien vanhentumiseen tulevaisuudessa.
   Muuttujat ovat kuitenkin hyvin kontekstiriippuvaisia, joten yleispätevää ja kaikkiin tilanteisiin soveltuvaa listaa muuttujista on hankala antaa.
   Kontekstiriippuvaisuuden takia muuttujiin ja myöhemmin esitettäviin painofunktioihin on varattu paikka omille lisämuuttujille.
+  Prioriteetin määrittäminen on tässä menetelmässä lineaarista, eli prioriteetti määräytyy sen osiensa summana laskukaavalla joka myöhemmin esitetään.
+  Toisin sanoen epälineaarisuutta, eli sellaista tilannetta jossa prioriteettia ei syystä tai toisesta voitaisi ilmoittaa yksinkertaisesti osiensa summana, ei tässä menetelmässä oteta huomioon.
 
   Tässä diplomityössä esiteltävää priorisointimenetelmää varten jokainen priorisointiin vaikuttava muuttuja arvioidaan asteikolla 1-10, paria poikkeusta lukuun ottamatta.
   Numeerisella asteikolla on tarkoitus antaa korkea numero, jos muuttuja on prioriteetiltaan tärkeä kyseisen näkymän, eli verkon solmun kohdalla.
@@ -72,7 +74,8 @@ Lisäksi käydään läpi miten menetelmää käyttäen tuotetun painotetun verk
 
   Painofunktioiden määrittäminen on tärkeä osa painotetun verkon avulla priorisointia, sillä niiden avulla määritetään verkon solmujen ja kaarien prioriteetit.
   Tavanomaisesti numeerinen prioriteetti usein mielletään olevan korkea, jos priorisoitu muuttuja on tärkeä.
-  Painotettujen verkkojen tapauksessa on kuitenkin järkevää vaihtaa numeerisen prioriteetin suuntaa, jotta painotettuun verkoon sovellettavat lyhimmän polun algoritmit toimisivat etsien prioriteetiltaan tärkeitä polkuja. Ennen prioriteetin suunnanvaihtoa, voidaan kokonaisprioriteetti \(p\) yksittäiselle solmulle \(v\), eli näkymälle määrittää seuraavasti.
+  Painotettujen verkkojen tapauksessa on kuitenkin järkevää vaihtaa numeerisen prioriteetin suuntaa, jotta painotettuun verkoon sovellettavat lyhimmän polun algoritmit toimisivat etsien prioriteetiltaan tärkeitä polkuja.
+  Ennen prioriteetin suunnanvaihtoa, voidaan kokonaisprioriteetti \(p\) yksittäiselle solmulle \(v\), eli näkymälle määrittää seuraavasti.
 
   \begin{equation}p(v) = \sum\limits_{i=1}^{5} m_i - \sum\limits_{j=6}^{9} m_j \pm m_{10}\end{equation}
 
@@ -110,6 +113,8 @@ Lisäksi käydään läpi miten menetelmää käyttäen tuotetun painotetun verk
   Tässä diplomityössä on aiemmin moneen otteeseen kerrottu näkymä ja siirtymäperusteisesta testiautomaation toteuttamisesta ja priorisoinnista.
   Painotetun verkon rakentamista varten tulee tarvittavat näkymät ja niiden väliset siirtymät muodostavat testauskohteen käyttöliittymästä.
   Web-sovelluksen käyttöliittymän näkymiä ovat muun muassa sivut, sivujen sisältämät säiliö-elementit ja dialogit.
+  Jos käyttöliittymän näkymä sisältää tilan, eli kyseinen näkymä muuttuu käyttäjän tekemien toimenpiteiden perusteella, käsitellään kyseinen tilallinen näkymä painotetussa verkossa kuitenkin yhtenä solmuna.
+  Tällaisessa tapauksessa menetelmän käyttö priorisoi kyseisen näkymän joka periaatteessa vastaa sellaista testikokoelmaa, johon rakennettaisiin testitapaukset eri tilanteita varten.
   Siirtymät ovat usein sivujen välisiä linkkejä tai vaihtoehtoisesti jotakin sellaista toiminnallisuutta, joka muuttaa nykyisen näkymän tai osan siitä toiseksi näkymäksi.
 
   Seuraavassa taulukossa on esitetty kuvitteellisen web-sovelluksen mukainen näkymien ja siirtymien mukaan laadittu esimerkki \ref{tab:esimerkki_verkon_priorisointi_muuttujat}.
@@ -171,7 +176,7 @@ Lisäksi käydään läpi miten menetelmää käyttäen tuotetun painotetun verk
   Painotetun verkon kuvaamiseen piirretään jokainen erilaista käyttöliittymän näkymää vastaava ja esimerkkidatan mukainen solmu ja niiden välisiä siirtymiä kuvaavat yhteydet eli kaaret.
   Kaarien yhteyteen lisätään kuvaajassa kaaren prioriteettia kuvaava painoarvo.
   Seuraavassa on esitetty painomatriisin dataa vastaava painotetun verkon kuvaaja \ref{fig:painotettu-verkko-ennen} sellaisena, kuin se on ennen siihen tehtäviä prioriteettileikkauksia.
-  Priorisoimista varten tehtävien leikkauksien tekeminen esitetään myöhemmin omassa kappaleessaan \ref{ch:10_verkon_karsiminen}.
+  Priorisoimista varten tehtävien leikkauksien tekeminen niitä varten kehitetyllä toistettavalla karsimisalgoritmilla esitetään myöhemmin omassa kappaleessaan.
 
   \begin{figure}[H]
     \centering
@@ -186,7 +191,7 @@ Lisäksi käydään läpi miten menetelmää käyttäen tuotetun painotetun verk
   \begin{equation}\alpha(v_a) = p^{-1}(v_a) = 8^{-1}  = 0.125\end{equation}
 
   Yksittäisten solmujen prioriteettia kuvaavat painoarvot ovat erittäin merkittäviä ja hyödyllisiä, sillä niiden avulla voidaan järjestää itse solmut, eli näkymät prioriteettien mukaiseen järjestykseen.
-  Tämän lisäksi solmujen prioriteettien avulla voidaan verkkoon muun muassa soveltaa lyhimmän polun ratkaisemiseen kehitettyjä algoritmeja, kuten myöhemmin Dijkstran algoritmin osalta esitetään omassa kappaleessaan \ref{ch:10_dijkstran_algoritmin_hyodyntaminen}.
+  Tämän lisäksi solmujen prioriteettien avulla voidaan verkkoon muun muassa soveltaa lyhimmän polun ratkaisemiseen kehitettyjä algoritmeja, kuten myöhemmin Dijkstran algoritmin osalta esitetään omassa kappaleessaan.
 
 \section{Verkon karsiminen} \label{ch:10_verkon_karsiminen}
 
@@ -240,7 +245,7 @@ Lisäksi käydään läpi miten menetelmää käyttäen tuotetun painotetun verk
   Painotetun verkon näkymät ovatkin suoraan yhteydessä testiautomaatiota varten rakennettaviin testikokoelmiin, jotka sisältävät kokoelman testitapauksia kyseiselle näkymälle.
   Toisin sanoen, painotetun verkon näkymiä vastaavat testikokoelmat ovat varsinaisen priorisoinnin kohteena.
 
-  Testitapaukset ja testikokoelmat kappaleessa \ref{ch:07_testitapaus_ja_testikokoelmat} on esitetty niiden välistä eroa ja sitä kuinka testikokoelmat koostuvat yhteen liittyvistä testitapauksista.
+  Aiemmin testitapaukset ja testikokoelmat kappaleessa on esitetty niiden välistä eroa ja sitä kuinka testikokoelmat koostuvat yhteen liittyvistä testitapauksista.
   Painotetun verkon avulla tehtävää priorisointia käyttäessä on tarkoitus ajatella testiautomaation testitapauksien kategorisoimista testikokoelmiksi käyttöliittymän näkymiä vastaavalla tavalla.
   Kun käyttöliittymän näkymillä on niitä vastaavat testikokoelmat, toimii tässä diplomityössä kehitetty painotetun verkon avulla toteutattava priorisointi oikein ja siten kuin se on tarkoitettu.
   Jos testiautomaation halutaan lisätä testitapauksia tai testikokoelmia, jotka eivät ole luettavissa painotetusta verkosta, niille ei luonnollisesti ole olemassa prioriteettia ja sellaiset täytyy käsitellä ylimääräisinä, täydentävinä testitapauksina.
