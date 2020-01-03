@@ -126,7 +126,7 @@ Lisäksi käydään läpi miten menetelmää käyttäen tuotetun painotetun verk
 
   jossa kaaren \(e_{ab}\) käännettyä kokonaisprioriteettia kuvataan funktiona \(\beta(e_{ab})\). Kaaren painofunktiota varten pitää kuitenkin huomioida, että sen kokonaisprioriteetti on kaaren päätepisteiden, eli aloitus- ja lopetussolmujen kokonaisprioriteetin summa \(p(v_a) + p(v_b)\).
   Kaaren kokonaisprioriteetti pitää siis laskea ennen käänteisluvuksi muuttamista.
-  Kaaren painofunktio on muilta osin samanlainen ja siihen näin ollen pätee myös samat aiemmin esitetyt reunaehdot kuin yksittäisen solmun painofunktiossakin.
+  Kaaren painofunktioon \(\beta(e)\) pätee samat reunaehdot kuin yksittäisen solmun painofunktioonkin \(\alpha(v)\).
 
 \section{Verkon rakentaminen} \label{ch:10_verkon_rakentaminen}
 
@@ -137,7 +137,7 @@ Lisäksi käydään läpi miten menetelmää käyttäen tuotetun painotetun verk
   Tällaisessa tapauksessa menetelmän käyttö priorisoi kyseisen näkymän joka periaatteessa vastaa sellaista testikokoelmaa, johon rakennettaisiin testitapaukset eri tilanteita varten.
   Siirtymät ovat usein sivujen välisiä linkkejä tai vaihtoehtoisesti jotakin sellaista toiminnallisuutta, joka muuttaa nykyisen näkymän tai osan siitä toiseksi näkymäksi.
 
-  Seuraavassa taulukossa on esitetty kuvitteellisen web-sovelluksen mukainen näkymien ja siirtymien mukaan laadittu esimerkki \ref{tab:esimerkki_verkon_priorisointi_muuttujat}.
+  Seuraavassa taulukossa \ref{tab:esimerkki_verkon_priorisointi_muuttujat} on esitetty kuvitteellisen web-sovelluksen mukainen näkymien ja siirtymien mukaan laadittu esimerkki.
   Taulukossa esitetään näkymät kirjautumisnäkymästä ohjenäkymään ja jokaisen näkymän siirtymät eli yhteydet toisiin näkymiin.
   Näkymät ja siirtymät luovat matemaattisen verkon laatimisen perusedellytykset, eli datan jonka avulla myöhemmin esitettävä painomatriisi voidaan laatia.
   Taulukossa on lisäksi esitetty jokainen näkymään liittyvä priorisointiin vaikuttava muuttuja.
@@ -161,30 +161,30 @@ Lisäksi käydään läpi miten menetelmää käyttäen tuotetun painotetun verk
   \end{table}
 
   Painotetun verkon rakentamisen syötteeksi täytyy käyttöliittymän näkymät ja siirtymät sekä niiden painoarvot esittää painomatriisin muodossa.
-  Painoarvot saadaan aiemmin esitetyn painofunktion \(\beta\) avulla.
-  Painoarvo lasketaan \(\beta\) funktion avulla jokaiselle kahta näkymää yhdistävälle siirtymälle, eli painotetun verkon solmujen väliselle kaarelle.
-  Painofunktio \(\beta\) käyttää kaaren molempien päätepisteiden \(v_a\) ja \(v_b\) yhteenlaskettua prioriteettia, josta käänteisluku otetaan.
+  Painoarvot saadaan aiemmin esitetyn painofunktion \(\beta(e)\) avulla.
+  Painoarvo lasketaan kyseisen funktion avulla jokaiselle kahta näkymää yhdistävälle siirtymälle, eli painotetun verkon solmujen väliselle kaarelle.
+  Painofunktio \(\beta(e)\) käyttää kaaren molempien päätepisteiden yhteenlaskettua prioriteettia, josta käänteisluku otetaan.
   Näin saadaan laskettua kaarelle sellainen painoarvo, joka tarkoittaa painotetussa verkossa siirtymän näkymiin sidottua prioriteettia.
-
-  <TODO: selitä tähän kaava \ref{eq:5_5_1} ja sen muuttujat>
+  Esimerkkinä voidaan laskea taulukon \ref{tab:esimerkki_verkon_priorisointi_muuttujat} mukaisten näkymien \(v_a\) ja \(v_b\) välisen siirtymän, eli kaaren \(e_{ab}\) painoarvo \(\beta(e_{ab})\) seuraavalla laskutoimituksella
 
   \begin{equation} \label{eq:5_5_1}
     \beta(e_{ab}) = [p(v_a) + p(v_b)]^{-1} = (8 + 6)^{-1} = \frac{1}{14} \approx 0.071
+    \text{.}
   \end{equation}
 
-  Painomatriisi, esimerkin mukaiselle datalle \ref{tab:esimerkki_verkon_priorisointi_muuttujat} ja siitä lasketuille painoarvoille on esitetty seuraavassa matriisissa \(M_G\).
-  Painomatriisissa tulee väistämättä esiin tilanne, jossa pitää määrittää painoarvo kaarelle jonka aloitussolmu ja lopetussolmu ovat sama solmu itsessään.
-  Tällaisissa tapauksissa, tilanteesta riippuen painomatriiseihin usein merkitään \(0\), \(\infty\) tai \(-\).
-  Tässä diplomityössä esitettävän menetelmän painomatriiseissa solmuun itseensä johtuvan kaaren, eli silmukan painoksi merkitään aina \(-\), koska käyttöliittymän näkymästä siirtymät itseensä ei menetelmässä käsitellä aitoina siirtyminä.
+  Painofunktioiden lisäksi painotetun verkon esittämistä varten tarvitaan painomatriiseja.
+  Painomatriisin avulla voidaan rakentaa matemaattinen painotettu verkko, joka kuvaa näkymiä ja siirtymiä sekä niiden prioriteetteja.
+  Painomatriiseissa tulee lähes väistämättä esiin tilanne, jossa pitäisi määrittää painoarvo olemattomalle silmukalle, eli kaarelle jonka aloitussolmu ja lopetussolmu ovat sama solmu itsessään, mutta kaarta ei ole olemassa.
+  Tällaisissa tapauksissa, tilanteesta riippuen painomatriiseihin usein merkitään \(0\), \(\infty\) tai \(-\) \parencite{graph_theory_concepts_1}.
+  Tässä diplomityössä esitettävän menetelmän painomatriiseissa solmuun itseensä johtuvan kaaren, eli silmukan painoksi merkitään aina \(-\), koska käyttöliittymän näkymästä siirtymät itseensä ei tässä menetelmässä käsitellä varsinaisina siirtyminä.
   Tämän lisäksi luonnollisesti jokainen sellainen solmupari, jolla ei ole niitä yhdistävää kaarta merkitään painomatriisiin käyttäen \(-\) merkintää.
-  Sellaisien siirtymien toiminnallisuuden testaaminen on tarkoitus kattaa näkymän mukaisen testikokelman testitapauksissa ja ne tulee priorisoiduiksi näkymä ja siirtymäperusteisesti.
+  Sellaisien siirtymien toiminnallisuuden testaaminen on tarkoitus kattaa näkymän mukaisen testikokelman testitapauksissa ja ne tulee priorisoiduiksi näkymä- ja siirtymäperusteisesti.
   Painotetun verkon kaaret voivat verkkoteorian mukaan olla suunnattuja tai suuntaamattomia.
   Tässä esimerkkitapauksessa jokainen siirtymä näkymien välillä on suuntaamaton, eli toisin sanoen käyttöliittymässä kaksisuuntainen ja se priorisoidaan sen mukaisesti.
   Painomatriisissa suuntaamattomien kaarien johdosta voidaan huomata, että painomatriisin diagonaalin erottamat puoliskot ovat toistensa peilikuvia.
+  Painomatriisi taulukon \ref{tab:esimerkki_verkon_priorisointi_muuttujat} mukaiselle esimerkille ja siitä lasketuille painoarvoille on pyöristettynä kolmen desimaalin tarkkuudelle seuraavanlainen
 
-  <TODO: selitä tähän kaava \ref{eq:5_5_2} ja sen muuttujat>
-
-   \begin{equation} \label{eq:5_5_2}
+  \begin{equation} \label{eq:5_5_2}
     M_G \approx
     \bordermatrix{
       G   & v_a   & v_b   & v_c   & v_d   & v_e   & v_f   & v_g   \cr
@@ -196,12 +196,13 @@ Lisäksi käydään läpi miten menetelmää käyttäen tuotetun painotetun verk
       v_f & -     & 0.333 & -     & -     & 1.000 & -     & -     \cr
       v_g & -     & 1.000 & -     & 0.250 & -     & -     & -     \cr
     }
-   \end{equation}
+    \text{.}
+  \end{equation}
 
-  Painomatriisin avulla voidaan siis rakentaa matemaattinen painotettu verkko, joka kuvaa näkymiä ja siirtymiä sekä niiden prioriteetteja.
-  Painotetun verkon kuvaamiseen piirretään jokainen erilaista käyttöliittymän näkymää vastaava ja esimerkkidatan mukainen solmu ja niiden välisiä siirtymiä kuvaavat yhteydet eli kaaret.
-  Kaarien yhteyteen lisätään kuvaajassa kaaren prioriteettia kuvaava painoarvo.
-  Seuraavassa on esitetty painomatriisin dataa vastaava painotetun verkon kuvaaja \ref{fig:painotettu-verkko-ennen} sellaisena, kuin se on ennen siihen tehtäviä prioriteettileikkauksia.
+  Painomatriisin määrittämisen jälkeen voidaan edetä painotetun verkon kuvaamiseen, jossa piirretään jokainen erilaista käyttöliittymän näkymää vastaava, esimerkkidatan mukainen solmu ja niiden välisiä siirtymiä kuvaavat yhteydet eli kaaret.
+  Kaarien yhteyteen lisätään painomatriisista kaaren prioriteettia kuvaava painoarvo.
+  Seuraavassa on esitetty painomatriisin dataa vastaava painotetun verkon kuvaaja sellaisena kuin se on ennen siihen tehtäviä prioriteettileikkauksia.
+  Toisin sanoen kyseinen painotetun verkon kuvaaja on lähtötilanne, josta priorisointi aloitetaan.
   Priorisoimista varten tehtävien leikkauksien tekeminen niitä varten kehitetyllä toistettavalla karsimisalgoritmilla esitetään myöhemmin omassa kappaleessaan.
 
   \begin{figure}[H]
@@ -212,12 +213,12 @@ Lisäksi käydään läpi miten menetelmää käyttäen tuotetun painotetun verk
   \end{figure}
 
   Perinteisesti painotetuissa verkoissa ei esitetä yksittäisiä solmupainoja vaan painotetun verkon painoilla tarkoitetaan solmujen välisien kaarien painoarvoja.
-  Tässä diplomityössä kehitettyä menetelmää käytettäessä edellä esitettyyn painotettuun verkkoon \ref{fig:painotettu-verkko-ennen} on kuitenkin lisätty painomatriisin sisältämän informaation lisäksi painofunktion \(\alpha(v)\) avulla lasketut yksittäisten solmujen eli näkymien painoarvot.
-
-  <TODO: selitä tähän kaava \ref{eq:5_5_3} ja sen muuttujat>
+  Tässä diplomityössä kehitettyä menetelmää käytettäessä edellä esitettyyn painotettuun verkkoon on kuitenkin lisätty painomatriisin sisältämän informaation lisäksi painofunktion \(\alpha(v)\) avulla lasketut yksittäisten solmujen eli näkymien painoarvot.
+  Esimerkkinä voidaan laskea taulukon \ref{tab:esimerkki_verkon_priorisointi_muuttujat} mukaisen näkymän eli solmun \(v_a\) painoarvo \(\alpha(v_a)\) seuraavalla laskutoimituksella
 
   \begin{equation} \label{eq:5_5_3}
     \alpha(v_a) = p^{-1}(v_a) = 8^{-1}  = 0.125
+    \text{.}
   \end{equation}
 
   Yksittäisten solmujen prioriteettia kuvaavat painoarvot ovat erittäin merkittäviä ja hyödyllisiä, sillä niiden avulla voidaan järjestää itse solmut, eli näkymät prioriteettien mukaiseen järjestykseen.
@@ -276,15 +277,14 @@ Lisäksi käydään läpi miten menetelmää käyttäen tuotetun painotetun verk
 
 \section{Dijkstran algoritmin hyödyntäminen} \label{ch:10_dijkstran_algoritmin_hyodyntaminen}
 
-  Priorisointimenetelmän mukaan karsittuun painotettuun verkkoon on mahdollista soveltaa lyhimmän polun ongelman ratkaisemiseen kehitettyjä algoritmeja, jolloin ne toimivat etsien alhaisimman, eli korkeimman prioriteetin polkuja.
+  Priorisointimenetelmän mukaan karsittuun painotettuun verkkoon on mahdollista soveltaa lyhimmän polun ongelman ratkaisemiseen kehitettyjä algoritmeja, jolloin ne toimivat normaaliin tapaan etsien numeerisesti alhaisimman painoarvon polkuja, joka kuitenkin tässä menetelmässä tarkoittaa käänteisesti korkeimman prioriteetin polkuja.
   Lyhimmän polun etsimiseen on tarkoitus valita aina sellaiset aloitus ja lopetuspisteet, joiden välille lyhin polku verkossa halutaan etsiä.
-  Lyhimmän polun löytymisen yhtenä perusedellytyksenä on verkon yhtenäisyys, joka tarkoittaa sitä, että verkon kaikkia solmuja tulee yhdistää vähintään yksi kaari ja verkon jokaisesta solmusta on löydettävissä yhteys mihin tahansa verkon solmuun.
-  Lyhimmän polun ongelma johon muun muassa Dijkstran algoritmi antaa ratkaisun on matemaattisessa muodossaan seuraavanlainen.
-
-  <TODO: selitä tähän kaava \ref{eq:5_7_1} ja sen muuttujat>
+  Lyhimmän polun löytymisen yhtenä perusedellytyksenä on verkon yhtenäisyys, joka tarkoittaa sitä, että mistä tahansa yksittäisestä verkon solmusta on löydettävissä yhteys mihin tahansa toiseen samassa verkossa olevaan solmuun.
+  Lyhimmän polun ongelma \parencite{graph_theory_shortest_path} johon muun muassa Dijkstran algoritmi antaa ratkaisun on matemaattisessa muodossaan seuraavanlainen
 
   \begin{equation} \label{eq:5_7_1}
     d_G^\alpha(v_a, v_b) = \text{min}\{\alpha(P) | P:v_a \rightarrow v_b | v_a, v_b \in V(G)\}
+    \text{.}
   \end{equation}
 
   Prioriteeteiltaan tärkeimmän polun löytämiseksi, valitaan ensin \(min\{\alpha(v_a) | v_a \in V(G)\}\) ja \(\text{min}\{\alpha(v_b) | v_b \in V(G), v_a \neq v_b\}\) sekä etsitään sitten Dijkstran algoritmin avulla niiden välinen lyhin polku.

@@ -55,6 +55,8 @@ Lisäksi lopussa vielä esitetään toteutuksen jälkeen esiin tulleita jatkokeh
   Menetelmässä esittävien toistuvien leikkauksien määräää rajaavan testikattavuuden päättäminen näkymä ja siirtymäperusteisesti voi olla haastavaa.
   Toinen menetelmään kohdistuva kritiikki koskee menetelmän geneerisyyttä, eli käyttöönottamisen mahdollisuutta ilman muutoksia, jota on vaikea arvioida.
   Priorisointimenetelmässä käytettävät priorisointiin vaikuttavat muuttujat ovat varsin subjektiivisia ja voivat olla testausta toteuttavan tahon mukaan muuttuvia, jonka takia muuttujiin joudutaan mahdollisesti tekemään muutoksia.
+  Lisäksi menetelmässä esitetty priorisointiin vaikuttavia muuttujia hyödyntävä funktio \(p(v)\) kokonaisprioriteetin laskemiseen ei ota muuttujien määrittämisessä mahdollisesti esiintyvää epälineaarisuutta lainkaan huomioon.
+  Tämä tarkoittaa käytännössä sitä, että kokonaisprioriteetin määrittäminen on voitava olla ilmaistavissa siihen vaikuttavien osiensa summana, joka rajoittaa menetelmän käyttöä epälineaarisissa tapauksissa.
   Negatiivista on myös se että menetelmän käyttö on soveltuva painotettujen verkkojen luonteen mukaisesti käyttöliittymien tapauksessa soveltuvat vain kokonaisia näkymiä peilaavien testikokoelmien priorisointiin yksittäisten testitapauksien sijaan.
   Priorisointimenetelmän käyttö voi olla turhan aikaa vievää jos käyttöliittymä on yksinkertainen.
 
