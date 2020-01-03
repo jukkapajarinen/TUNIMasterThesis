@@ -75,13 +75,14 @@ Lisäksi käydään läpi miten menetelmää käyttäen tuotetun painotetun verk
   Painofunktioiden määrittäminen on tärkeä osa painotetun verkon avulla priorisointia, sillä niiden avulla määritetään verkon solmujen ja kaarien prioriteetit.
   Tavanomaisesti numeerinen prioriteetti usein mielletään olevan korkea, jos priorisoitu muuttuja on tärkeä.
   Painotettujen verkkojen tapauksessa on kuitenkin järkevää vaihtaa numeerisen prioriteetin suuntaa, jotta painotettuun verkoon sovellettavat lyhimmän polun algoritmit toimisivat etsien prioriteetiltaan tärkeitä polkuja.
-  Ennen prioriteetin suunnanvaihtoa, voidaan kokonaisprioriteetti \(p\) yksittäiselle solmulle \(v\), eli näkymälle määrittää seuraavasti.
-
-  <TODO: selitä tähän kaava \ref{eq:5_4_1} ja sen muuttujat>
+  Ennen prioriteetin suunnanvaihtoa, voidaan kokonaisprioriteetti yksittäiselle solmulle, eli näkymälle määrittää kaavalla
 
   \begin{equation} \label{eq:5_4_1}
-    p(v) = \sum\limits_{i=1}^{5} m_i - \sum\limits_{j=6}^{9} m_j \pm m_{10}
+    p(v) = \sum\limits_{i=1}^{5} m_i - \sum\limits_{j=6}^{9} m_j \pm m_{10}\text{.}
   \end{equation}
+
+  Kokonaisprioriteettia solmulle \(v\) kuvataan siis funktiona \(p\), jossa sen arvo määräytyy lineaarisesti osiensa \(m_1 ... m_{10}\) summana.
+  <TODO: kirjoita loput kaavassa esiintyvistä muuttujista>
 
   Prioriteetin suunnan vaihtamiseksi suuresta pieneen, säilyttäen kuitenkin prioriteetin sisältämän informaation, voi hoitaa käänteislukujen avulla.
   Ennen käänteisluvuksi muuttamista, prioriteettiin vaikuttavien muuttujien yhteenlaskettu summa voi olla ongelmallisesti negatiivinen tai nolla.
