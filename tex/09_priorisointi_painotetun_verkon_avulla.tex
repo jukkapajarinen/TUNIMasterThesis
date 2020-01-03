@@ -52,7 +52,7 @@ Lisäksi käydään läpi miten menetelmää käyttäen tuotetun painotetun verk
   Lisäksi siirtymien määrän suhde vielä kerrotaan luvulla 10, jotta se saadaan skaalautumaan muiden muuttujien kanssa samalle tasolle.
 
   \begin{table}[H]
-    \caption{Näkymä ja siirtymäperustaiseen priorisointiin vaikuttavat muuttujat}
+    \caption{Näkymä- ja siirtymäperustaiseen priorisointiin vaikuttavat muuttujat}
     \label{tab:priorisointiin_vaikuttavat_muuttujat}
     \centering
     \begin{tabular}{l|l|l|l} \hline
@@ -74,15 +74,21 @@ Lisäksi käydään läpi miten menetelmää käyttäen tuotetun painotetun verk
 
   Painofunktioiden määrittäminen on tärkeä osa painotetun verkon avulla priorisointia, sillä niiden avulla määritetään verkon solmujen ja kaarien prioriteetit.
   Tavanomaisesti numeerinen prioriteetti usein mielletään olevan korkea, jos priorisoitu muuttuja on tärkeä.
-  Painotettujen verkkojen tapauksessa on kuitenkin järkevää vaihtaa numeerisen prioriteetin suuntaa, jotta painotettuun verkoon sovellettavat lyhimmän polun algoritmit toimisivat etsien prioriteetiltaan tärkeitä polkuja.
-  Ennen prioriteetin suunnanvaihtoa, voidaan kokonaisprioriteetti yksittäiselle solmulle, eli näkymälle määrittää kaavalla
+  Painotettujen verkkojen tapauksessa on kuitenkin järkevää vaihtaa numeerisen prioriteetin suuntaa, jotta painotettuun verkkoon sovellettavat lyhimmän polun algoritmit toimisivat halutulla tavalla, eli etsien prioriteetiltaan tärkeitä polkuja.
+
+  Ennen prioriteetin suunnanvaihtoa, voidaan kokonaisprioriteetti yksittäiselle solmulle eli näkymälle määrittää kaavalla
 
   \begin{equation} \label{eq:5_4_1}
-    p(v) = \sum\limits_{i=1}^{5} m_i - \sum\limits_{j=6}^{9} m_j \pm m_{10}\text{.}
+    p(v) = \sum\limits_{i=1}^{5} m_i - \sum\limits_{j=6}^{9} m_j \pm m_{10}\text{,}
   \end{equation}
 
-  Kokonaisprioriteettia solmulle \(v\) kuvataan siis funktiona \(p\), jossa sen arvo määräytyy lineaarisesti osiensa \(m_1 ... m_{10}\) summana.
-  <TODO: kirjoita loput kaavassa esiintyvistä muuttujista>
+  jossa kokonaisprioriteettia solmulle \(v\) kuvataan funktiona \(p(v)\). Siinä kokonaisprioriteetin arvo määräytyy lineaarisesti osiensa \(m_k\) summana siten, että \(1 \leq k \geq 10\).
+  Toisin sanoen prioriteettiin vaikuttavia erilaisia muuttujia on kaavassa yhteensä kymmenen.
+  Jokainen kaavassa esiintyvä muuttuja sisältää etumerkin aiemmin esitetyn taulukon \ref{tab:priorisointiin_vaikuttavat_muuttujat} mukaisesti.
+  Kaavassa esitetään ensin kokonaisprioriteettiin positiivisesti vaikuttavien muuttujien summa, joka sisältää etumerkiltään positiiviset muuttujat väliltä \(1 \leq i \geq 5\).
+  Samalla periaatteella kaavassa esitetään seuraavaksi negatiivisesti vaikuttavat muuttujat väliltä \(6 \leq j \geq 9\), jotka lasketaan ensin yhteen ja vähennetään sitten yhteisesti etumerkillään negatiivisena edellisestä summasta.
+  Lopuksi kaavassa on esitetty vielä viimeinen muuttuja \(m_{10}\), joka tarkoittaa taulukon \ref{tab:priorisointiin_vaikuttavat_muuttujat} mukaisesti omaa lisämuuttujaa tai lisämuuttujia, joiden etumerkki voi olla joko positiivinen tai negatiivinen.
+  Lisämuuttujien sisällyttämisellä kaavaan on tarkoitus mahdollistaa ja selventää kokonaisprioriteetin laskeminen erilaisissa kontekstiriippuvaisissa tilanteissa sekä osittain myös rohkaista kaikkien prioriteettiin vaikuttavien muuttujien evaluointiin ja muokkaamiseen kontekstista riippuen.
 
   Prioriteetin suunnan vaihtamiseksi suuresta pieneen, säilyttäen kuitenkin prioriteetin sisältämän informaation, voi hoitaa käänteislukujen avulla.
   Ennen käänteisluvuksi muuttamista, prioriteettiin vaikuttavien muuttujien yhteenlaskettu summa voi olla ongelmallisesti negatiivinen tai nolla.
@@ -91,18 +97,22 @@ Lisäksi käydään läpi miten menetelmää käyttäen tuotetun painotetun verk
   Dijkstran algoritmin tapauksessa tällainen verkko on kuitenkin sallittu, koska silloin lyhimmän polun ratkaisu on verkon kaikki solmut.
   Lyhimmän polun ongelman erityisvaatimusten lisäksi käänteislukua varten nolla on huono arvo siinä mielessä, että sille ei ole olemassa lainkaan käänteislukua.
   Tämä johtuu siitä, että jos nollalle yrittäisi etsiä käänteislukua, tulisi eteen nollalla jakaminen jota ei voi tehdä.
-  Nämä molemmat ongelmatapaukset voidaan kuitenkin painofunktiossa ratkaista siten, että käänteisfunktiota ei etsitä, vaan korvataan painofunktion tulos yhdellä.
+  Nämä molemmat ongelmatapaukset voidaan kuitenkin painofunktioissa ratkaista siten, että käänteisfunktiota ei etsitä, vaan korvataan painofunktion tulos yhdellä.
 
-  Painofunktio yksittäiselle solmulle \(v\), eli näkymälle saadaan solmun kokonaisprioriteetin \(p(v)\) käänteislukuna.
-
-  <TODO: selitä tähän kaava \ref{eq:5_4_2} ja sen muuttujat>
+  Painofunktio yksittäiselle solmulle \(v\), eli näkymälle saadaan solmun kokonaisprioriteetin \(p(v)\) käänteislukuna kaavalla
 
   \begin{equation} \label{eq:5_4_2}
     \alpha(v) = \begin{cases}
       p^{-1}(v) & p(v) > 0 \\
       1 & p(v) \leq 0
     \end{cases}
+    \text{,}
   \end{equation}
+
+  jossa solmun \(v\) käännettyä kokonaisprioriteettia kuvataan funktiona \(\alpha(v)\).
+  Solmun kokonaisprioriteettia vastaava käänteisluku etsitään vain siinä tapauksessa jos kokonaisprioriteetti on suurempi kuin nolla.
+  Jos vastaan tulee tilanne, jossa kokonaisprioriteetti olisi negatiivinen tai yhtä suuri kuin nolla ei käänteislukua yritetä ottaa vaan tulos korvataan suoraan käännettyjen prioriteettien alhaisimmalla arvolla, eli luvulla yksi.
+  Toisin sanoen painofunktiosta saatava numeerinen arvo tarkoittaa käytännössä sitä, että mitä pienempi se on sitä korkeampaa prioriteettia se edustaa.
 
   Painofunktio yksittäiselle solmut \(v_a\) ja \(v_b\) yhdistävälle kaarelle \(e_{ab}\), eli siirtymälle saadaan myös käänteislukuna.
   Kaaren painofunktiota varten pitää kuitenkin huomioida, että sen kokonaisprioriteetti on kaaren solmujen kokonaisprioriteetin summa \(p(v_a) + p(v_b)\).
