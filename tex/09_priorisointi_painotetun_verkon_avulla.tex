@@ -114,18 +114,19 @@ Lisäksi käydään läpi miten menetelmää käyttäen tuotetun painotetun verk
   Jos vastaan tulee tilanne, jossa kokonaisprioriteetti olisi negatiivinen tai yhtä suuri kuin nolla ei käänteislukua yritetä ottaa vaan tulos korvataan suoraan käännettyjen prioriteettien alhaisimmalla arvolla, eli luvulla yksi.
   Toisin sanoen painofunktiosta saatava numeerinen arvo tarkoittaa käytännössä sitä, että mitä pienempi se on sitä korkeampaa prioriteettia se edustaa.
 
-  Painofunktio yksittäiselle solmut \(v_a\) ja \(v_b\) yhdistävälle kaarelle \(e_{ab}\), eli siirtymälle saadaan myös käänteislukuna.
-  Kaaren painofunktiota varten pitää kuitenkin huomioida, että sen kokonaisprioriteetti on kaaren solmujen kokonaisprioriteetin summa \(p(v_a) + p(v_b)\).
-  Kaaren kokonaisprioriteetti \(p(v_a) + p(v_b)\) pitää laskea ennen käänteisluvuksi muuttamista.
-
-  <TODO: selitä tähän kaava \ref{eq:5_4_3} ja sen muuttujat>
+  Painofunktio yksittäiselle kaarelle \(e_{ab}\) eli solmuja \(v_a\) ja \(v_b\) yhdistävälle käyttöliittymän näkymien väliselle siirtymälle saadaan kaavalla
 
   \begin{equation} \label{eq:5_4_3}
     \beta(e_{ab}) = \begin{cases}
       [p(v_a) + p(v_b)]^{-1} & p(v_a) + p(v_b) > 0 \\
       1 & p(v_a) + p(v_b) \leq 0
     \end{cases}
+    \text{,}
   \end{equation}
+
+  jossa kaaren \(e_{ab}\) käännettyä kokonaisprioriteettia kuvataan funktiona \(\beta(e_{ab})\). Kaaren painofunktiota varten pitää kuitenkin huomioida, että sen kokonaisprioriteetti on kaaren päätepisteiden, eli aloitus- ja lopetussolmujen kokonaisprioriteetin summa \(p(v_a) + p(v_b)\).
+  Kaaren kokonaisprioriteetti pitää siis laskea ennen käänteisluvuksi muuttamista.
+  Kaaren painofunktio on muilta osin samanlainen ja siihen näin ollen pätee myös samat aiemmin esitetyt reunaehdot kuin yksittäisen solmun painofunktiossakin.
 
 \section{Verkon rakentaminen} \label{ch:10_verkon_rakentaminen}
 
