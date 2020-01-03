@@ -228,19 +228,21 @@ Lisäksi käydään läpi miten menetelmää käyttäen tuotetun painotetun verk
 
   Painotetun verkon karsiminen eli sen kaarien leikkaaminen on yksi prioriteeillä painotetun verkon erittäin tärkeä ominaisuus.
   Verkkoteorian soveltaminen prioriteettien avulla painotettuun verkkoon on erityisen hyödyllistä silloin, kun verkon kaarissa alhainen paino tarkoittaa suurta prioriteettia.
-  Verkon karsimista varten valitaan ensin kattavuus, joka vastaa minimirajaa ja jonka jälkeen karsiminen lopetetaan.
-  Kattavuus tarkoittaa samalla myös testikattavuutta testikokoelmien näkökulmasta, sillä painotetussa verkossa jokainen solmu, eli näkymä vastaa näkymän mukaan kategorisoitua testikokoelmaa.
+  Tässä diplomityössä verkon karsiminen tapahtuu varta vasten kehitetyllä kolmivaiheisella algoritmilla, jonka käyttämistä varten valitaan kuitenkin ensin kattavuus, joka vastaa minimirajaa jonka jälkeen karsiminen lopetetaan.
+  Kattavuus tarkoittaa samalla myös testikattavuutta testikokoelmien näkökulmasta, sillä painotetussa verkossa jokainen solmu eli näkymä voidaan ajatella vastaavan sen mukaan kategorisoitua testikokoelmaa.
 
-  Verkkoon tehtäviä leikkauksia varten tarvitsee määrittää haluttu kattavuus \(0 \leq c \leq 100\), joka on prosentuaalinen luku siitä kuinka suuri osa verkon solmuista eli näkymistä tai testikokoelmista täytyy verkkoon jäädä karsimisen jälkeenkin.
-  Leikkauksien tekeminen ja toistaminen suoritetaan \(n\)-kertaa, niin kauan kunnes karsittu aliverkko on suurempi kuin kattavuuden mukaan laskettu osuus alkuperäisestä verkosta tai jos kyseisellä iteraatiokerralla ei enää löydy toimenpiteillä poistettavia solmuja.
-
-  <TODO: selitä tähän kaava \ref{eq:5_6_1} ja sen muuttujat>
+  Verkkoon tehtäviä leikkauksia varten määritettävä kattavuus \(c\) on prosentuaalinen raja sille kuinka suuri osa verkon solmuista eli näkymistä, tai toisin ajateltuna testikokoelmista, täytyy verkkoon jäädä karsimisen jälkeen.
+  Leikkauksien tekemistä suoritetaan toistuvasti niin kauan, kuin karsittavan verkon solmujen lukumäärä on suurempi, mitä kattavuuden määräämä alaraja sallii, tai jos kyseisellä iteraatiokerralla ei yksinkertaisesti enää löydy algoritmiin kuuluvilla toimenpiteillä poistettavia solmuja.
+  Matemaattiseen muotoon kirjoitettuna kattavuuteen perustuva toistamisen lopettava ehto on
 
   \begin{equation} \label{eq:5_6_1}
-    |V(G_s)| > c \cdot \frac{|V(G)|}{100}, G_s \subset G
+    |V(G_s)| >  \frac{c}{100} \cdot |V(G)|
+    \text{,}
   \end{equation}
 
-  Tässä verkon karsimisen esimerkissä kattavuutena käytetään \(c = 80\), joka tarkoittaa esimerkin solmujen määrän \(7\) karsimista \(80 \cdot \frac{7}{100} = 5.6\), eli lukumäärään \(5\) asti.
+  jossa \(|V(G_s)|\) tarkoittaa karsitun verkon solmujoukon mahtavuutta, ja vastaavasti  \(|V(G)|\) tarkoittaa alkuperäisen verkon solmujoukon mahtavuutta eli solmujen lukumäärää.
+  Ehto voidaan myös ajatella yksinkertaisesti aliverkon solmujen lukumääränä, jonka täytyy olla suurempi kuin muuttujan \(c\) mukainen prosentuaalinen osuus alkuperäisen verkon solmujen lukumäärästä.
+  Tässä verkon karsimisen esimerkissä kattavuutena käytetään \(c = 80\), joka tarkoittaa esimerkkiverkon alkuperäisten solmujen määrän \(7\) karsimista \(80 \cdot \frac{7}{100} = 5.6\), eli lukumäärään \(5\) asti.
 
   Verkon karsimiseen leikkauksia tekemällä käytetään iteratiivisesti toistettavaa algoritmia, jossa karsiminen tehdään algoritmin määräämässä järjestyksessä ehdoittain.
   Algoritmiin sisältyy seuraavanlaiset toimenpiteet.
@@ -281,6 +283,8 @@ Lisäksi käydään läpi miten menetelmää käyttäen tuotetun painotetun verk
   Lyhimmän polun etsimiseen on tarkoitus valita aina sellaiset aloitus ja lopetuspisteet, joiden välille lyhin polku verkossa halutaan etsiä.
   Lyhimmän polun löytymisen yhtenä perusedellytyksenä on verkon yhtenäisyys, joka tarkoittaa sitä, että mistä tahansa yksittäisestä verkon solmusta on löydettävissä yhteys mihin tahansa toiseen samassa verkossa olevaan solmuun.
   Lyhimmän polun ongelma \parencite{graph_theory_shortest_path} johon muun muassa Dijkstran algoritmi antaa ratkaisun on matemaattisessa muodossaan seuraavanlainen
+
+  <TODO: selitä tähän kaava \ref{eq:5_7_1} ja sen muuttujat>
 
   \begin{equation} \label{eq:5_7_1}
     d_G^\alpha(v_a, v_b) = \text{min}\{\alpha(P) | P:v_a \rightarrow v_b | v_a, v_b \in V(G)\}
