@@ -1,28 +1,18 @@
 function Dijkstra(Graph, source):
-  // Distance from source to source
   dist[source]  := 0
-  // Initializations
   for each vertex v in Graph:
     if v != source
-      // Unknown distance function from source to v
       dist[v]  := infinity
-      // Previous node in optimal path from source
       previous[v]  := undefined
     end if
-    // All nodes initially in Q
     add v to Q
   end for
 
-  // The main loop
   while Q is not empty:
-    // Source node in first case
     u := vertex in Q with min dist[u]
     remove u from Q
-
-    // where v has not yet been removed from Q.
     for each neighbor v of u:
       alt := dist[u] + length(u, v)
-      // A shorter path to v has been found
       if alt < dist[v]:
         dist[v]  := alt
         previous[v]  := u
