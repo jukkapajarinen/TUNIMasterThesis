@@ -39,19 +39,20 @@ Lisäksi lopussa vielä esitetään toteutuksen jälkeen esiin tulleita jatkokeh
 
   Priorisointimenetelmän positiivisia puolia ovat muun muassa sen ominaisuuksiin liittyviä asioista kuten priorisointimenetelmän toistettavuus ja mahdollisuus priorisoida käyttöliittymien näkymiä ja siirtymiä.
   Näkymä ja siirtymäperustaisen priorisoinnin tarkoituksena on mahdollistaa näkymiin perustuvien testikokoelmien priorisoiminen, jolloin niiden tärkeysjärjestys saadaan selville ja testitapauksien kirjoittaminen voidaan aloittaa prioriteetiltaan tärkeimmästä näkymästä.
+  Esimerkkinä menetelmän käyttämisen tuomasta resurssien säästöstä voidaan ottaa tarkasteluun kattavuudet \(c=90\) ja \(c=50\), keskisuurelle käyttöliittymälle, jossa on yhteensä kymmenen erilaista näkymää ja joista jokaista varten laadittaisiin esimerkin omaisesti kolme testitapausta.
+  Tällaisessa tilanteessa kaikkien testitapauksien lukumääräksi tulee kolmekymmentä, joista prioriteetein painotettua verkkoa karsimalla voidaan kuitenkin tiputtaa alhaisimman prioriteetin näkymien avulla osa testitapauksia pois.
+  Kattavuudella \(c=90\) se tarkoittaa yhden alhaisimmalla prioriteetilla painotetun näkymän jättämistä pois testauksesta, jolloin myös kolme testitapausta voidaan jättää pois toteutuksesta.
+  Vastaavasti varsin häikäilemättöllä kattavuudella \(c=50\) voitaisiin jättää pois peräti viisi näkymää joka tarkoittaa esimerkissä viittätoista testitapausta jotka jätettäisiin alhaisen prioriteettinsa myötä pois toteutuksesta.
+  Testitapauksien toteuttamatta jättämisellä väistämättä voidaan säästää resursseja, mutta sitä ei kuitenkaan voitaisi tehdä sokeasti ilman priorisointia.
+  Tämän menetelmän yksi suuri hyöty tulee nimenomaan priorisoimisesta, joka mahdollistaa resurssien säästämisen edellä mainitulla tavalla.
+
   Menetelmän käyttäminen on tehokkainta kun testitapaukset kategorisoidaan näkymittäin laadittuihin testikokoelmiin, sillä menetelmän kehittämisen taustalla on ollut ajatus jossa näkymät vastaavat testikokoelmia.
   Priorisointimenetelmä perustuu matemaattisiin painotettuihin verkkoihin, jotka tuovat hyötynä lyhimmän polun ongelman ratkaisemiseen kehitettyjen algoritmien käyttämisen mahdollistamisen prioriteetiltaan korkeimpien polkujen löytämiseen kahden solmun, eli näkymän välille.
   Lisäksi painotetun verkon ja matemaattisen lähestymistavan käyttäminen tuo hyötynä sen, että menetelmä on kohtalaisen pienellä vaivalla muunnettavissa tietokoneohjelmaksi.
   Painotettujen verkkojen käyttäminen priorisointiin pakottaa myös menetelmän käyttäjät piirtämään näkymä ja siirtymäperustaisen painotetun verkon, jolloin se kasvattaa käyttäjien ymmärrystä testauskohteena olevasta järjestelmästä.
   Priorisointimenetelmä on tässä diplomityössä esitetyn esimerkin \ref{tab:esimerkki_verkon_priorisointi_muuttujat} mukaan todettavissa toimivaksi ja sen avulla on suoritettu priorisointi varsinaisesta testauskohteesta yksinkertaistetulle käyttöliittymälle.
 
-  \begin{enumerate}
-    \item <TODO: Näkymien ja siirtymien määrä esimerkissä ja arvio järkevästä näkymien määrästä priorisointia varten>
-    \item<TODO: Testien määrät näkymää kohden, tähän joku lähde yleisistä määristä>
-    \item<TODO: Resurssien säästö näkymissä (c = 80\%) ja näin ollen säästyneistä testitapauksista>
-  \end{enumerate}
-
-  Myös priorisointimenetelmässä on negatiivisiakin puolia, mutta ne eivät tässäkään tapauksessa ylitä menetelmän käytöstä saatavaa hyötyä.
+  Priorisointimenetelmässä on myös negatiivisiakin puolia, mutta ne eivät tässäkään tapauksessa ylitä menetelmän käytöstä saatavaa hyötyä.
   Menetelmässä esittävien toistuvien leikkauksien määräää rajaavan testikattavuuden päättäminen näkymä ja siirtymäperusteisesti voi olla haastavaa.
   Toinen menetelmään kohdistuva kritiikki koskee menetelmän geneerisyyttä, eli käyttöönottamisen mahdollisuutta ilman muutoksia, jota on vaikea arvioida.
   Priorisointimenetelmässä käytettävät priorisointiin vaikuttavat muuttujat ovat varsin subjektiivisia ja voivat olla testausta toteuttavan tahon mukaan muuttuvia, jonka takia muuttujiin joudutaan mahdollisesti tekemään muutoksia.
