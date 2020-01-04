@@ -297,22 +297,17 @@ Lisäksi käydään läpi miten menetelmää käyttäen tuotetun painotetun verk
 
 \section{Dijkstran algoritmin hyödyntäminen} \label{ch:10_dijkstran_algoritmin_hyodyntaminen}
 
-  Priorisointimenetelmän mukaan karsittuun painotettuun verkkoon on mahdollista soveltaa lyhimmän polun ongelman ratkaisemiseen kehitettyjä algoritmeja, jolloin ne toimivat normaaliin tapaan etsien numeerisesti alhaisimman painoarvon polkuja, joka kuitenkin tässä menetelmässä tarkoittaa käänteisesti korkeimman prioriteetin polkuja.
-  Lyhimmän polun etsimiseen on tarkoitus valita aina sellaiset aloitus ja lopetuspisteet, joiden välille lyhin polku verkossa halutaan etsiä.
+  Priorisointimenetelmän mukaan karsittuun painotettuun verkkoon on mahdollista soveltaa lyhimmän polun ongelman ratkaisemiseen kehitettyjä algoritmeja.
+  Ne toimivat normaaliin tapaan etsien numeerisesti alhaisimman painoarvon polkuja, joka kuitenkin tässä menetelmässä tarkoittaa käänteisesti korkeimman prioriteetin polkuja.
+  Lyhimmän polun etsimiseen on tarkoitus valita sellaiset aloitus- ja lopetussolmut, joiden välille lyhin polku verkossa halutaan etsiä.
   Lyhimmän polun löytymisen yhtenä perusedellytyksenä on verkon yhtenäisyys, joka tarkoittaa sitä, että mistä tahansa yksittäisestä verkon solmusta on löydettävissä yhteys mihin tahansa toiseen samassa verkossa olevaan solmuun.
-  Lyhimmän polun ongelma \parencite{graph_theory_shortest_path} johon muun muassa Dijkstran algoritmi antaa ratkaisun on matemaattisessa muodossaan seuraavanlainen
 
-  <TODO: selitä tähän kaava \ref{eq:5_7_1} ja sen muuttujat>
-
-  \begin{equation} \label{eq:5_7_1}
-    d_G^\alpha(v_a, v_b) = \text{min}\{\alpha(P) | P:v_a \rightarrow v_b | v_a, v_b \in V(G)\}
-    \text{.}
-  \end{equation}
-
-  Prioriteeteiltaan tärkeimmän polun löytämiseksi, valitaan ensin \(min\{\alpha(v_a) | v_a \in V(G)\}\) ja \(\text{min}\{\alpha(v_b) | v_b \in V(G), v_a \neq v_b\}\) sekä etsitään sitten Dijkstran algoritmin avulla niiden välinen lyhin polku.
+  Prioriteeteiltaan tärkeimmän polun löytämiseksi valitaan ensin aloitussolmuksi pienimmän painoarvon solmu ja lopetussolmuksi seuraavaksi pienimmän painoarvon solmu sekä etsitään sitten Dijkstran algoritmia hyödyntäen niiden välinen lyhin polku.
   Dijkstran algoritmin sisäinen toimintaperiaate ei ole tämän diplomityön näkökulmasta oleellista, mutta se on kuitenkin esitetty tarkemmin pseudokoodina liitteessä \ref{ch:13_liite_dijkstran_algoritmi}.
-  Dijkstran algoritmi kahdelle painoltaan pienimmälle, eli prioriteetiltaan korkeimmalle antaa tuloksena \(v_a\) ja \(v_b\) solmuja yhdistävän polun, jonka sisältävät solmut eli näkymät ovat prioriteetiltaan tärkeimmät.
-  Koska painotetun verkon painofunktiot on laadittu käänteislukuja hyödyntäen, Dijkstran algoritmi löytää painoarvoltaan matalimman, mutta prioriteetiltaan tärkeimmän polun solmujen \(v_a\) ja \(v_b\) välille.
+  Dijkstran algoritmi kahdelle painoltaan pienimmille, eli prioriteeteiltaan korkeimmille solmuille antaa tuloksena kyseisiä solmuja yhdistävän polun, jonka sisältävät solmut eli näkymät ovat prioriteetiltaan tärkeimmät.
+  Jos aloitus- ja lopetussolmut ovat vierekkäiset eli niitä yhdistää kaari, ei polussa luonnollisesti ole kuin kaksi solmua.
+  Muussa tapauksessa lyhin mahdollinen polku kertoo kaikki sellaiset käyttöliittymän näkymät, jotka ovat yhteydessä toisiinsa ja yhteisesti prioriteeteiltaan tärkeimmät.
+  Koska painotetun verkon painofunktiot on laadittu käänteislukuja hyödyntäen Dijkstran algoritmi löytää siis painoarvoltaan matalimman, mutta prioriteetiltaan tärkeimmän polun aloitus- ja lopetussolmujen välille.
   Näin ollen saadaan helposti ja vaivattomasti tietää sellaiset solmut eli käyttöliittymän näkymät jotka kuuluvat prioriteetiltaan tärkeimpiin ja joista testiautomaation rakentaminen kannattaa aloittaa.
 
 \section{Verkon ja testitapauksien yhteys} \label{ch:10_verkon_ja_testitapauksien_yhteys}
