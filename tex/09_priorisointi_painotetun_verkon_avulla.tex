@@ -201,7 +201,7 @@ Lisäksi käydään läpi miten menetelmää käyttäen tuotetun painotetun verk
 
   Painomatriisin määrittämisen jälkeen voidaan edetä painotetun verkon kuvaamiseen, jossa piirretään jokainen erilaista käyttöliittymän näkymää vastaava, esimerkkidatan mukainen solmu ja niiden välisiä siirtymiä kuvaavat yhteydet eli kaaret.
   Kaarien yhteyteen lisätään painomatriisista kaaren prioriteettia kuvaava painoarvo.
-  Seuraavassa on esitetty painomatriisin dataa vastaava painotetun verkon kuvaaja sellaisena kuin se on ennen siihen tehtäviä prioriteettileikkauksia.
+  Seuraavassa on esitetty painomatriisia vastaava painotetun verkon kuvaaja sellaisena kuin se on ennen siihen tehtäviä prioriteettileikkauksia.
   Toisin sanoen kyseinen painotetun verkon kuvaaja on lähtötilanne, josta priorisointi aloitetaan.
   Priorisoimista varten tehtävien leikkauksien tekeminen niitä varten kehitetyllä toistettavalla karsimisalgoritmilla esitetään myöhemmin omassa kappaleessaan.
 
@@ -228,10 +228,10 @@ Lisäksi käydään läpi miten menetelmää käyttäen tuotetun painotetun verk
 
   Painotetun verkon karsiminen eli sen kaarien leikkaaminen on yksi prioriteeillä painotetun verkon erittäin tärkeä ominaisuus.
   Verkkoteorian soveltaminen prioriteettien avulla painotettuun verkkoon on erityisen hyödyllistä silloin, kun verkon kaarissa alhainen paino tarkoittaa suurta prioriteettia.
-  Tässä diplomityössä verkon karsiminen tapahtuu varta vasten kehitetyllä kolmivaiheisella algoritmilla, jonka käyttämistä varten valitaan kuitenkin ensin kattavuus, joka vastaa minimirajaa jonka jälkeen karsiminen lopetetaan.
+  Tässä diplomityössä verkon karsiminen tapahtuu varta vasten kehitetyllä kolmivaiheisella iteratiivisesti toistettavalla algoritmilla, jonka käyttämistä varten valitaan ensin kattavuus joka vastaa sitä minimirajaa jonka jälkeen karsiminen lopetetaan.
   Kattavuus tarkoittaa samalla myös testikattavuutta testikokoelmien näkökulmasta, sillä painotetussa verkossa jokainen solmu eli näkymä voidaan ajatella vastaavan sen mukaan kategorisoitua testikokoelmaa.
 
-  Verkkoon tehtäviä leikkauksia varten määritettävä kattavuus \(c\) on prosentuaalinen raja sille kuinka suuri osa verkon solmuista eli näkymistä, tai toisin ajateltuna testikokoelmista, täytyy verkkoon jäädä karsimisen jälkeen.
+  Verkkoon tehtäviä leikkauksia varten määritettävä kattavuus \(c\) on prosentuaalinen raja sille kuinka suuri osa verkon solmuista eli näkymistä täytyy verkkoon jäädä karsimisen jälkeen.
   Leikkauksien tekemistä suoritetaan toistuvasti niin kauan, kuin karsittavan verkon solmujen lukumäärä on suurempi, mitä kattavuuden määräämä alaraja sallii, tai jos kyseisellä iteraatiokerralla ei yksinkertaisesti enää löydy algoritmiin kuuluvilla toimenpiteillä poistettavia solmuja.
   Matemaattiseen muotoon kirjoitettuna kattavuuteen perustuva toistamisen lopettava ehto on
 
@@ -242,33 +242,46 @@ Lisäksi käydään läpi miten menetelmää käyttäen tuotetun painotetun verk
 
   jossa \(|V(G_s)|\) tarkoittaa karsitun verkon solmujoukon mahtavuutta, ja vastaavasti  \(|V(G)|\) tarkoittaa alkuperäisen verkon solmujoukon mahtavuutta eli solmujen lukumäärää.
   Ehto voidaan myös ajatella yksinkertaisesti aliverkon solmujen lukumääränä, jonka täytyy olla suurempi kuin muuttujan \(c\) mukainen prosentuaalinen osuus alkuperäisen verkon solmujen lukumäärästä.
-  Tässä verkon karsimisen esimerkissä kattavuutena käytetään \(c = 80\), joka tarkoittaa esimerkkiverkon alkuperäisten solmujen määrän \(7\) karsimista \(80 \cdot \frac{7}{100} = 5.6\), eli lukumäärään \(5\) asti.
+  Tässä verkon karsimisen esimerkissä kattavuutena käytetään \(c = 80\), joka tarkoittaa esimerkkiverkon alkuperäisten solmujen määrän \(7\) karsimista määrään \(80 \cdot \frac{7}{100} = 5.6\), eli lukumäärään \(5\) asti.
 
-  Verkon karsimiseen leikkauksia tekemällä käytetään iteratiivisesti toistettavaa algoritmia, jossa karsiminen tehdään algoritmin määräämässä järjestyksessä ehdoittain.
-  Algoritmiin sisältyy seuraavanlaiset toimenpiteet.
-
-  <TODO: lisää tähän tekstiä algoritmin säännöistä>
+  Algoritmissa on kolme erilaista toimenpidettä verkon karsimiseen.
+  Toimenpiteillä on suoritusjärjestys, jonka mukaan kyseisellä iteraatiokerralla tehtävä leikkaus määräytyy.
+  Jokaisella toimenpiteellä on myös oma suoritusehto, jonka täytyy täyttyä ennen kyseisen toimenpiteen suorittamista.
+  Suoritusjärjestyksen ja ehtojen perusteella siirrytään toimenpiteestä toiseen yhden iteraatiokerran aikana siten, että jos esimerkiksi ensimmäistä toimenpidettä ei sen suoritusehdon mukaan voida tehdä yritetään suorittaa toimenpiteistä seuraavaa.
+  Jokaisella iteraatiokerralla suoritetaan vain yksi toimenpide, jonka jälkeen aloitetaan uusi iteraatiokierros.
+  Algoritmiin sisältyy seuraavat toimenpiteet niiden oikeaan suoritusjärjestykseen järjestettynä.
 
   \begin{enumerate}
-    \item Poistetaan verkosta löytyvä eristetty solmu, eli solmu jonka asteluku on nolla.
-    <TODO: selitä tähän kaava \ref{eq:5_6_2} ja sen muuttujat>
+    \itemsep1em
+    \item \textbf{Poistetaan verkosta löytyvä eristetty solmu} eli solmu jonka asteluku on nolla.
+    Eristettyjä solmuja ei alkuperäisestä verkosta pitäisi löytyä lainkaan, vaan ne ovat seurausta eri iteraatiokerroilla tapahtuneista leikkauksista.
+    Toimenpiteen suoritusehto on muotoa
       \begin{equation} \label{eq:5_6_2}
         d_G(v) = 0
+        \text{,}
       \end{equation}
-    \item Poistetaan verkosta löytyvä sillattu solmu, eli solmu jonka asteluku on yksi ja paino on pienempi kuin alkuperäisen verkon solmujen painojen keskiarvo.
-    <TODO: selitä tähän kaava \ref{eq:5_6_3} ja sen muuttujat>
+    jossa \(d_G(v)\) tarkoittaa astelukua  kuvaavaa funktiota solmulle \(v\).
+    \item \textbf{Poistetaan verkosta löytyvä sillattu solmu} leikkaamalla siihen liittyvä kaari.
+    Solmun asteluvun täytyy olla yksi ja sen painon pienempi kuin alkuperäisen verkon solmujen painojen keskiarvo.
+    Toimenpiteen suoritusehto on kaksiosainen ja muotoa
       \begin{equation} \label{eq:5_6_3}
-        d_G(v) = 1  \land \alpha(v) < \frac{1}{|V(G)|} \cdot \sum\limits_{v \in V(G)} \alpha(v)
+        d_G(v) = 1 \;\; \land \;\; \alpha(v) < \frac{1}{|V(G)|} \cdot \sum\limits_{v \in V(G)} \alpha(v)
+        \text{,}
       \end{equation}
-    \item Poistetaan verkosta sellainen alhaisimman prioriteetin solmu, jonka asteluku on pienempi kuin solmujen astelukujen keskiarvo ja paino on pienempi kuin alkuperäisen verkon solmujen painojen keskiarvo.
-    <TODO: selitä tähän kaava \ref{eq:5_6_4} ja sen muuttujat>
+    jossa \(d_G(v)\) tarkoittaa astelukua solmulle \(v\) ja \(|V(G)|\) tarkoittaa alkuperäisen verkon solmujen lukumäärää sekä \(\sum\limits_{v \in V(G)} \alpha(v)\) tarkoittaa alkuperäisen verkon solmujen painoarvojen yhteenlaskettua summaa.
+    \item \textbf{Poistetaan verkosta solmu, jolla on maksimia pienempi asteluku ja keskimääräistä pienempi paino.}
+    Toisin sanoen poistetaan verkosta sellainen alhaisimman prioriteetin solmu, jonka asteluku on pienempi kuin solmujen astelukujen keskiarvo ja sen paino on pienempi kuin alkuperäisen verkon solmujen painojen keskiarvo.
+    Toimenpiteen suoritusehto on kaksiosainen ja muotoa
       \begin{equation} \label{eq:5_6_4}
-        d_G(v) < \text{max}\{d_G(x) | x \in V(G)\} \land \alpha(v) < \frac{1}{|V(G)|} \cdot \sum\limits_{v \in V(G)} \alpha(v)
+        d_G(v) < \text{max}\{d_G(x) | x \in V(G)\} \;\; \land \;\; \alpha(v) < \frac{1}{|V(G)|} \cdot \sum\limits_{v \in V(G)} \alpha(v)
+        \text{,}
       \end{equation}
+    jossa \(d_G(v)\) tarkoittaa astelukua solmulle \(v\) ja \( \text{max}\{d_G(x) | x \in V(G)\}\) tarkoittaa maksimia alkuperäisen verkon solmujen asteluvuista.
+    Keskiarvon laskemiseen liittyvät merkinnät \(|V(G)|\) ja \(\sum\limits_{v \in V(G)} \alpha(v)\) ovat samat kuin edeltävässäkin toimenpiteessä.
   \end{enumerate}
 
-  Tässä verkon karsimisen esimerkissä algoritmia käytetään kaksi iteraatiokierrosta, jolloin verkon solmujen määrä karsiutuu prioriittien ja valitun kattavuuden \(c=80\) mukaisesti seitsemästä viiteen.
-  Verkon karsimisen jälkeen tilanne näyttää graafiksi kuvattuna seuraavanlaiselta.
+  Tässä diplomityössä läpikäytävässä taulukon \ref{tab:esimerkki_verkon_priorisointi_muuttujat} mukaisessa verkon karsimisen esimerkissä algoritmia suoritetaan kaksi iteraatiokierrosta.
+  Kahden iteraatiokierroksen jälkeen verkon solmujen määrä karsiutuu prioriteettien ja valitun kattavuuden \(c=80\) mukaisesti seitsemästä viiteen.
 
   \begin{figure}[H]
     \centering
@@ -276,6 +289,11 @@ Lisäksi käydään läpi miten menetelmää käyttäen tuotetun painotetun verk
     \caption{Esimerkki painotetusta verkosta leikkauksien jälkeen}
     \label{fig:painotettu-verkko-jalkeen}
   \end{figure}
+
+  Verkon karsimisen jälkeen voidaan huomata, että verkosta on karsiutunut pois kaksi prioriteeteiltaan alhaisinta solmua C ja F.
+  Lisäksi alkuperäisestä verkosta \ref{fig:painotettu-verkko-ennen} voidaan huomata, että solmuilla C ja E olisi keskenään yhtä suuri prioriteetti, mutta asteluvuiltaan ne ovat erilaiset.
+  Algoritmi toimii kyseisessä tapauksessa oikein ja karsii edellä mainituista solmuista solmun C.
+  Esimerkin mukaisen solmujen karsimisen myötä voidaan todeta, että algoritmi toimii siten kuin sen kuuluukin.
 
 \section{Dijkstran algoritmin hyödyntäminen} \label{ch:10_dijkstran_algoritmin_hyodyntaminen}
 
