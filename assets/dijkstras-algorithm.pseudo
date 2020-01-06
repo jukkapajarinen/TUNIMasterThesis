@@ -1,23 +1,9 @@
-function Dijkstra(Graph, source):
-  dist[source]  := 0
-  for each vertex v in Graph:
-    if v != source
-      dist[v]  := infinity
-      previous[v]  := undefined
-    end if
-    add v to Q
-  end for
-
-  while Q is not empty:
-    u := vertex in Q with min dist[u]
-    remove u from Q
-    for each neighbor v of u:
-      alt := dist[u] + length(u, v)
-      if alt < dist[v]:
-        dist[v]  := alt
-        previous[v]  := u
-      end if
+Dijkstra(Graph G, Vertex s)
+  Initialize(G, s);
+  Priority_Queue minQ = {all vertices in V};
+  while (minQ != empty_set) do
+    Vertex u = ExtractMin(minQ);
+    for (each v in minQ such that (u, v) in E)
+      Relax(u, v);
     end for
   end while
-  return dist[], previous[]
-end function
