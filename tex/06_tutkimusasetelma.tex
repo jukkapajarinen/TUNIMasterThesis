@@ -20,25 +20,25 @@ Toteutuksellisessa osuudessa esitetään hyväksymistestausjärjestelmä, joka m
 
   Koodimuutoksien tekemisen yhteydessä oli jatkuvasti tarve huolelliselle testaamiselle ja erityisesti asiakkaan näkökulmasta tärkeimpien sovelluksen ominaisuuksien toiminnan varmistamiselle.
   Tämä sai diplomityön aiheen suuntautumaan testiautomaatioon ja erityisesti hyväksymistestaukseen.
-  Lisäksi yrityksessä oli jo toteutettuna päivittäisessä käytössä oleva hyväksymistestaus mobiilialustalle, joka auttoi hahmottamaan web-sovelluksen testiautomaation integroimista osaksi yrityksen ohjelmistotuotantoprosessia.
-  Mobiilialustalle tehtyä hyväksymistestausta varten oli yrityksessä jo valittu tietyt hyväksi todetut sovelluskehykset ja työkalut testiautomaatiota varten, joten tässä työssä ei enää ollut tarvetta evaluoida eri työkaluja tarvittavan testiautomaation toteuttamiseksi.
+  Lisäksi yrityksessä oli jo toteutettuna päivittäisessä käytössä oleva mobiilialustan hyväksymistestaus, joka auttoi hahmottamaan web-sovelluksen testiautomaation integroimista osaksi yrityksen ohjelmistotuotantoprosessia.
+  Mobiilialustalle tehtyä hyväksymistestausta varten yrityksessä oli jo valittu tietyt hyväksi todetut sovelluskehykset ja työkalut testiautomaatiota varten, joten tässä työssä ei enää ollut tarvetta evaluoida eri työkaluja tarvittavan testiautomaation toteuttamiseksi.
   Näistä syistä diplomityön aihetta ja tutkimusongelmaa lähdettiin etsimään muualta.
 
   Lopullisen tutkimusongelman löytämiseen vaikuttivat erityisesti vasta web-sovelluksen testiautomaation suunnitteluvaiheessa esiin tulleet tarpeet.
-  Hyväksymistestauksen testiautomaatiota varten oli ensin määritettävä mitä testauksen kohteena olevasta sovelluksesta tulisi testata.
-  Testiautomaation rakentamiseen allokoitavia resursseja oli rajallinen määrä, jonka lisäksi testikattavuuden suppeus sekä ylikattavuus nähtiin selkeänä ongelmana.
+  Hyväksymistestauksen testiautomaatiota varten oli ensin määritettävä, mitä testauksen kohteena olevasta sovelluksesta tulisi testata.
+  Testiautomaation rakentamiseen allokoitavia resursseja oli rajallinen määrä, minkä lisäksi selkeänä ongelmana nähtiin testikattavuuden suppeus sekä ylikattavuus.
   Tämä ongelma voidaan esittää yksinkertaisemmin testitapauksien priorisointiongelmana, joka myös lopulta muotoutui työn oleelliseksi tutkimusongelmaksi.
   Testitapauksien priorisointiongelman valitsemiseen ratkaisevasti johtavia asioita olivat kaksi allekirjoittaneen oivallusta aiheesta.
-  Ensimmäiseksi hyväksymistestattavaa web-sovellusta keksittiin ajatella käyttöliittymän näkymä ja siirtymätasolla matemaattisena prioriteetein painotettuna verkkona.
-  Toiseksi oivallukseksi keksittiin käyttää lyhimmän polun ongelmaan kehitettyjä algoritmeja prioriteetein painotettuun verkkoon, jolloin kahden solmun välille voitiin löytää prioriteeteiltaan korkein polku.
+  Ensimmäiseksi hyväksymistestattavaa web-sovellusta keksittiin ajatella käyttöliittymän näkymä- ja siirtymätasolla matemaattisena prioriteetein painotettuna verkkona.
+  Toisena oivalluksena keksittiin käyttää lyhimmän polun ongelmaan kehitettyjä algoritmeja prioriteetein painotettuun verkkoon, jolloin kahden solmun välille voitiin löytää prioriteeteiltaan korkein polku.
   Kokonaisuutena diplomityön aihe saatiin muodostettua sellaiseksi, että se esittää yleishyödyllisen menetelmän tutkimusongelman ratkaisemiseen sekä siihen liittyvän toteutuksen suunnittelemisen ja rakentamisen asiakasyritykselle.
 
 \section{Tutkimuskysymykset} \label{ch:06_tutkimuskysymykset}
 
   Tutkimuksen tarkoituksena on pohjimmiltaan tarkoitus löytää ja kehittää toistettavissa oleva menetelmä hyväksymistestauksen testitapauksien priorisoimiseen.
-  Priorisointimenetelmän lisäksi tutkimuksessa toteutettiin hyväksymistestausjärjestelmä, johon hyväksymistestauksen testitapaukset voidaan toteuttaa.
-  Testitapauksien laatimisen yleisenä ongelmakohtana on erityisesti niiden priorisointi, joka usein johtaa liian suppean tai ylikattavan testiautomaation rakentamiseen.
-  Tutkimuskysymykset on laadittu siten, että niihin vastaaminen antaa ratkaisun tähän edellä mainittuun testiautomaation ongelmaan.
+  Priorisointimenetelmän lisäksi tutkimuksessa toteutettiin hyväksymistestausjärjestelmä, johon hyväksymistestauksen testitapaukset voitiin toteuttaa.
+  Testitapauksien laatimisen yleisenä ongelmakohtana on erityisesti niiden priorisointi, mikä usein johtaa liian suppean tai ylikattavan testiautomaation rakentamiseen.
+  Tutkimuskysymykset on laadittu siten, että niihin vastaaminen antaa ratkaisun edellä mainittuun testiautomaation ongelmaan.
 
   Työlle asetettiin seuraavat tutkimuskysymykset:
 
@@ -51,17 +51,17 @@ Toteutuksellisessa osuudessa esitetään hyväksymistestausjärjestelmä, joka m
 
   \section{Tutkimusmenetelmä} \label{ch:06_tutkimusmenetelma}
 
-  Tut\-ki\-mus\-ky\-sy\-myk\-siin vastaamiseksi työn tut\-ki\-mus\-me\-ne\-tel\-mäk\-si valittiin tie\-to\-tek\-nii\-kan dip\-lo\- mi\-töis\-sä  yleisesti käytetty Design Science -menetelmä.
-  Valittua menetelmää käytettäessä pyritään tutkimaan uusia teknologiaan hyödyntäviä ratkaisumalleja ratkaisemattomiin ongelmiin tai kehittämään parempia ratkaisumalleja jo aiemmin ratkaistujen ongelmien tilalle.
+  Tut\-ki\-mus\-ky\-sy\-myk\-siin vastaamiseksi työn tut\-ki\-mus\-me\-ne\-tel\-mäk\-si valittiin tie\-to\-tek\-nii\-kan dip\-lo\-mi\-töis\-sä  yleisesti käytetty Design Science -menetelmä.
+  Valittua menetelmää käytettäessä pyritään tutkimaan uusia teknologiaa hyödyntäviä ratkaisumalleja ratkaisemattomiin ongelmiin, tai kehittämään parempia ratkaisumalleja jo aiemmin ratkaistujen ongelmien tilalle.
   Tietotekniikan tutkimuksessa on aikojen saatossa kehitetty uusia tai parempia tietokonearkkitehtuureja, ohjelmointikieliä, algoritmeja, tietorakenteita ja tiedonhallintajärjestelmiä.
-  Näiden osalta yhteistä on, että niissä on monesti käytetty usein jopa tiedostamatta Design Science -menetelmää \parencite{design_science_history}.
+  Näiden osalta yhteistä on, että niissä on usein käytetty usein jopa tiedostamatta Design Science -menetelmää \parencite{design_science_history}.
 
   Tutkimuksen tarkoituksena oli muodostaa uudenlainen ja toistettavissa oleva menetelmä tutkimuksen kohteena olevan hyväksymistestauksen testitapauksien priorisointiongelman ratkaisemiseksi.
-  Tutkimusidean hahmottelemisen ja ratkaisua kaipaavan ongelman identifioinnin jälkeen, valittua tutkimusmenetelmää käyttäen määriteltiin ensin tutkimuskysymykset.
-  Seuraavaksi kartoitettiin ratkaisuvaihtoehto tutkimuskysymyksiin ja työn yleiseen priorisoinnin teemaan liittyvään tutkimusongelmaan vastaamiseksi.
+  Tutkimusidean hahmottelemisen ja ratkaisua kaipaavan ongelman identifioinnin jälkeen määritettiin tutkimuskysymykset valittua tutkimusmenetelmää käyttäen.
+  Seuraavaksi kartoitettiin ratkaisuvaihtoehto tutkimuskysymyksiin ja vastaamaan työn yleiseen priorisoinnin teemaan liittyvään tutkimusongelmaan.
   Tutkimusta varten käytettiin oman ammattitaidon lisäksi kirjallisuutta, jonka tarkoituksena oli tukea menetelmän kehittämistä ja jonka avulla pyrittiin luomaan lukijalle mahdollisimman vahva teoreettinen pohja tutkimuskysymyksiin vastaavan ratkaisumenetelmän ymmärtämiseksi.
   Asiakasyrityksen ohjelmistotuote ja ohjelmistotuotantoprosessi huomioiden toteutettiin myös hyväksymistestausjärjestelmä, joka mahdollistaa testiautomaation toteuttamisen ja työssä kehitetyn priorisoinnin ratkaisumenetelmän hyödyntämisen.
-  Lopuksi vielä evaluoitiin menetelmän eli ratkaisun ja sitä hyödyntävän toteutuksen toimivuus ja esitetään yhteenveto tutkimuksesta.
+  Lopuksi evaluoitiin menetelmän eli ratkaisun ja sitä hyödyntävän toteutuksen toimivuus ja esitettiin yhteenveto tutkimuksesta.
 
 \section{Tutkimuksen rajaus} \label{ch:06_tutkimuksen_rajaus}
 
@@ -71,33 +71,33 @@ Toteutuksellisessa osuudessa esitetään hyväksymistestausjärjestelmä, joka m
   Testitapauksien osalta on olemassa lukuisia eri testausalustoja, joita hyödyntäen testitapauksia voidaan toteuttaa.
   Tässä työssä testitapauksien toteuttaminen rajataan tietylle ennalta määräytyneelle hyväksymistestaukseen tarkoitetulle Robot Framework -alustalle.
   Tämä rajaus pohjautuu asiakasyrityksessä jo aiemmin valittuihin testauksen sovelluskehyksiin ja työkaluihin.
-  Lisäksi Robot Framework on alustana yleisesti käytetty ja erityisen hyvin soveltuva etenkin hyväksymistestauksen toteuttamiseen.
-  Robot Framework on soveltuu myös hyvin sellaisiin tilanteisiin, joissa halutaan ohjelmointikielillä määritettyjä testitapauksia korkeampaa abstraktiotasoa.
+  Lisäksi Robot Framework on alustana yleisesti käytetty ja soveltuu erityisen hyvin etenkin hyväksymistestauksen toteuttamiseen.
+  Robot Framework on soveltuu hyvin myös sellaisiin tilanteisiin, joissa halutaan ohjelmointikielillä määritettyjä testitapauksia korkeampaa abstraktiotasoa.
 
   Jatkuvan integroinnin osalta tutkimus rajoittuu perusteisiin ja tutkimuksen painoarvo pidetään testitapauksien toteuttamisessa ja niiden priorisoinnissa.
   Jatkuva integrointi on kuitenkin asiakasyrityksessä tärkeä osa testiautomaation ja jatkuvan käyttöönoton toteutuksessa.
-  Jatkuvan integroinnin osalta ei tässä työssä esitetä muuta kuin testiautomaation toteutusosaan kokonaisuutena erityisesti liittyvät käsitteet ja ratkaisu.
+  Jatkuvan integroinnin osalta ei tässä työssä esitetä muuta kuin käsitteet ja ratkaisu, jotka kokonaisuutena liittyvät testiautomaation toteutusosaan.
   Tämä rajaus pohjautuu tutkimusongelman tarkempaan spesifioimiseen ja tutkimuksen kokonaislaajuuden hallitsemiseen.
 
-  Verkkoteorian osalta tutkimus rajoittuu perusteisiin ja painotettua verkkoa sekä kehitettyä menetelmää tukeviin käsitteisiin.
-  Tämä rajaus pohjautuu työn kohdentamiseen ohjelmistotuotantoon ja diplomityön kirjoitusvaiheessa saatuun ohjauspalautteeseen, jossa matematiikan osuus oli kasvanut liiallisen suureksi.
+  Verkkoteorian osalta tutkimus rajoittuu perusteisiin, sekä painotettua verkkoa ja kehitettyä menetelmää tukeviin käsitteisiin.
+  Tämä rajaus pohjautuu työn kohdentamiseen ohjelmistotuotantoon ja diplomityön kirjoitusvaiheessa saatuun ohjauspalautteeseen, jossa matematiikan osuus oli kasvanut liian suureksi.
 
   Priorisointiin vaikuttavien muuttujien osalta tutkimus rajoittuu muuttujien kartoittamiseen, mutta niiden määrittäminen jätetään työn ulkopuolelle.
   Tämä tarkoittaa käytännössä sitä, että jokainen menetelmää hyödyntävä taho hankkii itse varsinaiset numeeriset arvot muuttujille.
   Esimerkiksi liiketoiminnallisen vision numeerinen arvo on yksinomaan menetelmää käyttävän tahon harkittavissa.
 
   Lyhimmän polun etsimiseen painotetusta verkosta on olemassa lukuisa määrä erilaisia algoritmeja, mutta tässä työssä tarkastellaan vain perinteistä Dijkstran algoritmia.
-  Tämä rajaus pohjautuu työssä kehitetyn priorisointimenetelmän käyttämisen perimmäiseen tarkoitukseen, jossa ei algoritmin tehokkuudella tai lisäominaisuuksilla ole suurta merkitystä.
-  Lisäksi Dijkstran algoritmi on selkeä, paljon tutkittu ja käytetty ratkaisu lyhimmän polun etsimiseen sekä sitä käytetään tässä työssä vain jo priorisoidussa verkossa tapahtuvaan analysointiin.
+  Tämä rajaus pohjautuu työssä kehitetyn priorisointimenetelmän käyttämisen perimmäiseen tarkoitukseen, jossa algoritmin tehokkuudella tai lisäominaisuuksilla ei ole suurta merkitystä.
+  Lisäksi Dijkstran algoritmi on selkeä, paljon tutkittu ja käytetty ratkaisu lyhimmän polun etsimiseen, ja sitä käytetään tässä työssä vain jo priorisoidussa verkossa tapahtuvaan analysointiin.
 
 \section{Tavoitteet} \label{ch:06_tavoitteet}
 
   Tutkimuksen tavoitteena oli kehittää hyväksymistestausjärjestelmä ja toistettavissa oleva matemaattinen menetelmä web-käyttöliittymien hyväksymistestauksessa tarvittavien testitapauksien priorisointiongelman ratkaisemiseksi.
   Kehitetyn menetelmän tavoitteena on tarjota ratkaisua, joka helpottaa ja tehostaa kyseisen hyväksymistestaukseen liittyvän testiautomaation sekä siihen liittyvien testitapauksien suunnittelua ja rakentamista.
 
-  Edellä mainitun lisäksi valmiin diplomityön tavoitteena on myös tarjota selkeä, eheä ja helposti ymmärrettävä kokonaisuus hyväksymistestauksen automatisoimiseen ja sen testitapauksien priorisoimiseen, työssä kehitettyä menetelmää käyttäen.
-  Kehitetty priorisointimenetelmä pyritään esittämään siten, että valmiista diplomityöstä olisi mahdollisimman paljon hyötyä sen käyttämistä harkitseville tai käyttäville tahoille.
+  Edellä mainitun lisäksi diplomityön tavoitteena on myös tarjota selkeä, eheä ja helposti ymmärrettävä kokonaisuus hyväksymistestauksen automatisoimiseen ja sen testitapauksien priorisoimiseen työssä kehitettyä menetelmää käyttäen.
+  Kehitetty priorisointimenetelmä pyritään esittämään siten, että diplomityöstä olisi mahdollisimman paljon hyötyä priorisointimenetelmän käyttämistä harkitseville tahoille.
 
-  Tutkimusta ja tutkimusmenetelmää itsessään ajatellen tavoitteena oli tarjota ratkaisumalli ja ratkaisut aiemmin esitettyihin tutkimuskysymyksiin.
+  Tutkimusta ja tutkimusmenetelmää ajatellen tavoitteena oli tarjota ratkaisumalli ja ratkaisut luvussa \ref{ch:06_tutkimuskysymykset} esitettyihin tutkimuskysymyksiin.
   Lisäksi tutkimusmielessä tavoitteena oli pystyä todentamaan kehitetyn menetelmän toimivuus käytännössä menetelmää itsessään sekä sen lisäksi tehtyä hyväksymistestausjärjestelmän toteutusta evaluoimalla.
-  Evaluointi esitetään diplomityön lopussa ja se esitetään erikseen menetelmälle sekä toteutukselle.
+  Diplomityön lopussa esitettävä evaluointi esitetään erikseen menetelmälle sekä toteutukselle.
