@@ -304,7 +304,6 @@ Lisäksi käydään läpi, miten menetelmää käyttäen tuotetun painotetun ver
   Lyhimmän polun löytymisen yhtenä perusedellytyksenä on verkon yhtenäisyys, joka tarkoittaa sitä, että mistä tahansa yksittäisestä verkon solmusta on löydettävissä yhteys mihin tahansa toiseen samassa verkossa olevaan solmuun.
 
   Prioriteeteiltaan tärkeimmän polun löytämiseksi valitaan ensin aloitussolmuksi pienimmän painoarvon solmu ja lopetussolmuksi seuraavaksi pienimmän painoarvon solmu, sekä etsitään sitten Dijkstran algoritmia hyödyntäen niiden välinen lyhin polku.
-  Dijkstran algoritmin sisäinen toimintaperiaate ei ole tämän diplomityön näkökulmasta oleellista, mutta se on kuitenkin esitetty tarkemmin pseudokoodina liitteessä \ref{ch:12_liite_dijkstran_algoritmi}.
   Dijkstran algoritmi kahdelle painoltaan pienimmille, eli prioriteeteiltaan korkeimmille, solmuille antaa tuloksena kyseisiä solmuja yhdistävän polun, jonka sisältävät solmut, eli näkymät, ovat prioriteetiltaan tärkeimmät.
   Jos aloitus- ja lopetussolmut ovat vierekkäiset, eli niitä yhdistää kaari, ei polussa luonnollisesti ole kuin kaksi solmua.
   Muussa tapauksessa lyhin mahdollinen polku kertoo kaikki sellaiset käyttöliittymän näkymät, jotka ovat yhteydessä toisiinsa, ja jotka ovat yhteisesti prioriteeteiltaan tärkeimmät.
