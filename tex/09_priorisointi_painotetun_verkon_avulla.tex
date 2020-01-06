@@ -243,18 +243,18 @@ Lisäksi käydään läpi, miten menetelmää käyttäen tuotetun painotetun ver
 
   jossa \(|V(G_s)|\) tarkoittaa karsitun verkon solmujoukon mahtavuutta, ja vastaavasti  \(|V(G)|\) tarkoittaa alkuperäisen verkon solmujoukon mahtavuutta eli solmujen lukumäärää.
   Ehto voidaan myös ajatella yksinkertaisesti aliverkon solmujen lukumääränä, jonka täytyy olla suurempi kuin muuttujan \(c\) mukainen prosentuaalinen osuus alkuperäisen verkon solmujen lukumäärästä.
-  Tässä verkon karsimisen esimerkissä kattavuutena käytetään \(c = 80\), joka tarkoittaa esimerkkiverkon alkuperäisten solmujen määrän \(7\) karsimista määrään \(80 \cdot \frac{7}{100} = 5.6\), eli lukumäärään \(5\) asti.
+  Tässä verkon karsimisen esimerkissä kattavuutena käytetään \(c = 80\), mikä tarkoittaa esimerkkiverkon alkuperäisten solmujen määrän \(7\) karsimista määrään \(80 \cdot \frac{7}{100} = 5.6\), eli lukumäärään \(5\) asti.
 
   Algoritmissa on kolme erilaista toimenpidettä verkon karsimiseen.
   Toimenpiteillä on suoritusjärjestys, jonka mukaan kyseisellä iteraatiokerralla tehtävä leikkaus määräytyy.
   Jokaisella toimenpiteellä on myös oma suoritusehto, jonka täytyy täyttyä ennen kyseisen toimenpiteen suorittamista.
-  Suoritusjärjestyksen ja ehtojen perusteella siirrytään toimenpiteestä toiseen yhden iteraatiokerran aikana siten, että jos esimerkiksi ensimmäistä toimenpidettä ei sen suoritusehdon mukaan voida tehdä yritetään suorittaa toimenpiteistä seuraavaa.
+  Suoritusjärjestyksen ja ehtojen perusteella siirrytään toimenpiteestä toiseen yhden iteraatiokerran aikana siten, että jos esimerkiksi ensimmäistä toimenpidettä ei sen suoritusehdon mukaan voida tehdä, yritetään suorittaa toimenpiteistä seuraavaa.
   Jokaisella iteraatiokerralla suoritetaan vain yksi toimenpide, jonka jälkeen aloitetaan uusi iteraatiokierros.
-  Algoritmiin sisältyy seuraavat toimenpiteet niiden oikeaan suoritusjärjestykseen järjestettynä.
+  Algoritmiin sisältyvät seuraavat toimenpiteet niiden oikeaan suoritusjärjestykseen järjestettynä.
 
   \begin{enumerate}
     \itemsep1em
-    \item \textbf{Poistetaan verkosta löytyvä eristetty solmu} eli solmu jonka asteluku on nolla.
+    \item \textbf{Poistetaan verkosta löytyvä eristetty solmu} eli solmu, jonka asteluku on nolla.
     Eristettyjä solmuja ei alkuperäisestä verkosta pitäisi löytyä lainkaan, vaan ne ovat seurausta eri iteraatiokerroilla tapahtuneista leikkauksista.
     Toimenpiteen suoritusehto on muotoa
       \begin{equation} \label{eq:5_6_2}
@@ -271,14 +271,14 @@ Lisäksi käydään läpi, miten menetelmää käyttäen tuotetun painotetun ver
       \end{equation}
     jossa \(d_G(v)\) tarkoittaa astelukua solmulle \(v\) ja \(|V(G)|\) tarkoittaa alkuperäisen verkon solmujen lukumäärää sekä \(\sum\limits_{v \in V(G)} \alpha(v)\) tarkoittaa alkuperäisen verkon solmujen painoarvojen yhteenlaskettua summaa.
     \item \textbf{Poistetaan verkosta solmu, jolla on maksimia pienempi asteluku ja keskimääräistä pienempi paino.}
-    Toisin sanoen poistetaan verkosta sellainen alhaisimman prioriteetin solmu, jonka asteluku on pienempi kuin solmujen astelukujen keskiarvo ja sen paino on pienempi kuin alkuperäisen verkon solmujen painojen keskiarvo.
+    Toisin sanoen poistetaan verkosta sellainen alhaisimman prioriteetin solmu, jonka asteluku on pienempi kuin solmujen astelukujen keskiarvo, ja jonka paino on pienempi kuin alkuperäisen verkon solmujen painojen keskiarvo.
     Toimenpiteen suoritusehto on kaksiosainen ja muotoa
       \begin{equation} \label{eq:5_6_4}
         d_G(v) < \text{max}\{d_G(x) | x \in V(G)\} \;\; \land \;\; \alpha(v) < \frac{1}{|V(G)|} \cdot \sum\limits_{v \in V(G)} \alpha(v)
         \text{,}
       \end{equation}
     jossa \(d_G(v)\) tarkoittaa astelukua solmulle \(v\) ja \( \text{max}\{d_G(x) | x \in V(G)\}\) tarkoittaa maksimia alkuperäisen verkon solmujen asteluvuista.
-    Keskiarvon laskemiseen liittyvät merkinnät \(|V(G)|\) ja \(\sum\limits_{v \in V(G)} \alpha(v)\) ovat samat kuin edeltävässäkin toimenpiteessä.
+    Keskiarvon laskemiseen liittyvät merkinnät \(|V(G)|\) ja \(\sum\limits_{v \in V(G)} \alpha(v)\) ovat samat kuin edeltävässä toimenpiteessä.
   \end{enumerate}
 
   Tässä diplomityössä läpikäytävässä taulukon \ref{tab:esimerkki_verkon_priorisointi_muuttujat} mukaisessa verkon karsimisen esimerkissä algoritmia suoritetaan kaksi iteraatiokierrosta.
@@ -299,17 +299,17 @@ Lisäksi käydään läpi, miten menetelmää käyttäen tuotetun painotetun ver
 \section{Dijkstran algoritmin hyödyntäminen} \label{ch:10_dijkstran_algoritmin_hyodyntaminen}
 
   Priorisointimenetelmän mukaan karsittuun painotettuun verkkoon on mahdollista soveltaa lyhimmän polun ongelman ratkaisemiseen kehitettyjä algoritmeja.
-  Ne toimivat normaaliin tapaan etsien numeerisesti alhaisimman painoarvon polkuja, joka kuitenkin tässä menetelmässä tarkoittaa käänteisesti korkeimman prioriteetin polkuja.
-  Lyhimmän polun etsimiseen on tarkoitus valita sellaiset aloitus- ja lopetussolmut, joiden välille lyhin polku verkossa halutaan etsiä.
+  Ne toimivat normaaliin tapaan etsien numeerisesti alhaisimman painoarvon polkuja, mikä kuitenkin tässä menetelmässä tarkoittaa käänteisesti korkeimman prioriteetin polkuja.
+  Lyhimmän polun etsimiseen on tarkoitus valita sellaiset aloitus- ja lopetussolmut, joiden välille halutaan etsiä verkon lyhin polku.
   Lyhimmän polun löytymisen yhtenä perusedellytyksenä on verkon yhtenäisyys, joka tarkoittaa sitä, että mistä tahansa yksittäisestä verkon solmusta on löydettävissä yhteys mihin tahansa toiseen samassa verkossa olevaan solmuun.
 
-  Prioriteeteiltaan tärkeimmän polun löytämiseksi valitaan ensin aloitussolmuksi pienimmän painoarvon solmu ja lopetussolmuksi seuraavaksi pienimmän painoarvon solmu sekä etsitään sitten Dijkstran algoritmia hyödyntäen niiden välinen lyhin polku.
+  Prioriteeteiltaan tärkeimmän polun löytämiseksi valitaan ensin aloitussolmuksi pienimmän painoarvon solmu ja lopetussolmuksi seuraavaksi pienimmän painoarvon solmu, sekä etsitään sitten Dijkstran algoritmia hyödyntäen niiden välinen lyhin polku.
   Dijkstran algoritmin sisäinen toimintaperiaate ei ole tämän diplomityön näkökulmasta oleellista, mutta se on kuitenkin esitetty tarkemmin pseudokoodina liitteessä \ref{ch:12_liite_dijkstran_algoritmi}.
-  Dijkstran algoritmi kahdelle painoltaan pienimmille, eli prioriteeteiltaan korkeimmille solmuille antaa tuloksena kyseisiä solmuja yhdistävän polun, jonka sisältävät solmut eli näkymät ovat prioriteetiltaan tärkeimmät.
-  Jos aloitus- ja lopetussolmut ovat vierekkäiset eli niitä yhdistää kaari, ei polussa luonnollisesti ole kuin kaksi solmua.
-  Muussa tapauksessa lyhin mahdollinen polku kertoo kaikki sellaiset käyttöliittymän näkymät, jotka ovat yhteydessä toisiinsa ja yhteisesti prioriteeteiltaan tärkeimmät.
-  Koska painotetun verkon painofunktiot on laadittu käänteislukuja hyödyntäen Dijkstran algoritmi löytää siis painoarvoltaan matalimman, mutta prioriteetiltaan tärkeimmän polun aloitus- ja lopetussolmujen välille.
-  Näin ollen saadaan helposti ja vaivattomasti tietää sellaiset solmut eli käyttöliittymän näkymät jotka kuuluvat prioriteetiltaan tärkeimpiin ja joista testiautomaation rakentaminen kannattaa aloittaa.
+  Dijkstran algoritmi kahdelle painoltaan pienimmille, eli prioriteeteiltaan korkeimmille, solmuille antaa tuloksena kyseisiä solmuja yhdistävän polun, jonka sisältävät solmut, eli näkymät, ovat prioriteetiltaan tärkeimmät.
+  Jos aloitus- ja lopetussolmut ovat vierekkäiset, eli niitä yhdistää kaari, ei polussa luonnollisesti ole kuin kaksi solmua.
+  Muussa tapauksessa lyhin mahdollinen polku kertoo kaikki sellaiset käyttöliittymän näkymät, jotka ovat yhteydessä toisiinsa, ja jotka ovat yhteisesti prioriteeteiltaan tärkeimmät.
+  Koska painotetun verkon painofunktiot on laadittu käänteislukuja hyödyntäen, Dijkstran algoritmi löytää painoarvoltaan matalimman, mutta prioriteetiltaan tärkeimmän polun aloitus- ja lopetussolmujen välille.
+  Näin ollen saadaan helposti ja vaivattomasti tietää sellaiset solmut, eli käyttöliittymän näkymät, jotka kuuluvat prioriteetiltaan tärkeimpiin, ja joista testiautomaation rakentaminen kannattaa aloittaa.
 
 \section{Verkon ja testitapauksien yhteys} \label{ch:10_verkon_ja_testitapauksien_yhteys}
 
