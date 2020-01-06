@@ -1,37 +1,37 @@
-Tässä kappaleessa esitetään yhteenveto tutkimuksen tuloksista ja evaluoidaan testausjärjestelmän ja priorisointimenetelmän toteutuksien onnistumista.
+Tässä kappaleessa esitetään yhteenveto tutkimuksen tuloksista, ja evaluoidaan testausjärjestelmän ja priorisointimenetelmän toteutuksien onnistumista.
 Ensin evaluoidaan diplomityössä suunnitellun ja asiakasyritykselle toteutetun testausjärjestelmän positiivisia sekä negatiivisia puolia.
-Seuraavaksi evaluoidaan diplomityössä kehitetyn priorisointimenetelmän positiivisia ja negatiivisia puolia ja muun muassa pohditaan kuinka hyvin soveltuva ja toistettavissa oleva kyseinen kehitetty priorisointimenetelmä on.
-Lisäksi lopussa vielä esitetään toteutuksen jälkeen esiin tulleita jatkokehitysehdotuksia testausjärjestelmälle sekä priorisointimenetelmälle.
+Seuraavaksi evaluoidaan diplomityössä kehitetyn priorisointimenetelmän positiivisia ja negatiivisia puolia ja pohditaan muun muassa sitä, että kuinka hyvin soveltuva ja toistettavissa oleva kyseinen kehitetty priorisointimenetelmä on.
+Lopuksi vielä esitetään toteutuksen jälkeen esiin tulleita jatkokehitysehdotuksia testausjärjestelmälle sekä priorisointimenetelmälle.
 
 \section{Tutkimuksen konkreettiset tulokset} \label{ch:12_tutkimuksen_konkreettiset_tulokset}
 
   Työn tuloksena kehitetty  web-käyttöliittymien hyväksymistestauksen automatisoimisen mahdollistava testausjärjestelmä on integroitu onnistuneesti osaksi GoCD-palvelimen avulla suoritettavaa jatkuvaa integrointia.
   Lyhyesti sanottuna testausjärjestelmän osalta konkreettinen tulos koostuu järjestelmästä, joka mahdollistaa testitapauksien luomisen Robot Framework -alustalle käyttäen Selenium-kirjastoa, Xvfb-virtualisointipalvelinta ja Docker-säiliöintiohjelmistoa.
-  Testausjärjestelmän toimivuus käytännössä todettiin esimerkkitestitapauksien muodossa oikeassa ympäristössään ja testausjärjestelmän mahdollistamat ominaisuudet ovat jo itsessään oikeassa ja lopullisessa käyttöympäristössä tarvittavia.
+  Testausjärjestelmän toimivuus todettiin käytännössä esimerkkitestitapauksien muodossa oikeassa ympäristössään, ja testausjärjestelmän mahdollistamat ominaisuudet ovat jo itsessään oikeassa ja lopullisessa käyttöympäristössä tarvittavia.
 
-  Web-sovelluksien näkymä- ja siirtymäperustainen painotettua verkkoa hyödyntävä priorisointimenetelmä on myös todettu toimivaksi lähestysmistavaksi priorisointiin.
-  Lyhyesti sanottuna priorisointimenetelmän tuloksena on painotettuja verkkoja hyödyntävä menetelmä, jossa määritetään priorisointiin vaikuttavat muuttujat, painofunktiot, painomatriisi, prioriteetteihin perustuvien leikkauksien tekeminen ja prioriteettien löytäminen sekä lukeminen verkosta.
+  Web-sovelluksien näkymä- ja siirtymäperustainen, painotettua verkkoa hyödyntävä priorisointimenetelmä on myös todettu toimivaksi lähestysmistavaksi priorisointiin.
+  Lyhyesti sanottuna priorisointimenetelmän tuloksena on painotettuja verkkoja hyödyntävä menetelmä, jossa määritetään priorisointiin vaikuttavat muuttujat, painofunktiot, painomatriisi, prioriteetteihin perustuvien leikkauksien tekeminen sekä prioriteettien löytäminen ja niiden lukeminen verkosta.
   Priorisointimenetelmän toimivuus käytännössä todettiin aidosta ympäristöstä yksinkertaistaen poimitusta web-sovelluksesta.
-  Priorisointimenetelmän avulla todettiin, että priorisoinnin aikana toteutetut painotetun verkon leikkaukset olivat juuri niitä näkymiä, jotka vaistonvaraisesti ilman menetelmänkin käyttöä karsittaisiin.
+  Priorisointimenetelmän avulla todettiin, että priorisoinnin aikana toteutetut painotetun verkon leikkaukset olivat juuri niitä näkymiä, jotka vaistonvaraisesti myös ilman menetelmän käyttöä karsittaisiin.
 
 \section{Toteutuksen evaluointi} \label{ch:12_toteutuksen_evaluointi}
 
   Kokonaisuutena hyväksymistestausjärjestelmän toteutus onnistui erittäin hyvin ja sen avulla on mahdollista jopa geneerisesti rakentaa web-sovelluksesta riippumattomasti hyväksymistestaus testauskohteena olevalle web-sovellukselle.
 
   Testausjärjestelmän positiivisia puolia ovat muun muassa Docker-säiliöinnin avulla saatava tuki myös manuaaliselle testitapauksien ajamiselle.
-  Docker-säiliö, joka mahdollistaa testitapauksien ajamisen voidaan pystyttää periaatteessa mihin tahansa ympäristöön, jossa Docker on saatavilla.
-  Docker-säiliöinnin avulla myös ohjelmistokehittäjät saavat valmiin hyväksymistestausjärjestelmän helposti käyttöönsä.
-  Docker-säiliöinnin ja Docker-compose:n avulla rakennettu järjestelmä ei myöskään ole sidottu mihinkään ennalta määritettyyn jatkuvan integroinnin palvelimeen, joka huomattavasti helpottaa testausjärjestelmän käyttöönottoa osaksi uusia tai muuttuvaa ohjelmistotuotannon prosessia.
+  Docker-säiliö, joka mahdollistaa testitapauksien ajamisen, voidaan pystyttää periaatteessa mihin tahansa ympäristöön, jossa Docker on saatavilla.
+  Docker-säiliöinnin avulla ohjelmistokehittäjät myös saavat valmiin hyväksymistestausjärjestelmän helposti käyttöönsä.
+  Docker-säiliöinnin ja Docker-composen avulla rakennettu järjestelmä ei myöskään ole sidottu mihinkään ennalta määritettyyn jatkuvan integroinnin palvelimeen, mikä huomattavasti helpottaa testausjärjestelmän käyttöönottoa osaksi uutta tai muuttuvaa ohjelmistotuotannon prosessia.
   Testausjärjestelmä mahdollistaa päätteettömän testauksen virtuaalisen Xfvb-näyttöpalvelimen avulla, joka on itsessään erittäin tarvittu ominaisuus jatkuvan integroinnin ja testausjärjestelmän yhdistämiseen.
-  Xvfb-näyttöpalvelimen tarjoaman virtualisoinnin avulla voidaan myös uusia WebDriver rajapinnan toteuttavia verkkoselaimia lisätä päätteettömän testauksen alaisuuteen erittäin helposti ja käytännössä rajoituksitta.
+  Xvfb-näyttöpalvelimen tarjoaman virtualisoinnin avulla voidaan myös lisätä uusia WebDriver-rajapinnan toteuttavia verkkoselaimia päätteettömän testauksen alaisuuteen erittäin helposti ja käytännössä rajoituksetta.
   Ainoa vaatimus on, että verkkoselain on saatavilla siihen ympäristöön, jossa Xvfb-näyttöpalvelinta ajetaan.
 
   Testausjärjestelmässä on kuitenkin myös negatiivisia puolia, joiden osalta järjestelmän käyttö on rajattua.
-  Xvfb-näyttöpalvelimen avulla voidaan päätteettömästi testata periaatteessa mitä tahansa GUI-ohjelmia, mutta rajoitteena on kuitenkin, että niiden täytyy olla saatavilla siihen ympäristöön, jossa Xvfb-näyttöpalvelinta ajetaan.
-  Tämä tarkoittaa käytännössä sitä, että web-sovelluksien hyväksymistestauksen automatisoimisesta on jätettävä pois vain Window-ympäristöön saatavien verkkoselainten, kuten Internet Explorer verkkoselaimen testaaminen.
+  Xvfb-näyttöpalvelimen avulla voidaan päätteettömästi testata periaatteessa mitä tahansa GUI-ohjelmia, mutta rajoitteena on kuitenkin se, että niiden täytyy olla saatavilla siihen ympäristöön, jossa Xvfb-näyttöpalvelinta ajetaan.
+  Tämä tarkoittaa käytännössä sitä, että web-sovelluksien hyväksymistestauksen automatisoimisesta on jätettävä pois vain Window-ympäristöön saatavien verkkoselainten, kuten Internet Explorer -verkkoselaimen testaaminen.
   Robot Framework takaa helpon testitapauksien luettavuuden kenelle tahansa, mutta ohjelmistokehittäjille se voi olla turhan rajatun tuntuinen.
-  Ohjelmistokehittäjänä testitapauksien laatimisen yhteyteen olisi hyvä saada mahdollisuus yksikkötestauskehyksissä käytettävistä ohjelmointikielistä tuttuihin kontrollirakenteisiin, joilla testitapauksien monipuolisuutta voisi kasvattaa perinteisesti yksikkötestauksessa mahdollisien rakenteiden tasolle.
-  Tämä ei kuitenkaan ole mahdollista Robot Frameissä, jossa testitapauksien laatimiseen käytetään Robot Frameworkin omaa, rajattua syntaksia.
+  Ohjelmistokehittäjänä testitapauksien laatimisen yhteyteen olisi hyvä saada mahdollisuus yksikkötestauskehyksissä käytettävistä ohjelmointikielistä tuttuihin kontrollirakenteisiin, joilla testitapauksien monipuolisuutta voisi kasvattaa perinteisesti yksikkötestauksessa mahdollisten rakenteiden tasolle.
+  Tämä ei kuitenkaan ole mahdollista Robot Frameworkissä, jossa testitapauksien laatimiseen käytetään Robot Frameworkin omaa, rajattua syntaksia.
 
 \section{Menetelmän evaluointi} \label{ch:12_menetelman_evaluointi}
 
@@ -64,13 +64,13 @@ Lisäksi lopussa vielä esitetään toteutuksen jälkeen esiin tulleita jatkokeh
 \section{Jatkokehitysehdotukset} \label{ch:12_jatkokehitysehdotukset}
 
   Tämän diplomityön konkreettisina tuloksina syntyneet testausjärjestelmä ja priorisointimenetelmä ovat sellaisenaan käyttövalmiita ja toimivaksi todettuja, mutta jatkokehittelylle on luonnollisesti niissäkin sijaa.
-  Testausjärjestelmän avulla toteuttava web-sovelluksien päätön hyväksymistestaus mahdollisestaan Xvfb-näyttöpalvelimen tarjoaman virtualisoinnin avulla.
-  Xvfb-näyttöpalvelin on kuitenkin saatavilla vain UNIX-ympäristöihin, joka rajaa testausjärjestelmään lisättävien verkkoselaimien saatavuutta.
-  Xvfb-näyttöpalvelimelle voitaisiin jatkokehityksenä etsiä monialustaisempi vaihtoehto tai ainakin vastine Window-ympäristöön, jonka avulla myös vain Window-alustalle saatavat verkkoselaimet olisi mahdollista lisätä järjestelmään.
+  Testausjärjestelmän avulla toteutettava web-sovelluksien päätön hyväksymistestaus mahdollistetaan Xvfb-näyttöpalvelimen tarjoaman virtualisoinnin avulla.
+  Xvfb-näyttöpalvelin on kuitenkin saatavilla vain UNIX-ympäristöihin, mikä rajaa testausjärjestelmään lisättävien verkkoselaimien saatavuutta.
+  Xvfb-näyttöpalvelimelle voitaisiin jatkokehityksenä etsiä monialustaisempi vaihtoehto tai ainakin vastine Windows-ympäristöön, jonka avulla myös vain Windows-alustalle saatavat verkkoselaimet olisi mahdollista lisätä järjestelmään.
 
-  Yksi priorisointimenetelmään liittyvä rajoite on käyttöliittymän näkymä- ja siirtymäperustainen priorisointi, joka asettaa näkymät vastaamaan testikokoelmia.
-  Jatkokehityksenä voitaisiin tutkia näkymäperusteisuuden mukaan tehtävän priorisoinnin muuntamisen mahdollisuutta käyttötapausperustaiseksi.
-  Käyttötapausperustaisesti luotava verkko parhaimmillaan vastaisi oikeita käyttäjien tarpeisiin tarkoitettuja toiminallisuuksia ja voisi parantaa priorisointia.
-  Priorisointimenetelmä on vahvasti matemaattinen, joka mahdollistaa sen muuntamisen kohtalaisella vaivalla tietokoneohjelmaksi.
-  Priorisointimenetelmän rakentaminen automaattisen tietokoneohjelman muotoon olisi erittäin järkevää ja laskisi menetelmän käyttööottamiseen tarvittavaa vaivannäköä huomattavasti.
-  Lisäksi priorisointimenetelmän näkymäpohjaisten graafien, eli painotettujen verkkojen visualisointi voitaisiin hoitaa tietokoneohjelman yhteydessä.
+  Yksi priorisointimenetelmään liittyvä rajoite on käyttöliittymän näkymä- ja siirtymäperusteinen priorisointi, joka asettaa näkymät vastaamaan testikokoelmia.
+  Jatkokehityksenä voitaisiin tutkia näkymäperusteisuuden mukaan tehtävän priorisoinnin muuntamisen mahdollisuutta käyttötapausperusteiseksi.
+  Käyttötapausperusteisesti luotava verkko vastaisi parhaimmillaan oikeita käyttäjien tarpeisiin tarkoitettuja toiminallisuuksia ja voisi parantaa priorisointia.
+  Priorisointimenetelmä on vahvasti matemaattinen, joka mahdollistaa sen muuntamisen tietokoneohjelmaksi kohtalaisella vaivalla.
+  Priorisointimenetelmän rakentaminen automaattisen tietokoneohjelman muotoon olisi erittäin järkevää, ja laskisi menetelmän käyttöönottamiseen tarvittavaa vaivannäköä huomattavasti.
+  Lisäksi priorisointimenetelmän näkymäpohjaisten graafien, eli painotettujen verkkojen, visualisointi voitaisiin hoitaa tietokoneohjelman yhteydessä.
