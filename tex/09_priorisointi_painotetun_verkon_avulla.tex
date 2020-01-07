@@ -11,14 +11,14 @@ Lisäksi käydään läpi, miten menetelmää käyttäen tuotetun painotetun ver
   Matemaattisten verkkojen tarkoituksena on mallintaa parittaisia riippuvuuksia verkkomaisessa objektijoukossa.
   Verkkoteoriassa peruskäsitteitä ovat itse verkko eli graafi, joka muodostuu solmuista ja solmujen välisiä riippuvuuksia esittävistä kaarista tai nuolista.
   Verkkoteorialla on lukuisia käytännön sovellutuksia. Verkkoteoriaa sovelletaan muun muassa tietokonetieteissä, kielitieteissä, fysiikan ja kemian sovellutuksissa, sosiaalisissa tieteissä sekä biologiassa.
-  Alun perin verkkoteorian katsotaan syntyneen 1700-luvulla esiintyneestä, niin sanotusta Königsbergin siltaongelmasta, johon Leonhard Euler esitti todistuksensa \parencite{graph_theory_concepts_1}.
+  Alun perin verkkoteorian katsotaan syntyneen 1700-luvulla esiintyneestä, niin sanotusta Königsbergin siltaongelmasta, johon Leonhard Euler esitti todistuksensa \cite[s.~1-2]{graph_theory_concepts_1}.
 
   Matemaattisten verkkojen käyttöön päädyttiin tässä työssä siksi, että niiden avulla on hyväksymistestauksen kohteena oleva käyttöliittymä mahdollista mallintaa verkoksi.
   Käyttöliittymän verkkomuotoiseen esitykseen voidaan vielä lisätä painot, jotka tässä tapauksessa kuvaavat prioriteetteja, mahdollistaen testikokoelmien priorisoinnin.
 
 \section{Perusmerkinnät ja käsitteet} \label{ch:09_perusmerkinnat_ja_kasitteet}
 
-  Verkkoteoriaa käsittelevässä kirjallisuudessa \parencite{graph_theory_concepts_1}\parencite{graph_theory_concepts_2}\parencite{graph_theory_concepts_3} käytetään muun muassa seuraavia perusmerkintöjä ja käsitteitä:
+  Verkkoteoriaa käsittelevässä kirjallisuudessa \cite{graph_theory_concepts_1}\cite{graph_theory_concepts_2}\cite{graph_theory_concepts_3} käytetään muun muassa seuraavia perusmerkintöjä ja käsitteitä:
 
   \begin{itemize}
     \item \textbf{Solmujoukko} \(V = \{v_a, v_b, v_c\}\) on joukko joka sisältää solmut \(v_a\), \(v_b\) ja \(v_c\).
@@ -176,11 +176,11 @@ Lisäksi käydään läpi, miten menetelmää käyttäen tuotetun painotetun ver
   Painofunktioiden lisäksi painotetun verkon esittämistä varten tarvitaan painomatriiseja.
   Painomatriisin avulla voidaan rakentaa matemaattinen painotettu verkko, joka kuvaa näkymiä ja siirtymiä sekä niiden prioriteetteja.
   Painomatriiseissa tulee lähes väistämättä esiin tilanne, jossa pitäisi määrittää painoarvo olemattomalle silmukalle eli kaarelle, jonka aloitussolmu ja lopetussolmu ovat sama solmu itsessään, mutta kaarta ei ole olemassa.
-  Tällaisissa tapauksissa, tilanteesta riippuen, painomatriiseihin merkitään usein \(0\), \(\infty\) tai \(-\) \parencite{graph_theory_concepts_1}.
+  Tällaisissa tapauksissa, tilanteesta riippuen, painomatriiseihin merkitään usein \(0\), \(\infty\) tai \(-\) \cite{graph_theory_concepts_1}.
   Tässä diplomityössä esitettävän menetelmän painomatriiseissa solmuun itseensä johtuvan kaaren eli silmukan painoksi merkitään aina \(-\), koska käyttöliittymän näkymästä siirtymät itseensä ei tässä menetelmässä käsitellä varsinaisina siirtyminä.
   Tämän lisäksi luonnollisesti jokainen sellainen solmupari, jolla ei ole niitä yhdistävää kaarta, merkitään painomatriisiin käyttäen \(-\) merkintää.
   Sellaisien siirtymien toiminnallisuuden testaaminen on tarkoitus kattaa näkymän mukaisen testikokelman testitapauksissa ja ne tulevat priorisoiduiksi näkymä- ja siirtymäperusteisesti.
-  Painotetun verkon kaaret voivat verkkoteorian mukaan olla suunnattuja tai suuntaamattomia \parencite{graph_theory_concepts_1}.
+  Painotetun verkon kaaret voivat verkkoteorian mukaan olla suunnattuja tai suuntaamattomia \cite{graph_theory_concepts_1}.
   Tässä esimerkkitapauksessa jokainen siirtymä näkymien välillä on suuntaamaton, eli toisin sanoen käyttöliittymässä kaksisuuntainen, ja se priorisoidaan sen mukaisesti.
   Painomatriisissa suuntaamattomien kaarien johdosta voidaan huomata, että painomatriisin diagonaalin erottamat puoliskot ovat toistensa peilikuvia.
   Painomatriisi taulukon \ref{tab:esimerkki_verkon_priorisointi_muuttujat} mukaiselle esimerkille ja siitä lasketuille painoarvoille on pyöristettynä kolmen desimaalin tarkkuudelle seuraavanlainen:
