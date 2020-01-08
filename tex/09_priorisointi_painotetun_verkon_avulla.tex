@@ -1,6 +1,6 @@
 Tässä luvussa käsitellään ensin työhön keskeisesti kuuluvan verkkoteorian perusteita ja käydään huolellisesti läpi niistä tässä työssä käytettävät osat.
 Työssä sovelletaan erityisesti verkkoteorian painotettua verkkoa sekä siihen liittyviä käsitteitä.
-Verkkoteoria itsessään on osa diskeettiä matematiikkaa.
+Verkkoteoria itsessään on osa diskreettiä matematiikkaa.
 
 Verkkoteorian jälkeen esitetään vaiheittain työn tuloksena kehitetty priorisointimenetelmä.
 Priorisointia varten esitetään harkintaa käyttäen valitut priorisointiin vaikuttavat muuttujat, niitä käyttävät painofunktiot, verkon rakentaminen ja karsiminen sekä verkon ja testitapauksien yhteys.
@@ -177,7 +177,7 @@ Lisäksi käydään läpi, miten menetelmää käyttäen tuotetun painotetun ver
   Painomatriisin avulla voidaan rakentaa matemaattinen painotettu verkko, joka kuvaa näkymiä ja siirtymiä sekä niiden prioriteetteja.
   Painomatriiseissa tulee lähes väistämättä esiin tilanne, jossa pitäisi määrittää painoarvo olemattomalle silmukalle eli kaarelle, jonka aloitussolmu ja lopetussolmu ovat sama solmu itsessään, mutta kaarta ei ole olemassa.
   Tällaisissa tapauksissa, tilanteesta riippuen, painomatriiseihin merkitään usein \(0\), \(\infty\) tai \(-\) \cite{graph_theory_concepts_1}.
-  Tässä diplomityössä esitettävän menetelmän painomatriiseissa solmuun itseensä johtuvan kaaren eli silmukan painoksi merkitään aina \(-\), koska käyttöliittymän näkymästä siirtymät itseensä ei tässä menetelmässä käsitellä varsinaisina siirtyminä.
+  Tässä diplomityössä esitettävän menetelmän painomatriiseissa solmuun itseensä johtuvan kaaren eli silmukan painoksi merkitään aina \(-\), koska käyttöliittymän näkymästä siirtymiä itseensä ei tässä menetelmässä käsitellä varsinaisina siirtyminä.
   Tämän lisäksi luonnollisesti jokainen sellainen solmupari, jolla ei ole niitä yhdistävää kaarta, merkitään painomatriisiin käyttäen \(-\) merkintää.
   Sellaisien siirtymien toiminnallisuuden testaaminen on tarkoitus kattaa näkymän mukaisen testikokelman testitapauksissa ja ne tulevat priorisoiduiksi näkymä- ja siirtymäperusteisesti.
   Painotetun verkon kaaret voivat verkkoteorian mukaan olla suunnattuja tai suuntaamattomia \cite{graph_theory_concepts_1}.
