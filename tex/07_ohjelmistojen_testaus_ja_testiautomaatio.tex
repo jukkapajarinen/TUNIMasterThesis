@@ -42,7 +42,7 @@ Testiautomaation perusteiden ymmärtämistä tarvitaan etenkin työn myöhemmiss
   \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{assets/testauksen-tasot.png}
-    \caption{Testauksen tasot pyramidin muodossa}
+    \caption{Testauksen tasot pyramidin muodossa esitettynä.}
     \label{fig:testing-levels-pyramid}
   \end{figure}
 
@@ -171,7 +171,7 @@ Testiautomaation perusteiden ymmärtämistä tarvitaan etenkin työn myöhemmiss
   \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{assets/jatkuva-integrointi.png}
-    \caption{Jatkuvan integroinnin perusperiaate}
+    \caption{Jatkuvan integroinnin perusperiaate on iteratiivinen.}
     \label{fig:jatkuva-integrointi}
   \end{figure}
 
@@ -191,15 +191,15 @@ Testiautomaation perusteiden ymmärtämistä tarvitaan etenkin työn myöhemmiss
 
 \section{Testausvetoinen kehitys} \label{ch:07_testausvetoinen_kehitys}
 
-  Perinteisesti testiautomaatio on soveltunut hyvin vain vakaille ohjelmistoille ja niiden regressiotestaamiseen \parencite{regression_testing_traditionally}.
-  Nykypäivänä ohjelmistokehitys on siirtynyt suunnitelmapohjaisista prosesseista iteroiviin ketteriin ohjelmistotuotannon prosesseihin \parencite{waterfall_to_agile}.
-  Testiautomaatio on soveltunut näihin huonosti, koska testattavaa ohjelmistoa tai lisättyä toiminnallisuutta ei ole vielä ollut olemassa.
-  Tähän ongelmaan on kehittynyt niin sanottu testausvetoinen kehitys, jossa testitapaukset suunnitellaan ja toteutetaan ennen varsinaisen ohjelmiston tai toiminnon toteuttamista.
+  Perinteisesti testiautomaatio on soveltunut hyvin vain valmiille ohjelmistoille ja niiden regressiotestaamiseen.
+  Nykypäivänä ohjelmistokehitys on kuitenkin yhä enemmän siirtynyt suunnitelmapohjaisista prosesseista iteroiviin ja ketteriin ohjelmistotuotannon prosesseihin.
+  Testiautomaatio on soveltunut näihin huonosti siksi, että testattavaa ohjelmistoa tai lisättyä toiminnallisuutta ei ole vielä ollut olemassa.
+  Tähän ongelmaan on kehittynyt niin sanottu testausvetoinen kehitys, jossa testitapaukset suunnitellaan ja toteutetaan läpäistäkseen testitapaukset ennen varsinaisen ohjelmiston tai toiminnon inkrementiaalista toteuttamista \cite{istqb_glossary_v3_3}.
 
   \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{assets/testausvetoinen-kehitys.png}
-    \caption{Testausvetoisen kehityksen vaiheet \parencite{tdd_steps}}
+    \caption{Testausvetoisen kehityksen vaiheet \cite[s.~2]{tdd_paper}.}
     \label{fig:testausvetoinen-kehitys}
   \end{figure}
 
@@ -209,10 +209,9 @@ Testiautomaation perusteiden ymmärtämistä tarvitaan etenkin työn myöhemmiss
   Kun koodimuutoksia on syntynyt, ohjelmistotuotannossa käytössä olevasta integrointiprosessista riippuen testitapaukset ajetaan joko manuaalisesti tai jatkuvan integroinnin avulla.
   Integrointiprosessista saadaan palautetta, jonka mukaan ohjelmakoodia korjataan tai viimeistellään.
   Testausvetoisella kehityksellä pyritään nopeuttamaan ohjelmistokehitysprosessia perinteisiin ohjelmistotuotannon menetelmiin verrattuna.
-  Tämän jälkeen testausvetoista kehitystä käyttävässä ohjelmistotuotantoprosessissa siirrytään takaisin testitapauksien luomiseen ja parantamiseen, sekä aloitetaan toinen iteraatiokierros, mikäli ohjelmisto ei vielä ole valmis.
+  Tämän jälkeen testausvetoista kehitystä käyttävässä ohjelmistotuotantoprosessissa siirrytään takaisin testitapauksien luomiseen ja parantamiseen, sekä aloitetaan toinen iteraatiokierros, mikäli ohjelmisto ei vielä ole valmis. \cite{tdd_paper}
 
   Testausvetoisessa kehityksessä testitapaukset siis laaditaan jo varhaisessa vaiheessa, jolloin niiden tekeminen saattaa usein olla liiketoiminnan näkökulmasta helpommin perusteltavissa liiketoiminnan johdolle.
   Tämän lisäksi testitapauksien kirjoittaminen etukäteen luo alusta alkaen kattavat testikokoelmat, joita voidaan hyödyntää iteratiivisesti ohjelmistotuotteesta riippuen usein hyvinkin pitkään, etenkin jos niihin tehdään tarvittavaa hienosäätöä ohjelmistokehityksen aikana.
   Ohjelmistokehittäjät voivat kehittää helposti hallittavissa olevia testitapauksia rajaavia kokonaisuuksia, jolloin ohjelmistotuote valmistuu ikään kuin pala kerrallaan.
   Itse ohjelmistokehitys on testausvetoisessa kehityksessä iteratiivista ja näin ollen testitapauksien suorittamisesta saadaan palautetta ja raportointia koko ohjelmistotuotantoprosessin ajan.
-  Testausvetoista kehitystä voidaan hyödyntää ketterässä ohjelmistokehityksessä, ja se on myös kasvattanut suosiotaan ketterien menetelmien mukana \parencite{tdd_popularity}.
