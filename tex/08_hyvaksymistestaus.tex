@@ -8,24 +8,23 @@ Lopuksi esitetään testitapauksiin tärkeästi liittyvä priorisointiongelma, p
 \section{Hyväksymistestauksen tarkoitus} \label{ch:08_hyvaksymistestauksen_tarkoitus}
 
   Hyväksymistestaus on yksi tärkeimmistä testauksen tasoista, sillä sen ollessa kattava, voidaan verifioida ohjelman toiminta korkealla tasolla saaden samalla varmuus siitä, että hyväksymistestausta alemmilla tasoilla testattavat asiat toimivat riittävän oikein.
-  Hyväksymistestauksen tarkoituksena on varmistaa toteutettavan ohjelmiston vaatimusten toimivuus erityisesti käytännön tilanteissa siten, että voidaan varmistaa, vastaako ohjelmisto loppukäyttäjän tarpeita.
+  Hyväksymistestaus on järjestelmätestauksen laajennos \cite[s.~373]{software_testing_book} ja sen tarkoituksena on varmistaa toteutettavan ohjelmiston vaatimusten toimivuus erityisesti käytännön tilanteissa siten, että voidaan varmistaa, vastaako ohjelmisto loppukäyttäjän tarpeita.
   Hyväksymistestaus antaa vastauksen siihen, toimiiko toteutettu järjestelmä loppukäyttäjän tarpeiden mukaisesti, ja loppukäyttäjän näkökulmasta oikein.
   Hyväksymistestauksen sanotaan olevan muodollista testaamista, jossa käyttäjän tarpeet, vaatimukset ja liiketoimintaprosessit otetaan huomioon selvittäessä, täyttääkö järjestelmä hyväksymisen kriteerit ja sallii auktorisoidun tahon päättää hyväksytäänkö järjestelmä julkaistavaksi \cite{istqb_glossary_v3_2}.
   Ohjelmistotestauksen tekniikoiden näkökulmasta hyväksymistestaus on mustalaatikkotestausta, eli testauskohdetta testataan tietämättä sen teknisestä toteutuksesta.
-  Hyväksymistestauksen painoarvo on asiakasperusteisessa vaatimusmäärittelyssä ja loppukäyttäjän tarpeiden kartoittamisessa.
+  Hyväksymistestauksen painoarvo on asiakasperusteisessa vaatimusmäärittelyssä ja loppukäyttäjän tarpeiden kartoittamisessa \cite[s.~104]{the_art_of_software_testing_book}.
   Testiautomaation osalta hyväksymistestausta varten voidaan rakentaa testitapaukset, joiden avulla voidaan keskittyä varmistamaan loppukäyttäjille tarpeellisten toimintojen toteutuminen testitapauksien suorittamisen jälkeen.
   Hyväksymistestauksen osalta testitapauksia voidaan toteuttaa niin sanotulla päästä päähän -periaatteella, jossa testattavaa järjestelmää testataan siten kuin loppukäyttäjä sitä käyttäisi.
   Hyväksymistestauksessa ei anneta painoarvoa esimerkiksi kosmeettisille tai kirjoitusvirheille, vaan pyritään selvittämään loppukäyttäjille oleellisten ja tarpeellisten toimintojen toteutuminen.
 
   Hyväksymistestaus on luvussa \ref{ch:07_testauksen_tasot} esitetyistä testauksen tasoista viimeinen ja sen suorittamisen jälkeen saadaan tieto, onko järjestelmä toteutuksen osalta sellaisenaan valmis julkaistavaksi.
   Perinteisesti hyväksymistestauksen lähtökohtia ovat selvät hyväksymisvaatimukset sekä julkaisukelpoinen toteutus, joka voi sisältää vain kosmeettisia tai kirjoitusvirheitä.
-  Hyväksymisvaatimukset voivat olla esimerkiksi liiketoiminnallisia käyttötapauksia, prosessivirtauskaavioita tai ohjelmiston vaatimusmäärittely.
   Testiautomaatiota varten käytettävästä testialustasta riippuen hyväksymistestauksen käyttötapaukset voidaan muodostaa joko osittain tai suoraan testitapauksiksi.
   Hyväksymistestaukseen usein pyydetään osallisiksi ohjelmistokehittäjien lisäksi myös muita sidosryhmiä, ja toisinaan jopa loppukäyttäjiä.
   Keskeistä on, että loppukäyttäjiltä hankitaan tieto tarvittavista ja toteutettavista ominaisuuksista, kun taas muut sidosryhmät kuten esimerkiksi johtoryhmä voivat tehdä liiketoiminnallisia päätöksiä hyväksymistestauksen onnistumisen osalta ja esimerkiksi peruuttaa julkaisun.
   Hyväksymistestaus siis antaa mahdollisuuden korjata usein liiketoiminnallisestakin näkökulmasta merkittävät toiminnalliset virheet ennen kuin järjestelmä julkaistaan loppukäyttäjille.
 
-  Kehittäjien käsitys järjestelmän toiminnallisuudesta ja sen vaatimuksista voi kuitenkin olla usein hyvin erilainen kuin loppukäyttäjien.
+  Kehittäjien käsitys järjestelmän toiminnallisuudesta ja sen vaatimuksista voi olla usein hyvin erilainen kuin loppukäyttäjien.
   Hyväksymistestauksen avulla voidaan lievittää tätä ongelmaa, ja saada ohjelmistokehittäjät loppukäyttäjien kanssa vaatimusmäärittelyn suhteen samalle aaltopituudelle.
   Testiautomaation avulla toteutettavalla toistuvalla hyväksymistestauksella varmistetaan, että järjestelmä toteuttaa loppukäyttäjän tarpeet vielä järjestelmään tehtyjen muutoksien jälkeen.
   Hyväksymistestauksen testitapaukset heijastavat tarkoituksenmukaisesti suoraan loppukäyttäjien tarpeita, jonka avulla ohjelmistokehittäjät ja muut sidosryhmät voivat tehokkaasti varmistaa järjestelmän valmiuden ja senhetkisen tilan.
@@ -34,7 +33,7 @@ Lopuksi esitetään testitapauksiin tärkeästi liittyvä priorisointiongelma, p
 \section{Hyväksymistestausvetoinen kehitys} \label{ch:08_hyvaksymistestausvetoinen_kehitys}
 
   Hyväksymistestausvetoisen kehityksen tarkoituksena, kuten myös testausvetoisessa kehityksessä, on toteuttaa ohjelmistotuotannollinen prosessi laatien toistettavasti suoritettavat testitapaukset ennen ohjelmiston varsinaista toteutusta.
-  Hyväksymistestausvetoisessa kehityksessä tämä tarkoittaa käytännössä sitä, että ennen toteutusta luodaan tarvittavat ohjelmiston asiakasvaatimuksia palvelevat hyväksymistestit, jotka ohjelmiston on tarkoitus läpäistä sen julkaisemisen hyväksymiseksi.
+  Hyväksymistestausvetoisessa kehityksessä tämä tarkoittaa käytännössä sitä, että ennen toteutusta luodaan tarvittavat käyttötapauksien muodossa olevat ohjelmiston asiakasvaatimuksia palvelevat hyväksymistestit, jotka ohjelmiston on tarkoitus läpäistä sen julkaisemisen hyväksymiseksi \cite[s.~324]{test_driven_book}.
   Hyväksymistestausvetoisen kehityksen sanotaan olevan yhteistyöhön perustuva lähestymistapa kehitykseen, jossa tiimi ja asiakkaat käyttävät asiakkaiden oman ympäristön kieltä ymmärtääkseen heidän vaatimukset, jotka muodostavat pohjan komponentin tai järjestelmän testaamiseen \cite{istqb_glossary_v3_3}.
   Tarvittavat ohjelmiston hyväksymistestit suoritetaan iteratiivisesti ohjelmistokehitysprosessin aikana ja se tarkoittaa käytännössä jatkuvan integraation ottamista käyttöön ohjelmistokehityksessä.
   Hyväksymistestausvetoinen kehitys on erittäin hyödyllinen ohjelmistokehityksessä käytetty menetelmä, sillä kehitysvaiheessa on aina tarkasti tiedossa, vastaako ohjelmiston senhetkinen tila asiakasvaatimuksia, ja kuinka hyvin se niiden täyttämisessä onnistuu.
@@ -42,13 +41,13 @@ Lopuksi esitetään testitapauksiin tärkeästi liittyvä priorisointiongelma, p
   \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{assets/hyvaksymistestausvetoinen-kehitys.png}
-    \caption{Hyväksymistestausvetoisen kehityksen vaiheet \parencite{atdd_steps}.}
+    \caption{Hyväksymistestausvetoisen kehityksen vaiheet, kuvaa \ref{fig:testausvetoinen-kehitys} mukaillen.}
     \label{fig:hyvaksymistestausvetoinen-kehitys}
   \end{figure}
 
   Hyväksymistestausvetoinen kehityksen vaiheet on esitetty kuvassa \ref{fig:hyvaksymistestausvetoinen-kehitys}, josta voidaan huomata sen olevan testausvetoisen kehityksen kanssa pääpiirteittäin hyvin samanlainen, mutta ennen ohjelmistokehityksen aloitusta asiakasvaatimukset kartoitetaan ja ohjelmiston hyväksyttävyys määritellään.
-  Hyväksymistestitapaukset kirjoitetaan testausvetoisen kehityksen mukaisesti ennen toteutusta ja ohjelmistokehitys itsessään noudattaa iteratiivisesti testausvetoista kehitystä, vaikka hyväksymistestaus on perinteisesti vaatinut lähes valmista järjestelmää \parencite{traditional_acceptance_testing}.
-  Asiakasvaatimukset määritetään usein käyttötapauksien muodossa ja hieman testialustasta riippuen ne voidaan kirjoittaa suoraan testitapauksien muotoon.
+  Hyväksymistestitapaukset kirjoitetaan testausvetoisen kehityksen mukaisesti ennen toteutusta ja ohjelmistokehitys itsessään noudattaa iteratiivisesti testausvetoista kehitystä, vaikka hyväksymistestaus on perinteisesti vaatinut lähes valmista järjestelmää.
+  Asiakasvaatimukset määritetään usein käyttötapauksien muodossa ja hieman testialustasta riippuen ne voidaan kirjoittaa suoraan testitapauksien muotoon \cite{robot_framework_book}.
   Hyväksymistestausvetoisessa kehityksessä ohjelmistokehitystä ohjaavat asiakasvaatimukset ja loppukäyttäjien tarpeiden toteutuminen, jotka ovat hyvin usein toiminnallisia vaatimuksia.
   Hyväksymistestausvetoisessa kehityksessä mitataan jatkuvasti käyttötapauksien muodossa validoitavien haluttujen ominaisuuksien toteutumista.
   Perusperiaate on kirjoittaa asiakasvaatimus tai käyttötapaus testitapauksen muotoon, toteuttaa testitapaus, ajaa testitapaus läpäisemättömänä, toteuttaa ominaisuus, ajaa testitapaus läpäisevänä, refaktoroida toteutus ja siirtyä takaisin seuraavaan käyttötapaukseen.
@@ -65,22 +64,20 @@ Lopuksi esitetään testitapauksiin tärkeästi liittyvä priorisointiongelma, p
 
   Web-sovelluksilla on omia erityispiirteitä, jotka vaikuttavat testitapauksien laatimiseen.
   Nykypäivänä web-sovellukset ovat kasvaneet kompleksisuudessa ja front-end -puolen toteutuksia tarkasteltaessa web-sovellukset usein muistuttavat jo perinteisiä, dynaamisia työpöytäsovelluksia.
-  Web-sovelluksia päivitetään usein niin tiheään tahtiin, jotta niille on suuri tarve luoda testiautomaatiota, jota hyödyntäen voidaan varmistaa, että ne toimivat oikein myös muutosten jälkeen.
+  Web-sovelluksia myös päivitetään usein niin tiheään tahtiin, jotta niille on suuri tarve luoda testiautomaatiota, jota hyödyntäen voidaan varmistaa, että ne toimivat oikein myös muutosten jälkeen.
 
+  Avainalueet web-sovelluksien testaamisessa Singhin mukaan ovat toiminnalisuus, käytettävyys, selainyhteensopivuus, tietoturva, kuormitus ja tallettaminen \cite[s.~456]{software_testing_book}.
   Hyväksymistestauksen priorisoimisen osalta tärkeä web-sovelluksien erityispiirre liittyy käyttöliittymiin ja DOM-dokumenttiobjektimalliin.
   Dokumenttiobjektimallin avulla verkkoselaimet esittävät käyttöliittymän ja siinä näkyvän sisällön.
-  Tämän lisäksi dokumenttiobjektimalli mahdollistaa käyttöliittymässä olevien elementtien valitsemisen, jota hyödynnetään vahvasti testitapauksien kirjoittamisessa.
-
+  Tämän lisäksi dokumenttiobjektimalli mahdollistaa käyttöliittymässä olevien elementtien valitsemisen, jota hyödynnetään vahvasti testitapauksien kirjoittamisessa muun muassa toiminnallisuuden testaamiseksi.
   Navigointi ja navigointiketjut ovat myös yksi web-sovelluksien erityispiirre.
   Historiallisesti verkkosivuilla navigointi tapahtuu niin sanottujen hyperlinkkien avulla, verkkosivujen itse ollessa hypertekstiä.
   Tämä historiallinen lähestymistapa on edelleen käytössä ja web-sovelluksissa on lähes poikkeuksetta useita hyperlinkkejä, joiden avulla navigoiminen luo navigointiketjuja, joissa edelliseen sivuun tiedetään palata.
-  Hyperlinkkien avulla tapahtuva navigointi ja navigointiketjut ovat sellainen erityispiirre, jotka on hyvä tiedostaa myös hyväksymistestauksen testitapauksia rakentaessa.
-
+  Hyperlinkkien avulla tapahtuva navigointi ja navigointiketjut ovat sellainen erityispiirre, jotka on hyvä tiedostaa myös hyväksymistestauksen testitapauksia rakentaessa ja käytettävyyttä testatessa.
   Web-sovelluksien syötteet ja niiden yhteyteen liittyvä tietoturva ovat erityispiirre joka vaatii suurta huomiota.
   Web-sovelluksien syötteisiin on perinteisesti liittynyt paljon haavoittuvuuksia, kuten esimerkiksi XSS-hyökkäykset ja SQL-injektiot.
   Web-sovelluksien hyväksymistestauksen testitapauksiin on hyvä sisällyttää syötteisiin liittyvää testaamista, joissa tietoturva pidetään mielessä.
-
-  Erilaisia web-sovelluksen loppukäyttäjien asiakasympäristöjä on erittäin paljon, mikä kannustaa moniselaimellisen testauksen rakentamiseen.
+  Erilaisia web-sovelluksen loppukäyttäjien asiakasympäristöjä on erittäin paljon, mikä kannustaa moniselaimellisen testauksen rakentamiseen selainyhteensopivuuden varmistamiseksi.
   Näissä ympäristöissä on omat verkkoselaimet, näyttöresoluutiot ja selainasetukset, jotka saavat saman web-sovelluksen toimimaan eri tavoilla eri ympäristöissä, ja luovat siten usein jopa päänvaivaa ohjelmistokehittäjille.
   Etenkin web-käyttöliittymiin keskittyessä testitapauksiin on hyvä sisällyttää erilaisia näyttöresoluutioita, ruudunkaappauksien ottamista ja selainasetuksia, kuten esimerkiksi JavaScript-ominaisuuksien estäminen.
 
@@ -100,21 +97,21 @@ Lopuksi esitetään testitapauksiin tärkeästi liittyvä priorisointiongelma, p
 
   \subsection{Robot Framework} \label{ch:08_robot_framework}
 
-    Robot Framework on geneerinen avoimen lähdekoodin testialusta hyväksymistestaukseen, hyväksymistestausvetoiseen kehitykseen ja robottisten prosessien automaatioon \parencite{robot_framework_user_guide}.
+    Robot Framework on geneerinen avoimen lähdekoodin testialusta hyväksymistestaukseen, hyväksymistestausvetoiseen kehitykseen ja robottisten prosessien automaatioon.
     Robot Frameworkin avainsanaperusteinen syntaksi on helposti ymmärrettävä, luettava ja selkeä.
     Testialustan etuna on helppo lähestyttävyys, eikä sen päälle rakennettujen testitapauksien ymmärtäminen vaadi ohjelmointikielten ymmärtämistä.
-    Robot Framework on Python-ohjelmointikieleen perustuva testialusta ja se on helppo asentaa, sitä on helppo ymmärtää, sillä on kattava dokumentaatio ja se on helppoa ottaa käyttöön.
+    Robot Framework on Python-ohjelmointikieleen perustuva testialusta ja se on helppo asentaa, sitä on helppo ymmärtää, sillä on kattava dokumentaatio ja se on helppoa ottaa käyttöön. \cite{robot_framework_user_guide}
 
     Robot Frameworkissa on sisäänrakennettu tuki ulkoisille kirjastoille, jota havainnollistetaan kuvassa \ref{fig:robot-architecture}, ja sen kattavasta dokumentaatiosta löytyy tietoa omien avainsanojen ja omien kirjastojen tekemiseen.
     Lisäksi Robot Framework on todella suosittu testialusta, mikä näkyy muun muassa siitä, että sisäänrakennettujen ominaisuuksien lisäksi ulkoisia kolmansien osapuolien kirjastoja löytyy alustalle paljon.
     Robot Framework tukee muuttujien käyttöä testitapauksien rakentamisessa, joilla voi hieman lisätä kompleksisuutta ja logiikkaa omiin testitapauksiin.
     Robot Frameworkista löytyy myös tuki dataperustaisten testitapauksien rakentamiseen, joille annetaan eri syötteitä sisältävää testidataa.
-    Testitapauksia voi myös ryhmitellä testikokoelmiin käyttämällä tägejä testitapauksien sisällä.
+    Testitapauksia voi myös ryhmitellä testikokoelmiin käyttämällä tägejä testitapauksien sisällä. \cite{robot_framework_user_guide}
 
     \begin{figure}[H]
       \centering
       \includegraphics[width=0.6\textwidth]{assets/robot-arkkitehtuuri.png}
-      \caption{Robot Framework alustan arkkitehtuuri \parencite{robot_framework_user_guide}.}
+      \caption{Robot Framework alustan arkkitehtuuri \cite{robot_framework_user_guide}.}
       \label{fig:robot-architecture}
     \end{figure}
 
@@ -128,12 +125,12 @@ Lopuksi esitetään testitapauksiin tärkeästi liittyvä priorisointiongelma, p
   \subsection{Selenium} \label{ch:08_selenium}
 
     Selenium on suosittu avoimen lähdekoodin työkalu ja kirjastokokoelma verkkoselainten automatisoimiseen.
-    Ensisijaisesti se on tarkoitettu web-sovelluksien automatisoimiseen testaustarpeita varten.
+    Ensisijaisesti se on tarkoitettu web-sovelluksien automatisoimiseen testaustarpeita varten. \cite[s.~1 ]{selenium_book}
     Erityisen hyvin Selenium soveltuu hyväksymistestauksen testiautomaation rakentamiseen, sillä sen avulla automatisoidaan web-sovelluksien käyttöliittymissä tehtäviä toimenpiteitä.
-    Selenium on ThoughtWorks-yhtiön kehittämä verkkoselainten automatisoimiseen tarkoitettu työkalujen ja kirjastojen kokoelma, ja se on saatavilla Windows, Linux ja MacOS -käyttöjärjestelmille \parencite{selenium_info_1}.
+    Selenium on ThoughtWorks-yhtiön kehittämä verkkoselainten automatisoimiseen tarkoitettu työkalujen ja kirjastojen kokoelma, ja se on saatavilla Windows, Linux ja MacOS -käyttöjärjestelmille \cite{selenium_info_1}.
     Sama yhtiö on toteuttanut myös tässä diplomityössä myöhemmin esitettävän GoCD-ohjelmiston, jota voidaan käyttää jatkuvan integroimisen ja julkaiseminen rakentamiseen.
 
-    Selenium-tuoteperheeseen kuuluvat Selenium WebDriver, Selenium IDE ja Selenium Grid -komponentit \parencite{selenium_info_2}.
+    Selenium-tuoteperheeseen kuuluvat Selenium WebDriver, Selenium IDE ja Selenium Grid -komponentit \cite{selenium_info_2}.
     Selenium WebDriver on varsinainen web-sovelluksien automatisoimiseen käytettävä ohjelmisto, ja sitä käytetään myös tässä diplomityössä.
     Selenium IDE on ohjelmistokehittäjille ja testaajille tarkoitettu kehitysympäristö, jota voidaan halutessaan käyttää testitapauksien rakentamiseen.
     Selenium Grid on järjestelmä, jonka avulla voidaan Selenium pohjaisten testitapauksien suorittaminen hajauttaa skaalautuvasti useille eri etäkoneille.
@@ -141,7 +138,7 @@ Lopuksi esitetään testitapauksiin tärkeästi liittyvä priorisointiongelma, p
 
     Selenium on todella tärkeä osa web-sovelluksien testiautomaation rakentamista, sillä se pohjimmiltaan mahdollistaa web-sovelluksien käyttöliittymien käsittelemisen automatisoidusti.
     Selenium-työkalua voidaan käyttää erityisesti hyväksymistestauksen testitapauksien automatisoimiseen suoraan Selenium IDE:n avulla nauhoittaen testitapauksia tai kirjoittaen ne Selenium-skriptauskielellä.
-    Selenium on joustava työkalu ja se tarjoaa Selenium Client API -rajapinnan, jonka avulla sitä voidaan käyttää muistakin ohjelmointikielistä, kuten C\#, JavaScript tai Python.
+    Selenium on joustava työkalu ja se tarjoaa myös Selenium Client API -rajapinnan, jonka avulla sitä voidaan käyttää muistakin ohjelmointikielistä, kuten C\#, JavaScript tai Python.
 
     Tässä diplomityössä Selenium-työkalua käytetään Robot Frameworkin yhteyteen integroituna ulkoisena kirjastona.
     Robot Frameworkille on saatavilla SeleniumLibrary-niminen kirjasto, josta löytyy Robot Frameworkin syntaksin mukaisesti määritellyt avainsanat verkkoselainten ohjaamiseen Selenium-pohjaisesti.
@@ -149,9 +146,10 @@ Lopuksi esitetään testitapauksiin tärkeästi liittyvä priorisointiongelma, p
   \subsection{Xvfb} \label{ch:08_xvfb}
 
     Xvfb, eli X Virtual Framebuffer, on X-näyt\-tö\-pal\-ve\-li\-men  protokollan toteuttava virtuaalinen X-näyt\-tö\-pal\-ve\-lin.
-    X-näyt\-tö\-pal\-ve\-li\-men tehtävä on mahdollistaa graafisten ohjelmien toiminta käyttöjärjestelmän ytimen päällä, jossa X-palvelin ja X-asiakasohjelmat kommunikoivat keskenään. Lisäksi X-palvelin hoitaa ytimen kautta näytön ja syöttölaitteiden käsittelyn.
+    X-näyt\-tö\-pal\-ve\-li\-men tehtävä on mahdollistaa graafisten ohjelmien toiminta käyttöjärjestelmän ytimen päällä, jossa X-palvelin ja X-asiakasohjelmat kommunikoivat keskenään.
+    Lisäksi X-palvelin hoitaa ytimen kautta näytön ja syöttölaitteiden käsittelyn.
     Xvfb ei tulosta mitään näytölle, vaan kaikki näytölle normaalisti tulostuva graafisia käyttöliittymiä sisältävä sisältö on ajonaikaisessa tietokoneen muistissa.
-    Xvfb toimii aivan kuten tavallinen X-näyt\-tö\-pal\-ve\-lin, eli vastaa X-ohjelmien pyyntöihin ja hoitaa niihin liittyvän tapahtumien ja virheiden käsittelyn.
+    Xvfb toimii aivan kuten tavallinen X-näyt\-tö\-pal\-ve\-lin, eli vastaa X-ohjelmien pyyntöihin ja hoitaa niihin liittyvän tapahtumien ja virheiden käsittelyn. \cite{xvfb_info}
 
     Xvfb soveltuu web-sovelluksien hyväksymistestauksen automatisointiin mahdollistaen päätteettömän testaamisen testitapauksille.
     Päätteetöntä testausta voidaan toteuttaa myös verkkoselaimiin rakennettujen ominaisuuksien avulla, mutta Xvfb:n suurena etuna niihin verrattuna on se, että sitä voidaan käyttää mihin tahansa graafiseen ohjelmaan.
@@ -168,20 +166,20 @@ Lopuksi esitetään testitapauksiin tärkeästi liittyvä priorisointiongelma, p
     Docker on säiliöintityökalu, jonka avulla on mahdollista määrittää, rakentaa ja ajaa säiliöiden muotoon konfiguroituja sovelluksia.
     Docker muistuttaa virtuaalikoneita, mutta se on kevyempi ja resurssien käytössä optimaalisempi, sillä se jakaa käyttöjärjestelmän ytimen eri säiliöiden kesken ja virtualisoi vain sovellusympäristön, jonka säiliön määrittävä konfiguraatio sisältää, kuten kuvassa \ref{fig:docker-vs-virtual-machine} tarkemmin esitetään.
     Säiliöiden sisään voidaan paketoida kaikki kokonaisen sovelluksen tarvitsemat ohjelmistot, kirjastot, ympäristöt, riippuvuudet ja itse sovelluksen ohjelmakoodi.
-    Rakentamalla säiliön ja käynnistämällä sen, voidaan sitä käyttää konfiguraatioltaan samanlaisena eri ympäristöissä, joissa Docker-ohjelmisto on saatavilla.
+    Rakentamalla säiliön ja käynnistämällä sen, voidaan sitä käyttää konfiguraatioltaan samanlaisena eri ympäristöissä, joissa Docker-ohjelmisto on saatavilla.  \cite{docker_docs_info}
 
     \begin{figure}[H]
       \centering
       \includegraphics[width=0.8\textwidth]{assets/docker-vs-virtual-machine.png}
-      \caption{Dockerin ja virtuaalikoneen arkkitehtuurivertailu \parencite{docker_vs_virtual_machine}.}
+      \caption{Dockerin ja virtuaalikoneen arkkitehtuurivertailu \cite{docker_vs_virtual_machine}.}
       \label{fig:docker-vs-virtual-machine}
     \end{figure}
 
-    Dockerfilen, eli Docker-säiliön kuvan konfiguraatiotiedoston, avulla voidaan luoda räätälöity säiliö, josta voidaan rakentaa yksi tai useampia säiliöinstansseja.
+    Dockerfilen, eli Docker-säiliön kuvan konfiguraatiotiedoston, avulla voidaan luoda räätälöity säiliö, josta voidaan rakentaa yksi tai useampia säiliöinstansseja \cite{docker_docs_dockerfile}.
     Räätälöidyn säiliön etuna on etenkin se, että sen avulla saadaan aikaan sovellus, joka on periaatteessa alustasta riippumaton.
     Docker-ohjelmiston avulla sovelluskehittäjät voivat käyttää samaa Docker-konfiguraatiota rakentaakseen identtisiä säiliöitä sovelluskehityksen ajaksi.
     Tämän lisäksi Docker mahdollistaa saman Docker-konfiguraation käyttämisen sovelluksen pystyttämiseen ja julkaisemiseen nopeasti, helposti sekä jopa kustannustehokkaasti eri paikkoihin.
-    Docker-compose on tapa rakentaa Docker-verkko, joka koostuu palveluista, jotka ovat joko valmiiksi tehtyjä Docker-kuvia tai itse Dockerfilen avulla tehtyjä Docker-säiliöiden kuvia.
+    Docker-compose on tapa rakentaa Docker-verkko, joka koostuu palveluista, jotka ovat joko valmiiksi tehtyjä Docker-kuvia tai itse Dockerfilen avulla tehtyjä Docker-säiliöiden kuvia \cite{docker_docs_compose}.
     Docker-verkkoon voidaan myös lisätä yhteisiä tietosäilöjä, joita verkkoon kuuluvat palvelut voivat yhteisesti hyödyntää.
     Yksittäisen säiliön konfiguraation sisältämä Dockerfile ja kokonaisen Docker-verkon konfiguraation sisältämä Docker-compose -tiedosto kirjoitetaan YAML-kielellä.
 
@@ -214,8 +212,7 @@ Lopuksi esitetään testitapauksiin tärkeästi liittyvä priorisointiongelma, p
 
   Testitapaus on testiautomaation näkökulmasta määritelty toimenpiteiden, ehtojen ja muuttujien joukko, joka suorittamalla voidaan verifioida jokin osa, ominaisuus tai toiminnallisuus ohjelmistosta.
   Testitapauksien rakentaminen on järkevää järjestää testikokoelmiksi, jotka tarkoittavat samaan kontekstiin kuuluvista testitapauksista muodostettua joukkoa.
-  Tässä diplomityössä esitettävään hyväksymistestaukseen liittyen testitapaukset kirjoitetaan usein käyttötapauksien muodossa.
-  Hyväksymistestauksen tapauksessa testitapauksien määrittäminen testiautomaatiota varten voidaan toteuttaa Robot Frameworkillä ja apuna voidaan käyttää muita aiemmin mainittuja työkaluja.
+  Hyväksymistestauksen tapauksessa testitapauksien määrittäminen testiautomaatiota varten voidaan toteuttaa Robot Frameworkillä \cite{robot_framework_book} ja apuna voidaan käyttää muita aiemmin mainittuja työkaluja.
   Lisäksi hyväksymistestauksen priorisoimiseen painotetun verkon avulla on välttämätöntä suunnitella ja rakentaa testitapaukset näkymä- ja siirtymäperusteisesti, koska menetelmä hyödyntää matemaattisia näkymä- ja siirtymäperusteisesti laadittuja painotettuja verkkoja.
   Terminä näkymä- ja siirtymäperusteisuus tarkoittaa yksinkertaisesti web-käyttöliittymien hyväksymistestauksessa yksittäisiä käyttöliittymän näkymiä ja niiden välisiä siirtymiä.
   Yleisiä web-käyttöliittymien näkymiä ovat esimerkiksi kirjautumisnäkymä, päänäkymä ja asetusnäkymä joiden välillä käyttäjät voivat siirtymä näkymästä toiseen.
