@@ -6,16 +6,18 @@ Testiautomaation perusteiden ymmärtämistä tarvitaan etenkin työn myöhemmiss
 
 \section{Testiautomaation tarkoitus} \label{ch:07_testiautomaation_tarkoitus}
 
-  Testiautomaation tarkoitus on pohjimmiltaan mahdollistaa ohjelmistotuotteen jatkuva, tehokas ja vaivaton laadunvarmistus nyt ja tulevaisuudessa \parencite{test_automation_purpose}.
+  Testiautomaation tarkoitus on pohjimmiltaan mahdollistaa ohjelmistotuotteen jatkuva, tehokas ja vaivaton laadunvarmistus nyt ja tulevaisuudessa.
   Testiautomaation vastakohtana voidaan ajatella manuaalista testausta, joka vaatii täydellistä ihmisen vuorovaikutusta testauksen suorittamiseen.
   Testiautomaatiossa käytetään ihmisen tekemän manuaalisen testauksen sijaan erityisiä ohjelmistotyökaluja ennalta määritettyjen testitapauksien suorittamiseen.
   Ohjelmistojen testaaminen itsessään on prosessi, jota suorittamalla pyritään löytämään ohjelmistotuotteesta virheitä  \cite[s.~11]{the_art_of_software_testing_book}.
   Lisäksi testaamisella pyritään varmistamaan, että ohjelmisto toimii asetettujen vaatimusten sekä suunnitelmien mukaisesti.
+
   Testauksen automatisoiminen vapauttaa aikaa, kustannuksia ja henkilöresursseja manuaalisesta testaamisesta muihin tuotantotehtäviin, sekä parantaa toistettavien testien luotettavuutta poistamalla manuaalisessa testauksessa tapahtuvat inhimilliset virheet.
+  Tapaustutkimusten perusteella on havaittu, että testauksen automatisoimisella voidaan saavuttaa jopa 80\% säästöjä manuaaliseen testaukseen verrattuna \cite[s.~3]{software_test_automation_book}.
   Ohjelmistotuotantoprosessin osaksi kytketyn testiautomaation avulla voidaan myös löytää ohjelmistokehityksen aikana ohjelmistokoodiin lipsuvia virheitä ja näin ollen saavuttaa mahdollisuus korjata niitä ennen kuin ohjelmisto julkaistaan loppukäyttäjille.
 
   Laadunvarmistuksen osalta ohjelmistokehityksessä on usein käytetty niin sanottuja laadullisia ominaisuuksia, joiden kattamisella voidaan validoida laatua.
-  Laadullisia ominaisuuksia ovat ISO 9126-standardin mukaan \parencite{iso_quality_attributes}:
+  Laadullisia ominaisuuksia ovat ISO 9126-standardin mukaan \cite{iso_quality_attributes}:
 
   \begin{enumerate}
     \item toiminnallisuus
@@ -35,7 +37,7 @@ Testiautomaation perusteiden ymmärtämistä tarvitaan etenkin työn myöhemmiss
   Testauksen tasoja on useita ja usein ohjelmistojen kattavaan testaamiseen on suositeltavaa käyttää ohjelmistotuotantoprosessissa eri tasojen yhdistelmää.
   Ohjelmistojen testaus jaotellaan usein kolmeen erilaiseen menetelmään, jotka myös vaikuttavat eri testauksen tasojen käyttökelpoisuuteen.
   Erilaisia menetelmiä ovat mustalaatikkotestaus, harmaalaatikkotestaus ja valkolaatikkotestaus, jotka eroavat toisistaan yleisesti ottaen siinä, otetaanko tieto ohjelmistotuotteen sisäisestä toteutuksesta mukaan itse testaamiseen.
-  Testauksen tasot esitetään kirjallisuudessa usein hieman eri muodoissa \parencite{testing_levels_1} \parencite{testing_levels_2}, mutta yleisesti ne jaetaan neljään eri tasoon, jotka voidaan kuvata pyramidin tasoavaruuteen projisoituna muotona.
+  Testauksen tasot esitetään kirjallisuudessa usein hieman eri muodoissa \cite[s.~277]{agile_testing_book} \cite[s.~16]{software_testing_and_qa_book}, mutta yleisesti ne jaetaan neljään eri tasoon, jotka voidaan kuvata pyramidin tasoavaruuteen projisoituna muotona.
 
   \begin{figure}[H]
     \centering
@@ -93,7 +95,7 @@ Testiautomaation perusteiden ymmärtämistä tarvitaan etenkin työn myöhemmiss
     Järjestelmätestauksen ajatuksena on testata kokonaista ja toimivaa järjestelmää yhtenä suurena yksikkönä.
     Järjestelmätestausta tarvitaan, jotta voidaan varmistaa kokonaisen ohjelmiston toimivuus, jota ei muuten pelkällä yksikkötestauksella ja integraatiotestauksella saataisi täydellisellä varmuudella selville.
 
-    Järjestelmätestaukseen liittyy laajasti erilaisia testattavia laadullisia ominaisuuksia, kuten toiminnallisuus, luotettavuus, käytettävyys, tehokkuus, ylläpidettävyys ja siirrettävyys \parencite{iso_quality_attributes}.
+    Järjestelmätestaukseen liittyy laajasti erilaisia testattavia laadullisia ominaisuuksia, kuten toiminnallisuus, luotettavuus, käytettävyys, tehokkuus, ylläpidettävyys ja siirrettävyys \cite{iso_quality_attributes}.
     Aiemmin testiautomaation tarkoitus kappaleessa esitettiin että edellä mainituista laadullisista ominaisuuksista kaikki eivät sovellu hyvin testiautomaation avulla testattaviksi.
     Esitetyistä syistä johtuen, automatisoidulla järjestelmätestauksella voidaan testata edellä mainituista ominaisuuksista lähinnä ohjelmiston toiminnallisuutta, luotettavuutta ja tehokkuutta.
     Toiminnallisuutta voidaan testata käyttöliittymätestauksella, joka on mahdollista automatisoida käyttötapauksien muotoon.

@@ -10,7 +10,7 @@ Lopuksi esitetään testitapauksiin tärkeästi liittyvä priorisointiongelma, p
   Hyväksymistestaus on yksi tärkeimmistä testauksen tasoista, sillä sen ollessa kattava, voidaan verifioida ohjelman toiminta korkealla tasolla saaden samalla varmuus siitä, että hyväksymistestausta alemmilla tasoilla testattavat asiat toimivat riittävän oikein.
   Hyväksymistestauksen tarkoituksena on varmistaa toteutettavan ohjelmiston vaatimusten toimivuus erityisesti käytännön tilanteissa siten, että voidaan varmistaa, vastaako ohjelmisto loppukäyttäjän tarpeita.
   Hyväksymistestaus antaa vastauksen siihen, toimiiko toteutettu järjestelmä loppukäyttäjän tarpeiden mukaisesti, ja loppukäyttäjän näkökulmasta oikein.
-  Hyväksymistestauksen sanotaan olevan muodollista testaamista, jossa käyttäjän tarpeet, vaatimukset ja liiketoimintaprosessit otetaan huomioon selvittäessä, täyttääkö järjestelmä hyväksymisen kriteerit ja sallii auktorisoidun tahon päättää hyväksytäänkö järjestelmä julkaistavaksi \parencite{istqb_acceptance_testing_1}.
+  Hyväksymistestauksen sanotaan olevan muodollista testaamista, jossa käyttäjän tarpeet, vaatimukset ja liiketoimintaprosessit otetaan huomioon selvittäessä, täyttääkö järjestelmä hyväksymisen kriteerit ja sallii auktorisoidun tahon päättää hyväksytäänkö järjestelmä julkaistavaksi \cite{istqb_glossary_v3_2}.
   Ohjelmistotestauksen tekniikoiden näkökulmasta hyväksymistestaus on mustalaatikkotestausta, eli testauskohdetta testataan tietämättä sen teknisestä toteutuksesta.
   Hyväksymistestauksen painoarvo on asiakasperusteisessa vaatimusmäärittelyssä ja loppukäyttäjän tarpeiden kartoittamisessa.
   Testiautomaation osalta hyväksymistestausta varten voidaan rakentaa testitapaukset, joiden avulla voidaan keskittyä varmistamaan loppukäyttäjille tarpeellisten toimintojen toteutuminen testitapauksien suorittamisen jälkeen.
@@ -35,7 +35,7 @@ Lopuksi esitetään testitapauksiin tärkeästi liittyvä priorisointiongelma, p
 
   Hyväksymistestausvetoisen kehityksen tarkoituksena, kuten myös testausvetoisessa kehityksessä, on toteuttaa ohjelmistotuotannollinen prosessi laatien toistettavasti suoritettavat testitapaukset ennen ohjelmiston varsinaista toteutusta.
   Hyväksymistestausvetoisessa kehityksessä tämä tarkoittaa käytännössä sitä, että ennen toteutusta luodaan tarvittavat ohjelmiston asiakasvaatimuksia palvelevat hyväksymistestit, jotka ohjelmiston on tarkoitus läpäistä sen julkaisemisen hyväksymiseksi.
-  Hyväksymistestausvetoisen kehityksen sanotaan olevan yhteistyöhön perustuva lähestymistapa kehitykseen, jossa tiimi ja asiakkaat käyttävät asiakkaiden oman ympäristön kieltä ymmärtääkseen heidän vaatimukset, jotka muodostavat pohjan komponentin tai järjestelmän testaamiseen \parencite{istqb_acceptance_testing_2}.
+  Hyväksymistestausvetoisen kehityksen sanotaan olevan yhteistyöhön perustuva lähestymistapa kehitykseen, jossa tiimi ja asiakkaat käyttävät asiakkaiden oman ympäristön kieltä ymmärtääkseen heidän vaatimukset, jotka muodostavat pohjan komponentin tai järjestelmän testaamiseen \cite{istqb_glossary_v3_3}.
   Tarvittavat ohjelmiston hyväksymistestit suoritetaan iteratiivisesti ohjelmistokehitysprosessin aikana ja se tarkoittaa käytännössä jatkuvan integraation ottamista käyttöön ohjelmistokehityksessä.
   Hyväksymistestausvetoinen kehitys on erittäin hyödyllinen ohjelmistokehityksessä käytetty menetelmä, sillä kehitysvaiheessa on aina tarkasti tiedossa, vastaako ohjelmiston senhetkinen tila asiakasvaatimuksia, ja kuinka hyvin se niiden täyttämisessä onnistuu.
 
@@ -222,9 +222,9 @@ Lopuksi esitetään testitapauksiin tärkeästi liittyvä priorisointiongelma, p
 
   Testitapauksen perusformaatti koostuu lähtötilanteesta, laukaisijasta ja verifikaatiosta.
   Lähtötilanteessa tehdään olettamus ja seuraavassa vaiheessa seurataan, kun jokin ehto tapahtuu, minkä jälkeen voidaan tarkistaa seuraus ja verifioida onko se oletuksen mukainen.
-  Hyvä testitapaus koostu neljästä sen laatuun vaikuttavasta ominaisuudesta, jotka ovat virheiden havaitsemisen tehokkuus, esimerkillisyys eli kyky testata useita asioita samaan aikaan, taloudellisuus ja mukautumiskyky \cite[s.~4]{software_test_automation_book}.
+  Perinteisesti hyvän testitapauksen on nähty koostuvan neljästä sen laatuun vaikuttavasta ominaisuudesta, jotka ovat virheiden havaitsemisen tehokkuus, esimerkillisyys eli kyky testata useita asioita samaan aikaan, taloudellisuus ja mukautumiskyky \cite[s.~4]{software_test_automation_book}.
 
-  Robot Frameworkin perustaja on kirjoittanut laajan ohjeistuksen siitä, miten Robot Frameworkiä käyttäen luodaan hyviä testitapauksia \parencite{robot_framework_good_test_cases}.
+  Robot Frameworkin perustaja on lisäksi kirjoittanut laajan ohjeistuksen siitä, miten Robot Frameworkiä käyttäen luodaan hyviä testitapauksia \cite{robot_framework_good_test_cases}.
   Klärckin ohjeistuksen pohjalta on huomioitava erityisesti testikokoelmien, testitapauksien ja avainsanojen nimeäminen, jonka kuuluisi olla selkeää, kuvaavaa ja ytimekästä.
   Dokumentaation määrää testitapauksissa tulisi rajoittaa, sillä hyvin kirjoitetut testitapaukset ovat Robot Frameworkiä käyttäen selkeitä jo sellaisenaan.
   Dokumentaatiota kuuluisi lisätä lähinnä vain testikokoelmiin yleisellä tasolla.
