@@ -192,18 +192,17 @@ Lopuksi esitetään testitapauksiin tärkeästi liittyvä priorisointiongelma, p
     GoCD on avoimen lähdekoodin jatkuvan integroinnin ja jatkuvan julkaisemisen mahdollistava palvelinohjelmisto.
     Ohjelmisto mahdollistaa koko koonti-testaus-julkaisu-putkiryhmän tai vain sen osien automatisoimisen.
     GoCD-palvelimen mainostetaan soveltuvan hyvin erityisesti jatkuvan julkaisemisen rakentamiseen.
-    Myös GoCD on ThoughtWorks-yhtiön kehittämä ohjelmisto, kuten aiemmin esitetty Selenium-työkalukin \parencite{gocd_info}.
+    Myös GoCD on alun perin ThoughtWorks-yhtiön kehittämä ohjelmisto, kuten aiemmin esitetty Selenium-työkalukin. \cite{gocd_basic_info}
 
     Koonti-testaus-julkaisu-putkiryhmän voi rakentaa GoCD-palvelimen graafisen käyttöliittymän kautta tai koodina käyttäen YAML tai JSON-syntaksia.
     Teknisesti GoCD-ohjelmisto koostuu itse palvelimesta ja agenteista, jotka voivat suorittaa palvelimen pyytämänä ennalta määritettyjä koonti-testaus-julkaisu-putkiryhmän tehtäviä.
     Agentit on tarkoituksenmukaista sijoittaa eri järjestelmään kuin missä itse palvelin sijaitsee, ja agenteille voi määrittää resurssiominaisuuksia, jotka kertovat palvelimelle, mitä tehtäviä agenteilla voi teettää.
-    GoCD-ohjelmiston terminologia on hieman tavallisesta poikkeavaa ja erilainen esimerkiksi todella suositun Jenkins-ohjelmiston vastaavista \parencite{gocd_jenkins_terminology}.
     GoCD-terminologiassa ylin käsite on putkiryhmä, jonka avulla yhteen kuuluvat putket voidaan järjestää samaan kokonaisuuteen.
     GoCD-terminologiassa yksittäinen putki vastaa esimerkiksi koonti- tai testausvaihetta.
     Yksittäisen putken alaisuudessa on vaiheita, jotka antavat GoCD-palvelimen käyttöliittymässä tiedon vaiheen onnistumisesta.
     Vaiheet itsessään sisältävät vielä tehtäviä, jotka ovat yksittäisiä komentoja tai sellaisia suoritettavia tehtäviä, jotka agentit pystyvät käsittelemään.
     GoCD-ohjelmiston terminologiaan kuuluvat vielä vahvasti artefaktit, jotka ovat sellaisia tiedostoja, mitä tehtävien suorittamisen yhteydessä syntyy, ja jotka on merkitty säästettäväksi.
-    Esimerkkejä artefakteista ovat ohjelman koontiversiot tai testiraportit.
+    Esimerkkejä artefakteista ovat ohjelman koontiversiot tai testiraportit. \cite{gocd_key_concepts}
 
     Jatkuvan integraation yhteydessä tapahtuvan testiautomaation puolesta ei välttämättä ole suurta merkitystä sillä, mikä jatkuvan integraation mahdollistava palvelinohjelmisto on käytössä.
     Tämä havainto tuli esiin, kun tätä diplomityötä varten testiautomaatioon tarvittavat ohjelmistot säiliöitiin aiemmin esitetyllä Docker-työkalulla, jota voidaan yhden testausvaiheen tehtävän aikana kutsua komentorivipohjaisesti.
