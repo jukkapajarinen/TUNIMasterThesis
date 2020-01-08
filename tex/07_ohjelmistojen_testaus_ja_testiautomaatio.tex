@@ -37,7 +37,7 @@ Testiautomaation perusteiden ymmärtämistä tarvitaan etenkin työn myöhemmiss
   Testauksen tasoja on useita ja usein ohjelmistojen kattavaan testaamiseen on suositeltavaa käyttää ohjelmistotuotantoprosessissa eri tasojen yhdistelmää.
   Ohjelmistojen testaus jaotellaan usein kolmeen erilaiseen menetelmään, jotka myös vaikuttavat eri testauksen tasojen käyttökelpoisuuteen.
   Erilaisia menetelmiä ovat mustalaatikkotestaus, harmaalaatikkotestaus ja valkolaatikkotestaus, jotka eroavat toisistaan yleisesti ottaen siinä, otetaanko tieto ohjelmistotuotteen sisäisestä toteutuksesta mukaan itse testaamiseen.
-  Testauksen tasot esitetään kirjallisuudessa usein hieman eri muodoissa \cite[s.~277]{agile_testing_book} \cite[s.~16]{software_testing_and_qa_book}, mutta yleisesti ne jaetaan neljään eri tasoon, jotka voidaan kuvata pyramidin tasoavaruuteen projisoituna muotona.
+  Testauksen tasot esitetään kirjallisuudessa usein hieman eri muodoissa, mutta yleisesti ne jaetaan neljään eri tasoon, jotka voidaan kuvata pyramidin tasoavaruuteen projisoituna muotona \cite[s.~277]{agile_testing_book} \cite[s.~16]{software_testing_and_qa_book} \cite[s.~369]{software_testing_book}.
 
   \begin{figure}[H]
     \centering
@@ -59,13 +59,14 @@ Testiautomaation perusteiden ymmärtämistä tarvitaan etenkin työn myöhemmiss
 
   \subsection{Yksikkötestaus} \label{ch:07_yksikkotestaus}
 
-    Yksikkötestauksen ajatuksena on testata ohjelmistotuotteen lähdekoodista löytyviä yksiköitä, kuten luokkia, funktioita tai moduuleita.
+    Yksikkötestaus on testauksen taso, joka keskittyy yksittäisten komponenttien, eli yksiköiden, testaamiseen.
+    Yksikkötestauksen ajatuksena on siis testata ohjelmistotuotteen lähdekoodista löytyviä yksiköitä, kuten luokkia, komponentteja, funktioita tai moduuleita.
     Yksikkötestaus toteutetaan ohjelmiston toteuttavia pienimpiä yksikköjä vastaan ja sen avulla pyritään validoimaan, että jokainen yksikkö toimii siten kuin ne on ohjelmistokehityksen aloitusvaiheessa suunniteltu toimimaan.
     Yksikkötestausta hyödynnetään paljon myös testausvetoisen kehityksen aihepiirissä.
     Testausvetoisessa kehityksessä ohjelmistokehittäjät laativat yksikkötestit ennen yksiköiden toteuttamisen aloittamista.
     Yksikkötestaus eroaa muista testauksen tasoista siinä, että sen voivat suorittaa ainoastaan ohjelmistokehittäjät tai muut ohjelmiston lähdekoodiin perehtyneet henkilöt.
     Yksikkötestaus on näin ollen teknisesti ottaen valkolaatikkotestausta.
-    Yksikkötestausta tarvitaan, jotta voidaan pyrkiä varmistamaan, että ohjelmiston koostavat pienimmät yksiköt toimivat tarkoituksenmukaisella tavalla.
+    Yksikkötestausta tarvitaan, jotta voidaan pyrkiä varmistamaan, että ohjelmiston koostavat pienimmät yksiköt toimivat tarkoituksenmukaisella tavalla. \cite{istqb_glossary_v3_3} \cite{testing_levels_webpage}
 
     Yksikkötestauksen toteuttamiseen käytetään pääsääntöisesti jotakin tarkoitusta varten räätälöityä testikirjastoa, joissa on keskenään yleensä hyvin samankaltainen perusperiaate.
     Yksikkötestaukseen tarkoitetuissa testikirjastoissa löytyy usein yksittäisen testitapauksen kuvaava tietorakenne, kuten luokka, sekä siihen usein kuuluvat alustus- ja lopetusfunktiot.
@@ -77,31 +78,32 @@ Testiautomaation perusteiden ymmärtämistä tarvitaan etenkin työn myöhemmiss
 
   \subsection{Integraatiotestaus} \label{ch:07_integraatiotestaus}
 
-    Integraatiotestauksen ajatuksena on testata ohjelmistotuotteen toteuttavien eri komponenttien yhteensopivuutta niiden rajapintojen osalta.
+    Integraatiotestaus on testauksen taso, joka testaa rajapintoja ja vuorovaikutusta integroitavien yksiköiden välillä.
+    Integraatiotestauksen ajatuksena on siis testata ohjelmistotuotteen toteuttavien eri komponenttien yhteensopivuutta niiden rajapintojen osalta.
     Integraatiotestaus toteutetaan ohjelmiston suunnitelmaa ja suunniteltua mallia vastaan.
     Integraatiotestauksen onnistunut toteuttaminen luo validoitavan perustan ohjelmiston toimimiseen ja sen koostamiseen kokonaisena, eri komponenteista koostuvana järjestelmänä.
-    Integraatiotestausta tarvitaan, jotta voidaan varmistaa sovelluksen yksiköiden yhteensopivuus, joka ei pelkällä yksikkötestauksella tulisi muuten katetuksi.
+    Integraatiotestausta tarvitaan, jotta voidaan varmistaa sovelluksen yksiköiden yhteensopivuus, joka ei pelkällä yksikkötestauksella tulisi muuten katetuksi. \cite{istqb_glossary_v3_3} \cite{testing_levels_webpage}
 
-    Integraatiotestauksen kohteita voivat olla esimerkiksi luokkien ja moduulien väliset rajapinnat sekä web-sovelluksien api-ohjelmointirajapinnat.
+    Integraatiotestauksen kohteita voivat olla esimerkiksi luokkien ja moduulien väliset rajapinnat sekä web-sovelluksien API-ohjelmointirajapinnat.
     Integraatiotestauksen toteutuksen kannalta voidaan usein käyttää myös yksikkötestaukseen tarkoitettuja testikirjastoja ja -työkaluja, mutta itse testitapauksien rakenne on silloin yksikkötestauksen testitapauksista merkittävällä tavalla erilainen.
     Integraatiotestauksessa testitapauksien rakenteeseen tulee assert-funktioiden lisäksi myös usein tarve jäljitellä rajapintojen tarjoamaa dataa.
     Rajapintojen tarjoaman datan jäljittelemiseen on olemassa useita valmiita työkaluja ja kirjastoja, joita integraatiotestauksen tapauksessa voi käyttää testitapauksien rakentamisen apuna.
 
-    Integraatiotestauksen yhteydessä puhutaan usein myös niin sanotusta savutestauksesta, jonka tarkoituksena integraatiotestauksen yhteydessä on koostaa toistuva, esimerkiksi päivittäinen, koontiversio ohjelmistosta ja testata sen kriittisten komponenttien yhteensopivuus.
+    Integraatiotestauksen yhteydessä puhutaan usein myös niin sanotusta savutestauksesta, jonka tarkoituksena integraatiotestauksen yhteydessä on koostaa toistuva, esimerkiksi päivittäinen, koontiversio ohjelmistosta ja testata sen kriittisten komponenttien yhteensopivuus \cite{testing_levels_webpage}.
     Integraatiotestaus on myös tärkeä osa testiautomaatiota, sillä sen avulla voidaan varmistaa sovelluksen yksiköiden, kuten esimerkiksi luokkien, komponenttien tai moduulien, yhteensopivuus.
 
   \subsection{Järjestelmätestaus} \label{ch:07_jarjestelmatestaus}
 
-    Järjestelmätestauksen ajatuksena on testata kokonaista ja toimivaa järjestelmää yhtenä suurena yksikkönä.
+    Järjestelmätestaus on testauksen taso, joka keskittyy varmistamaan, että kokonainen järjestelmä vastaa sille asettuja vaatimuksia.
+    Järjestelmätestauksen ajatuksena on siis testata kokonaista ja toimivaa järjestelmää yhtenä suurena yksikkönä.
     Järjestelmätestausta tarvitaan, jotta voidaan varmistaa kokonaisen ohjelmiston toimivuus, jota ei muuten pelkällä yksikkötestauksella ja integraatiotestauksella saataisi täydellisellä varmuudella selville.
-
     Järjestelmätestaukseen liittyy laajasti erilaisia testattavia laadullisia ominaisuuksia, kuten toiminnallisuus, luotettavuus, käytettävyys, tehokkuus, ylläpidettävyys ja siirrettävyys \cite{iso_quality_attributes}.
     Aiemmin testiautomaation tarkoitus kappaleessa esitettiin että edellä mainituista laadullisista ominaisuuksista kaikki eivät sovellu hyvin testiautomaation avulla testattaviksi.
     Esitetyistä syistä johtuen, automatisoidulla järjestelmätestauksella voidaan testata edellä mainituista ominaisuuksista lähinnä ohjelmiston toiminnallisuutta, luotettavuutta ja tehokkuutta.
     Toiminnallisuutta voidaan testata käyttöliittymätestauksella, joka on mahdollista automatisoida käyttötapauksien muotoon.
     Luotettavuutta voidaan testata automaattisesti tietoturvaa testaavien käyttötapauksien muodossa.
     Tehokkuutta voidaan testata automaattisesti lisäämällä aikaleimoihin perustuvaa tarkastelua testitapauksiin, sekä tekemällä kuormitusta testaavia testitapauksia.
-    Edellä mainituista muista laadullisista ominaisuuksista voidaan kuitenkin ylläpidettävyyttä ja siirrettävyyttä testata myös manuaalisesti.
+    Edellä mainituista muista laadullisista ominaisuuksista voidaan kuitenkin ylläpidettävyyttä ja siirrettävyyttä testata myös manuaalisesti. \cite{istqb_glossary_v3_3} \cite{testing_levels_webpage}
 
     Testauksen tasona järjestelmätestaus voi olla testiautomaation teknisen toteutuksen kannalta jopa hyvin samanlainen kuin sitä kapeampi hyväksymistestaus.
     Usein kuitenkin hyväksymistestauksessa paneudutaan erityisesti vaatimusmäärittelyyn ja asiakaslähtöiseen testaamiseen, kun taas järjestelmätestauksessa voidaan testata myös esimerkiksi järjestelmän tehokkuutta tai tietoturvaa.
@@ -111,9 +113,10 @@ Testiautomaation perusteiden ymmärtämistä tarvitaan etenkin työn myöhemmiss
 
   \subsection{Hyväksymistestaus} \label{ch:07_hyvaksymistestaus}
 
+    Hyväksymistestaus on testauksen taso, joka keskittyy selvittämään voidaanko järjestelmä hyväksyä.
     Hyväksymistestauksen ajatuksena on varmistaa toteutettavan ohjelmiston vaatimusten toimivuus erityisesti käytännön tilanteissa siten, että voidaan varmistaa, vastaako ohjelmisto loppukäyttäjän tarpeita.
     Hyväksymistestaus toteutetaan ohjelmiston toimintoja kuvaavaa vaatimusmäärittelyä tai loppukäyttäjistä sekä heidän tarpeista laadittuja käyttötapauksia vastaan.
-    Hyväksymistestauksen rooli testiautomaatiossa ja erityisesti jatkuvan integraation yhteydessä on osoittaa, voidaanko järjestelmä julkaista sellaisenaan loppukäyttäjille.
+    Hyväksymistestauksen rooli testiautomaatiossa ja erityisesti jatkuvan integraation yhteydessä on osoittaa, voidaanko järjestelmä julkaista sellaisenaan loppukäyttäjille. \cite{istqb_glossary_v3_3} \cite[s.~374]{software_testing_book}
 
     Hyväksymistestauksen avulla voidaan testata erityisesti toiminnallisia laatuominaisuuksia, jotka usein toteutetaan käyttöliittymätasolla testitapauksien muodossa.
     Toiminnallisten ominaisuuksien lisäksi hyväksymistestauksessa voi olla mukana myös muita laadullisia ominaisuuksia, jos ne ovat asiakastarpeiden mukaisia.
@@ -126,6 +129,7 @@ Testiautomaation perusteiden ymmärtämistä tarvitaan etenkin työn myöhemmiss
 \section{Testitapaukset ja testikokoelmat} \label{ch:07_testitapaukset_ja_testikokoelmat}
 
   Testitapaus on ohjelmistotestauksen automatisoimisen kannalta erittäin tärkeä käsite.
+  Testitapaus koostuu ohjelmistolle annettavista syötteistä ja oletetusta ulostulosta \cite[s.~21]{software_testing_book}.
   Testitapaus kuvaa yhden testattavana olevan asian testaamiseksi suoritettavaa tai suoritettavia toimenpiteitä.
   Testitapauksen sisältämien toimenpiteiden suorittamisen tarkoituksena on saada selville, täyttääkö se toimenpiteiden mukaiset ehdot, ja toimiiko testattava asia oikein.
   Testitapauksella on usein kolme vaihetta: alustusvaihe, varsinainen testausvaihe ja lopetusvaihe.
@@ -133,7 +137,7 @@ Testiautomaation perusteiden ymmärtämistä tarvitaan etenkin työn myöhemmiss
   Varsinaisessa testitapauksen testausvaiheessa suoritetaan testattavan asian testaukseen liittyvät toimenpiteet.
   Lopetusvaiheessa testitapauksen ajaksi muodostettu ympäristö usein tuhotaan ja käytetyt resurssit nollataan, jotta ne eivät enää vaikuta muihin testitapauksiin.
 
-  Testikokoelma on yksittäisistä testitapauksista koostuva ryhmitelty testitapauksien joukko.
+  Testikokoelma on yksittäisistä testitapauksista koostuva ryhmitelty testitapauksien joukko \cite[s.~22]{software_testing_book}.
   Testikokoelmaan saattaa kuulua myös sellaisia testitapauksia, joiden suoritusjärjestys on etukäteen määritetty.
   Suoritusjärjestyksellisissä testikokoelmissa voi esiintyä testitapauksia, jotka toimivat samassa testausympäristössä muokaten ja jättäen jälkiä omasta suorituksestaan.
   Myöhemmin suoritusjärjestyksessä tulevat testitapaukset voivat siinä tapauksessa hyödyntää tai vaatia testausympäristön ominaisuuksia, jotka aiemmat testitapaukset ovat asettaneet.
@@ -153,10 +157,12 @@ Testiautomaation perusteiden ymmärtämistä tarvitaan etenkin työn myöhemmiss
   Testiautomaation rakentaminen manuaalisen testaamisen sijaan mahdollistaa sen liittämisen osaksi jatkuvaa integrointia.
   Lisäksi useissa ohjelmistotuotannon prosesseissa pelkkä manuaalinen testaus kävisi selkeästi automatisoitujen koonti- tai julkaisuputkien periaatteita vastaan.
   Testiautomaation tarkoitusta käsittelevässä kappaleessa esitettiin testiautomaation ja manuaalisen testauksen eroja hyötyjen ja haittojen näkökulmasta.
-  Testiautomaation toteuttaminen testitapauksien muodossa on jo itsessään testiautomaatiota, mutta käsitettä voidaan kuitenkin laajentaa, että myös jatkuva integrointi liittyy oleellisesti testiautomaation toteuttamiseen varsinkin nykyaikana ja erityisesti ketteriin menetelmiin painottuvassa ohjelmistokehityksessä.
+  Testiautomaation toteuttaminen testitapauksien muodossa on jo itsessään testiautomaatiota, mutta käsitettä voidaan kuitenkin laajentaa, että myös jatkuva integrointi liittyy oleellisesti testiautomaation toteuttamiseen varsinkin nykyaikana ja erityisesti ketteriin menetelmiin painottuvassa ohjelmistokehityksessä \cite{agile_testing_book}.
 
-  Jatkuvalla integroinnilla tarkoitetaan versiohallintaisessa ohjelmistokehityksessä väistämättömän integrointiprosessin muuntamista luonnostaan jatkuvaksi \parencite{continuous_integration_integration_process}.
-  Ohjelmistokehityksessä integrointiprosessi tulee vastaan, kun eri ohjelmistokehittäjät tai tiimit toteuttavat muutoksia tai uusia ominaisuuksia kehitettävänä olevaan ohjelmistotuotteeseen.
+  Jatkuva integrointi tarkoittaa sellaista ohjelmistojen kehitystapaa, joka vaatii ohjelmistokehittäjiä integroimaan koodimuutokset jaettuun repositorioon useita kertoja päivässä.
+  Tämän lisäksi jokainen koodimuutos verifioidaan automatisoidun koontiversion avulla, jolloin kehitystiimi huomaa mahdolliset ongelmat mahdollisimman aikaisin. \cite[s.~23]{devops_for_web_book}
+  Toisin sanoen jatkuvalla integroinnilla tarkoitetaan versiohallintaisessa ohjelmistokehityksessä väistämättömän integrointiprosessin muuntamista luonnostaan jatkuvaksi.
+  Ohjelmistokehityksessä integrointiprosessi tulee siis vastaan, kun eri ohjelmistokehittäjät tai tiimit toteuttavat muutoksia tai uusia ominaisuuksia kehitettävänä olevaan ohjelmistotuotteeseen.
   Tällaisessa tilanteessa yksittäiset ohjelmistokehittäjät tai tiimit toteuttavat uutta ohjelmakoodia toisistaan irrallaan siihen asti, kunnes muutokset tai ominaisuudet tulee yhdistää yhdeksi kokonaiseksi kehityksen kohteena olevaksi ohjelmistotuotteeksi.
   Tätä prosessia kutsutaan integrointiprosessiksi.
   Jatkuvan integroinnin tarkoituksena on nopeuttaa integrointiprosessia ja muuttaa ohjelmistokehityksessä käytössä olevia periaatteita siten, että siitä tulee jatkuvaa.
@@ -171,7 +177,7 @@ Testiautomaation perusteiden ymmärtämistä tarvitaan etenkin työn myöhemmiss
 
   Esimerkkinä ver\-si\-on\-hal\-lin\-ta\-jär\-jes\-tel\-mä\-stä  voidaan käyttää nykyaikana suosittua git-oh\-jel\-mis\-to\-a  ja jatkuvan integroinnin palvelimena esimerkiksi GoCD-oh\-jel\-mis\-to\-a.
   Perusideana jatkuvassa integroinnissa on konfiguroida jatkuvan integraation mahdollistava palvelinohjelmisto siten, että se kuuntelee versionhallintaan tulevia muutoksia, ja suorittaa integrointiprosessin jatkuvasti aina muutoksia huomattuaan.
-  Versionhallintaan tulevat muutokset voidaan jatkuvan integraation osalta kuunnella ajastetusti tietyin väliajoin tai aidosti jatkuvalla tavalla käyttämällä esimerkiksi web-koukkuja, jotka tiedottavat jatkuvan integraation palvelimelle versionhallintaan saapuneista muutoksista.
+  Versionhallintaan tulevat muutokset voidaan jatkuvan integraation osalta kuunnella ajastetusti tietyin väliajoin tai aidosti jatkuvalla tavalla käyttämällä esimerkiksi web-koukkuja, jotka tiedottavat jatkuvan integraation palvelimelle versionhallintaan saapuneista muutoksista \cite{github_webhooks}.
   Jatkuvassa integroinnissa yhden iteraatiokerran integrointiprosessin lopputuloksen on tarkoitus tarjota periaatteeltaan sama lopputulos, kuin mitä se olisi manuaalisella integrointiprosessilla.
   Jatkuvan integroinnin mahdollistava konfiguraatio sisältää aina jonkinlaisen koontiputken tai useita koontiputkia, joissa rakennetaan koontiversio kehitettävän ohjelmiston lähdekoodeista.
   Koontiputki voi sisältää esimerkiksi ohjelman lähdekoodien kääntämisen asiaan sopivalla kääntäjällä.
